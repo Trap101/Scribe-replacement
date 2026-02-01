@@ -1,0 +1,154 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "description": "Always-suggest baseline attributes for every patient encounter",
+    "purpose": "These attributes should be suggested immediately when medic writes initial prompt, before protocol-specific attributes",
+    "last_updated": "2026-02-01"
+  },
+  "baseline_required_attributes": [
+    {
+      "category": "Patient Demographics",
+      "priority": "Critical",
+      "attributes": [
+        {
+          "path": "Patient Details.familyName",
+          "display": "Surname",
+          "cardinality": "1..0",
+          "type": "Alphanumeric",
+          "reason": "Essential identification"
+        },
+        {
+          "path": "Patient Details.givenName",
+          "display": "First Name",
+          "cardinality": "1..0",
+          "type": "Alphanumeric",
+          "reason": "Essential identification"
+        },
+        {
+          "path": "Patient Details.dateOfBirth",
+          "display": "Date of Birth",
+          "cardinality": "1..0",
+          "type": "Date",
+          "format": "ccyy-mm-dd",
+          "reason": "Essential identification and age calculation"
+        },
+        {
+          "path": "Patient Details.age",
+          "display": "Age",
+          "cardinality": "1..0",
+          "type": "Numeric",
+          "reason": "Clinical decision-making (paediatric vs adult protocols)"
+        },
+        {
+          "path": "Patient Details.sex",
+          "display": "Sex",
+          "cardinality": "1..1",
+          "type": "Local List",
+          "values": ["1 (Male)", "2 (Female)", "0 (Not Known)", "9 (Not Specified)"],
+          "reason": "Clinical assessment and CASMEET handoff"
+        },
+        {
+          "path": "Patient Details.NHSNumber",
+          "display": "NHS Number",
+          "cardinality": "1..0",
+          "type": "Numeric",
+          "length": 10,
+          "reason": "Healthcare system integration"
+        }
+      ]
+    },
+    {
+      "category": "Safety Critical",
+      "priority": "Critical",
+      "attributes": [
+        {
+          "path": "Known Allergy.type",
+          "display": "Known Allergies",
+          "cardinality": "1..1",
+          "type": "Local List",
+          "reason": "Patient safety - drug administration"
+        },
+        {
+          "path": "Current Medication.name",
+          "display": "Current Medications",
+          "cardinality": "1..1",
+          "type": "Local List",
+          "reason": "Drug interactions and contraindications"
+        },
+        {
+          "path": "Current Medication.dosage",
+          "display": "Medication Dosage",
+          "cardinality": "1..1",
+          "type": "Numeric",
+          "reason": "Understanding medication regime"
+        }
+      ]
+    },
+    {
+      "category": "Clinical Context",
+      "priority": "High",
+      "attributes": [
+        {
+          "path": "Chief Complaint.presentingComplaint",
+          "display": "Presenting Complaint",
+          "cardinality": "1..1",
+          "type": "Local List",
+          "values": ["Cerebral", "Respiratory", "Cardiac", "Abdominal", "Endocrine", "Obstetrics", "Miscellaneous", "Trauma: Mechanical", "Trauma: NonMechanical"],
+          "reason": "Primary problem identification - triggers protocol selection"
+        },
+        {
+          "path": "Chief Complaint.pastMedicalHistory",
+          "display": "Past Medical History",
+          "cardinality": "1..0",
+          "type": "Alphanumeric",
+          "reason": "Clinical decision-making context"
+        },
+        {
+          "path": "Chief Complaint.socialAndFamiliyHistory",
+          "display": "Social & Family History",
+          "cardinality": "1..0",
+          "type": "Alphanumeric",
+          "reason": "Holistic assessment and safeguarding"
+        }
+      ]
+    },
+    {
+      "category": "Incident Context",
+      "priority": "High",
+      "attributes": [
+        {
+          "path": "Incident.incidentTime",
+          "display": "Time of Incident",
+          "cardinality": "1..1",
+          "type": "Time",
+          "reason": "Timeline establishment for clinical decisions"
+        },
+        {
+          "path": "Incident.incidentDate",
+          "display": "Date of Incident",
+          "cardinality": "1..1",
+          "type": "Date",
+          "reason": "Record keeping and timeline"
+        }
+      ]
+    }
+  ],
+  "usage_workflow": {
+    "step_1": "Medic writes initial prompt (e.g., '45yo male with chest pain')",
+    "step_2": "System immediately suggests all baseline attributes above",
+    "step_3": "If prompt mentions specific JRCalc condition, system THEN adds protocol-specific attributes",
+    "step_4": "Medic can manually search/add additional attributes via macro categories or semantic search",
+    "step_5": "Cardinality warnings shown for 1..1 fields but submission allowed even if incomplete"
+  },
+  "auto_population_hints": {
+    "age_from_dob": "If dateOfBirth entered, auto-calculate age",
+    "sex_from_prompt": "Extract from prompt text if mentioned",
+    "presenting_complaint_from_prompt": "Parse prompt to suggest appropriate category",
+    "incident_time_default": "Default to current time if not specified"
+  },
+  "total_baseline_attributes": 14,
+  "critical_safety_attributes": 3,
+  "identification_attributes": 6,
+  "clinical_context_attributes": 3,
+  "incident_attributes": 2
+}

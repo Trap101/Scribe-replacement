@@ -1,0 +1,3590 @@
+{
+  "protocols": [
+    {
+      "condition_id": "jrc_copd",
+      "name": "COPD Exacerbation",
+      "category": "Respiratory",
+      "triggers": ["copd", "emphysema", "chronic bronchitis", "breathless", "blue bloater"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess Severity of Breathlessness",
+          "concept": "Assessment",
+          "ui_prompt": "Can patient speak in full sentences?",
+          "action_type": "dropdown",
+          "value_options": ["Full Sentences", "Short Phrases", "Single Words", "Unable to Speak"],
+          "target_field": "Extended.Respiratory.speech_ability",
+          "is_new_attribute": true
+        },
+        {
+          "step_order": 2,
+          "instruction": "Check SpO2 Target",
+          "concept": "Assessment",
+          "ui_prompt": "SpO2 Level (%)",
+          "action_type": "input_number",
+          "target_field": "Pulse Oximetry.spO2",
+          "validation_warning": {
+            "threshold": ">92",
+            "message": "CAUTION: Target SpO2 for COPD is 88-92%. High O2 may suppress respiratory drive."
+          }
+        },
+        {
+          "step_order": 3,
+          "instruction": "Assess Respiratory Signs",
+          "concept": "Assessment",
+          "ui_prompt": "Accessory muscles being used?",
+          "action_type": "toggle",
+          "target_field": "Extended.Respiratory.accessory_muscle_use",
+          "is_new_attribute": true
+        },
+        {
+          "step_order": 4,
+          "instruction": "Auscultate Chest",
+          "concept": "Assessment",
+          "ui_prompt": "Wheeze present?",
+          "action_type": "dropdown",
+          "value_options": ["No Wheeze", "With Stethoscope Only", "Without Stethoscope", "Audible at Distance"],
+          "target_field": "Extended.Respiratory.wheeze_audible_distance",
+          "is_new_attribute": true
+        },
+        {
+          "step_order": 5,
+          "instruction": "Oxygen Therapy",
+          "concept": "Management",
+          "ui_prompt": "Administer Oxygen (Target 88-92%)",
+          "note": "Use Venturi mask 24-28% or nasal cannula 1-2L/min",
+          "action_type": "button_action",
+          "button_label": "Record O2 Given",
+          "target_field": "Oxygen Administration",
+          "prefill_data": {
+            "device": "Venturi 24%",
+            "flowRate": "2-4L/min"
+          }
+    }, 
+    {
+          "step_order": 6,
+          "instruction": "Bronchodilator",
+          "concept": "Management",
+          "ui_prompt": "Salbutamol nebuliser indicated?",
+          "note": "5mg via oxygen-driven nebuliser",
+          "action_type": "button_action",
+          "button_label": "Record Salbutamol",
+          "target_field": "Drug Administration",
+          "prefill_data": {
+            "name": "Salbutamol",
+            "dosage": "5mg",
+            "route": "Nebulised"
+          }
+    }, 
+    {
+          "step_order": 7,
+          "instruction": "Position Patient",
+          "concept": "Management",
+          "ui_prompt": "Patient positioned upright/semi-upright?",
+          "action_type": "toggle",
+          "target_field": "Patient Management.positioning"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_asthma",
+      "name": "Acute Asthma",
+      "category": "Respiratory",
+      "triggers": ["asthma", "wheeze", "tight chest", "breathless", "acute asthma"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess Life-Threatening Features",
+          "concept": "Assessment",
+          "ui_prompt": "Is SILENT CHEST present? (Life-threatening sign)",
+          "action_type": "toggle",
+          "target_field": "Extended.Respiratory.silent_chest",
+          "is_new_attribute": true,
+          "validation_warning": {
+            "trigger_value": true,
+            "message": "LIFE-THREATENING ASTHMA. Consider assisted ventilation. Pre-alert hospital."
+          }
+    }, 
+    {
+          "step_order": 2,
+          "instruction": "Check SpO2",
+          "concept": "Assessment",
+          "ui_prompt": "SpO2 Level (%)",
+          "action_type": "input_number",
+          "target_field": "Pulse Oximetry.spO2",
+          "validation_warning": {
+            "threshold": "<92",
+            "message": "SEVERE asthma. High-flow oxygen required."
+          }
+    }, 
+    {
+          "step_order": 3,
+          "instruction": "Assess Ability to Speak",
+          "concept": "Assessment",
+          "ui_prompt": "Can patient speak in full sentences?",
+          "action_type": "dropdown",
+          "value_options": ["Full Sentences", "Short Phrases", "Single Words", "Unable to Speak"],
+          "target_field": "Extended.Respiratory.speech_ability",
+          "is_new_attribute": true
+        },
+        {
+          "step_order": 4,
+          "instruction": "High-Flow Oxygen",
+          "concept": "Management",
+          "ui_prompt": "Administer High-Flow O2 (Target >94%)",
+          "note": "Unlike COPD, asthma requires HIGH oxygen",
+          "action_type": "button_action",
+          "button_label": "Record High-Flow O2",
+          "target_field": "Oxygen Administration",
+          "prefill_data": {
+            "device": "Non-rebreather mask",
+            "flowRate": "15L/min"
+          }
+    }, 
+    {
+          "step_order": 5,
+          "instruction": "Salbutamol Nebuliser",
+          "concept": "Management",
+          "ui_prompt": "Give Salbutamol 5mg nebulised",
+          "note": "Can be repeated every 5-10 minutes if needed",
+          "action_type": "button_action",
+          "button_label": "Record Salbutamol",
+          "target_field": "Drug Administration",
+          "prefill_data": {
+            "name": "Salbutamol",
+            "dosage": "5mg",
+            "route": "Nebulised"
+          }
+    }, 
+    {
+          "step_order": 6,
+          "instruction": "Ipratropium if Severe",
+          "concept": "Management",
+          "ui_prompt": "Add Ipratropium? (If poor response to Salbutamol)",
+          "note": "500mcg via nebuliser",
+          "action_type": "button_action",
+          "button_label": "Record Ipratropium",
+          "target_field": "Drug Administration",
+          "prefill_data": {
+            "name": "Ipratropium",
+            "dosage": "500mcg",
+            "route": "Nebulised"
+          }
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_convulsions_adult",
+      "name": "Convulsions (Adult)",
+      "category": "Neurological",
+      "triggers": ["seizure", "fit", "convulsion", "epilepsy", "shaking", "jerking"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess Time Critical Features",
+          "concept": "Immediate Risk",
+          "ui_prompt": "Are any TIME CRITICAL features present?",
+          "action_type": "multi_select",
+          "value_options": [
+            "None",
+            "Major ABCD Problem",
+            "Serious Head Injury",
+            "Status Epilepticus (>5 mins)",
+            "Suspected Meningococcal Septicaemia"
+          ],
+          "target_field": "Extended.General.time_critical_factors",
+          "is_new_attribute": true,
+          "validation_warning": {
+            "trigger_value": ["Major ABCD Problem", "Serious Head Injury", "Status Epilepticus (>5 mins)", "Suspected Meningococcal Septicaemia"],
+            "message": "TIME CRITICAL. Correct A/B problems and COMMENCE TRANSFER immediately."
+          }
+    }, 
+    {
+          "step_order": 2,
+          "instruction": "Check Blood Glucose",
+          "concept": "Exclude Hypoglycaemia",
+          "ui_prompt": "Blood Glucose Level (mmol/L)",
+          "action_type": "input_number",
+          "target_field": "Blood Glucose.bloodGlucose",
+          "validation_warning": {
+            "threshold": "<4.0",
+            "message": "Hypoglycaemia suspected. Administer Glucose 10% IV or Glucagon IM."
+          }
+    }, 
+    {
+          "step_order": 3,
+          "instruction": "Assess Convulsion Type",
+          "concept": "Assessment",
+          "ui_prompt": "Type of Convulsion",
+          "action_type": "dropdown",
+          "value_options": ["Generalised Tonic-Clonic", "Focal/Partial", "Post-Ictal", "Ceased", "Status Epilepticus (>5min)"],
+          "target_field": "Extended.Neurological.convulsion_type",
+          "is_new_attribute": true
+        },
+        {
+          "step_order": 4,
+          "instruction": "Airway Management",
+          "concept": "Intervention",
+          "ui_prompt": "Airway Adjunct Used? (Do NOT force OP airway)",
+          "action_type": "dropdown",
+          "value_options": ["None", "Nasopharyngeal (NP)", "Oropharyngeal (OP) - tolerated", "Suction Only"],
+          "target_field": "Airway Adjunct.type"
+        },
+        {
+          "step_order": 5,
+          "instruction": "Oxygen Therapy",
+          "concept": "Intervention",
+          "ui_prompt": "O2 Administered? (Target SpO2 >95%)",
+          "action_type": "toggle",
+          "target_field": "Oxygen Administration",
+          "prefill_on_true": {
+            "device": "Non-rebreather",
+            "flowRate": "15L/min"
+          }
+    }, 
+    {
+          "step_order": 6,
+          "instruction": "Drug Intervention",
+          "concept": "Management",
+          "ui_prompt": "Administer Diazepam?",
+          "note": "Indicated if convulsion >5 mins or repeated. Diazemuls IV or Stesolid PR.",
+          "action_type": "button_action",
+          "button_label": "Record Diazemuls/Stesolid",
+          "target_field": "Drug Administration",
+          "prefill_data": {
+            "name": "Diazepam"
+          }
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_stroke",
+      "name": "Stroke / TIA",
+      "category": "Neurological",
+      "triggers": ["stroke", "cva", "tia", "weakness", "facial droop", "slurred speech"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Document EXACT Time of Onset",
+          "concept": "Critical Time Window",
+          "ui_prompt": "EXACT time symptoms started (for thrombolysis eligibility)",
+          "action_type": "datetime_input",
+          "target_field": "Extended.Neurological.symptom_onset_exact_time",
+          "is_new_attribute": true,
+          "validation_warning": {
+            "message": "Thrombolysis window is <4.5 hours. TIME CRITICAL if within window."
+          }
+    }, 
+    {
+          "step_order": 2,
+          "instruction": "FAST Assessment",
+          "concept": "Stroke Recognition",
+          "ui_prompt": "FAST Test - Which features are positive?",
+          "action_type": "multi_select",
+          "value_options": ["Face Droop", "Arm Drift", "Speech Slurred", "All Negative"],
+          "target_field": "Extended.Neurological.fast_assessment_positive",
+          "is_new_attribute": true
+        },
+        {
+          "step_order": 3,
+          "instruction": "Check Blood Glucose (MANDATORY)",
+          "concept": "Exclude Stroke Mimic",
+          "ui_prompt": "Blood Glucose Level (mmol/L)",
+          "note": "Hypoglycaemia can mimic stroke - MUST be checked",
+          "action_type": "input_number",
+          "target_field": "Blood Glucose.bloodGlucose",
+          "validation_warning": {
+            "threshold": "<4.0",
+            "message": "Hypoglycaemia - NOT a stroke. Treat with glucose."
+          }
+    }, 
+    {
+          "step_order": 4,
+          "instruction": "Position Patient",
+          "concept": "Management",
+          "ui_prompt": "Patient positioned with head elevated 30°?",
+          "note": "Unless vomiting risk, then recovery position",
+          "action_type": "toggle",
+          "target_field": "Patient Management.positioning"
+        },
+        {
+          "step_order": 5,
+          "instruction": "Hospital Pre-Alert",
+          "concept": "Time Critical Action",
+          "ui_prompt": "Stroke pre-alert sent to receiving hospital?",
+          "note": "Essential if within thrombolysis window",
+          "action_type": "toggle",
+          "target_field": "Incident.hospitalAlertSent"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_chest_pain_acs",
+      "name": "Chest Pain / ACS",
+      "category": "Cardiac",
+      "triggers": ["chest pain", "cardiac", "heart attack", "mi", "acs", "angina"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "OPQRST Assessment",
+          "concept": "Chest Pain Characterisation",
+          "ui_prompt": "Chest Pain OPQRST",
+          "action_type": "structured_input",
+          "target_field": "Extended.Cardiac.chest_pain_opqrst",
+          "is_new_attribute": true,
+          "fields": {
+            "onset": "Sudden/Gradual?",
+            "quality": "Crushing/Tight/Sharp/Burning?",
+            "radiation": "Radiates to arm/jaw/back?",
+            "severity": "0-10 scale",
+            "time": "Duration in minutes"
+          }
+    }, 
+    {
+          "step_order": 2,
+          "instruction": "12-Lead ECG",
+          "concept": "Assessment",
+          "ui_prompt": "12-lead ECG performed?",
+          "note": "Essential for ACS diagnosis",
+          "action_type": "toggle",
+          "target_field": "ECG Interpretation.performed"
+        },
+        {
+          "step_order": 3,
+          "instruction": "Aspirin",
+          "concept": "Management",
+          "ui_prompt": "Give Aspirin 300mg (if not contraindicated)",
+          "note": "Check for aspirin allergy first",
+          "action_type": "button_action",
+          "button_label": "Record Aspirin",
+          "target_field": "Drug Administration",
+          "prefill_data": {
+            "name": "Aspirin",
+            "dosage": "300mg",
+            "route": "Oral (chewed)"
+          }
+    }, 
+    {
+          "step_order": 4,
+          "instruction": "GTN Spray",
+          "concept": "Management",
+          "ui_prompt": "Give GTN spray (if BP >90 systolic)",
+          "note": "2 sprays sublingual, can repeat",
+          "action_type": "button_action",
+          "button_label": "Record GTN",
+          "target_field": "Drug Administration",
+          "prefill_data": {
+            "name": "GTN",
+            "dosage": "2 sprays",
+            "route": "Sublingual"
+          }
+    }, 
+    {
+          "step_order": 5,
+          "instruction": "Pain Relief",
+          "concept": "Management",
+          "ui_prompt": "Consider Morphine/Entonox for pain",
+          "action_type": "button_action",
+          "button_label": "Record Analgesia",
+          "target_field": "Drug Administration"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_anaphylaxis",
+      "name": "Anaphylaxis",
+      "category": "Allergy",
+      "triggers": ["anaphylaxis", "severe allergy", "angioedema", "urticaria", "stridor"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Confirm Anaphylaxis Diagnosis",
+          "concept": "Recognition",
+          "ui_prompt": "Anaphylaxis criteria met?",
+          "note": "Sudden onset ABC problem + skin changes OR known allergen exposure",
+          "action_type": "multi_select",
+          "value_options": [
+            "Sudden onset airway/breathing/circulation problem",
+            "Skin/mucosal changes (flushing, urticaria, angioedema)",
+            "Known allergen exposure"
+          ],
+          "target_field": "Extended.Allergy.anaphylaxis_criteria_met",
+          "is_new_attribute": true
+        },
+        {
+          "step_order": 2,
+          "instruction": "Document Allergen and Time",
+          "concept": "Assessment",
+          "ui_prompt": "Time of allergen exposure",
+          "action_type": "datetime_input",
+          "target_field": "Extended.Allergy.allergen_exposure_time",
+          "is_new_attribute": true
+        },
+        {
+          "step_order": 3,
+          "instruction": "Check for Patient's Own EpiPen",
+          "concept": "Assessment",
+          "ui_prompt": "Has patient already used their own EpiPen?",
+          "action_type": "structured_input",
+          "target_field": "Extended.Allergy.epipen_already_given",
+          "is_new_attribute": true,
+          "fields": {
+            "given": "Yes/No",
+            "time": "When?",
+            "number_of_doses": "How many?"
+          }
+    }, 
+    {
+          "step_order": 4,
+          "instruction": "Adrenaline IM",
+          "concept": "Management",
+          "ui_prompt": "Give Adrenaline 1:1000 IM IMMEDIATELY",
+          "note": "500mcg (0.5ml) IM into anterolateral thigh. Can repeat after 5 mins.",
+          "action_type": "button_action",
+          "button_label": "Record Adrenaline",
+          "target_field": "Drug Administration",
+          "prefill_data": {
+            "name": "Adrenaline 1:1000",
+            "dosage": "500mcg (0.5ml)",
+            "route": "IM (anterolateral thigh)"
+          }
+    }, 
+    {
+          "step_order": 5,
+          "instruction": "High-Flow Oxygen",
+          "concept": "Management",
+          "ui_prompt": "Administer high-flow O2",
+          "action_type": "toggle",
+          "target_field": "Oxygen Administration",
+          "prefill_on_true": {
+            "device": "Non-rebreather",
+            "flowRate": "15L/min"
+          }
+    }, 
+    {
+          "step_order": 6,
+          "instruction": "Position Patient",
+          "concept": "Management",
+          "ui_prompt": "Position: Flat with legs raised (if shocked) OR sitting if breathing difficulty",
+          "action_type": "dropdown",
+          "value_options": ["Flat with legs raised", "Sitting upright", "Semi-recumbent"],
+          "target_field": "Patient Management.positioning"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_major_trauma",
+      "name": "Major Trauma",
+      "category": "Trauma",
+      "triggers": ["trauma", "rta", "fall", "injury", "crash", "penetrating"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "C - Catastrophic Hemorrhage",
+          "concept": "CASMEET Priority",
+          "ui_prompt": "Catastrophic hemorrhage present?",
+          "note": "This comes BEFORE airway in major trauma",
+          "action_type": "toggle",
+          "target_field": "Extended.Trauma.catastrophic_hemorrhage_present",
+          "is_new_attribute": true,
+          "validation_warning": {
+            "trigger_value": true,
+            "message": "Apply direct pressure or tourniquet IMMEDIATELY."
+          }
+    }, 
+    {
+          "step_order": 2,
+          "instruction": "Assess Major Trauma Mechanism",
+          "concept": "Recognition",
+          "ui_prompt": "Major trauma mechanism present?",
+          "action_type": "multi_select",
+          "value_options": [
+            "Fall >2m (adult) / >3m (child)",
+            "High speed RTC",
+            "Ejection from vehicle",
+            "Death in same vehicle",
+            "Pedestrian vs Vehicle",
+            "Penetrating trauma",
+            "Crush injury"
+          ],
+          "target_field": "Extended.Trauma.major_trauma_mechanism",
+          "is_new_attribute": true
+        },
+        {
+          "step_order": 3,
+          "instruction": "Spinal Immobilisation",
+          "concept": "Management",
+          "ui_prompt": "Spinal immobilisation required?",
+          "note": "Based on mechanism and symptoms",
+          "action_type": "toggle",
+          "target_field": "Spine.immobilisationApplied"
+        },
+        {
+          "step_order": 4,
+          "instruction": "Control Hemorrhage",
+          "concept": "Management",
+          "ui_prompt": "Hemorrhage control method",
+          "action_type": "dropdown",
+          "value_options": ["None needed", "Direct pressure", "Tourniquet applied", "Hemostatic dressing", "Pelvic binder"],
+          "target_field": "Intervention.interventionType"
+        },
+        {
+          "step_order": 5,
+          "instruction": "Pre-Alert Trauma Center",
+          "concept": "Time Critical",
+          "ui_prompt": "Trauma center pre-alert sent?",
+          "note": "Essential for major trauma to prepare receiving team",
+          "action_type": "toggle",
+          "target_field": "Incident.hospitalAlertSent"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_cardiac_arrest",
+      "name": "Cardiac Arrest",
+      "category": "Cardiac",
+      "triggers": ["cardiac arrest", "cpr", "arrested", "unresponsive not breathing"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Confirm Cardiac Arrest",
+          "concept": "Recognition",
+          "ui_prompt": "Unresponsive + Not Breathing Normally?",
+          "action_type": "toggle",
+          "target_field": "Cardiac.cardiacArrest"
+        },
+        {
+          "step_order": 2,
+          "instruction": "Start CPR Immediately",
+          "concept": "Management",
+          "ui_prompt": "CPR commenced",
+          "note": "30:2 ratio, minimize interruptions",
+          "action_type": "button_action",
+          "button_label": "Record CPR Started",
+          "target_field": "Cardiopulmonary Resuscitation",
+          "prefill_data": {
+            "resuscitationAttempted": true,
+            "CPRStart": "auto_timestamp"
+          }
+    }, 
+    {
+          "step_order": 3,
+          "instruction": "Apply Defibrillator Pads",
+          "concept": "Management",
+          "ui_prompt": "Defib pads applied - assess rhythm",
+          "action_type": "toggle",
+          "target_field": "Defibrillation.defibrillationAttempted"
+        },
+        {
+          "step_order": 4,
+          "instruction": "Initial Rhythm",
+          "concept": "Assessment",
+          "ui_prompt": "Initial rhythm",
+          "action_type": "dropdown",
+          "value_options": ["VF/Pulseless VT (Shockable)", "PEA", "Asystole", "Unknown"],
+          "target_field": "ECG Interpretation.rhythm"
+        },
+        {
+          "step_order": 5,
+          "instruction": "Reversible Causes (4 Hs, 4 Ts)",
+          "concept": "Management",
+          "ui_prompt": "Consider and treat reversible causes",
+          "note": "Hypoxia, Hypovolaemia, Hypo/hyperkalaemia, Hypothermia, Thrombosis, Tamponade, Tension pneumo, Toxins",
+          "action_type": "multi_select",
+          "value_options": ["Hypoxia", "Hypovolaemia", "Hypo/hyperkalaemia", "Hypothermia", "Thrombosis", "Tamponade", "Tension pneumothorax", "Toxins"],
+          "target_field": "Cardiac.reversibleCausesConsidered"
+        },
+        {
+          "step_order": 6,
+          "instruction": "Adrenaline 1:10,000",
+          "concept": "Management",
+          "ui_prompt": "Give Adrenaline 1mg IV (every 3-5 mins)",
+          "action_type": "button_action",
+          "button_label": "Record Adrenaline",
+          "target_field": "Drug Administration",
+          "prefill_data": {
+            "name": "Adrenaline 1:10,000",
+            "dosage": "1mg (10ml)",
+            "route": "IV"
+          }
+    }, 
+    {
+          "step_order": 7,
+          "instruction": "Return of Spontaneous Circulation?",
+          "concept": "Assessment",
+          "ui_prompt": "ROSC achieved?",
+          "action_type": "toggle",
+          "target_field": "Cardiopulmonary Resuscitation.returnSpontaneousCirculation"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_burns",
+      "name": "Burns",
+      "category": "Trauma",
+      "triggers": ["burn", "burns", "fire", "scald", "chemical burn", "electrical burn"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess Burn Percentage",
+          "concept": "Assessment",
+          "ui_prompt": "Estimate % TBSA (Rule of 9s)",
+          "note": "Each arm 9%, each leg 18%, front torso 18%, back 18%, head 9%, perineum 1%",
+          "action_type": "input_number",
+          "target_field": "Extended.Trauma.burn_percentage_tbsa",
+          "is_new_attribute": true
+        },
+        {
+          "step_order": 2,
+          "instruction": "Check for Inhalation Injury",
+          "concept": "Critical Assessment",
+          "ui_prompt": "Signs of inhalation injury?",
+          "action_type": "multi_select",
+          "value_options": ["Singed nasal hairs", "Facial burns", "Soot in mouth", "Closed space fire", "Hoarse voice", "None"],
+          "target_field": "Extended.Trauma.inhalation_injury_suspected",
+          "is_new_attribute": true,
+          "validation_warning": {
+            "trigger_value": ["Singed nasal hairs", "Facial burns", "Soot in mouth", "Hoarse voice"],
+            "message": "AIRWAY AT RISK. Consider early intubation. Pre-alert hospital."
+          }
+    }, 
+    {
+          "step_order": 3,
+          "instruction": "Cool the Burn",
+          "concept": "Management",
+          "ui_prompt": "Burn cooled with running water for 20 minutes?",
+          "note": "Not if >10% TBSA (hypothermia risk)",
+          "action_type": "toggle",
+          "target_field": "Intervention.burncooling"
+        },
+        {
+          "step_order": 4,
+          "instruction": "Cover with Cling Film",
+          "concept": "Management",
+          "ui_prompt": "Burn covered with cling film (not circumferential)?",
+          "action_type": "toggle",
+          "target_field": "Intervention.burndressing"
+        },
+        {
+          "step_order": 5,
+          "instruction": "Pain Relief",
+          "concept": "Management",
+          "ui_prompt": "Analgesia administered?",
+          "note": "Burns are extremely painful - titrate to effect",
+          "action_type": "button_action",
+          "button_label": "Record Analgesia",
+          "target_field": "Drug Administration"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_abdominal_pain",
+      "name": "Abdominal Pain",
+      "category": "Medical",
+      "triggers": ["abdominal pain", "stomach pain", "belly ache", "aaa", "ectopic"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess Pain Location and Character",
+          "concept": "Assessment",
+          "ui_prompt": "Where is the pain? What does it feel like?",
+          "action_type": "structured_input",
+          "target_field": "Pain Assessment.location",
+          "fields": {
+            "location": "Epigastric/RUQ/LUQ/Umbilical/RLQ/LLQ/Diffuse",
+            "onset": "Sudden or gradual?",
+            "severity": "0-10 scale",
+            "character": "Sharp/Dull/Cramping/Constant?"
+          }
+    }, 
+    {
+          "step_order": 2,
+          "instruction": "Check for AAA Risk",
+          "concept": "Critical Assessment",
+          "ui_prompt": "Abdominal Aortic Aneurysm risk factors?",
+          "action_type": "multi_select",
+          "value_options": ["Age >60", "Male", "Smoker", "Known AAA", "Pulsatile mass felt", "Tearing pain to back", "None"],
+          "target_field": "Assessment.aaa_risk",
+          "validation_warning": {
+            "trigger_value": ["Pulsatile mass felt", "Tearing pain to back"],
+            "message": "SUSPECTED RUPTURED AAA - Avoid further palpation. Time critical. Pre-alert vascular team."
+          }
+    }, 
+    {
+          "step_order": 3,
+          "instruction": "Female: Ectopic Pregnancy Risk",
+          "concept": "Assessment",
+          "ui_prompt": "If female of childbearing age - ectopic signs?",
+          "action_type": "multi_select",
+          "value_options": ["Missed/late period", "Vaginal bleeding", "Shoulder tip pain", "Positive pregnancy test", "Not applicable/male"],
+          "target_field": "Assessment.ectopic_risk",
+          "validation_warning": {
+            "trigger_value": ["Shoulder tip pain"],
+            "message": "Shoulder tip pain suggests haemoperitoneum. TIME CRITICAL."
+          }
+    }, 
+    {
+          "step_order": 4,
+          "instruction": "Assess for Shock",
+          "concept": "Assessment",
+          "ui_prompt": "Signs of shock present?",
+          "note": "Tachycardia, hypotension, pale/clammy",
+          "action_type": "toggle",
+          "target_field": "Circulatory Assessment.shock"
+        },
+        {
+          "step_order": 5,
+          "instruction": "Analgesia",
+          "concept": "Management",
+          "ui_prompt": "Provide appropriate pain relief",
+          "note": "Morphine or Entonox - pain relief does NOT mask surgical signs",
+          "action_type": "button_action",
+          "button_label": "Record Analgesia",
+          "target_field": "Drug Administration"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_cardiac_rhythm_disturbance",
+      "name": "Cardiac Rhythm Disturbance",
+      "category": "Cardiac",
+      "triggers": ["palpitations", "irregular heart", "bradycardia", "tachycardia", "arrhythmia", "fast heart", "slow heart"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess Heart Rate and Rhythm",
+          "concept": "Assessment",
+          "ui_prompt": "Heart rate (bpm) and rhythm",
+          "action_type": "structured_input",
+          "target_field": "Circulatory Assessment.pulseRate",
+          "fields": {
+            "rate": "Beats per minute",
+            "rhythm": "Regular/Regularly irregular/Irregularly irregular",
+            "character": "Weak/Normal/Bounding"
+          }
+    }, 
+    {
+          "step_order": 2,
+          "instruction": "12-Lead ECG (Mandatory)",
+          "concept": "Assessment",
+          "ui_prompt": "Perform 12-lead ECG",
+          "note": "Essential for rhythm diagnosis and decision-making",
+          "action_type": "toggle",
+          "target_field": "ECG Interpretation.performed"
+        },
+        {
+          "step_order": 3,
+          "instruction": "Check for Adverse Features",
+          "concept": "Critical Assessment",
+          "ui_prompt": "Adverse features present?",
+          "action_type": "multi_select",
+          "value_options": ["Shock (BP <90 systolic)", "Syncope/near syncope", "Heart failure signs", "Chest pain", "None"],
+          "target_field": "Cardiac.adverse_features",
+          "validation_warning": {
+            "trigger_value": ["Shock (BP <90 systolic)", "Syncope/near syncope"],
+            "message": "ADVERSE FEATURES - Immediate treatment may be required. Consider urgent transport."
+          }
+    }, 
+    {
+          "step_order": 4,
+          "instruction": "Oxygen if Indicated",
+          "concept": "Management",
+          "ui_prompt": "O2 if SpO2 <94%",
+          "action_type": "toggle",
+          "target_field": "Oxygen Administration"
+        },
+        {
+          "step_order": 5,
+          "instruction": "IV Access",
+          "concept": "Management",
+          "ui_prompt": "Establish IV access",
+          "note": "For potential drug administration",
+          "action_type": "toggle",
+          "target_field": "Cannulation.established"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_decreased_consciousness",
+      "name": "Decreased Level of Consciousness",
+      "category": "Neurological",
+      "triggers": ["unconscious", "unresponsive", "reduced gcs", "altered mental status", "confusion"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "AVPU Assessment",
+          "concept": "Level of Consciousness",
+          "ui_prompt": "AVPU score",
+          "action_type": "dropdown",
+          "value_options": ["Alert", "Voice responsive", "Pain responsive", "Unresponsive"],
+          "target_field": "AVPU Assessment.AVPUScale",
+          "validation_warning": {
+            "trigger_value": "Unresponsive",
+            "message": "UNRESPONSIVE - Urgent assessment of ABC required."
+          }
+    }, 
+    {
+          "step_order": 2,
+          "instruction": "GCS if AVPU < A",
+          "concept": "Detailed Assessment",
+          "ui_prompt": "Glasgow Coma Scale (if not Alert)",
+          "action_type": "structured_input",
+          "target_field": "Glasgow Coma Scale.GCSTotal",
+          "fields": {
+            "eye": "Eye opening (1-4)",
+            "verbal": "Verbal response (1-5)",
+            "motor": "Motor response (1-6)",
+            "total": "Total GCS"
+          }
+    }, 
+    {
+          "step_order": 3,
+          "instruction": "Blood Glucose (MANDATORY)",
+          "concept": "Exclude Hypoglycaemia",
+          "ui_prompt": "Blood glucose level (mmol/L)",
+          "note": "ALL patients with reduced consciousness must have BM checked",
+          "action_type": "input_number",
+          "target_field": "Blood Glucose.bloodGlucose",
+          "validation_warning": {
+            "threshold": "<4.0",
+            "message": "HYPOGLYCAEMIA - Treat immediately with glucose gel/glucagon/IV glucose."
+          }
+    }, 
+    {
+          "step_order": 4,
+          "instruction": "Airway Management",
+          "concept": "Critical Intervention",
+          "ui_prompt": "Airway status and intervention",
+          "action_type": "dropdown",
+          "value_options": ["Self-maintaining", "NP airway inserted", "OP airway tolerated", "Suction performed", "Requires advanced airway"],
+          "target_field": "Airway Assessment.airwayStatus"
+        },
+        {
+          "step_order": 5,
+          "instruction": "Recovery Position",
+          "concept": "Management",
+          "ui_prompt": "Patient in recovery position (if no spinal risk)?",
+          "action_type": "toggle",
+          "target_field": "Patient Management.positioning"
+        },
+        {
+          "step_order": 6,
+          "instruction": "Consider Naloxone",
+          "concept": "Opiate Overdose",
+          "ui_prompt": "Suspected opiate overdose?",
+          "note": "Pinpoint pupils, respiratory depression <10/min, needle marks",
+          "action_type": "button_action",
+          "button_label": "Record Naloxone",
+          "target_field": "Drug Administration",
+          "prefill_data": {
+            "name": "Naloxone",
+            "dosage": "400mcg",
+            "route": "IM/Intranasal"
+          }
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_dyspnoea",
+      "name": "Dyspnoea (Breathing Difficulty)",
+      "category": "Respiratory",
+      "triggers": ["dyspnoea", "breathing difficulty", "shortness of breath", "sob", "breathless"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess Respiratory Effort",
+          "concept": "Assessment",
+          "ui_prompt": "Can patient speak in full sentences?",
+          "action_type": "dropdown",
+          "value_options": ["Full Sentences", "Short Phrases", "Single Words", "Unable to Speak"],
+          "target_field": "Extended.Respiratory.speech_ability",
+          "is_new_attribute": true
+        },
+        {
+          "step_order": 2,
+          "instruction": "Check SpO2",
+          "concept": "Assessment",
+          "ui_prompt": "SpO2 Level (%)",
+          "action_type": "input_number",
+          "target_field": "Pulse Oximetry.spO2",
+          "validation_warning": {
+            "threshold": "<92",
+            "message": "HYPOXIC - High-flow oxygen required immediately."
+          }
+    }, 
+    {
+          "step_order": 3,
+          "instruction": "Auscultate Chest",
+          "concept": "Assessment",
+          "ui_prompt": "Breath sounds on auscultation",
+          "action_type": "dropdown",
+          "value_options": ["Clear bilateral", "Wheeze", "Crackles/rales", "Reduced/absent one side", "Silent chest"],
+          "target_field": "Lung Fields.breathSounds"
+        },
+        {
+          "step_order": 4,
+          "instruction": "Respiratory Rate",
+          "concept": "Assessment",
+          "ui_prompt": "Respiratory rate (breaths/min)",
+          "action_type": "input_number",
+          "target_field": "Breathing Assessment.respiratoryRate",
+          "validation_warning": {
+            "threshold": ">25",
+            "message": "Tachypnoeic - indicates respiratory distress."
+          }
+    }, 
+    {
+          "step_order": 5,
+          "instruction": "Oxygen Therapy",
+          "concept": "Management",
+          "ui_prompt": "Administer oxygen to target SpO2",
+          "note": "Target 94-98% (or 88-92% if known COPD)",
+          "action_type": "button_action",
+          "button_label": "Record O2",
+          "target_field": "Oxygen Administration"
+        },
+        {
+          "step_order": 6,
+          "instruction": "Position Upright",
+          "concept": "Management",
+          "ui_prompt": "Patient positioned upright/semi-upright?",
+          "note": "Maximizes lung capacity",
+          "action_type": "toggle",
+          "target_field": "Patient Management.positioning"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_gi_bleed",
+      "name": "Gastrointestinal Bleed",
+      "category": "Medical",
+      "triggers": ["gi bleed", "gastrointestinal bleed", "haematemesis", "melaena", "vomiting blood", "blood in stool"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess Type and Severity of Bleeding",
+          "concept": "Assessment",
+          "ui_prompt": "Type of GI bleeding present",
+          "action_type": "multi_select",
+          "value_options": ["Haematemesis (fresh blood vomited)", "Coffee-ground vomit", "Melaena (black tarry stool)", "Fresh red rectal bleeding", "No active bleeding now"],
+          "target_field": "Assessment.gi_bleed_type"
+        },
+        {
+          "step_order": 2,
+          "instruction": "Assess for Hypovolaemic Shock",
+          "concept": "Critical Assessment",
+          "ui_prompt": "Signs of shock present?",
+          "action_type": "multi_select",
+          "value_options": ["Tachycardia >100", "Hypotension <90 systolic", "Pale/cold/clammy", "Reduced consciousness", "None"],
+          "target_field": "Circulatory Assessment.shock",
+          "validation_warning": {
+            "trigger_value": ["Hypotension <90 systolic"],
+            "message": "SHOCKED - Large bore IV access x2, fluid resuscitation, time critical transport."
+          }
+    }, 
+    {
+          "step_order": 3,
+          "instruction": "Establish IV Access",
+          "concept": "Management",
+          "ui_prompt": "IV cannulation - size and number",
+          "note": "Large bore (14-16G) x2 if shocked",
+          "action_type": "structured_input",
+          "target_field": "Cannulation.established",
+          "fields": {
+            "size": "Gauge",
+            "number": "How many lines",
+            "site": "Location"
+          }
+    }, 
+    {
+          "step_order": 4,
+          "instruction": "Fluid Resuscitation if Shocked",
+          "concept": "Management",
+          "ui_prompt": "IV fluids administered?",
+          "note": "Target systolic BP >90mmHg",
+          "action_type": "button_action",
+          "button_label": "Record IV Fluids",
+          "target_field": "Fluid Administration"
+        },
+        {
+          "step_order": 5,
+          "instruction": "Pre-Alert Hospital",
+          "concept": "Time Critical",
+          "ui_prompt": "Pre-alert sent if major bleed?",
+          "note": "For endoscopy/surgery team activation",
+          "action_type": "toggle",
+          "target_field": "Incident.hospitalAlertSent"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_glycaemic_emergencies",
+      "name": "Glycaemic Emergencies (Hypo/Hyper)",
+      "category": "Endocrine",
+      "triggers": ["diabetes", "hypoglycaemia", "hyperglycaemia", "low blood sugar", "high blood sugar", "diabetic"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Check Blood Glucose",
+          "concept": "Assessment",
+          "ui_prompt": "Blood glucose level (mmol/L)",
+          "action_type": "input_number",
+          "target_field": "Blood Glucose.bloodGlucose",
+          "validation_warning": {
+            "threshold": "<4.0",
+            "message": "HYPOGLYCAEMIA - Treat immediately."
+          }
+    }, 
+    {
+          "step_order": 2,
+          "instruction": "If HYPOGLYCAEMIC (<4.0): Treatment",
+          "concept": "Management",
+          "ui_prompt": "Patient conscious and able to swallow?",
+          "action_type": "dropdown",
+          "value_options": ["Yes - give oral glucose gel", "No - give IM Glucagon", "No - give IV Glucose 10%"],
+          "target_field": "Treatment.hypoglycaemia"
+        },
+        {
+          "step_order": 3,
+          "instruction": "Record Hypo Treatment",
+          "concept": "Management",
+          "ui_prompt": "Administer treatment for hypoglycaemia",
+          "note": "GlucoGel PO / Glucagon 1mg IM / Glucose 10% IV",
+          "action_type": "button_action",
+          "button_label": "Record Hypo Treatment",
+          "target_field": "Drug Administration",
+          "prefill_data": {
+            "indication": "Hypoglycaemia BM <4.0"
+          }
+    }, 
+    {
+          "step_order": 4,
+          "instruction": "Recheck BM After Treatment",
+          "concept": "Assessment",
+          "ui_prompt": "Recheck blood glucose 10-15 mins after treatment",
+          "action_type": "input_number",
+          "target_field": "Blood Glucose.bloodGlucoseRecheck"
+        },
+        {
+          "step_order": 5,
+          "instruction": "If HYPERGLYCAEMIC (>11.0): DKA Assessment",
+          "concept": "Assessment",
+          "ui_prompt": "Signs of DKA if glucose >11?",
+          "note": "Kussmaul breathing, ketotic breath, dehydration, vomiting",
+          "action_type": "multi_select",
+          "value_options": ["Deep rapid breathing", "Acetone smell on breath", "Dehydrated", "Vomiting", "Reduced GCS", "None"],
+          "target_field": "Assessment.dka_signs"
+        },
+        {
+          "step_order": 6,
+          "instruction": "Ensure Patient Eats",
+          "concept": "Management",
+          "ui_prompt": "Patient given food after recovery from hypo?",
+          "note": "Long-acting carbs to prevent recurrence",
+          "action_type": "toggle",
+          "target_field": "Management.food_given"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_headache",
+      "name": "Headache",
+      "category": "Neurological",
+      "triggers": ["headache", "head pain", "migraine", "subarachnoid", "meningitis"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess Headache Characteristics",
+          "concept": "Assessment",
+          "ui_prompt": "Headache onset and character",
+          "action_type": "structured_input",
+          "target_field": "Pain Assessment.headache",
+          "fields": {
+            "onset": "Sudden (thunderclap) or gradual?",
+            "severity": "Worst ever? 0-10 scale",
+            "location": "Frontal/Temporal/Occipital/Diffuse",
+            "duration": "How long?"
+          }
+    }, 
+    {
+          "step_order": 2,
+          "instruction": "Check for Red Flags",
+          "concept": "Critical Assessment",
+          "ui_prompt": "Serious headache red flags present?",
+          "action_type": "multi_select",
+          "value_options": ["Sudden thunderclap onset", "Worst headache ever", "Neck stiffness", "Photophobia", "Non-blanching rash", "Reduced GCS", "Focal neurology", "None"],
+          "target_field": "Assessment.headache_red_flags",
+          "validation_warning": {
+            "trigger_value": ["Sudden thunderclap onset", "Neck stiffness", "Non-blanching rash"],
+            "message": "RED FLAGS - Consider SAH/Meningitis. Time critical transport."
+          }
+    }, 
+    {
+          "step_order": 3,
+          "instruction": "Temperature",
+          "concept": "Assessment",
+          "ui_prompt": "Body temperature",
+          "note": "Fever suggests infection/meningitis",
+          "action_type": "input_number",
+          "target_field": "Body Temperature.value"
+        },
+        {
+          "step_order": 4,
+          "instruction": "GCS Assessment",
+          "concept": "Assessment",
+          "ui_prompt": "Glasgow Coma Scale if reduced consciousness",
+          "action_type": "input_number",
+          "target_field": "Glasgow Coma Scale.GCSTotal"
+        },
+        {
+          "step_order": 5,
+          "instruction": "Analgesia",
+          "concept": "Management",
+          "ui_prompt": "Provide analgesia",
+          "note": "Paracetamol/Ibuprofen or stronger if required",
+          "action_type": "button_action",
+          "button_label": "Record Analgesia",
+          "target_field": "Drug Administration"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_heat_exhaustion_stroke",
+      "name": "Heat Exhaustion / Heat Stroke",
+      "category": "Environmental",
+      "triggers": ["heat exhaustion", "heat stroke", "hyperthermia", "heat illness", "overheating"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess Core Temperature",
+          "concept": "Assessment",
+          "ui_prompt": "Core body temperature (°C)",
+          "action_type": "input_number",
+          "target_field": "Body Temperature.value",
+          "validation_warning": {
+            "threshold": ">40",
+            "message": "HEAT STROKE (>40°C) - Life-threatening. Immediate cooling required."
+          }
+    }, 
+    {
+          "step_order": 2,
+          "instruction": "Distinguish Heat Exhaustion vs Stroke",
+          "concept": "Assessment",
+          "ui_prompt": "Level of consciousness",
+          "action_type": "dropdown",
+          "value_options": ["Alert and oriented (Heat Exhaustion)", "Confused/Agitated (Heat Stroke)", "Reduced GCS/Seizure (Heat Stroke)"],
+          "target_field": "AVPU Assessment.AVPUScale",
+          "validation_warning": {
+            "trigger_value": "Reduced GCS/Seizure (Heat Stroke)",
+            "message": "HEAT STROKE - Immediate active cooling and urgent transport required."
+          }
+    }, 
+    {
+          "step_order": 3,
+          "instruction": "Active Cooling Measures",
+          "concept": "Management",
+          "ui_prompt": "Cooling interventions applied",
+          "action_type": "multi_select",
+          "value_options": ["Remove clothing", "Move to cool environment", "Fanning", "Cold packs to neck/axillae/groin", "Wet towels", "IV fluids"],
+          "target_field": "Intervention.cooling"
+        },
+        {
+          "step_order": 4,
+          "instruction": "IV Fluid Resuscitation",
+          "concept": "Management",
+          "ui_prompt": "IV fluids for rehydration",
+          "note": "Sodium chloride 0.9%",
+          "action_type": "button_action",
+          "button_label": "Record IV Fluids",
+          "target_field": "Fluid Administration"
+        },
+        {
+          "step_order": 5,
+          "instruction": "Monitor for Complications",
+          "concept": "Assessment",
+          "ui_prompt": "Monitor for seizures, rhabdomyolysis, DIC",
+          "action_type": "toggle",
+          "target_field": "Monitoring.complications"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_hyperventilation",
+      "name": "Hyperventilation Syndrome",
+      "category": "Respiratory",
+      "triggers": ["hyperventilation", "panic attack", "anxiety", "rapid breathing"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess Respiratory Pattern",
+          "concept": "Assessment",
+          "ui_prompt": "Respiratory rate and pattern",
+          "action_type": "structured_input",
+          "target_field": "Breathing Assessment.respiratoryRate",
+          "fields": {
+            "rate": "Breaths per minute",
+            "depth": "Deep/Shallow",
+            "pattern": "Regular fast/Irregular"
+          }
+    }, 
+    {
+          "step_order": 2,
+          "instruction": "Check SpO2",
+          "concept": "Assessment",
+          "ui_prompt": "SpO2 Level (%)",
+          "note": "Usually normal (>95%) in pure hyperventilation",
+          "action_type": "input_number",
+          "target_field": "Pulse Oximetry.spO2"
+        },
+        {
+          "step_order": 3,
+          "instruction": "Exclude Organic Causes",
+          "concept": "Assessment",
+          "ui_prompt": "Exclude serious respiratory/cardiac causes",
+          "note": "PE, pneumothorax, MI, asthma must be ruled out",
+          "action_type": "multi_select",
+          "value_options": ["Chest pain", "Unilateral reduced air entry", "Wheeze", "History of PE/DVT", "Cardiac history", "None - likely pure hyperventilation"],
+          "target_field": "Assessment.organic_causes"
+        },
+        {
+          "step_order": 4,
+          "instruction": "Reassurance and Breathing Control",
+          "concept": "Management",
+          "ui_prompt": "Calm reassurance and coached breathing",
+          "note": "Coach slow breathing: in for 4, hold for 2, out for 6",
+          "action_type": "toggle",
+          "target_field": "Management.breathing_coaching"
+        },
+        {
+          "step_order": 5,
+          "instruction": "Symptoms Improving?",
+          "concept": "Assessment",
+          "ui_prompt": "Paraesthesia, carpopedal spasm improving with coaching?",
+          "action_type": "dropdown",
+          "value_options": ["Yes - symptoms resolving", "No - consider other causes"],
+          "target_field": "Assessment.response_to_treatment"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_hypothermia",
+      "name": "Hypothermia",
+      "category": "Environmental",
+      "triggers": ["hypothermia", "cold", "low temperature", "exposure"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess Core Temperature",
+          "concept": "Assessment",
+          "ui_prompt": "Core body temperature (°C)",
+          "note": "Use low-reading thermometer if available",
+          "action_type": "input_number",
+          "target_field": "Body Temperature.value",
+          "validation_warning": {
+            "threshold": "<32",
+            "message": "SEVERE HYPOTHERMIA (<32°C) - Handle gently, avoid rough movement (VF risk)."
+          }
+    }, 
+    {
+          "step_order": 2,
+          "instruction": "Classify Severity",
+          "concept": "Assessment",
+          "ui_prompt": "Hypothermia severity",
+          "action_type": "dropdown",
+          "value_options": ["Mild (32-35°C) - Shivering, conscious", "Moderate (28-32°C) - Confused, reduced shivering", "Severe (<28°C) - Unconscious, rigid, bradycardic"],
+          "target_field": "Assessment.hypothermia_severity"
+        },
+        {
+          "step_order": 3,
+          "instruction": "Passive Rewarming",
+          "concept": "Management",
+          "ui_prompt": "Passive rewarming measures",
+          "action_type": "multi_select",
+          "value_options": ["Remove wet clothing", "Dry patient", "Blankets/foil blanket", "Move to warm environment", "Warm vehicle"],
+          "target_field": "Intervention.passive_rewarming"
+        },
+        {
+          "step_order": 4,
+          "instruction": "Active Rewarming (if severe)",
+          "concept": "Management",
+          "ui_prompt": "Active rewarming if <32°C",
+          "note": "Warm IV fluids, heat packs to trunk only",
+          "action_type": "toggle",
+          "target_field": "Intervention.active_rewarming"
+        },
+        {
+          "step_order": 5,
+          "instruction": "Handle Gently",
+          "concept": "Management",
+          "ui_prompt": "Patient handled gently to avoid VF?",
+          "note": "Severe hypothermia: rough handling can trigger VF arrest",
+          "action_type": "toggle",
+          "target_field": "Management.gentle_handling"
+        },
+        {
+          "step_order": 6,
+          "instruction": "Monitor ECG",
+          "concept": "Assessment",
+          "ui_prompt": "ECG monitoring for arrhythmias",
+          "note": "Look for J waves, prolonged QT, bradycardia",
+          "action_type": "toggle",
+          "target_field": "ECG Interpretation.monitoring"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_sepsis_meningococcal",
+      "name": "Sepsis / Meningococcal Septicaemia",
+      "category": "Infectious",
+      "triggers": ["sepsis", "meningococcal", "meningitis", "non-blanching rash", "septicaemia"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Check for Non-Blanching Rash",
+          "concept": "Critical Assessment",
+          "ui_prompt": "Non-blanching purpuric rash present?",
+          "note": "Use glass tumbler test",
+          "action_type": "toggle",
+          "target_field": "Skin Assessment.non_blanching_rash",
+          "validation_warning": {
+            "trigger_value": true,
+            "message": "NON-BLANCHING RASH - Suspected meningococcal septicaemia. TIME CRITICAL."
+          }
+    }, 
+    {
+          "step_order": 2,
+          "instruction": "Assess for Sepsis Criteria",
+          "concept": "Assessment",
+          "ui_prompt": "Signs of sepsis present?",
+          "action_type": "multi_select",
+          "value_options": ["Fever >38°C or <36°C", "Tachycardia >90", "Tachypnoea >20", "Hypotension <90", "Reduced GCS", "Mottled/ashen skin"],
+          "target_field": "Assessment.sepsis_criteria"
+        },
+        {
+          "step_order": 3,
+          "instruction": "Check for Meningism",
+          "concept": "Assessment",
+          "ui_prompt": "Meningeal signs present?",
+          "action_type": "multi_select",
+          "value_options": ["Neck stiffness", "Photophobia", "Severe headache", "Vomiting", "None"],
+          "target_field": "Assessment.meningism"
+        },
+        {
+          "step_order": 4,
+          "instruction": "High-Flow Oxygen",
+          "concept": "Management",
+          "ui_prompt": "Administer high-flow oxygen",
+          "action_type": "toggle",
+          "target_field": "Oxygen Administration",
+          "prefill_on_true": {
+            "device": "Non-rebreather",
+            "flowRate": "15L/min"
+          }
+    }, 
+    {
+          "step_order": 5,
+          "instruction": "IV Access and Fluids",
+          "concept": "Management",
+          "ui_prompt": "IV access and fluid resuscitation",
+          "note": "Aggressive fluid resuscitation if shocked",
+          "action_type": "button_action",
+          "button_label": "Record IV Access/Fluids",
+          "target_field": "Fluid Administration"
+        },
+        {
+          "step_order": 6,
+          "instruction": "Pre-Alert and Time-Critical Transport",
+          "concept": "Time Critical",
+          "ui_prompt": "Sepsis pre-alert sent?",
+          "note": "For early antibiotics and ICU",
+          "action_type": "toggle",
+          "target_field": "Incident.hospitalAlertSent"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_mental_disorder",
+      "name": "Mental Disorder / Psychiatric Crisis",
+      "category": "Mental Health",
+      "triggers": ["mental health", "psychiatric", "suicide", "self harm", "depression", "psychosis"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Risk Assessment",
+          "concept": "Assessment",
+          "ui_prompt": "Immediate risk to self or others?",
+          "action_type": "multi_select",
+          "value_options": ["Suicidal ideation", "Self-harm", "Aggression/violence", "Psychosis", "Absconding risk", "None identified"],
+          "target_field": "Mental Health.risk_assessment",
+          "validation_warning": {
+            "trigger_value": ["Suicidal ideation", "Aggression/violence"],
+            "message": "HIGH RISK - Ensure scene safety. Police support may be required."
+          }
+    }, 
+    {
+          "step_order": 2,
+          "instruction": "Exclude Organic Causes",
+          "concept": "Assessment",
+          "ui_prompt": "Check for physical causes of behavior",
+          "note": "Hypoglycaemia, hypoxia, head injury, intoxication, infection",
+          "action_type": "multi_select",
+          "value_options": ["Blood glucose checked", "SpO2 checked", "Head injury excluded", "Intoxication assessed", "All checked"],
+          "target_field": "Assessment.organic_causes_excluded"
+        },
+        {
+          "step_order": 3,
+          "instruction": "Mental State Assessment",
+          "concept": "Assessment",
+          "ui_prompt": "Mental state",
+          "action_type": "multi_select",
+          "value_options": ["Oriented to time/place/person", "Confused/disoriented", "Hallucinations", "Delusions", "Agitated", "Withdrawn"],
+          "target_field": "Mental Health.mental_state"
+        },
+        {
+          "step_order": 4,
+          "instruction": "Capacity Assessment",
+          "concept": "Assessment",
+          "ui_prompt": "Does patient have capacity to refuse treatment?",
+          "note": "Can they understand, retain, weigh up, and communicate decision?",
+          "action_type": "dropdown",
+          "value_options": ["Has capacity", "Lacks capacity", "Unclear"],
+          "target_field": "Mental Health.capacity"
+        },
+        {
+          "step_order": 5,
+          "instruction": "De-escalation and Rapport",
+          "concept": "Management",
+          "ui_prompt": "De-escalation techniques used",
+          "action_type": "multi_select",
+          "value_options": ["Calm environment", "Active listening", "Non-threatening posture", "Family/friend support", "Clear communication"],
+          "target_field": "Management.de_escalation"
+        },
+        {
+          "step_order": 6,
+          "instruction": "Safeguarding Concerns",
+          "concept": "Safeguarding",
+          "ui_prompt": "Safeguarding issues identified?",
+          "note": "Vulnerable adult, child protection, domestic abuse",
+          "action_type": "toggle",
+          "target_field": "Safeguarding.concerns_raised"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_overdose_poisoning",
+      "name": "Overdose and Poisoning",
+      "category": "Toxicology",
+      "triggers": ["overdose", "poisoning", "intoxication", "drug overdose", "paracetamol", "opiates"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Identify Substance(s)",
+          "concept": "Assessment",
+          "ui_prompt": "What was taken? How much? When?",
+          "action_type": "structured_input",
+          "target_field": "Toxicology.substance",
+          "fields": {
+            "substance": "Drug/chemical name",
+            "amount": "Quantity/dose",
+            "time": "Time of ingestion",
+            "route": "Oral/IV/Inhaled"
+          }
+    }, 
+    {
+          "step_order": 2,
+          "instruction": "Check Conscious Level",
+          "concept": "Assessment",
+          "ui_prompt": "Level of consciousness (AVPU/GCS)",
+          "action_type": "dropdown",
+          "value_options": ["Alert", "Voice responsive", "Pain responsive", "Unresponsive"],
+          "target_field": "AVPU Assessment.AVPUScale"
+        },
+        {
+          "step_order": 3,
+          "instruction": "Assess for Opiate Toxidrome",
+          "concept": "Assessment",
+          "ui_prompt": "Signs of opiate overdose?",
+          "action_type": "multi_select",
+          "value_options": ["Pinpoint pupils", "Respiratory depression <10/min", "Reduced GCS", "Needle marks", "None"],
+          "target_field": "Toxicology.opiate_signs",
+          "validation_warning": {
+            "trigger_value": ["Respiratory depression <10/min"],
+            "message": "RESPIRATORY DEPRESSION - Consider Naloxone immediately."
+          }
+    }, 
+    {
+          "step_order": 4,
+          "instruction": "Naloxone if Opiate OD",
+          "concept": "Management",
+          "ui_prompt": "Administer Naloxone",
+          "note": "400mcg IM/IN, repeat if needed",
+          "action_type": "button_action",
+          "button_label": "Record Naloxone",
+          "target_field": "Drug Administration",
+          "prefill_data": {
+            "name": "Naloxone",
+            "dosage": "400mcg",
+            "route": "IM/Intranasal"
+          }
+    }, 
+    {
+          "step_order": 5,
+          "instruction": "Airway Protection",
+          "concept": "Management",
+          "ui_prompt": "Airway management required?",
+          "action_type": "dropdown",
+          "value_options": ["Self-maintaining", "Recovery position", "Airway adjunct", "Suction", "Consider intubation"],
+          "target_field": "Airway Assessment.airwayStatus"
+        },
+        {
+          "step_order": 6,
+          "instruction": "Take Drug Packaging/Evidence",
+          "concept": "Management",
+          "ui_prompt": "Drug containers/packaging brought to hospital?",
+          "note": "Essential for identification and treatment",
+          "action_type": "toggle",
+          "target_field": "Management.packaging_brought"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_pulmonary_embolism",
+      "name": "Pulmonary Embolism",
+      "category": "Respiratory",
+      "triggers": ["pe", "pulmonary embolism", "chest pain", "breathless", "dvt"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess PE Risk Factors",
+          "concept": "Assessment",
+          "ui_prompt": "PE risk factors present?",
+          "action_type": "multi_select",
+          "value_options": ["Recent surgery/immobility", "Long haul flight", "DVT history", "Malignancy", "Pregnancy/postpartum", "Oral contraceptive", "None"],
+          "target_field": "Assessment.pe_risk_factors"
+        },
+        {
+          "step_order": 2,
+          "instruction": "Classic PE Presentation",
+          "concept": "Assessment",
+          "ui_prompt": "Symptoms present",
+          "action_type": "multi_select",
+          "value_options": ["Sudden onset breathlessness", "Pleuritic chest pain", "Haemoptysis", "Tachycardia", "Hypoxia"],
+          "target_field": "Assessment.pe_symptoms"
+        },
+        {
+          "step_order": 3,
+          "instruction": "Check SpO2",
+          "concept": "Assessment",
+          "ui_prompt": "SpO2 Level (%)",
+          "action_type": "input_number",
+          "target_field": "Pulse Oximetry.spO2",
+          "validation_warning": {
+            "threshold": "<92",
+            "message": "Hypoxic - High-flow oxygen required"
+          }
+    }, 
+    {
+          "step_order": 4,
+          "instruction": "Signs of Massive PE",
+          "concept": "Critical Assessment",
+          "ui_prompt": "Signs of massive PE / haemodynamic instability?",
+          "action_type": "multi_select",
+          "value_options": ["Hypotension <90", "Syncope", "Cardiac arrest", "Severe hypoxia", "None"],
+          "target_field": "Assessment.massive_pe",
+          "validation_warning": {
+            "trigger_value": ["Hypotension <90", "Cardiac arrest"],
+            "message": "MASSIVE PE - Time critical. Pre-alert for thrombolysis."
+          }
+    }, 
+    {
+          "step_order": 5,
+          "instruction": "High-Flow Oxygen",
+          "concept": "Management",
+          "ui_prompt": "Administer high-flow oxygen",
+          "action_type": "toggle",
+          "target_field": "Oxygen Administration",
+          "prefill_on_true": {
+            "device": "Non-rebreather",
+            "flowRate": "15L/min"
+          }
+    }, 
+    {
+          "step_order": 6,
+          "instruction": "IV Access",
+          "concept": "Management",
+          "ui_prompt": "Establish IV access",
+          "note": "For potential thrombolysis",
+          "action_type": "toggle",
+          "target_field": "Cannulation.established"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_pulmonary_oedema",
+      "name": "Pulmonary Oedema / Heart Failure",
+      "category": "Cardiac",
+      "triggers": ["pulmonary oedema", "heart failure", "fluid on lungs", "lv failure", "breathless"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess Breathlessness Severity",
+          "concept": "Assessment",
+          "ui_prompt": "Can patient speak in full sentences?",
+          "action_type": "dropdown",
+          "value_options": ["Full Sentences", "Short Phrases", "Single Words", "Unable to Speak"],
+          "target_field": "Extended.Respiratory.speech_ability",
+          "is_new_attribute": true
+        },
+        {
+          "step_order": 2,
+          "instruction": "Auscultate Chest",
+          "concept": "Assessment",
+          "ui_prompt": "Breath sounds",
+          "action_type": "dropdown",
+          "value_options": ["Clear", "Fine crackles at bases", "Coarse crackles throughout", "Wheeze (cardiac asthma)"],
+          "target_field": "Lung Fields.breathSounds"
+        },
+        {
+          "step_order": 3,
+          "instruction": "Check for Peripheral Oedema",
+          "concept": "Assessment",
+          "ui_prompt": "Ankle/sacral oedema present?",
+          "action_type": "toggle",
+          "target_field": "Assessment.peripheral_oedema"
+        },
+        {
+          "step_order": 4,
+          "instruction": "Check SpO2 and Blood Pressure",
+          "concept": "Assessment",
+          "ui_prompt": "SpO2 and BP readings",
+          "action_type": "structured_input",
+          "target_field": "Vital Signs",
+          "fields": {
+            "spo2": "SpO2 %",
+            "systolic": "Systolic BP",
+            "diastolic": "Diastolic BP"
+          }
+    }, 
+    {
+          "step_order": 5,
+          "instruction": "High-Flow Oxygen / CPAP",
+          "concept": "Management",
+          "ui_prompt": "Oxygen therapy / CPAP",
+          "note": "High-flow O2 or CPAP if available and indicated",
+          "action_type": "button_action",
+          "button_label": "Record O2/CPAP",
+          "target_field": "Oxygen Administration"
+        },
+        {
+          "step_order": 6,
+          "instruction": "GTN if Hypertensive",
+          "concept": "Management",
+          "ui_prompt": "GTN spray if BP >110 systolic",
+          "note": "Reduces preload and afterload",
+          "action_type": "button_action",
+          "button_label": "Record GTN",
+          "target_field": "Drug Administration",
+          "prefill_data": {
+            "name": "GTN",
+            "dosage": "2 sprays",
+            "route": "Sublingual"
+          }
+    }, 
+    {
+          "step_order": 7,
+          "instruction": "Position Upright",
+          "concept": "Management",
+          "ui_prompt": "Patient sat upright with legs dependent?",
+          "action_type": "toggle",
+          "target_field": "Patient Management.positioning"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_abdominal_trauma",
+      "name": "Abdominal Trauma",
+      "category": "Trauma",
+      "triggers": ["abdominal trauma", "abdo injury", "belly trauma", "seatbelt injury"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess Mechanism of Injury",
+          "concept": "Assessment",
+          "ui_prompt": "Mechanism of abdominal injury",
+          "action_type": "dropdown",
+          "value_options": ["Blunt - RTC", "Blunt - Assault", "Penetrating - Stab", "Penetrating - Gunshot", "Crush injury"],
+          "target_field": "Trauma.mechanismOfInjury"
+        },
+        {
+          "step_order": 2,
+          "instruction": "Check for Internal Bleeding Signs",
+          "concept": "Critical Assessment",
+          "ui_prompt": "Signs of internal hemorrhage?",
+          "action_type": "multi_select",
+          "value_options": ["Abdominal distension", "Rigid abdomen", "Guarding", "Tachycardia", "Hypotension", "None"],
+          "target_field": "Assessment.internal_bleeding",
+          "validation_warning": {
+            "trigger_value": ["Hypotension"],
+            "message": "Hypotension with abdominal trauma = Hemorrhagic shock. Time critical."
+          }
+    }, 
+    {
+          "step_order": 3,
+          "instruction": "Assess for Evisceration",
+          "concept": "Assessment",
+          "ui_prompt": "Organs protruding through wound?",
+          "action_type": "toggle",
+          "target_field": "Trauma.evisceration",
+          "validation_warning": {
+            "trigger_value": true,
+            "message": "EVISCERATION - Do NOT push organs back. Cover with moist sterile dressing."
+          }
+    }, 
+    {
+          "step_order": 4,
+          "instruction": "Spinal Immobilisation",
+          "concept": "Management",
+          "ui_prompt": "Spinal precautions required?",
+          "note": "Based on mechanism",
+          "action_type": "toggle",
+          "target_field": "Spine.immobilisationApplied"
+        },
+        {
+          "step_order": 5,
+          "instruction": "IV Access and Fluid Resuscitation",
+          "concept": "Management",
+          "ui_prompt": "Large bore IV access x2",
+          "note": "Fluid resuscitation if shocked - target BP >90",
+          "action_type": "button_action",
+          "button_label": "Record IV Access/Fluids",
+          "target_field": "Fluid Administration"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_electrocution",
+      "name": "Electrocution",
+      "category": "Trauma",
+      "triggers": ["electrocution", "electric shock", "electrical injury", "lightning strike"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Scene Safety",
+          "concept": "Safety",
+          "ui_prompt": "Power source isolated/safe?",
+          "note": "Do NOT approach until power confirmed off",
+          "action_type": "toggle",
+          "target_field": "Scene.safe",
+          "validation_warning": {
+            "trigger_value": false,
+            "message": "SCENE NOT SAFE - Do not approach until power isolated."
+          }
+    }, 
+    {
+          "step_order": 2,
+          "instruction": "Assess Voltage and Current Type",
+          "concept": "Assessment",
+          "ui_prompt": "Type of electrical exposure",
+          "action_type": "dropdown",
+          "value_options": ["Low voltage AC (<1000V)", "High voltage AC (>1000V)", "DC current", "Lightning strike"],
+          "target_field": "Trauma.electrical_type"
+        },
+        {
+          "step_order": 3,
+          "instruction": "Check for Cardiac Arrest",
+          "concept": "Critical Assessment",
+          "ui_prompt": "Patient in cardiac arrest?",
+          "note": "VF common with AC, asystole with DC/lightning",
+          "action_type": "toggle",
+          "target_field": "Cardiac.cardiacArrest"
+        },
+        {
+          "step_order": 4,
+          "instruction": "ECG Monitoring",
+          "concept": "Assessment",
+          "ui_prompt": "12-lead ECG and continuous monitoring",
+          "note": "Check for arrhythmias, ST changes",
+          "action_type": "toggle",
+          "target_field": "ECG Interpretation.monitoring"
+        },
+        {
+          "step_order": 5,
+          "instruction": "Assess for Entry/Exit Burns",
+          "concept": "Assessment",
+          "ui_prompt": "Entry and exit wounds identified?",
+          "note": "Internal tissue damage often worse than surface burns",
+          "action_type": "toggle",
+          "target_field": "Burns.entry_exit_wounds"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_head_trauma",
+      "name": "Head Trauma / Head Injury",
+      "category": "Trauma",
+      "triggers": ["head injury", "head trauma", "concussion", "skull fracture", "brain injury"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess Mechanism of Injury",
+          "concept": "Assessment",
+          "ui_prompt": "How did head injury occur?",
+          "action_type": "dropdown",
+          "value_options": ["Fall from height", "RTC", "Assault", "Sports injury", "Fall same level"],
+          "target_field": "Trauma.mechanismOfInjury"
+        },
+        {
+          "step_order": 2,
+          "instruction": "GCS Assessment",
+          "concept": "Assessment",
+          "ui_prompt": "Glasgow Coma Scale",
+          "action_type": "structured_input",
+          "target_field": "Glasgow Coma Scale.GCSTotal",
+          "fields": {
+            "eye": "Eye (1-4)",
+            "verbal": "Verbal (1-5)",
+            "motor": "Motor (1-6)",
+            "total": "Total GCS"
+          },
+          "validation_warning": {
+            "threshold": "<13",
+            "message": "GCS <13 = Serious head injury. Time critical transport."
+          }
+    }, 
+    {
+          "step_order": 3,
+          "instruction": "Check for Skull Fracture Signs",
+          "concept": "Assessment",
+          "ui_prompt": "Basal skull fracture signs present?",
+          "action_type": "multi_select",
+          "value_options": ["CSF from nose/ears", "Battle's sign (bruising behind ear)", "Raccoon eyes", "Palpable skull depression", "None"],
+          "target_field": "Assessment.skull_fracture_signs"
+        },
+        {
+          "step_order": 4,
+          "instruction": "Pupil Assessment",
+          "concept": "Assessment",
+          "ui_prompt": "Pupil size and reactivity",
+          "action_type": "structured_input",
+          "target_field": "Pupil Assessment",
+          "fields": {
+            "size_left": "Left pupil size (mm)",
+            "size_right": "Right pupil size (mm)",
+            "reactivity": "Both reactive/One sluggish/Both fixed"
+          }
+    }, 
+    {
+          "step_order": 5,
+          "instruction": "Spinal Immobilisation",
+          "concept": "Management",
+          "ui_prompt": "C-spine immobilisation applied?",
+          "note": "Assume c-spine injury until proven otherwise",
+          "action_type": "toggle",
+          "target_field": "Spine.immobilisationApplied"
+        },
+        {
+          "step_order": 6,
+          "instruction": "Prevent Secondary Brain Injury",
+          "concept": "Management",
+          "ui_prompt": "Manage hypoxia and hypotension",
+          "note": "Maintain SpO2 >95%, BP adequate, avoid hyperventilation",
+          "action_type": "toggle",
+          "target_field": "Management.secondary_injury_prevention"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_limb_trauma",
+      "name": "Limb Trauma / Fractures",
+      "category": "Trauma",
+      "triggers": ["fracture", "broken bone", "limb injury", "dislocation", "deformity"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess Injured Limb",
+          "concept": "Assessment",
+          "ui_prompt": "Location and type of injury",
+          "action_type": "structured_input",
+          "target_field": "Limb Injury",
+          "fields": {
+            "location": "Which limb/bone",
+            "type": "Open/Closed fracture",
+            "deformity": "Obvious deformity present?"
+          }
+    }, 
+    {
+          "step_order": 2,
+          "instruction": "Check Neurovascular Status (6 Ps)",
+          "concept": "Critical Assessment",
+          "ui_prompt": "Distal neurovascular status",
+          "action_type": "multi_select",
+          "value_options": ["Pulse present", "Pink/good perfusion", "Warm", "Sensation intact", "Movement present", "Pain on movement"],
+          "target_field": "Assessment.neurovascular_6ps",
+          "validation_warning": {
+            "trigger_value": [],
+            "message": "If pulse absent or perfusion compromised - LIMB THREATENING. Urgent realignment/reduction may be needed."
+          }
+    }, 
+    {
+          "step_order": 3,
+          "instruction": "Check for Open Fracture",
+          "concept": "Assessment",
+          "ui_prompt": "Bone protruding or wound communicating with fracture?",
+          "action_type": "toggle",
+          "target_field": "Limb Injury.open_fracture",
+          "validation_warning": {
+            "trigger_value": true,
+            "message": "OPEN FRACTURE - Cover with sterile dressing. Antibiotics required at hospital."
+          }
+    }, 
+    {
+          "step_order": 4,
+          "instruction": "Splint/Immobilise",
+          "concept": "Management",
+          "ui_prompt": "Limb splinted/immobilised?",
+          "note": "Immobilise joint above and below fracture",
+          "action_type": "toggle",
+          "target_field": "Intervention.splinting"
+        },
+        {
+          "step_order": 5,
+          "instruction": "Analgesia",
+          "concept": "Management",
+          "ui_prompt": "Adequate analgesia provided?",
+          "note": "Fractures are very painful - titrate to effect",
+          "action_type": "button_action",
+          "button_label": "Record Analgesia",
+          "target_field": "Drug Administration"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_spinal_trauma",
+      "name": "Neck and Back Trauma / Spinal Injury",
+      "category": "Trauma",
+      "triggers": ["spinal injury", "neck trauma", "back trauma", "spinal cord", "c-spine"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess Mechanism for Spinal Risk",
+          "concept": "Assessment",
+          "ui_prompt": "High-risk mechanism for spinal injury?",
+          "action_type": "multi_select",
+          "value_options": ["Fall >1m or 5 stairs", "Axial load (diving)", "High speed RTC", "Ejection from vehicle", "Roll-over", "Bike collision"],
+          "target_field": "Assessment.spinal_risk_mechanism"
+        },
+        {
+          "step_order": 2,
+          "instruction": "Check for Spinal Pain/Tenderness",
+          "concept": "Assessment",
+          "ui_prompt": "Midline spinal pain or tenderness?",
+          "action_type": "toggle",
+          "target_field": "Assessment.spinal_tenderness"
+        },
+        {
+          "step_order": 3,
+          "instruction": "Neurological Assessment",
+          "concept": "Critical Assessment",
+          "ui_prompt": "Neurological deficit present?",
+          "action_type": "multi_select",
+          "value_options": ["Weakness/paralysis", "Altered/absent sensation", "Priapism", "Loss of sphincter control", "None - neurology intact"],
+          "target_field": "Assessment.neurological_deficit",
+          "validation_warning": {
+            "trigger_value": ["Weakness/paralysis", "Priapism"],
+            "message": "SPINAL CORD INJURY - Full immobilisation. Time critical."
+          }
+    }, 
+    {
+          "step_order": 4,
+          "instruction": "Apply C-Collar",
+          "concept": "Management",
+          "ui_prompt": "Cervical collar applied?",
+          "note": "If spinal immobilisation indicated",
+          "action_type": "toggle",
+          "target_field": "Spine.cervicalCollar"
+        },
+        {
+          "step_order": 5,
+          "instruction": "Full Spinal Immobilisation",
+          "concept": "Management",
+          "ui_prompt": "Full spinal immobilisation on board?",
+          "action_type": "toggle",
+          "target_field": "Spine.immobilisationApplied"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_thoracic_trauma",
+      "name": "Thoracic Trauma / Chest Injury",
+      "category": "Trauma",
+      "triggers": ["chest trauma", "chest injury", "rib fracture", "pneumothorax", "flail chest"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess Mechanism",
+          "concept": "Assessment",
+          "ui_prompt": "Mechanism of chest injury",
+          "action_type": "dropdown",
+          "value_options": ["Blunt - RTC", "Blunt - Fall", "Blunt - Assault", "Penetrating - Stab", "Penetrating - Gunshot"],
+          "target_field": "Trauma.mechanismOfInjury"
+        },
+        {
+          "step_order": 2,
+          "instruction": "Check for Life-Threatening Chest Injuries",
+          "concept": "Critical Assessment",
+          "ui_prompt": "Life-threatening chest injury signs?",
+          "action_type": "multi_select",
+          "value_options": ["Tension pneumothorax signs", "Massive haemothorax", "Flail segment", "Open pneumothorax (sucking wound)", "Cardiac tamponade", "None identified"],
+          "target_field": "Assessment.life_threatening_chest",
+          "validation_warning": {
+            "trigger_value": ["Tension pneumothorax signs", "Open pneumothorax (sucking wound)"],
+            "message": "LIFE-THREATENING CHEST INJURY - Immediate intervention required."
+          }
+    }, 
+    {
+          "step_order": 3,
+          "instruction": "Auscultate Chest",
+          "concept": "Assessment",
+          "ui_prompt": "Breath sounds",
+          "action_type": "dropdown",
+          "value_options": ["Equal bilateral", "Reduced left", "Reduced right", "Absent left", "Absent right"],
+          "target_field": "Lung Fields.airEntry"
+        },
+        {
+          "step_order": 4,
+          "instruction": "High-Flow Oxygen",
+          "concept": "Management",
+          "ui_prompt": "Administer high-flow oxygen",
+          "action_type": "toggle",
+          "target_field": "Oxygen Administration",
+          "prefill_on_true": {
+            "device": "Non-rebreather",
+            "flowRate": "15L/min"
+          }
+    }, 
+    {
+          "step_order": 5,
+          "instruction": "Seal Open Chest Wound",
+          "concept": "Management",
+          "ui_prompt": "If open pneumothorax - three-sided dressing applied?",
+          "note": "Asherman seal or dressing taped on 3 sides only",
+          "action_type": "toggle",
+          "target_field": "Intervention.chest_seal"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_drowning",
+      "name": "Immersion / Drowning",
+      "category": "Trauma",
+      "triggers": ["drowning", "near drowning", "immersion", "water rescue"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess Airway and Breathing",
+          "concept": "Assessment",
+          "ui_prompt": "Breathing status on rescue",
+          "action_type": "dropdown",
+          "value_options": ["Breathing normally", "Breathing with difficulty", "Not breathing - respiratory arrest", "Cardiac arrest"],
+          "target_field": "Airway Assessment.airwayStatus"
+        },
+        {
+          "step_order": 2,
+          "instruction": "C-Spine Precautions",
+          "concept": "Assessment",
+          "ui_prompt": "Consider c-spine injury if diving/surfing",
+          "note": "Immobilise if suspected",
+          "action_type": "toggle",
+          "target_field": "Spine.immobilisationApplied"
+        },
+        {
+          "step_order": 3,
+          "instruction": "Check Core Temperature",
+          "concept": "Assessment",
+          "ui_prompt": "Core temperature",
+          "note": "Hypothermia common in drowning",
+          "action_type": "input_number",
+          "target_field": "Body Temperature.value"
+        },
+        {
+          "step_order": 4,
+          "instruction": "High-Flow Oxygen",
+          "concept": "Management",
+          "ui_prompt": "High-flow oxygen administered",
+          "action_type": "toggle",
+          "target_field": "Oxygen Administration",
+          "prefill_on_true": {
+            "device": "Non-rebreather",
+            "flowRate": "15L/min"
+          }
+    }, 
+    {
+          "step_order": 5,
+          "instruction": "If Cardiac Arrest - CPR",
+          "concept": "Management",
+          "ui_prompt": "If arrested - start CPR immediately",
+          "note": "5 rescue breaths first, then 30:2. Good prognosis if cold water",
+          "action_type": "button_action",
+          "button_label": "Record CPR",
+          "target_field": "Cardiopulmonary Resuscitation"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_traumatic_cardiac_arrest",
+      "name": "Traumatic Cardiac Arrest",
+      "category": "Trauma",
+      "triggers": ["traumatic arrest", "trauma cardiac arrest", "tca"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess Reversible Causes (4 Hs 4 Ts)",
+          "concept": "Critical Assessment",
+          "ui_prompt": "Reversible causes of traumatic arrest",
+          "action_type": "multi_select",
+          "value_options": ["Hypoxia", "Hypovolaemia (hemorrhage)", "Hypothermia", "Tension pneumothorax", "Tamponade (cardiac)", "Hyperkalaemia", "Thrombosis"],
+          "target_field": "Cardiac.traumatic_arrest_causes"
+        },
+        {
+          "step_order": 2,
+          "instruction": "Control Catastrophic Hemorrhage",
+          "concept": "Management",
+          "ui_prompt": "Hemorrhage control applied?",
+          "note": "Direct pressure, tourniquet, pelvic binder",
+          "action_type": "dropdown",
+          "value_options": ["Direct pressure", "Tourniquet", "Pelvic binder", "Hemostatic dressing", "None needed"],
+          "target_field": "Intervention.hemorrhage_control"
+        },
+        {
+          "step_order": 3,
+          "instruction": "Decompress Tension Pneumothorax",
+          "concept": "Management",
+          "ui_prompt": "If tension pneumothorax suspected - decompress?",
+          "note": "Absent breath sounds + hypotension/JVP",
+          "action_type": "toggle",
+          "target_field": "Intervention.chest_decompression"
+        },
+        {
+          "step_order": 4,
+          "instruction": "High-Quality CPR",
+          "concept": "Management",
+          "ui_prompt": "CPR in progress",
+          "note": "30:2, minimize interruptions",
+          "action_type": "toggle",
+          "target_field": "Cardiopulmonary Resuscitation.CPRInProgress"
+        },
+        {
+          "step_order": 5,
+          "instruction": "Consider Resuscitative Thoracotomy Criteria",
+          "concept": "Assessment",
+          "ui_prompt": "Witnessed penetrating trauma with very brief downtime?",
+          "note": "May require hospital thoracotomy",
+          "action_type": "toggle",
+          "target_field": "Assessment.thoracotomy_criteria"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_birth_imminent",
+      "name": "Birth Imminent / Normal Delivery",
+      "category": "Obstetric",
+      "triggers": ["birth", "labour", "delivery", "crowning", "baby coming"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess Imminence of Delivery",
+          "concept": "Assessment",
+          "ui_prompt": "Signs of imminent delivery?",
+          "action_type": "multi_select",
+          "value_options": ["Crowning visible", "Uncontrollable urge to push", "Contractions <2 mins apart", "Multiparous patient", "Waters broken"],
+          "target_field": "Obstetrics.imminent_delivery",
+          "validation_warning": {
+            "trigger_value": ["Crowning visible"],
+            "message": "CROWNING - DO NOT MOVE. Prepare for delivery on scene."
+          }
+    }, 
+    {
+          "step_order": 2,
+          "instruction": "Obstetric History",
+          "concept": "Assessment",
+          "ui_prompt": "Gravida/Para and gestation",
+          "action_type": "structured_input",
+          "target_field": "Obstetrics.history",
+          "fields": {
+            "gravida": "Number of pregnancies",
+            "para": "Number of deliveries",
+            "gestation": "Weeks pregnant"
+          }
+    }, 
+    {
+          "step_order": 3,
+          "instruction": "Prepare Equipment",
+          "concept": "Management",
+          "ui_prompt": "Delivery pack prepared?",
+          "note": "Clamps, scissors, towels, gloves, suction",
+          "action_type": "toggle",
+          "target_field": "Equipment.delivery_pack"
+        },
+        {
+          "step_order": 4,
+          "instruction": "Deliver Baby",
+          "concept": "Management",
+          "ui_prompt": "Support delivery - do NOT pull baby",
+          "note": "Control head, check for cord around neck, deliver shoulders",
+          "action_type": "toggle",
+          "target_field": "Obstetrics.delivery_supported"
+        },
+        {
+          "step_order": 5,
+          "instruction": "Immediate Newborn Care",
+          "concept": "Management",
+          "ui_prompt": "Baby dried, stimulated, and kept warm?",
+          "action_type": "toggle",
+          "target_field": "Newborn.immediate_care"
+        },
+        {
+          "step_order": 6,
+          "instruction": "APGAR Score",
+          "concept": "Assessment",
+          "ui_prompt": "APGAR at 1 and 5 minutes",
+          "action_type": "structured_input",
+          "target_field": "Newborn.apgar",
+          "fields": {
+            "one_minute": "1 min score (0-10)",
+            "five_minute": "5 min score (0-10)"
+          }
+    }, 
+    {
+          "step_order": 7,
+          "instruction": "Clamp and Cut Cord",
+          "concept": "Management",
+          "ui_prompt": "Cord clamped and cut after pulsation stops?",
+          "action_type": "toggle",
+          "target_field": "Obstetrics.cord_clamped"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_birth_complications",
+      "name": "Birth Complications",
+      "category": "Obstetric",
+      "triggers": ["breech", "cord prolapse", "shoulder dystocia", "difficult delivery"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Identify Complication Type",
+          "concept": "Critical Assessment",
+          "ui_prompt": "Type of birth complication",
+          "action_type": "dropdown",
+          "value_options": ["Breech presentation", "Cord prolapse", "Shoulder dystocia", "Limb presentation", "Multiple births"],
+          "target_field": "Obstetrics.complication_type"
+        },
+        {
+          "step_order": 2,
+          "instruction": "If CORD PROLAPSE",
+          "concept": "Critical Management",
+          "ui_prompt": "Cord prolapse management",
+          "action_type": "multi_select",
+          "value_options": ["Position mother knee-chest", "Elevate presenting part off cord", "Keep cord warm and moist", "Emergency pre-alert sent", "N/A - not cord prolapse"],
+          "target_field": "Obstetrics.cord_prolapse_management",
+          "validation_warning": {
+            "trigger_value": ["Elevate presenting part off cord"],
+            "message": "CORD PROLAPSE - Obstetric emergency. Emergency C-section required."
+          }
+    }, 
+    {
+          "step_order": 3,
+          "instruction": "If BREECH",
+          "concept": "Management",
+          "ui_prompt": "Breech delivery management",
+          "note": "Allow spontaneous delivery, hands off until umbilicus delivered",
+          "action_type": "toggle",
+          "target_field": "Obstetrics.breech_delivery"
+        },
+        {
+          "step_order": 4,
+          "instruction": "If SHOULDER DYSTOCIA",
+          "concept": "Critical Management",
+          "ui_prompt": "Shoulder dystocia maneuvers",
+          "action_type": "multi_select",
+          "value_options": ["McRoberts position (hyperflexed legs)", "Suprapubic pressure", "Call for help/emergency pre-alert", "N/A - not shoulder dystocia"],
+          "target_field": "Obstetrics.shoulder_dystocia_management"
+        },
+        {
+          "step_order": 5,
+          "instruction": "Emergency Pre-Alert",
+          "concept": "Time Critical",
+          "ui_prompt": "Obstetric emergency pre-alert sent?",
+          "action_type": "toggle",
+          "target_field": "Incident.hospitalAlertSent"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_obstetric_hemorrhage",
+      "name": "Haemorrhage during Pregnancy",
+      "category": "Obstetric",
+      "triggers": ["obstetric bleeding", "antepartum hemorrhage", "postpartum hemorrhage", "pph"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess Timing and Volume",
+          "concept": "Assessment",
+          "ui_prompt": "When and how much bleeding?",
+          "action_type": "structured_input",
+          "target_field": "Obstetrics.hemorrhage",
+          "fields": {
+            "timing": "Antepartum/During delivery/Postpartum",
+            "volume": "Estimated blood loss (ml)",
+            "ongoing": "Still bleeding heavily?"
+          }
+    }, 
+    {
+          "step_order": 2,
+          "instruction": "Assess for Shock",
+          "concept": "Critical Assessment",
+          "ui_prompt": "Signs of hypovolaemic shock?",
+          "action_type": "multi_select",
+          "value_options": ["Tachycardia >100", "Hypotension <90", "Pale/clammy", "Reduced GCS", "None"],
+          "target_field": "Circulatory Assessment.shock",
+          "validation_warning": {
+            "trigger_value": ["Hypotension <90"],
+            "message": "OBSTETRIC HEMORRHAGIC SHOCK - Time critical. Major hemorrhage protocol."
+          }
+    }, 
+    {
+          "step_order": 3,
+          "instruction": "If POSTPARTUM: Fundal Massage",
+          "concept": "Management",
+          "ui_prompt": "Uterine fundal massage performed?",
+          "note": "Firm massage to stimulate contraction",
+          "action_type": "toggle",
+          "target_field": "Obstetrics.fundal_massage"
+        },
+        {
+          "step_order": 4,
+          "instruction": "Large Bore IV Access",
+          "concept": "Management",
+          "ui_prompt": "IV access x2 large bore",
+          "action_type": "button_action",
+          "button_label": "Record IV Access",
+          "target_field": "Cannulation.established"
+        },
+        {
+          "step_order": 5,
+          "instruction": "Fluid Resuscitation",
+          "concept": "Management",
+          "ui_prompt": "IV fluid resuscitation",
+          "note": "Target BP >90 systolic",
+          "action_type": "button_action",
+          "button_label": "Record IV Fluids",
+          "target_field": "Fluid Administration"
+        },
+        {
+          "step_order": 6,
+          "instruction": "Emergency Pre-Alert",
+          "concept": "Time Critical",
+          "ui_prompt": "Major obstetric hemorrhage alert sent?",
+          "action_type": "toggle",
+          "target_field": "Incident.hospitalAlertSent"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_eclampsia",
+      "name": "Pre-Eclampsia / Eclampsia",
+      "category": "Obstetric",
+      "triggers": ["pre-eclampsia", "eclampsia", "pregnancy seizure", "pregnancy hypertension"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess Blood Pressure",
+          "concept": "Assessment",
+          "ui_prompt": "Blood pressure reading",
+          "action_type": "input_number",
+          "target_field": "Blood Pressure.systolicBP",
+          "validation_warning": {
+            "threshold": ">160",
+            "message": "SEVERE HYPERTENSION in pregnancy - risk of eclamptic seizure."
+          }
+    }, 
+    {
+          "step_order": 2,
+          "instruction": "Check for Pre-Eclampsia Symptoms",
+          "concept": "Assessment",
+          "ui_prompt": "Pre-eclampsia warning signs?",
+          "action_type": "multi_select",
+          "value_options": ["Severe headache", "Visual disturbance", "Epigastric pain", "Vomiting", "Swollen hands/face", "None"],
+          "target_field": "Assessment.preeclampsia_signs"
+        },
+        {
+          "step_order": 3,
+          "instruction": "Seizure Activity",
+          "concept": "Critical Assessment",
+          "ui_prompt": "Has patient had a seizure? (Eclampsia)",
+          "action_type": "toggle",
+          "target_field": "Obstetrics.eclamptic_seizure",
+          "validation_warning": {
+            "trigger_value": true,
+            "message": "ECLAMPSIA - Life-threatening. Protect airway. Magnesium sulfate may be required."
+          }
+    }, 
+    {
+          "step_order": 4,
+          "instruction": "Position Left Lateral",
+          "concept": "Management",
+          "ui_prompt": "Patient positioned left lateral?",
+          "note": "Prevents aortocaval compression",
+          "action_type": "toggle",
+          "target_field": "Patient Management.positioning"
+        },
+        {
+          "step_order": 5,
+          "instruction": "If Seizure: Protect Airway",
+          "concept": "Management",
+          "ui_prompt": "Airway protection and recovery position",
+          "action_type": "toggle",
+          "target_field": "Airway Assessment.protected"
+        },
+        {
+          "step_order": 6,
+          "instruction": "Emergency Pre-Alert",
+          "concept": "Time Critical",
+          "ui_prompt": "Eclampsia/severe pre-eclampsia alert sent?",
+          "note": "For urgent delivery and magnesium sulfate",
+          "action_type": "toggle",
+          "target_field": "Incident.hospitalAlertSent"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_bls",
+      "name": "Basic Life Support (BLS)",
+      "category": "Resuscitation",
+      "triggers": ["bls", "basic life support", "cpr", "cardiac arrest basic"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Check Responsiveness",
+          "concept": "Assessment",
+          "ui_prompt": "Patient responsive to shout and shake?",
+          "action_type": "toggle",
+          "target_field": "Resuscitation.responsive"
+        },
+        {
+          "step_order": 2,
+          "instruction": "Open Airway and Check Breathing",
+          "concept": "Assessment",
+          "ui_prompt": "Breathing normally? (not gasping)",
+          "action_type": "toggle",
+          "target_field": "Airway Assessment.breathing"
+        },
+        {
+          "step_order": 3,
+          "instruction": "Start CPR 30:2",
+          "concept": "Management",
+          "ui_prompt": "CPR commenced - 30 compressions : 2 breaths",
+          "note": "100-120/min, depth 5-6cm",
+          "action_type": "button_action",
+          "button_label": "Record CPR Started",
+          "target_field": "Cardiopulmonary Resuscitation",
+          "prefill_data": {
+            "resuscitationAttempted": true,
+            "CPRStart": "auto_timestamp"
+          }
+    }, 
+    {
+          "step_order": 4,
+          "instruction": "Attach Defibrillator",
+          "concept": "Management",
+          "ui_prompt": "Defibrillator pads attached - assess rhythm",
+          "action_type": "toggle",
+          "target_field": "Defibrillation.padsAttached"
+        },
+        {
+          "step_order": 5,
+          "instruction": "Continue CPR / Shock if Advised",
+          "concept": "Management",
+          "ui_prompt": "Follow AED prompts - shock delivered if advised",
+          "action_type": "toggle",
+          "target_field": "Defibrillation.defibrillationAttempted"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_choking",
+      "name": "Choking / Foreign Body Airway Obstruction",
+      "category": "Resuscitation",
+      "triggers": ["choking", "fbao", "foreign body airway", "can't breathe", "obstruction"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess Severity",
+          "concept": "Assessment",
+          "ui_prompt": "Severity of obstruction",
+          "action_type": "dropdown",
+          "value_options": ["Mild (effective cough)", "Severe (ineffective cough, silent, cyanosed)"],
+          "target_field": "Airway Assessment.obstruction_severity",
+          "validation_warning": {
+            "trigger_value": "Severe (ineffective cough, silent, cyanosed)",
+            "message": "SEVERE OBSTRUCTION - Immediate back blows and abdominal thrusts required."
+          }
+    }, 
+    {
+          "step_order": 2,
+          "instruction": "If MILD: Encourage Coughing",
+          "concept": "Management",
+          "ui_prompt": "Patient encouraged to cough",
+          "note": "Do NOT interfere if coughing effectively",
+          "action_type": "toggle",
+          "target_field": "Management.encouraged_cough"
+        },
+        {
+          "step_order": 3,
+          "instruction": "If SEVERE: 5 Back Blows",
+          "concept": "Management",
+          "ui_prompt": "5 sharp back blows between shoulder blades",
+          "action_type": "toggle",
+          "target_field": "Intervention.back_blows"
+        },
+        {
+          "step_order": 4,
+          "instruction": "If Still Obstructed: 5 Abdominal Thrusts",
+          "concept": "Management",
+          "ui_prompt": "5 abdominal thrusts (Heimlich)",
+          "note": "Hands just above umbilicus, sharp upward thrust",
+          "action_type": "toggle",
+          "target_field": "Intervention.abdominal_thrusts"
+        },
+        {
+          "step_order": 5,
+          "instruction": "If Becomes Unconscious: Start CPR",
+          "concept": "Management",
+          "ui_prompt": "If patient becomes unconscious - start CPR",
+          "note": "Each time airway opened, look for object",
+          "action_type": "toggle",
+          "target_field": "Cardiopulmonary Resuscitation.CPRInProgress"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_role",
+      "name": "Recognition of Life Extinct (ROLE)",
+      "category": "Resuscitation",
+      "triggers": ["role", "recognition of life extinct", "deceased", "death", "not for resuscitation"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess if Resuscitation Appropriate",
+          "concept": "Assessment",
+          "ui_prompt": "Is resuscitation appropriate?",
+          "action_type": "multi_select",
+          "value_options": ["Valid DNACPR in place", "Injuries incompatible with life", "Rigor mortis present", "Hypostasis present", "Decomposition", "Resuscitation IS appropriate"],
+          "target_field": "Resuscitation.not_appropriate_reasons"
+        },
+        {
+          "step_order": 2,
+          "instruction": "If Cardiac Arrest: Was it Witnessed?",
+          "concept": "Assessment",
+          "ui_prompt": "Was arrest witnessed by healthcare provider?",
+          "action_type": "dropdown",
+          "value_options": ["Yes - witnessed by crew", "No - unwitnessed", "Bystander witnessed with immediate CPR", "N/A"],
+          "target_field": "Resuscitation.witnessed"
+        },
+        {
+          "step_order": 3,
+          "instruction": "Check for Signs of Life Extinct",
+          "concept": "Assessment",
+          "ui_prompt": "Signs incompatible with life present?",
+          "action_type": "multi_select",
+          "value_options": ["Decapitation", "Hemicorporectomy", "Incineration", "Massive cranial/torso destruction", "Rigor mortis", "Hypostasis", "None - may be viable"],
+          "target_field": "Assessment.life_extinct_signs"
+        },
+        {
+          "step_order": 4,
+          "instruction": "ROLE Decision",
+          "concept": "Decision",
+          "ui_prompt": "Recognition of Life Extinct criteria met?",
+          "note": "Must meet JRCalc criteria and be discussed with senior clinician",
+          "action_type": "toggle",
+          "target_field": "Resuscitation.ROLE_criteria_met"
+        },
+        {
+          "step_order": 5,
+          "instruction": "Document Decision Carefully",
+          "concept": "Documentation",
+          "ui_prompt": "ROLE decision documented with rationale",
+          "action_type": "toggle",
+          "target_field": "Documentation.ROLE_documented"
+        },
+        {
+          "step_order": 6,
+          "instruction": "Consider Coroner Referral",
+          "concept": "Legal",
+          "ui_prompt": "Coroner referral required?",
+          "note": "Sudden, unexplained, violent, suspicious deaths",
+          "action_type": "toggle",
+          "target_field": "Legal.coroner_referral"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_safeguarding",
+      "name": "Safeguarding Concerns",
+      "category": "Special Situations",
+      "triggers": ["safeguarding", "abuse", "neglect", "vulnerable adult", "child protection"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Identify Type of Concern",
+          "concept": "Assessment",
+          "ui_prompt": "Type of safeguarding concern",
+          "action_type": "multi_select",
+          "value_options": ["Physical abuse", "Sexual abuse", "Emotional abuse", "Neglect", "Financial abuse", "Domestic abuse", "Child at risk"],
+          "target_field": "Safeguarding.concern_type"
+        },
+        {
+          "step_order": 2,
+          "instruction": "Assess Immediate Risk",
+          "concept": "Risk Assessment",
+          "ui_prompt": "Immediate risk to patient or others?",
+          "action_type": "toggle",
+          "target_field": "Safeguarding.immediate_risk",
+          "validation_warning": {
+            "trigger_value": true,
+            "message": "IMMEDIATE RISK - Police involvement may be required. Do not leave vulnerable person."
+          }
+    }, 
+    {
+          "step_order": 3,
+          "instruction": "Document Observations",
+          "concept": "Documentation",
+          "ui_prompt": "Injuries, statements, and environment documented?",
+          "note": "Record verbatim, non-judgmental, factual",
+          "action_type": "toggle",
+          "target_field": "Safeguarding.documented"
+        },
+        {
+          "step_order": 4,
+          "instruction": "Consider Capacity",
+          "concept": "Assessment",
+          "ui_prompt": "If adult - do they have capacity to make decisions?",
+          "action_type": "dropdown",
+          "value_options": ["Has capacity", "Lacks capacity", "Unclear", "N/A - child"],
+          "target_field": "Mental Health.capacity"
+        },
+        {
+          "step_order": 5,
+          "instruction": "Safeguarding Referral Made",
+          "concept": "Action",
+          "ui_prompt": "Safeguarding referral submitted?",
+          "note": "Via organizational safeguarding process",
+          "action_type": "toggle",
+          "target_field": "Safeguarding.referral_made"
+        },
+        {
+          "step_order": 6,
+          "instruction": "Information Shared with Receiving Team",
+          "concept": "Communication",
+          "ui_prompt": "Safeguarding concerns communicated at handover?",
+          "action_type": "toggle",
+          "target_field": "Safeguarding.handover_informed"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_paediatric_anaphylaxis",
+      "name": "Paediatric Anaphylaxis",
+      "category": "Paediatric",
+      "triggers": ["child anaphylaxis", "paediatric allergy", "child adrenaline", "paediatric epipen"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess Child's Age and Weight",
+          "concept": "Assessment",
+          "ui_prompt": "Child's age and estimated weight",
+          "action_type": "structured_input",
+          "target_field": "Patient Demographics",
+          "fields": {
+            "age_years": "Age (years)",
+            "age_months": "Age (months if <2 years)",
+            "weight_kg": "Estimated weight (kg)"
+          }
+    }, 
+    {
+          "step_order": 2,
+          "instruction": "Confirm Anaphylaxis Criteria",
+          "concept": "Assessment",
+          "ui_prompt": "Anaphylaxis criteria met?",
+          "action_type": "multi_select",
+          "value_options": ["Acute onset illness", "Airway/Breathing/Circulation problem", "Skin/mucosal changes"],
+          "target_field": "Extended.Allergy.anaphylaxis_criteria_met",
+          "validation_warning": {
+            "trigger_value": ["Airway/Breathing/Circulation problem"],
+            "message": "ANAPHYLAXIS - Adrenaline IM required immediately."
+          }
+    }, 
+    {
+          "step_order": 3,
+          "instruction": "Administer IM Adrenaline",
+          "concept": "Management",
+          "ui_prompt": "Administer IM Adrenaline",
+          "note": "<6 years: 150mcg (0.15ml of 1:1000), 6-12 years: 300mcg (0.3ml), >12 years: 500mcg (0.5ml)",
+          "action_type": "button_action",
+          "button_label": "Give IM Adrenaline",
+          "target_field": "Drug Administration",
+          "prefill_data": {
+            "drugName": "Adrenaline",
+            "route": "IM",
+            "dose": "weight-based"
+          }
+    }, 
+    {
+          "step_order": 4,
+          "instruction": "High-Flow Oxygen",
+          "concept": "Management",
+          "ui_prompt": "High-flow oxygen via non-rebreather",
+          "action_type": "toggle",
+          "target_field": "Oxygen Administration",
+          "prefill_on_true": {
+            "device": "Paediatric non-rebreather",
+            "flowRate": "15L/min"
+          }
+    }, 
+    {
+          "step_order": 5,
+          "instruction": "Position Child Appropriately",
+          "concept": "Management",
+          "ui_prompt": "Position based on symptoms",
+          "action_type": "dropdown",
+          "value_options": ["Lying flat if shocked", "Sat up if breathing difficulty", "Position of comfort if mild"],
+          "target_field": "Patient Management.positioning"
+        },
+        {
+          "step_order": 6,
+          "instruction": "Reassess at 5 Minutes",
+          "concept": "Assessment",
+          "ui_prompt": "Improvement after 5 min? Repeat adrenaline if no better",
+          "action_type": "toggle",
+          "target_field": "Assessment.response_to_treatment"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_paediatric_asthma",
+      "name": "Paediatric Asthma",
+      "category": "Paediatric",
+      "triggers": ["child asthma", "paediatric wheeze", "child breathless", "child salbutamol"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess Child's Age",
+          "concept": "Assessment",
+          "ui_prompt": "Child's age",
+          "action_type": "input_number",
+          "target_field": "Patient Demographics.age"
+        },
+        {
+          "step_order": 2,
+          "instruction": "Assess Severity",
+          "concept": "Assessment",
+          "ui_prompt": "Can child speak/feed normally?",
+          "action_type": "dropdown",
+          "value_options": ["Normal speech/feeding", "Short phrases only", "Single words", "Too breathless to speak/feed"],
+          "target_field": "Extended.Respiratory.speech_ability"
+        },
+        {
+          "step_order": 3,
+          "instruction": "Check Respiratory Rate",
+          "concept": "Assessment",
+          "ui_prompt": "Respiratory rate (breaths/min)",
+          "action_type": "input_number",
+          "target_field": "Respiratory Rate.value",
+          "validation_warning": {
+            "threshold": ">40 if >5yrs, >50 if 2-5yrs, >60 if <2yrs",
+            "message": "SEVERE ASTHMA - Tachypnoea for age. Life-threatening features possible."
+          }
+    }, 
+    {
+          "step_order": 4,
+          "instruction": "Check for Life-Threatening Features",
+          "concept": "Critical Assessment",
+          "ui_prompt": "Life-threatening features present?",
+          "action_type": "multi_select",
+          "value_options": ["Silent chest", "Cyanosis", "Poor respiratory effort", "Exhaustion/altered consciousness", "SpO2 <92%", "None"],
+          "target_field": "Assessment.life_threatening_asthma",
+          "validation_warning": {
+            "trigger_value": ["Silent chest", "Cyanosis", "Altered consciousness"],
+            "message": "LIFE-THREATENING ASTHMA - Immediate bronchodilators and senior support."
+          }
+    }, 
+    {
+          "step_order": 5,
+          "instruction": "Administer Salbutamol",
+          "concept": "Management",
+          "ui_prompt": "Salbutamol via nebuliser",
+          "note": "2.5mg if <5 years, 5mg if ≥5 years. Driven by oxygen.",
+          "action_type": "button_action",
+          "button_label": "Give Salbutamol Nebuliser",
+          "target_field": "Drug Administration",
+          "prefill_data": {
+            "drugName": "Salbutamol",
+            "route": "Nebulised",
+            "dose": "age-based"
+          }
+    }, 
+    {
+          "step_order": 6,
+          "instruction": "Consider Ipratropium",
+          "concept": "Management",
+          "ui_prompt": "If severe/life-threatening - add ipratropium bromide",
+          "note": "250mcg nebulised with salbutamol",
+          "action_type": "toggle",
+          "target_field": "Drug Administration.ipratropium_given"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_paediatric_convulsions",
+      "name": "Paediatric Convulsions",
+      "category": "Paediatric",
+      "triggers": ["child seizure", "paediatric convulsion", "child fit", "febrile convulsion"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess Child's Age",
+          "concept": "Assessment",
+          "ui_prompt": "Child's age",
+          "action_type": "input_number",
+          "target_field": "Patient Demographics.age"
+        },
+        {
+          "step_order": 2,
+          "instruction": "Check if Seizing Currently",
+          "concept": "Assessment",
+          "ui_prompt": "Is child actively seizing now?",
+          "action_type": "toggle",
+          "target_field": "Convulsions.currentlySeizing"
+        },
+        {
+          "step_order": 3,
+          "instruction": "Duration of Seizure",
+          "concept": "Assessment",
+          "ui_prompt": "How long has seizure lasted?",
+          "action_type": "input_number",
+          "target_field": "Convulsions.duration",
+          "validation_warning": {
+            "threshold": ">5 minutes",
+            "message": "PROLONGED SEIZURE - Anticonvulsant required if still seizing."
+          }
+    }, 
+    {
+          "step_order": 4,
+          "instruction": "Check Temperature",
+          "concept": "Assessment",
+          "ui_prompt": "Temperature",
+          "note": "Febrile convulsions occur with high fever in young children",
+          "action_type": "input_number",
+          "target_field": "Body Temperature.value"
+        },
+        {
+          "step_order": 5,
+          "instruction": "Protect Airway",
+          "concept": "Management",
+          "ui_prompt": "Airway protected, recovery position when safe",
+          "action_type": "toggle",
+          "target_field": "Airway Assessment.protected"
+        },
+        {
+          "step_order": 6,
+          "instruction": "Administer Anticonvulsant if Prolonged",
+          "concept": "Management",
+          "ui_prompt": "If seizing >5 min - give midazolam buccal",
+          "note": "1-5 years: 5mg, 5-10 years: 7.5mg, >10 years: 10mg",
+          "action_type": "button_action",
+          "button_label": "Give Midazolam",
+          "target_field": "Drug Administration",
+          "prefill_data": {
+            "drugName": "Midazolam",
+            "route": "Buccal",
+            "dose": "age-based"
+          }
+    }, 
+    {
+          "step_order": 7,
+          "instruction": "Check Blood Glucose",
+          "concept": "Assessment",
+          "ui_prompt": "Blood glucose measurement",
+          "note": "Hypoglycaemia can cause seizures",
+          "action_type": "input_number",
+          "target_field": "Blood Glucose.value"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_febrile_convulsion",
+      "name": "Febrile Convulsion",
+      "category": "Paediatric",
+      "triggers": ["febrile seizure", "febrile fit", "fever seizure"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Confirm Age Range",
+          "concept": "Assessment",
+          "ui_prompt": "Child's age (typically 6 months - 5 years)",
+          "action_type": "input_number",
+          "target_field": "Patient Demographics.age",
+          "validation_warning": {
+            "threshold": ">5 years or <6 months",
+            "message": "Outside typical febrile convulsion age range - consider other causes."
+          }
+    }, 
+    {
+          "step_order": 2,
+          "instruction": "Check Temperature",
+          "concept": "Assessment",
+          "ui_prompt": "Current temperature",
+          "action_type": "input_number",
+          "target_field": "Body Temperature.value",
+          "validation_warning": {
+            "threshold": ">38.5",
+            "message": "High fever - typical for febrile convulsion."
+          }
+    }, 
+    {
+          "step_order": 3,
+          "instruction": "Check for Meningism",
+          "concept": "Critical Assessment",
+          "ui_prompt": "Signs of meningitis/sepsis?",
+          "action_type": "multi_select",
+          "value_options": ["Neck stiffness", "Non-blanching rash", "Photophobia", "Bulging fontanelle", "None"],
+          "target_field": "Assessment.meningism",
+          "validation_warning": {
+            "trigger_value": ["Non-blanching rash", "Bulging fontanelle"],
+            "message": "POSSIBLE MENINGITIS - Time critical. Pre-alert hospital."
+          }
+    }, 
+    {
+          "step_order": 4,
+          "instruction": "Duration of Seizure",
+          "concept": "Assessment",
+          "ui_prompt": "Seizure duration",
+          "note": "Simple febrile convulsions typically <5 min",
+          "action_type": "dropdown",
+          "value_options": ["<5 minutes", "5-15 minutes", ">15 minutes", "Multiple seizures"],
+          "target_field": "Convulsions.duration"
+        },
+        {
+          "step_order": 5,
+          "instruction": "Cooling Measures",
+          "concept": "Management",
+          "ui_prompt": "Remove excess clothing, tepid sponging",
+          "note": "Do NOT use cold water",
+          "action_type": "toggle",
+          "target_field": "Management.cooling_measures"
+        },
+        {
+          "step_order": 6,
+          "instruction": "Recovery Assessment",
+          "concept": "Assessment",
+          "ui_prompt": "Child fully recovered to normal?",
+          "note": "Post-ictal drowsiness is common but should improve",
+          "action_type": "toggle",
+          "target_field": "Assessment.recovered_to_baseline"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_paediatric_cardiac_arrest",
+      "name": "Paediatric Cardiac Arrest",
+      "category": "Paediatric",
+      "triggers": ["child cardiac arrest", "paediatric cpr", "child not breathing", "unresponsive child"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Check Responsiveness",
+          "concept": "Assessment",
+          "ui_prompt": "Child responsive to voice/touch?",
+          "action_type": "toggle",
+          "target_field": "Resuscitation.responsive"
+        },
+        {
+          "step_order": 2,
+          "instruction": "Open Airway and Check Breathing",
+          "concept": "Assessment",
+          "ui_prompt": "Breathing normally? (not gasping)",
+          "action_type": "toggle",
+          "target_field": "Airway Assessment.breathing"
+        },
+        {
+          "step_order": 3,
+          "instruction": "Give 5 Rescue Breaths",
+          "concept": "Management",
+          "ui_prompt": "5 initial rescue breaths given",
+          "note": "Paediatric arrest often respiratory - oxygenate first",
+          "action_type": "toggle",
+          "target_field": "Cardiopulmonary Resuscitation.rescue_breaths"
+        },
+        {
+          "step_order": 4,
+          "instruction": "Start CPR 15:2",
+          "concept": "Management",
+          "ui_prompt": "CPR commenced - 15 compressions : 2 breaths",
+          "note": "Depth: 1/3 chest depth. Rate: 100-120/min",
+          "action_type": "button_action",
+          "button_label": "Record CPR Started",
+          "target_field": "Cardiopulmonary Resuscitation",
+          "prefill_data": {
+            "resuscitationAttempted": true,
+            "CPRStart": "auto_timestamp",
+            "ratio": "15:2"
+          }
+    }, 
+    {
+          "step_order": 5,
+          "instruction": "Attach Defibrillator",
+          "concept": "Management",
+          "ui_prompt": "Defibrillator pads attached - paediatric or adult",
+          "note": "Paediatric pads if <8 years or <25kg",
+          "action_type": "toggle",
+          "target_field": "Defibrillation.padsAttached"
+        },
+        {
+          "step_order": 6,
+          "instruction": "Shock if Shockable Rhythm",
+          "concept": "Management",
+          "ui_prompt": "Shock delivered if VF/pVT",
+          "note": "4J/kg initial dose",
+          "action_type": "toggle",
+          "target_field": "Defibrillation.defibrillationAttempted"
+        },
+        {
+          "step_order": 7,
+          "instruction": "Consider Reversible Causes",
+          "concept": "Assessment",
+          "ui_prompt": "4 Hs 4 Ts considered?",
+          "note": "Hypoxia, Hypovolaemia, Hypo/hyperkalaemia, Hypothermia, Thrombosis, Tamponade, Toxins, Tension pneumothorax",
+          "action_type": "toggle",
+          "target_field": "Assessment.reversible_causes_considered"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_paediatric_diabetes",
+      "name": "Paediatric Glycaemic Emergency",
+      "category": "Paediatric",
+      "triggers": ["child diabetes", "paediatric hypo", "child blood sugar", "diabetic child"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Check Blood Glucose",
+          "concept": "Assessment",
+          "ui_prompt": "Blood glucose measurement",
+          "action_type": "input_number",
+          "target_field": "Blood Glucose.value",
+          "validation_warning": {
+            "threshold": "<4.0",
+            "message": "HYPOGLYCAEMIA - Treat urgently with glucose."
+          }
+    }, 
+    {
+          "step_order": 2,
+          "instruction": "Assess Consciousness Level",
+          "concept": "Assessment",
+          "ui_prompt": "Child's consciousness level",
+          "action_type": "dropdown",
+          "value_options": ["Alert", "Voice responsive", "Pain responsive", "Unresponsive"],
+          "target_field": "AVPU.avpu"
+        },
+        {
+          "step_order": 3,
+          "instruction": "If Hypoglycaemic and Alert",
+          "concept": "Management",
+          "ui_prompt": "If alert - give oral glucose (GlucoGel, sugary drink)",
+          "note": "10-20g glucose orally if can swallow safely",
+          "action_type": "toggle",
+          "target_field": "Management.oral_glucose_given"
+        },
+        {
+          "step_order": 4,
+          "instruction": "If Reduced Consciousness",
+          "concept": "Management",
+          "ui_prompt": "If reduced GCS - give IV/IM glucose",
+          "note": "IV 10% glucose 5ml/kg OR IM glucagon (500mcg if <8 years, 1mg if ≥8 years)",
+          "action_type": "button_action",
+          "button_label": "Give IV Glucose or IM Glucagon",
+          "target_field": "Drug Administration",
+          "prefill_data": {
+            "drugName": "Glucose 10% or Glucagon",
+            "route": "IV or IM"
+          }
+    }, 
+    {
+          "step_order": 5,
+          "instruction": "Recheck BM After 10-15 Minutes",
+          "concept": "Assessment",
+          "ui_prompt": "Blood glucose rechecked",
+          "action_type": "toggle",
+          "target_field": "Assessment.BM_rechecked"
+        },
+        {
+          "step_order": 6,
+          "instruction": "Check for DKA if Hyperglycaemic",
+          "concept": "Assessment",
+          "ui_prompt": "If BM >11 - check for DKA signs",
+          "note": "Vomiting, abdominal pain, Kussmaul breathing, ketotic breath",
+          "action_type": "multi_select",
+          "value_options": ["Vomiting", "Abdominal pain", "Deep/rapid breathing", "Fruity breath", "Dehydration", "None"],
+          "target_field": "Assessment.dka_signs"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_paediatric_overdose",
+      "name": "Paediatric Poisoning / Overdose",
+      "category": "Paediatric",
+      "triggers": ["child poisoning", "paediatric overdose", "child ingestion", "child swallowed"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Identify Substance",
+          "concept": "Assessment",
+          "ui_prompt": "What was ingested/exposed to?",
+          "action_type": "structured_input",
+          "target_field": "Toxicology.substance",
+          "fields": {
+            "substance": "Substance name",
+            "amount": "Amount/dose",
+            "time": "Time of ingestion",
+            "route": "Ingested/inhaled/absorbed"
+          }
+    }, 
+    {
+          "step_order": 2,
+          "instruction": "Assess Consciousness Level",
+          "concept": "Assessment",
+          "ui_prompt": "AVPU score",
+          "action_type": "dropdown",
+          "value_options": ["Alert", "Voice", "Pain", "Unresponsive"],
+          "target_field": "AVPU.avpu"
+        },
+        {
+          "step_order": 3,
+          "instruction": "Check Blood Glucose",
+          "concept": "Assessment",
+          "ui_prompt": "Blood glucose",
+          "note": "Many toxins cause hypoglycaemia",
+          "action_type": "input_number",
+          "target_field": "Blood Glucose.value"
+        },
+        {
+          "step_order": 4,
+          "instruction": "Protect Airway",
+          "concept": "Management",
+          "ui_prompt": "Airway protected if reduced GCS",
+          "action_type": "toggle",
+          "target_field": "Airway Assessment.protected"
+        },
+        {
+          "step_order": 5,
+          "instruction": "Do NOT Induce Vomiting",
+          "concept": "Safety",
+          "ui_prompt": "Confirmed: DO NOT induce vomiting",
+          "note": "Can cause aspiration and further harm",
+          "action_type": "toggle",
+          "target_field": "Safety.no_vomiting_induced"
+        },
+        {
+          "step_order": 6,
+          "instruction": "Bring Substance/Packaging",
+          "concept": "Management",
+          "ui_prompt": "Substance container/packaging collected?",
+          "action_type": "toggle",
+          "target_field": "Evidence.substance_packaging"
+        },
+        {
+          "step_order": 7,
+          "instruction": "Contact TOXBASE/Poisons Unit",
+          "concept": "Management",
+          "ui_prompt": "Advice from TOXBASE or poisons unit obtained?",
+          "action_type": "toggle",
+          "target_field": "Management.toxbase_consulted"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_croup",
+      "name": "Croup / Stridor",
+      "category": "Paediatric",
+      "triggers": ["croup", "stridor", "barking cough", "laryngotracheobronchitis"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess Child's Age",
+          "concept": "Assessment",
+          "ui_prompt": "Child's age (typically 6 months - 3 years)",
+          "action_type": "input_number",
+          "target_field": "Patient Demographics.age"
+        },
+        {
+          "step_order": 2,
+          "instruction": "Assess Severity of Stridor",
+          "concept": "Assessment",
+          "ui_prompt": "When is stridor audible?",
+          "action_type": "dropdown",
+          "value_options": ["No stridor at rest", "Stridor at rest", "Stridor with agitation only"],
+          "target_field": "Assessment.stridor_severity",
+          "validation_warning": {
+            "trigger_value": "Stridor at rest",
+            "message": "SEVERE CROUP - Avoid agitation. Consider dexamethasone."
+          }
+    }, 
+    {
+          "step_order": 3,
+          "instruction": "Check for Severe Features",
+          "concept": "Critical Assessment",
+          "ui_prompt": "Severe/life-threatening features?",
+          "action_type": "multi_select",
+          "value_options": ["Chest recession", "Agitation/distress", "Reduced consciousness", "Cyanosis", "None"],
+          "target_field": "Assessment.severe_croup"
+        },
+        {
+          "step_order": 4,
+          "instruction": "Keep Child Calm",
+          "concept": "Management",
+          "ui_prompt": "Child kept calm, no distress caused",
+          "note": "Agitation worsens airway obstruction - avoid BP, IV attempts",
+          "action_type": "toggle",
+          "target_field": "Management.kept_calm"
+        },
+        {
+          "step_order": 5,
+          "instruction": "Administer Dexamethasone",
+          "concept": "Management",
+          "ui_prompt": "Give oral dexamethasone if moderate/severe",
+          "note": "150mcg/kg (max 12mg) orally",
+          "action_type": "button_action",
+          "button_label": "Give Dexamethasone",
+          "target_field": "Drug Administration",
+          "prefill_data": {
+            "drugName": "Dexamethasone",
+            "route": "Oral",
+            "dose": "150mcg/kg"
+          }
+    }, 
+    {
+          "step_order": 6,
+          "instruction": "Position of Comfort",
+          "concept": "Management",
+          "ui_prompt": "Child in position of comfort (usually sitting up)",
+          "action_type": "toggle",
+          "target_field": "Patient Management.positioning"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_paediatric_burns",
+      "name": "Paediatric Burns",
+      "category": "Paediatric",
+      "triggers": ["child burn", "paediatric scald", "child thermal injury"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess Burn Surface Area",
+          "concept": "Assessment",
+          "ui_prompt": "Estimated % TBSA burned",
+          "note": "Use paediatric burn chart - child's palm = 1%",
+          "action_type": "input_number",
+          "target_field": "Extended.Burns.burn_percentage_tbsa",
+          "validation_warning": {
+            "threshold": ">10% in child",
+            "message": "MAJOR PAEDIATRIC BURN - >10% TBSA. Fluid resuscitation and time critical transfer."
+          }
+    }, 
+    {
+          "step_order": 2,
+          "instruction": "Assess Burn Depth",
+          "concept": "Assessment",
+          "ui_prompt": "Burn thickness",
+          "action_type": "dropdown",
+          "value_options": ["Superficial (red, painful)", "Partial thickness (blistering)", "Full thickness (white/charred, painless)"],
+          "target_field": "Burns.depth"
+        },
+        {
+          "step_order": 3,
+          "instruction": "Cool the Burn",
+          "concept": "Management",
+          "ui_prompt": "Burn cooled with running water 10-20 minutes",
+          "note": "Lukewarm water - avoid hypothermia in children",
+          "action_type": "toggle",
+          "target_field": "Burns.cooled"
+        },
+        {
+          "step_order": 4,
+          "instruction": "Cover with Cling Film",
+          "concept": "Management",
+          "ui_prompt": "Burn covered with cling film (lengthways)",
+          "action_type": "toggle",
+          "target_field": "Burns.dressed"
+        },
+        {
+          "step_order": 5,
+          "instruction": "Consider Non-Accidental Injury",
+          "concept": "Safeguarding",
+          "ui_prompt": "NAI concerns? (pattern, delay in presentation, inconsistent history)",
+          "action_type": "toggle",
+          "target_field": "Safeguarding.nai_concern",
+          "validation_warning": {
+            "trigger_value": true,
+            "message": "NON-ACCIDENTAL INJURY suspected - Safeguarding referral required."
+          }
+    }, 
+    {
+          "step_order": 6,
+          "instruction": "Analgesia",
+          "concept": "Management",
+          "ui_prompt": "Adequate analgesia provided",
+          "note": "Burns are extremely painful - titrate to effect",
+          "action_type": "button_action",
+          "button_label": "Record Analgesia",
+          "target_field": "Drug Administration"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_paediatric_sepsis",
+      "name": "Paediatric Sepsis",
+      "category": "Paediatric",
+      "triggers": ["child sepsis", "paediatric meningococcal", "child meningitis", "non-blanching rash child"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Check for Non-Blanching Rash",
+          "concept": "Critical Assessment",
+          "ui_prompt": "Non-blanching purpuric rash present?",
+          "note": "Glass test - rash does not fade under pressure",
+          "action_type": "toggle",
+          "target_field": "Assessment.non_blanching_rash",
+          "validation_warning": {
+            "trigger_value": true,
+            "message": "NON-BLANCHING RASH - Meningococcal septicaemia until proven otherwise. TIME CRITICAL."
+          }
+    }, 
+    {
+          "step_order": 2,
+          "instruction": "Assess for Sepsis Criteria",
+          "concept": "Assessment",
+          "ui_prompt": "Paediatric sepsis criteria met?",
+          "action_type": "multi_select",
+          "value_options": ["Altered mental state", "Tachycardia for age", "Prolonged capillary refill >2s", "Tachypnoea for age", "Fever >38.5 or Temp <36", "Hypotension"],
+          "target_field": "Assessment.sepsis_criteria"
+        },
+        {
+          "step_order": 3,
+          "instruction": "Check for Meningism",
+          "concept": "Assessment",
+          "ui_prompt": "Signs of meningitis?",
+          "action_type": "multi_select",
+          "value_options": ["Neck stiffness", "Photophobia", "Bulging fontanelle (infants)", "High-pitched cry", "None"],
+          "target_field": "Assessment.meningism"
+        },
+        {
+          "step_order": 4,
+          "instruction": "High-Flow Oxygen",
+          "concept": "Management",
+          "ui_prompt": "High-flow oxygen administered",
+          "action_type": "toggle",
+          "target_field": "Oxygen Administration",
+          "prefill_on_true": {
+            "device": "Paediatric non-rebreather",
+            "flowRate": "15L/min"
+          }
+    }, 
+    {
+          "step_order": 5,
+          "instruction": "IV/IO Access and Fluid Bolus",
+          "concept": "Management",
+          "ui_prompt": "IV/IO access and 20ml/kg fluid bolus given",
+          "note": "0.9% saline 20ml/kg over 10 minutes",
+          "action_type": "button_action",
+          "button_label": "Record IV Fluid Bolus",
+          "target_field": "Fluid Administration"
+        },
+        {
+          "step_order": 6,
+          "instruction": "Emergency Pre-Alert",
+          "concept": "Time Critical",
+          "ui_prompt": "Time-critical sepsis pre-alert sent",
+          "action_type": "toggle",
+          "target_field": "Incident.hospitalAlertSent"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_paediatric_respiratory_distress",
+      "name": "Paediatric Respiratory Distress",
+      "category": "Paediatric",
+      "triggers": ["child breathing difficulty", "paediatric dyspnoea", "child respiratory distress"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess Work of Breathing",
+          "concept": "Assessment",
+          "ui_prompt": "Signs of respiratory distress?",
+          "action_type": "multi_select",
+          "value_options": ["Nasal flaring", "Intercostal recession", "Subcostal recession", "Tracheal tug", "Head bobbing", "Grunting", "None"],
+          "target_field": "Assessment.respiratory_distress_signs"
+        },
+        {
+          "step_order": 2,
+          "instruction": "Check Respiratory Rate",
+          "concept": "Assessment",
+          "ui_prompt": "Respiratory rate (count for 30 seconds x2)",
+          "action_type": "input_number",
+          "target_field": "Respiratory Rate.value",
+          "validation_warning": {
+            "threshold": ">60 if <1yr, >50 if 1-5yr, >40 if >5yr",
+            "message": "TACHYPNOEA for age - severe respiratory distress."
+          }
+    }, 
+    {
+          "step_order": 3,
+          "instruction": "SpO2 Measurement",
+          "concept": "Assessment",
+          "ui_prompt": "Oxygen saturation",
+          "action_type": "input_number",
+          "target_field": "Pulse Oximetry.spO2",
+          "validation_warning": {
+            "threshold": "<92%",
+            "message": "HYPOXIA - High-flow oxygen required."
+          }
+    }, 
+    {
+          "step_order": 4,
+          "instruction": "Auscultate Chest",
+          "concept": "Assessment",
+          "ui_prompt": "Breath sounds",
+          "action_type": "multi_select",
+          "value_options": ["Wheeze", "Crackles", "Reduced air entry", "Stridor", "Normal", "Silent chest"],
+          "target_field": "Lung Fields.sounds"
+        },
+        {
+          "step_order": 5,
+          "instruction": "Administer Oxygen",
+          "concept": "Management",
+          "ui_prompt": "Oxygen therapy commenced",
+          "note": "Target SpO2 >94% in children (unless specific condition)",
+          "action_type": "toggle",
+          "target_field": "Oxygen Administration"
+        },
+        {
+          "step_order": 6,
+          "instruction": "Position of Comfort",
+          "concept": "Management",
+          "ui_prompt": "Child in position of comfort (usually upright)",
+          "action_type": "toggle",
+          "target_field": "Patient Management.positioning"
+        }
+      ]
+    },
+    {
+      "condition_id": "jrc_sickle_cell",
+      "name": "Sickle Cell Crisis",
+      "category": "Medical",
+      "triggers": ["sickle cell", "scd", "painful crisis", "severe pain", "limb pain"],
+      "ui_injection_target": "section_4",
+      "steps": [
+        {
+          "step_order": 1,
+          "instruction": "Assess Pain Severity",
+          "concept": "Assessment",
+          "ui_prompt": "Pain score (0-10)",
+          "action_type": "input_number",
+          "target_field": "Pain Assessment.score",
+          "validation_warning": {
+            "threshold": ">7",
+            "message": "SEVERE PAIN - Sickle cell crisis is ischaemic and agonizing. Prioritize analgesia."
+          }
+    }, 
+    {
+          "step_order": 2,
+          "instruction": "Administer Oxygen",
+          "concept": "Management",
+          "ui_prompt": "Administer Oxygen (Target SpO2 >95%)",
+          "note": "Hypoxia worsens sickling. Give O2 even if SpO2 is normal range but <95%",
+          "action_type": "toggle",
+          "target_field": "Oxygen Administration"
+        },
+        {
+          "step_order": 3,
+          "instruction": "Strong Analgesia (Entonox)",
+          "concept": "Management",
+          "ui_prompt": "Administer Entonox immediately",
+          "action_type": "button_action",
+          "button_label": "Record Entonox",
+          "target_field": "Drug Administration"
+        },
+        {
+          "step_order": 4,
+          "instruction": "Keep Patient Warm",
+          "concept": "Management",
+          "ui_prompt": "Patient kept warm (blankets/heating)?",
+          "note": "Cold triggers worsening crisis",
+          "action_type": "toggle",
+          "target_field": "Management.warming_measures"
+        }
+      ]
+    }
+  ]
+}

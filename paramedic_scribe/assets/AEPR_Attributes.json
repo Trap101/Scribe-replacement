@@ -1,0 +1,1501 @@
+{
+  "AEPR_Standard_v1.0": {
+    "AVPU Assessment": {
+      "AVPUScale": {
+        "id": 1,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Alert", "Voice", "Pain", "Unresponsive"],
+        "description": "Consciousness Assessment (Alert, Voice, Pain, Unresponsive) [cite: 3025]"
+      }
+    },
+    "Airway Adjunct": {
+      "type": {
+        "id": 2,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Oropharangeal (OP) Airway", "Nasopharyngeal (NP) Airway", "Other"],
+        "description": "Type of adjunct used [cite: 3069]"
+      },
+      "outcome": {
+        "id": 3,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Outcome from the attempted use of an airway adjunct [cite: 3072]"
+      }
+    },
+    "Airway Assessment": {
+      "airwayStatus": {
+        "id": 4,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Clear", "Obstructed - Food", "Obstructed - Foreign Object", "Obstructed - Tongue", "Part. Obstructed - Food", "Part. Obstructed - Foreign Object", "Part. Obstructed - Tongue", "Part. Obstructed - Blood", "Vomit in airway", "Tracheostomy: Clear", "Tracheostomy: Blocked"],
+        "description": "The status of a patient's airway [cite: 3078]"
+      },
+      "selfMaintain": {
+        "id": 5,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Normal", "Maintainable", "Not Maintainable"],
+        "description": "The patients ability to maintain their airway [cite: 3078]"
+      }
+    },
+    "Blood Glucose": {
+      "bloodGlucose": {
+        "id": 6,
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "BM Reading: Blood sugar reading in mmol/L or mg/dL [cite: 3097]"
+      }
+    },
+    "Blood Pressure": {
+      "systolicBP": {
+        "id": 7,
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "Observed systolic blood pressure [cite: 3110]"
+      },
+      "diastolicBP": {
+        "id": 8,
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "Observed diastolic blood pressure [cite: 3112]"
+      }
+    },
+    "Body Fluid IO": {
+      "fluidIO": {
+        "id": 9,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Input", "Output"],
+        "description": "To indicate whether this is fluid intake or expulsion [cite: 3131]"
+      },
+      "fluidType": {
+        "id": 10,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Blood", "Emesis", "Urine"],
+        "description": "To indicate the type of fluid [cite: 3134]"
+      },
+      "fluidVolume": {
+        "id": 11,
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "To indicate the volume of fluid [cite: 3139]"
+      }
+    },
+    "Body Temperature": {
+      "value": {
+        "id": 12,
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "The recorded body temperature in degrees Celsius or Fahrenheit [cite: 3152]"
+      },
+      "site": {
+        "id": 13,
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "values": ["Oral", "Rectal", "Axillary", "Tympanic"],
+        "description": "The body site where temperature was taken [cite: 3155]"
+      }
+    },
+    "Breathing Assessment": {
+      "respiratoryRate": {
+        "id": 14,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Fast", "Normal", "Slow"],
+        "description": "An assessment of the Patient's respiratory rate [cite: 3165]"
+      },
+      "respiratorySigns": {
+        "id": 15,
+        "type": "Local List",
+        "cardinality": "1..0",
+        "description": "Needs definition in system [cite: 3179]"
+      },
+      "respiratoryEffort": {
+        "id": 16,
+        "type": "Local List",
+        "cardinality": "1..0",
+        "values": ["Shallow", "Normal", "Retractive"],
+        "description": "Respiratory effort of the patient [cite: 3168]"
+      },
+      "respiratoryDepth": {
+        "id": 17,
+        "type": "Local List",
+        "cardinality": "1..0",
+        "description": "The amplitude of each respiratory movement [cite: 3170]"
+      }
+    },
+    "Burn": {
+      "burnSeverity": {
+        "id": 18,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Full thickness", "Partial Thickness", "Superficial", "Pertinent Negative"],
+        "description": "Severity of burn [cite: 3199]"
+      }
+    },
+    "Cannulation": {
+      "size": {
+        "id": 19,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "Size of cannula [cite: 3214]"
+      },
+      "side": {
+        "id": 20,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Left", "Right"],
+        "description": "The side cannulation was attempted [cite: 3214]"
+      },
+      "site": {
+        "id": 21,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["ACF", "Central Line", "External jugular", "Femoral", "Forearm", "Hand", "Intraosseous", "Lower extremity", "Wrist", "Other"],
+        "description": "The site cannulation was attempted [cite: 3214]"
+      },
+      "outcome": {
+        "id": 22,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Outcome of the cannulation procedure [cite: 3214]"
+      },
+      "attempts": {
+        "id": 23,
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "length": 2,
+        "description": "The number of cannulation attempts [cite: 3214]"
+      }
+    },
+    "Cardiac": {
+      "chestPainOnsetDate": {
+        "id": 24,
+        "type": "Date",
+        "cardinality": "1..0",
+        "description": "Date of onset of symptoms [cite: 3223]"
+      },
+      "chestPainOnsetTime": {
+        "id": 25,
+        "type": "Time",
+        "cardinality": "1..0",
+        "description": "Time of onset of symptoms [cite: 3223]"
+      },
+      "cardiacArrest": {
+        "id": 26,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["No", "Yes Prior to 999 Arrival", "Yes After 999 Arrival"],
+        "description": "Cardiac Arrest/Arrest Occurrence [cite: 3223]"
+      },
+      "estimatedArrestTime": {
+        "id": 27,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["0-2 mins", "2-4 mins", "4-6 mins", "6-8 mins", "8-10 mins", "10-15 mins", "15-20 mins", "20 minutes", "Not Available", "Not Known", "Other"],
+        "description": "Estimated time of arrest prior to arrival [cite: 3223]"
+      },
+      "witness": {
+        "id": 28,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Witnessed by Ambulance Clinicians", "Witnessed by Community Responders", "Bystander Witness", "Not Witnessed", "Other"],
+        "description": "Witnessed arrests [cite: 3223]"
+      }
+    },
+    "Cardiopulmonary Resuscitation": {
+      "resuscitationAttempted": {
+        "id": 29,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Resuscitation Attempted - Ambulance Crew", "Resuscitation Attempted - Bystander", "Mechanically Assisted Cardiac Compressions", "Not Attempted - Obvious Signs of Death", "Not Attempted - DNR", "Not Attempted - Signs of Circulation", "Other"],
+        "description": "Information about whether resuscitation was attempted [cite: 3232]"
+      },
+      "returnSpontaneousCirculation": {
+        "id": 30,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["No ROSC achieved", "ROSC on arrival at hospital", "ROSC at any time"],
+        "description": "Return of any spontaneous palpable pulse [cite: 3239]"
+      },
+      "CPRStart": {
+        "id": 31,
+        "type": "Time",
+        "cardinality": "1..0",
+        "description": "The time of first CPR attempts [cite: 3239]"
+      },
+      "CPRStop": {
+        "id": 32,
+        "type": "Time",
+        "cardinality": "1..0",
+        "description": "The time where CPR attempts ceased [cite: 3239]"
+      },
+      "effortsCeased": {
+        "id": 33,
+        "type": "Local List",
+        "cardinality": "1..0",
+        "values": ["DNAR", "Medical Control Order", "Obvious Signs of Death", "ROSC", "Other", "Protocol / Policy Requirements Completed", "Care Transferred to Hospital", "Not Known (Bystander CPR)"],
+        "description": "Reason for stopping [cite: 3239]"
+      }
+    },
+    "Care Professional": {
+      "role": {
+        "id": 34,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Trust Crew", "Trust ECP", "Trust First Responder", "Trust Other", "Non-Trust GP", "Non-Trust Community Responder", "Non-Trust Other"],
+        "description": "Role of the first health care provider on scene [cite: 3245]"
+      },
+      "skillLevel": {
+        "id": 35,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["BASICS", "Bystander", "Community First Responder", "Community Paramedic", "Emergency Care Practitioner", "Fire/Rescue", "GP", "Medical Team", "Paramedic", "Police", "Technician", "Other"],
+        "description": "Highest skill level available to the patient [cite: 3245]"
+      },
+      "name": {
+        "id": 36,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Name of the healthcare professional [cite: 3249]"
+      },
+      "id": {
+        "id": 37,
+        "type": "Alphanumeric",
+        "cardinality": "1..0",
+        "description": "The persons id where known/appropriate [cite: 3252]"
+      }
+    },
+    "Chief Complaint": {
+      "presentingComplaint": {
+        "id": 38,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Cerebral", "Respiratory", "Cardiac", "Abdominal", "Endocrine", "Obstetrics", "Miscellaneous (including psychiatric)", "Trauma: Mechanical", "Trauma: NonMecahnical"],
+        "description": "The Primary patient problem identified [cite: 3272]"
+      },
+      "assessmentTime": {
+        "id": 39,
+        "type": "Time",
+        "cardinality": "1..1",
+        "description": "Time that the care professional conducted the assessment [cite: 3289]"
+      },
+      "additionalInformation": {
+        "id": 40,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Packets/containers of meds, Medic alert jewellery, Warning Stickers [cite: 3291]"
+      },
+      "pastMedicalHistory": {
+        "id": 41,
+        "type": "Alphanumeric",
+        "cardinality": "1..0",
+        "description": "The relevant past medical history of the patient [cite: 3307]"
+      },
+      "socialAndFamiliyHistory": {
+        "id": 42,
+        "type": "Alphanumeric",
+        "cardinality": "1..0",
+        "description": "The relevant family and social history of the patient [cite: 3312]"
+      }
+    },
+    "Circulatory Assessment": {
+      "pulseSite": {
+        "id": 43,
+        "type": "Local List",
+        "cardinality": "1..0",
+        "values": ["Left Radial", "Left Brachial", "Left Carotid", "Left Femoral", "Right Radial", "Right Brachial", "Right Carotid", "Right Femoral", "Other"],
+        "description": "Site Pulse rate was taken [cite: 3319]"
+      },
+      "pulseRate": {
+        "id": 44,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Normal", "Rapid", "Slow", "Absent", "Other"],
+        "description": "Pulse rate [cite: 3319]"
+      },
+      "pulseRhythm": {
+        "id": 45,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Regular", "Irregular", "Other"],
+        "description": "Pulse rate rhythm [cite: 3319]"
+      },
+      "pulseStrength": {
+        "id": 46,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Strong", "Weak", "Bounding", "Absent", "Other"],
+        "description": "Pulse rate strength [cite: 3323]"
+      },
+      "capillaryRefill": {
+        "id": 47,
+        "type": "Local List",
+        "cardinality": "1..0",
+        "values": ["Less than 2 seconds", "More than 2 seconds"],
+        "description": "<2 sec Yes/No [cite: 3323]"
+      }
+    },
+    "Crew": {
+      "crewPin": {
+        "id": 48,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Payroll / Personnel number [cite: 3329]"
+      }
+    },
+    "Current Medication": {
+      "name": {
+        "id": 49,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "Name of the Drug or Medication [cite: 3343]"
+      },
+      "dosage": {
+        "id": 50,
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "Dosage of the Drug or Medication [cite: 3343]"
+      },
+      "frequency": {
+        "id": 51,
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "Prescribed frequency [cite: 3343]"
+      },
+      "compliance": {
+        "id": 52,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Yes", "No", "Unknown"],
+        "description": "Extent to which patient has complied with regime [cite: 3343]"
+      },
+      "comments": {
+        "id": 53,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Additional comments [cite: 3347]"
+      }
+    },
+    "Defib Shock": {
+      "type": {
+        "id": 54,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Defibrillation", "Cardioversion", "Pacing", "Precordial Thump"],
+        "description": "The type of shock administered [cite: 3368]"
+      },
+      "energy": {
+        "id": 55,
+        "type": "Local List",
+        "cardinality": "1..0",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "Energy options for the defibrillation shock (Joules) [cite: 3371]"
+      },
+      "energyForm": {
+        "id": 56,
+        "type": "Local List",
+        "cardinality": "1..0",
+        "values": ["Monophasic", "Biphasic"],
+        "description": "Energy waveform [cite: 3374]"
+      },
+      "pacingType": {
+        "id": 57,
+        "type": "Local List",
+        "cardinality": "1..0",
+        "values": ["Transcutaneous", "Transvenous"],
+        "description": "Pacing options for the defibrillator [cite: 3376]"
+      }
+    },
+    "Defibrillation": {
+      "defibrillationAttempted": {
+        "id": 58,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Yes", "No"],
+        "description": "To indicate whether defibrillation was attempted [cite: 3399]"
+      },
+      "attempts": {
+        "id": 59,
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "length": 2,
+        "description": "Total number of shocks administered [cite: 3399]"
+      }
+    },
+    "Dispatch": {
+      "dispatchTime": {
+        "id": 60,
+        "type": "Time",
+        "cardinality": "1..1",
+        "description": "The time at which the dispatch was notified [cite: 3405]"
+      },
+      "ambulanceArrivalTime": {
+        "id": 61,
+        "type": "Time",
+        "cardinality": "1..1",
+        "description": "Time Emergency Ambulance arrives at destination [cite: 3408]"
+      },
+      "responseMobileTime": {
+        "id": 62,
+        "type": "Time",
+        "cardinality": "1..1",
+        "description": "Moment when emergency response vehicle begins to move [cite: 3411]"
+      }
+    },
+    "Disposition": {
+      "destinationType": {
+        "id": 63,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Emergency Department", "Direct Admission", "GP", "Home", "Medical Assessment Unit", "Minor Injury Unit", "Non-NHS facility", "Treated at Scene"],
+        "description": "Destination Type [cite: 3428]"
+      },
+      "destinationHealthcareProvider": {
+        "id": 64,
+        "type": "Alphanumeric",
+        "cardinality": "1..0",
+        "description": "The healthcare facility to which the patient was transported [cite: 3434]"
+      },
+      "CPROngoing": {
+        "id": 65,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Yes", "No"],
+        "description": "To indicate whether CPR was ongoing on Patient Handover [cite: 3434]"
+      },
+      "recipientGrade": {
+        "id": 66,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Recipient Grade [cite: 3434]"
+      },
+      "recipientName": {
+        "id": 67,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Recipient Name [cite: 3434]"
+      },
+      "arrivalTime": {
+        "id": 68,
+        "type": "Time",
+        "cardinality": "1..1",
+        "description": "Arrival time at the healthcare provider [cite: 3434]"
+      },
+      "arrivalDate": {
+        "id": 69,
+        "type": "Date",
+        "cardinality": "1..1",
+        "description": "Arrival date at the healthcare provider [cite: 3434]"
+      },
+      "handoverDate": {
+        "id": 70,
+        "type": "Date",
+        "cardinality": "1..1",
+        "description": "Date of handover [cite: 3434]"
+      },
+      "handoverTime": {
+        "id": 71,
+        "type": "Time",
+        "cardinality": "1..1",
+        "description": "Time of handover [cite: 3434]"
+      }
+    },
+    "Drug Administration": {
+      "name": {
+        "id": 72,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE", "All drugs captured as SNOMED"],
+        "description": "Names of drugs administered [cite: 3448]"
+      },
+      "route": {
+        "id": 73,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Endo Tracheal", "Inhaled", "Intra Nasal", "Intraosseous", "Intra Venous", "Intra Muscular", "Nebulised", "Oral", "Rectal", "Sub Lingual/Buccal", "Sub Cutaneous", "Topical", "Other"],
+        "description": "Drug administered intravenously or via endotracheal tube etc [cite: 3448]"
+      },
+      "dosage": {
+        "id": 74,
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "Dosage of the drug given (mg, g, l/min, mcg, etc) [cite: 3448]"
+      },
+      "batchNumber": {
+        "id": 75,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Drug batch number [cite: 3448]"
+      },
+      "effect": {
+        "id": 76,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "A statement as to the effect or non effect [cite: 3448]"
+      }
+    },
+    "ECG Interpretation": {
+      "rhythm": {
+        "id": 77,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Sinus rhythm", "Sinus Arrhythmia", "Sinus bradycardia", "Sinus Tachycardia", "Supraventricular Tachycardia (SVT)", "PSVT", "Atrial Fibrillation (A-Fib)", "Atrial Flutter (A-Flutter)", "1 Degree Block", "2 Degree Block Type I", "2 Degree Block Type II", "3 Degree Block", "Junctional Escape", "Accelerated Junctional", "Junctional Tachycardia", "Ventricular Escape", "Ventricular Fibrillation (V-Fib)", "Ventricular Tachycardia (V-Tach)", "Run of V-Tach", "Asystole", "Pacemaker", "Other"],
+        "description": "The underlying cardiac rhythm [cite: 3461]"
+      },
+      "ectopy": {
+        "id": 78,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["PVCs unifocal", "PVCs-multifocal", "PACS", "PJCS", "Other"],
+        "description": "Disturbance to the cardiac rhythm [cite: 3461]"
+      },
+      "leadType": {
+        "id": 79,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["3", "12", "15", "18"],
+        "description": "Number of leads the ECG device has [cite: 3461]"
+      },
+      "abnomality": {
+        "id": 80,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Non-Diagnostic", "ST Elevation", "MI - Inferior", "MI - Anterior", "LBBB", "RBBB", "MI - Lateral", "ST Depression", "T Wave Inversion", "MI - Posterior", "Other"],
+        "description": "Noted ECG waveform abnormalities [cite: 3461]"
+      },
+      "interpretationTime": {
+        "id": 81,
+        "type": "Time",
+        "cardinality": "1..1",
+        "description": "Time at which interpretation was made [cite: 3461]"
+      }
+    },
+    "Educational Establishment": {
+      "relationship": {
+        "id": 82,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Carer", "Headmaster", "Lecturer", "Teacher", "School Nurse", "Other"],
+        "description": "The carer's relationship to the Education Facility [cite: 3470]"
+      },
+      "orgName": {
+        "id": 83,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "The name of the Education Facility [cite: 3473]"
+      },
+      "orgAddress": {
+        "id": 84,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "The address of the Education Facility [cite: 3476]"
+      }
+    },
+    "FAST Assessment": {
+      "face": {
+        "id": 85,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Abnormal", "Normal"],
+        "description": "Test for facial weakness [cite: 3500]"
+      },
+      "arm": {
+        "id": 86,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Abnormal", "Normal"],
+        "description": "Test for arm motor weakness [cite: 3511]"
+      },
+      "speech": {
+        "id": 87,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Abnormal", "Normal"],
+        "description": "Test for slurring or difficulty with words [cite: 3517]"
+      },
+      "conclusion": {
+        "id": 88,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Negative", "Non-conclusive", "Positive", "Not Available"],
+        "description": "The observed conclusion of the FAST test [cite: 3520]"
+      }
+    },
+    "Fall": {
+      "FallFromHeight": {
+        "id": 89,
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "Distance fallen in metres [cite: 3535]"
+      }
+    },
+    "Falls Assessment": {
+      "assessed": {
+        "id": 90,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Yes", "No"],
+        "description": "Indicator to show whether a Falls assessment has been completed [cite: 3549]"
+      }
+    },
+    "GPS Coordinates": {
+      "latitude": {
+        "id": 91,
+        "type": "Coordinate",
+        "cardinality": "1..1",
+        "description": "Latitude [cite: 3562]"
+      },
+      "longitude": {
+        "id": 92,
+        "type": "Coordinate",
+        "cardinality": "1..1",
+        "description": "Longitude [cite: 3564]"
+      }
+    },
+    "Glasgow Coma Scale": {
+      "GCSItem": {
+        "id": 93,
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "length": 1,
+        "description": "Item assessed (Eyes, Motor, Verbal) score range 1-6 [cite: 3579]"
+      },
+      "GCSScore": {
+        "id": 94,
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "length": 1,
+        "description": "Score [cite: 3582]"
+      },
+      "GCSTotal": {
+        "id": 95,
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "length": 2,
+        "description": "The total score [cite: 3585]"
+      }
+    },
+    "Immobilisation": {
+      "location": {
+        "id": 96,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "The body location immobilised [cite: 3616]"
+      },
+      "type": {
+        "id": 97,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Vacuum splint", "Sling", "Inflatable splint", "Traction splint", "Frac Straps", "Box splint", "C Spine Collar", "Spine board", "Extrication Device", "Pelvic splint", "Other"],
+        "description": "The type of device used [cite: 3616]"
+      }
+    },
+    "Incident": {
+      "transportRequestIncidentNumber": {
+        "id": 98,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "A unique identifier for a TRANSPORT REQUEST INCIDENT [cite: 3618]"
+      },
+      "incidentTime": {
+        "id": 99,
+        "type": "Time",
+        "cardinality": "1..1",
+        "description": "Time of incident [cite: 3618]"
+      },
+      "incidentDate": {
+        "id": 100,
+        "type": "Date",
+        "cardinality": "1..1",
+        "description": "Date of incident [cite: 3618]"
+      },
+      "reportedCondition": {
+        "id": 101,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "The reported clinical condition (e.g. conscious/breathing) [cite: 3618]"
+      },
+      "transportRequestCallConnectTime": {
+        "id": 102,
+        "type": "Time",
+        "cardinality": "1..0",
+        "description": "The start time ('Call Connect') [cite: 3618]"
+      },
+      "transportRequestCallType": {
+        "id": 103,
+        "type": "Local List",
+        "cardinality": "1..0",
+        "values": ["Called GP who saw patient before calling EMS", "Called GP who called EMS before seeing patient", "Called 999", "Called NHS Direct", "Called Local Helpline", "Called GP and told to make own way to hospital", "Called GP who told patient to call EMS", "Resuscitation attempted or ceased", "Not Known"],
+        "description": "Category of initial call for help [cite: 3621]"
+      },
+      "timeLeftScene": {
+        "id": 104,
+        "type": "Time",
+        "cardinality": "1..1",
+        "description": "The time of the crew leave the scene [cite: 3621]"
+      }
+    },
+    "Injury": {
+      "activity": {
+        "id": 105,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "The type of activity that played a role in the patient's injury [cite: 3652]"
+      },
+      "bodyLocation": {
+        "id": 106,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Multiple", "Head/neck / face", "Spinal/spinal column", "Chest", "Abdominal/pelvic", "Upper limbs", "Lower limbs", "Back", "Other", "Unknown"],
+        "description": "Area of body suffering trauma [cite: 3655]"
+      },
+      "locationType": {
+        "id": 107,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Home", "Works/Industrial", "Public Place", "Leisure Facility", "Healthcare Facility", "Farm", "Water's Edge", "Road/Pavement", "Other"],
+        "description": "Type of location where the injury occured [cite: 3657]"
+      },
+      "safetyEquipmentUsed": {
+        "id": 108,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["None", "Air Bag Deployed", "Seat Belts", "Child Safety Seat", "Correctly adjusted head rests", "Eye protection", "Helmet", "Other Protective Gear", "Personal Flotation Device", "Protective Clothing", "Not Recorded / Undetermined"],
+        "description": "Safety equipment used by patient [cite: 3681]"
+      }
+    },
+    "Intervention": {
+      "interventionType": {
+        "id": 109,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "The type of intervention administered [cite: 3705]"
+      },
+      "interventionTime": {
+        "id": 110,
+        "type": "Time",
+        "cardinality": "1..1",
+        "description": "The time of intervention [cite: 3712]"
+      },
+      "interventionComment": {
+        "id": 111,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Additional comments [cite: 3714]"
+      },
+      "interventionBy": {
+        "id": 112,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "The healthcare professional that conducted the intervention [cite: 3716]"
+      }
+    },
+    "Intubation": {
+      "type": {
+        "id": 113,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Endotracheal (ET)", "Oesophageal tracheal combitube (OTC)", "LMA", "Other"],
+        "description": "Type of Intubation [cite: 3743]"
+      },
+      "technique": {
+        "id": 114,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Standard laryngoscopy", "Bougie", "Digital", "Medication facilitated", "Bougie and Medication facilitated", "Other"],
+        "description": "Intubation Technique [cite: 3746]"
+      },
+      "outcome": {
+        "id": 115,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Result of attempted Intubation [cite: 3748]"
+      }
+    },
+    "Known Allergy": {
+      "type": {
+        "id": 116,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "The patient allergy as reported by the patient [cite: 3756]"
+      }
+    },
+    "Life Extinct": {
+      "deathConfirmed": {
+        "id": 117,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Yes", "No"],
+        "description": "Confirmation of death [cite: 3783]"
+      },
+      "personRole": {
+        "id": 118,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Crew", "Doctor", "Nurse", "Other Healthcare Professional", "Other"],
+        "description": "The role of the person who confirmed life extinct [cite: 3785]"
+      },
+      "personName": {
+        "id": 119,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "The name of the person who confirmed life extinct [cite: 3795]"
+      },
+      "reasonNotSigned": {
+        "id": 120,
+        "type": "Local List",
+        "cardinality": "1..0",
+        "values": ["Unavailable", "Refused", "Other"],
+        "description": "The reason why the confirmation was not signed [cite: 3797]"
+      }
+    },
+    "Lung Fields": {
+      "soundDetails": {
+        "id": 121,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Description of the sound [cite: 3811]"
+      },
+      "lungLocation": {
+        "id": 122,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Top (apical)", "Middle", "Bottom"],
+        "description": "Location in the patient's lungs [cite: 3813]"
+      }
+    },
+    "Mechanism of Injury": {
+      "injuryMechanism": {
+        "id": 123,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "The mechanism of injury experienced by the patient [cite: 3829]"
+      }
+    },
+    "Observation": {
+      "observationTime": {
+        "id": 124,
+        "type": "Time",
+        "cardinality": "1..1",
+        "description": "The time that an observation was made [cite: 3842]"
+      },
+      "observer": {
+        "id": 125,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "The healthcare professional who undertook the observation [cite: 3842]"
+      },
+      "observationComments": {
+        "id": 126,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Comments associated with a particular observation [cite: 3842]"
+      },
+      "observationType": {
+        "id": 127,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "The type of clinical observation made [cite: 3842]"
+      }
+    },
+    "Oxygen Administration": {
+      "02%": {
+        "id": 128,
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "length": 2,
+        "description": "Flow rate l/min [cite: 3855]"
+      },
+      "type": {
+        "id": 129,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Nasal cannula", "Non-rebreather", "Venturi", "BVM", "Other"],
+        "description": "The means by which oxygen is administered [cite: 3867]"
+      }
+    },
+    "Pain Assessment": {
+      "score": {
+        "id": 130,
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "length": 2,
+        "description": "Pain score on a scale of 0-10 [cite: 3883]"
+      },
+      "location": {
+        "id": 131,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "Location and radiation of the pain [cite: 3883]"
+      },
+      "nature": {
+        "id": 132,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "The nature of the pain [cite: 3883]"
+      },
+      "duration": {
+        "id": 133,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "The duration of the pain [cite: 3883]"
+      }
+    },
+    "Patient": {
+      "patientIdentifier": {
+        "id": 134,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "length": 50,
+        "description": "Unique identifier separate from NHS Number [cite: 3892]"
+      }
+    },
+    "Patient Details": {
+      "NHSNumber": {
+        "id": 135,
+        "type": "Numeric",
+        "cardinality": "1..0",
+        "length": 10,
+        "description": "Patient NHS Number [cite: 3904]"
+      },
+      "age": {
+        "id": 136,
+        "type": "Numeric",
+        "cardinality": "1..0",
+        "length": 3,
+        "description": "Age of patient [cite: 3904]"
+      },
+      "dateOfBirth": {
+        "id": 137,
+        "type": "Alphanumeric",
+        "cardinality": "1..0",
+        "length": 10,
+        "description": "ccyy-mm-dd [cite: 3904]"
+      },
+      "familyName": {
+        "id": 138,
+        "type": "Alphanumeric",
+        "cardinality": "1..0",
+        "length": 35,
+        "description": "Surname (e-GIF standard) [cite: 3904]"
+      },
+      "givenName": {
+        "id": 139,
+        "type": "Alphanumeric",
+        "cardinality": "1..0",
+        "length": 35,
+        "description": "Forename (e-GIF standard) [cite: 3904]"
+      },
+      "title": {
+        "id": 140,
+        "type": "Alphanumeric",
+        "cardinality": "1..0",
+        "length": 35,
+        "description": "Person Title [cite: 3904]"
+      },
+      "ethnicGroup": {
+        "id": 141,
+        "type": "Alphanumeric",
+        "cardinality": "1..0",
+        "length": 2,
+        "values": ["A - British", "B - Irish", "C - Any other White background", "D - White and Black Caribbean", "E - White and Black African", "F - White and Asian", "G - Any other mixed background", "H - Indian", "J - Pakistani", "K - Bangladeshi", "L - Any other Asian background", "M - Caribbean", "N - African", "P - Any other Black background", "R - Chinese", "S - Any other ethnic group", "Z - Not stated"],
+        "description": "2001 Census Ethnic Category [cite: 3907]"
+      },
+      "religiousAffiliation": {
+        "id": 142,
+        "type": "Alphanumeric",
+        "cardinality": "1..0",
+        "length": 4,
+        "values": ["A1", "B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8", "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "C10", "C11", "C12", "C13", "C14", "C15", "C16", "C17", "C18", "C19", "C20", "C21", "C22", "C23", "C24", "C25", "C26", "C27", "C28", "C29", "C30", "C31", "C32", "C33", "C34", "C35", "C36", "C37", "C38", "C39", "C40", "C41", "C42", "C43", "C44", "C45", "C46", "C47", "C48", "C49", "C50", "C51", "C52", "C53", "C54", "C55", "C56", "C57", "C58", "C59", "C60", "C61", "C62", "C63", "C64", "C65", "C66", "C67", "C68", "C69", "C70", "C71", "C72", "C73", "C74", "C75", "C76", "C77", "C78", "C79", "C80", "D1", "D2", "D3", "D4", "D5", "D6", "E1", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "G1", "G2", "G3", "G4", "G5", "G6", "H1", "H2", "H3", "H4", "H5", "H6", "H7", "H8", "H9", "I1", "J1", "K1", "K2", "K3", "K4", "K5", "K6", "K7", "K8", "K9", "K10", "K11", "K12", "K13", "K14", "K15", "K16", "K17", "K18", "K19", "K20", "K21", "K22", "K23", "K24", "K25", "K26", "K27", "K28", "K29", "K30", "K31", "K32", "K33", "L1", "L2", "M1", "N1"],
+        "description": "Religious or Other Belief System Affiliation (Full code list in text) [cite: 3907-4163]"
+      },
+      "sexualOrientation": {
+        "id": 143,
+        "type": "Alphanumeric",
+        "cardinality": "1..0",
+        "length": 1,
+        "values": ["1 (Heterosexual)", "2 (Homosexual)", "3 (Bi-sexual)", "4 (Does not know/unsure)", "Z (Not Stated)"],
+        "description": "Sexual Orientation of a patient [cite: 4163]"
+      },
+      "sex": {
+        "id": 144,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "length": 1,
+        "values": ["0 (Not Known)", "1 (Male)", "2 (Female)", "9 (Not Specified/Indeterminate)"],
+        "description": "Phenotypical sex [cite: 4166]"
+      }
+    },
+    "Patient Management": {
+      "Impressions": {
+        "id": 145,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "Descriptive of the condition the patient is being treated for [cite: 4176]"
+      },
+      "Time at Patient's Side": {
+        "id": 146,
+        "type": "Time",
+        "cardinality": "1..1",
+        "description": "Time at Patient's Side [cite: 4190]"
+      }
+    },
+    "Provider Availability": {
+      "firstChoice": {
+        "id": 147,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Yes", "No"],
+        "description": "To indicate whether the first choice provider was available [cite: 4209]"
+      },
+      "reason": {
+        "id": 148,
+        "type": "Alphanumeric",
+        "cardinality": "1..0",
+        "description": "Reason why first choice was unavailable [cite: 4212]"
+      },
+      "type": {
+        "id": 149,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Other Primary Care facility", "Other Secondary Care facility", "Walk in Centre", "Other"],
+        "description": "The type of first choice provider that was unavailable [cite: 4215]"
+      }
+    },
+    "Pulse Oximetry": {
+      "SpO2 reading": {
+        "id": 150,
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "length": 2,
+        "description": "Oxygen saturation [cite: 4239]"
+      }
+    },
+    "Pupil Assessment": {
+      "eye": {
+        "id": 151,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["0=Left", "1=Right"],
+        "description": "Determines whether the left or right eye pupil is being assessed [cite: 4250]"
+      },
+      "pupilDilation": {
+        "id": 152,
+        "type": "Numeric",
+        "cardinality": "1..0",
+        "description": "Numeric field [cite: 4253]"
+      },
+      "pupilReaction": {
+        "id": 153,
+        "type": "Local List",
+        "cardinality": "1..0",
+        "values": ["Brisk", "Sluggish", "Fixed"],
+        "description": "Pupil reaction [cite: 4262]"
+      },
+      "pupilEquality": {
+        "id": 154,
+        "type": "Local List",
+        "cardinality": "1..0",
+        "values": ["Normal", "Constricted", "Dilated", "Blind", "Cataract", "Contact Lenses", "Glass Eye"],
+        "description": "Pupil Equality [cite: 4262]"
+      }
+    },
+    "Refuse Treatment": {
+      "refusalType": {
+        "id": 155,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Refuse Treatment", "Refuse Transport"],
+        "description": "The type of refusal [cite: 4269]"
+      },
+      "signedBy": {
+        "id": 156,
+        "type": "Alphanumeric",
+        "cardinality": "1..0",
+        "description": "The name of the person who signed the refusal statement [cite: 4272]"
+      },
+      "signedByRole": {
+        "id": 157,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Crew", "Named Patient", "Carer", "Child", "Employee", "Father", "Mother", "Partner", "Spouse", "GrandParent", "Grandchild", "Patient Advocate", "Other Relative", "Other"],
+        "description": "The role of the person who signed [cite: 4275]"
+      },
+      "unableReason": {
+        "id": 158,
+        "type": "Local List",
+        "cardinality": "1..0",
+        "values": ["Unavailable", "Unconscious", "Refused", "Patient Condition", "Other"],
+        "description": "The reason why the refusal statement could not be signed [cite: 4290]"
+      }
+    },
+    "Respiratory Resistance": {
+      "peakFlowReading": {
+        "id": 159,
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "Measured by a Peak Flow Meter (ltrs/min) [cite: 4311]"
+      }
+    },
+    "Respiratory Support": {
+      "type": {
+        "id": 160,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Not specified", "Breathing Mask", "Mouth-to-mouth", "Endotracheal Intubation", "Laryngeal Mask", "Other"],
+        "description": "Type of respiratory support [cite: 4320]"
+      },
+      "outcome": {
+        "id": 161,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "The outcome from giving respiratory support [cite: 4320]"
+      }
+    },
+    "Road Vehicle": {
+      "Counterpart to crash": {
+        "id": 162,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "Other vehicles involved in road traffic collision [cite: 4329]"
+      },
+      "Occupant Position": {
+        "id": 163,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "Patient occupancy in vehicle [cite: 4331]"
+      },
+      "Patient ejected from vehicle": {
+        "id": 164,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "Information on whether the patient was ejected [cite: 4338]"
+      },
+      "Vehicle Type": {
+        "id": 165,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "Vehicle patient was in/on [cite: 4340]"
+      }
+    },
+    "Skin Assessment": {
+      "colour": {
+        "id": 166,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Normal", "Cyanosed", "Flushed", "Jaundice", "Mottling", "Pallor (decrease in colour)", "Rash", "Other"],
+        "description": "Observations about changes to normal skin colour [cite: 4354]"
+      },
+      "temperature": {
+        "id": 167,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Normal", "Warm", "Cool", "Hot", "Cold", "Other"],
+        "description": "Skin temperature [cite: 4354]"
+      },
+      "location": {
+        "id": 168,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "body location relating to the observation [cite: 4354]"
+      }
+    },
+    "Spine": {
+      "status": {
+        "id": 169,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Suspected", "Cleared"],
+        "description": "Indicator as to whether the healthcare professional suspect the patient has received a spine injury [cite: 4361]"
+      }
+    },
+    "Structured Address": {
+      "ADDRESS PREFIX": {
+        "id": 170,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "eg. 'Ward 12' [cite: 3485]"
+      },
+      "BUILDING NAME": {
+        "id": 171,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Name of building [cite: 4393]"
+      },
+      "BUILDING NUMBER": {
+        "id": 172,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Number of building [cite: 4396]"
+      },
+      "DEPENDENT LOCALITY": {
+        "id": 173,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Name of dependent locality [cite: 4399]"
+      },
+      "DEPENDENT STREET OR ROAD NAME": {
+        "id": 174,
+        "type": "Alphanumeric",
+        "cardinality": "1..0",
+        "description": "Dependent street name [cite: 4402]"
+      },
+      "DOUBLE DEPENDENT LOCALITY": {
+        "id": 175,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Double dependent locality [cite: 4404]"
+      },
+      "POSTAL COUNTY": {
+        "id": 176,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Postal county [cite: 4408]"
+      },
+      "POST TOWN": {
+        "id": 177,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Post town [cite: 4411]"
+      },
+      "STREET OR ROAD NAME": {
+        "id": 178,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Street or road name [cite: 4413]"
+      },
+      "POSTCODE": {
+        "id": 179,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Postcode [cite: 4415]"
+      }
+    },
+    "Suction": {
+      "contentsObserved": {
+        "id": 180,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Information about the contents from the airway [cite: 4429]"
+      },
+      "catheterType": {
+        "id": 181,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Soft", "Rigid"],
+        "description": "Type of catheter used [cite: 4430]"
+      },
+      "totalAttempts": {
+        "id": 182,
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "Total number of attempts [cite: 4431]"
+      },
+      "method": {
+        "id": 183,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Oral", "Nasal", "Other"],
+        "description": "Method of suction used [cite: 4433]"
+      }
+    },
+    "Suction Attempt": {
+      "attemptNumber": {
+        "id": 184,
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "Number of current attempt [cite: 4451]"
+      },
+      "attemptOutcome": {
+        "id": 185,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Successful", "Unsuccessful"],
+        "description": "Outcome of current attempt [cite: 4453]"
+      },
+      "attemptResponse": {
+        "id": 186,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "Patient response to current attempt [cite: 4455]"
+      },
+      "attemptComplication": {
+        "id": 187,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "Complication that arises [cite: 4457]"
+      }
+    },
+    "Symptom": {
+      "symptomType": {
+        "id": 188,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "The type of symptom that is experienced by the patient [cite: 4475]"
+      }
+    },
+    "Treated on Scene": {
+      "reason": {
+        "id": 189,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "The reason why a patient is not given transport [cite: 4497]"
+      },
+      "signedBy": {
+        "id": 190,
+        "type": "Alphanumeric",
+        "cardinality": "1..0",
+        "description": "The name of the person who signed the statement [cite: 4497]"
+      },
+      "signedByRole": {
+        "id": 191,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Crew", "Named Patient", "Carer", "Child", "Employee", "Father", "Mother", "Partner", "Spouse", "GrandParent", "Grandchild", "Patient Advocate", "Other Relative", "Other"],
+        "description": "The role of the person who signed [cite: 4497]"
+      },
+      "unableReason": {
+        "id": 192,
+        "type": "Local List",
+        "cardinality": "1..0",
+        "values": ["Unavailable", "Unconscious", "Refused", "Patient Condition", "Other"],
+        "description": "The reason why the statement could not be signed [cite: 4524]"
+      }
+    },
+    "Treatment": {
+      "treatmentType": {
+        "id": 193,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "The type of treatment given [cite: 4531]"
+      },
+      "administeredBy": {
+        "id": 194,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "The healthcare professional that administered the treatment [cite: 4533]"
+      },
+      "comments": {
+        "id": 195,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Additional comment [cite: 4535]"
+      },
+      "treatmentTime": {
+        "id": 196,
+        "type": "Time",
+        "cardinality": "1..1",
+        "description": "The time of the specific treatment [cite: 4543]"
+      }
+    },
+    "Unstructured Address": {
+      "ADDRESS LINE 1": {
+        "id": 197,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Line 1 [cite: 4562]"
+      },
+      "ADDRESS LINE 2": {
+        "id": 198,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Line 2 [cite: 4569]"
+      },
+      "ADDRESS LINE 3": {
+        "id": 199,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Line 3 [cite: 4572]"
+      },
+      "ADDRESS LINE 4": {
+        "id": 200,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Line 4 [cite: 4574]"
+      },
+      "ADDRESS LINE 5": {
+        "id": 201,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Line 5 [cite: 4575]"
+      }
+    },
+    "Ventilation": {
+      "method": {
+        "id": 202,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Manual", "Mechanical", "Other"],
+        "description": "Method of ventilation used [cite: 4586]"
+      }
+    },
+    "Vulnerable Adult and Safeguarding Children": {
+      "name": {
+        "id": 203,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Primary Carer name [cite: 4597]"
+      },
+      "relationship": {
+        "id": 204,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Relationship to the patient [cite: 4600]"
+      },
+      "carer": {
+        "id": 205,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Carer support", "Domestic support", "Living with family", "Macmillan Nurse", "Neighbours", "Nursing support", "Regular family", "Self caring", "Social Worker", "Spouse", "Other"],
+        "description": "Social/Family History/Carers [cite: 4608]"
+      }
+    },
+    "PriorityAssessment": {
+      "conditionCatagory": {
+        "id": 206,
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "Determined by EMD protocols [cite: 4204]"
+      },
+      "urgencyCatagory": {
+        "id": 207,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "description": "Level of response required [cite: 4204]"
+      },
+      "postDispatchInstructions": {
+        "id": 208,
+        "type": "Alphanumeric",
+        "cardinality": "1..0",
+        "description": "Instructions given by EMD [cite: 4204]"
+      }
+    }
+  }
+}
