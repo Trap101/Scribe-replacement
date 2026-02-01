@@ -1,0 +1,929 @@
+{
+  "Extended_JRCALC_v1.0": {
+    "AVPU": {
+      "avpu": {
+        "id": 1001,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Alert", "Voice", "Pain", "Unresponsive"],
+        "description": "Quick consciousness assessment (duplicates AEPR Assessment.AVPUScale for protocol compatibility)"
+      }
+    },
+    "Assessment": {
+      "aaa_risk": {
+        "id": 1002,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Pulsatile abdominal mass", "Age >50 with abdominal pain", "No risk factors"],
+        "description": "Risk factors for abdominal aortic aneurysm"
+      },
+      "ectopic_risk": {
+        "id": 1003,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Shoulder tip pain", "Missed period", "Abdominal pain + positive pregnancy test", "No risk"],
+        "description": "Risk factors for ectopic pregnancy"
+      },
+      "gi_bleed_type": {
+        "id": 1004,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Haematemesis (vomiting blood)", "Coffee-ground vomit", "Melaena (black stool)", "Fresh blood per rectum"],
+        "description": "Type of gastrointestinal bleeding"
+      },
+      "dka_signs": {
+        "id": 1005,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Vomiting", "Abdominal pain", "Deep rapid breathing (Kussmaul)", "Fruity/ketotic breath", "Dehydration"],
+        "description": "Signs of diabetic ketoacidosis"
+      },
+      "headache_red_flags": {
+        "id": 1006,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Thunderclap (sudden severe)", "Neck stiffness", "Non-blanching rash", "Focal neurology", "Reduced GCS", "Recent head trauma"],
+        "description": "Red flag features for serious headache causes"
+      },
+      "hypothermia_severity": {
+        "id": 1007,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Mild (32-35°C)", "Moderate (28-32°C)", "Severe (<28°C)"],
+        "description": "Classification of hypothermia severity"
+      },
+      "pe_risk_factors": {
+        "id": 1008,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Recent surgery/immobility", "Long flight", "Previous VTE", "Cancer", "Pregnancy/postpartum", "Oral contraceptive"],
+        "description": "Risk factors for pulmonary embolism"
+      },
+      "pe_symptoms": {
+        "id": 1009,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Sudden breathlessness", "Pleuritic chest pain", "Haemoptysis", "Collapse/syncope"],
+        "description": "Classic symptoms of pulmonary embolism"
+      },
+      "massive_pe": {
+        "id": 1010,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Signs of massive PE (hypotension, cardiac arrest risk)"
+      },
+      "peripheral_oedema": {
+        "id": 1011,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Peripheral oedema present (ankles/sacrum)"
+      },
+      "internal_bleeding": {
+        "id": 1012,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Abdominal distension", "Rigid abdomen", "Guarding", "Tachycardia", "Hypotension"],
+        "description": "Signs suggestive of internal hemorrhage"
+      },
+      "life_extinct_signs": {
+        "id": 1013,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Decapitation", "Hemicorporectomy", "Incineration", "Massive cranial/torso destruction", "Rigor mortis", "Hypostasis"],
+        "description": "Signs incompatible with life"
+      },
+      "life_threatening_asthma": {
+        "id": 1014,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Silent chest", "Cyanosis", "Poor respiratory effort", "Exhaustion/altered consciousness", "SpO2 <92%"],
+        "description": "Life-threatening features of asthma"
+      },
+      "life_threatening_chest": {
+        "id": 1015,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Tension pneumothorax signs", "Massive haemothorax", "Flail segment", "Open pneumothorax (sucking wound)", "Cardiac tamponade"],
+        "description": "Life-threatening chest injuries"
+      },
+      "meningism": {
+        "id": 1016,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Neck stiffness", "Photophobia", "Bulging fontanelle (infants)", "High-pitched cry"],
+        "description": "Signs of meningeal irritation"
+      },
+      "neurological_deficit": {
+        "id": 1017,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Weakness/paralysis", "Altered/absent sensation", "Priapism", "Loss of sphincter control"],
+        "description": "Neurological deficit suggesting spinal cord injury"
+      },
+      "neurovascular_6ps": {
+        "id": 1018,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Pulse present", "Pink/good perfusion", "Warm", "Sensation intact", "Movement present", "Pain on movement"],
+        "description": "6 Ps of neurovascular assessment"
+      },
+      "non_blanching_rash": {
+        "id": 1019,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Non-blanching purpuric rash (glass test)"
+      },
+      "organic_causes": {
+        "id": 1020,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Hypoglycaemia checked", "Head injury excluded", "Sepsis excluded", "Stroke excluded", "Hypoxia excluded"],
+        "description": "Organic causes to exclude before psychiatric diagnosis"
+      },
+      "organic_causes_excluded": {
+        "id": 1021,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Organic causes of hyperventilation excluded"
+      },
+      "preeclampsia_signs": {
+        "id": 1022,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Severe headache", "Visual disturbance", "Epigastric pain", "Vomiting", "Swollen hands/face"],
+        "description": "Warning signs of pre-eclampsia"
+      },
+      "recovered_to_baseline": {
+        "id": 1023,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Patient fully recovered to normal baseline"
+      },
+      "respiratory_distress_signs": {
+        "id": 1024,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Nasal flaring", "Intercostal recession", "Subcostal recession", "Tracheal tug", "Head bobbing", "Grunting"],
+        "description": "Signs of respiratory distress in children"
+      },
+      "response_to_treatment": {
+        "id": 1025,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Patient improved after treatment"
+      },
+      "reversible_causes_considered": {
+        "id": 1026,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "4 Hs 4 Ts considered in arrest"
+      },
+      "sepsis_criteria": {
+        "id": 1027,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Altered mental state", "Tachycardia for age", "Prolonged capillary refill >2s", "Tachypnoea for age", "Fever >38.5 or Temp <36", "Hypotension"],
+        "description": "Sepsis/SIRS criteria"
+      },
+      "severe_croup": {
+        "id": 1028,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Chest recession", "Agitation/distress", "Reduced consciousness", "Cyanosis"],
+        "description": "Severe features of croup"
+      },
+      "skull_fracture_signs": {
+        "id": 1029,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["CSF from nose/ears", "Battle's sign (bruising behind ear)", "Raccoon eyes", "Palpable skull depression"],
+        "description": "Clinical signs of skull fracture"
+      },
+      "spinal_risk_mechanism": {
+        "id": 1030,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Fall >1m or 5 stairs", "Axial load (diving)", "High speed RTC", "Ejection from vehicle", "Roll-over", "Bike collision"],
+        "description": "High-risk mechanisms for spinal injury"
+      },
+      "spinal_tenderness": {
+        "id": 1031,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Midline spinal pain or tenderness"
+      },
+      "stridor_severity": {
+        "id": 1032,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["No stridor at rest", "Stridor at rest", "Stridor with agitation only"],
+        "description": "Severity of stridor in croup"
+      },
+      "thoracotomy_criteria": {
+        "id": 1033,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Witnessed penetrating trauma with very brief downtime"
+      },
+      "BM_rechecked": {
+        "id": 1034,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Blood glucose rechecked after intervention"
+      }
+    },
+    "Airway Assessment": {
+      "breathing": {
+        "id": 1035,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Patient breathing normally (not gasping)"
+      },
+      "obstruction_severity": {
+        "id": 1036,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Mild (effective cough)", "Severe (ineffective cough, silent, cyanosed)"],
+        "description": "Severity of foreign body airway obstruction"
+      },
+      "protected": {
+        "id": 1037,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Airway protected (recovery position, adjunct, etc)"
+      }
+    },
+    "Blood Glucose": {
+      "value": {
+        "id": 1038,
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "Blood glucose value in mmol/L"
+      },
+      "bloodGlucoseRecheck": {
+        "id": 1039,
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "Repeat blood glucose measurement"
+      }
+    },
+    "Burns": {
+      "cooled": {
+        "id": 1040,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Burn cooled with running water 10-20 minutes"
+      },
+      "depth": {
+        "id": 1041,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Superficial (red, painful)", "Partial thickness (blistering)", "Full thickness (white/charred, painless)"],
+        "description": "Burn thickness classification"
+      },
+      "dressed": {
+        "id": 1042,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Burn covered with appropriate dressing"
+      },
+      "entry_exit_wounds": {
+        "id": 1043,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Entry and exit wounds identified (electrical injury)"
+      }
+    },
+    "Cannulation": {
+      "established": {
+        "id": 1044,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "IV access successfully established"
+      }
+    },
+    "Cardiac": {
+      "adverse_features": {
+        "id": 1045,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Shock (BP <90)", "Syncope", "Myocardial ischaemia", "Heart failure"],
+        "description": "Adverse features with arrhythmia"
+      },
+      "reversibleCausesConsidered": {
+        "id": 1046,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "4 Hs 4 Ts assessed"
+      },
+      "traumatic_arrest_causes": {
+        "id": 1047,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Hypoxia", "Hypovolaemia (hemorrhage)", "Hypothermia", "Tension pneumothorax", "Tamponade (cardiac)", "Hyperkalaemia", "Thrombosis"],
+        "description": "Reversible causes in traumatic cardiac arrest"
+      }
+    },
+    "Cardiopulmonary Resuscitation": {
+      "CPRInProgress": {
+        "id": 1048,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "CPR currently in progress"
+      },
+      "rescue_breaths": {
+        "id": 1049,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "5 initial rescue breaths given (paediatric)"
+      }
+    },
+    "Circulatory Assessment": {
+      "shock": {
+        "id": 1050,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Tachycardia >100", "Hypotension <90", "Pale/clammy", "Reduced GCS"],
+        "description": "Signs of hypovolaemic shock"
+      }
+    },
+    "Convulsions": {
+      "currentlySeizing": {
+        "id": 1051,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Patient actively seizing now"
+      },
+      "duration": {
+        "id": 1052,
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "Duration of seizure in minutes"
+      }
+    },
+    "Defibrillation": {
+      "padsAttached": {
+        "id": 1053,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Defibrillator pads attached"
+      }
+    },
+    "Documentation": {
+      "ROLE_documented": {
+        "id": 1054,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Recognition of Life Extinct decision documented with rationale"
+      }
+    },
+    "Drug Administration": {
+      "ipratropium_given": {
+        "id": 1055,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Ipratropium bromide nebuliser given"
+      }
+    },
+    "ECG Interpretation": {
+      "monitoring": {
+        "id": 1056,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Continuous ECG monitoring in place"
+      },
+      "performed": {
+        "id": 1057,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "12-lead ECG performed"
+      }
+    },
+    "Equipment": {
+      "delivery_pack": {
+        "id": 1058,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Delivery pack prepared (clamps, scissors, towels)"
+      }
+    },
+    "Evidence": {
+      "substance_packaging": {
+        "id": 1059,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Substance container/packaging collected"
+      }
+    },
+    "Incident": {
+      "hospitalAlertSent": {
+        "id": 1060,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Time-critical hospital pre-alert sent"
+      }
+    },
+    "Intervention": {
+      "abdominal_thrusts": {
+        "id": 1061,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Abdominal thrusts (Heimlich) performed"
+      },
+      "active_rewarming": {
+        "id": 1062,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Active rewarming techniques used"
+      },
+      "back_blows": {
+        "id": 1063,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Back blows for choking performed"
+      },
+      "burncooling": {
+        "id": 1064,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Burn cooling performed"
+      },
+      "burndressing": {
+        "id": 1065,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Burn dressing applied"
+      },
+      "chest_decompression": {
+        "id": 1066,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Needle decompression for tension pneumothorax"
+      },
+      "chest_seal": {
+        "id": 1067,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Three-sided chest seal applied"
+      },
+      "cooling": {
+        "id": 1068,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Move to cool environment", "Remove clothing", "Tepid sponging", "Fanning", "Cold packs"],
+        "description": "Cooling interventions for heat illness"
+      },
+      "hemorrhage_control": {
+        "id": 1069,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Direct pressure", "Tourniquet", "Pelvic binder", "Hemostatic dressing"],
+        "description": "Method of hemorrhage control"
+      },
+      "passive_rewarming": {
+        "id": 1070,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Remove wet clothing", "Dry patient", "Wrap in blankets", "Warm environment"],
+        "description": "Passive rewarming techniques"
+      },
+      "splinting": {
+        "id": 1071,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Limb splinted/immobilised"
+      }
+    },
+    "Legal": {
+      "coroner_referral": {
+        "id": 1072,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Coroner referral required"
+      }
+    },
+    "Limb Injury": {
+      "open_fracture": {
+        "id": 1073,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Bone protruding or wound communicating with fracture"
+      }
+    },
+    "Lung Fields": {
+      "airEntry": {
+        "id": 1074,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Equal bilateral", "Reduced left", "Reduced right", "Absent left", "Absent right"],
+        "description": "Air entry on auscultation"
+      },
+      "breathSounds": {
+        "id": 1075,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Wheeze", "Crackles", "Reduced air entry", "Normal"],
+        "description": "Breath sounds heard"
+      },
+      "sounds": {
+        "id": 1076,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Wheeze", "Crackles", "Reduced air entry", "Stridor", "Normal", "Silent chest"],
+        "description": "Chest auscultation findings"
+      }
+    },
+    "Management": {
+      "breathing_coaching": {
+        "id": 1077,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Breathing techniques coached"
+      },
+      "cooling_measures": {
+        "id": 1078,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Cooling measures applied"
+      },
+      "de_escalation": {
+        "id": 1079,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "De-escalation techniques used"
+      },
+      "encouraged_cough": {
+        "id": 1080,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Patient encouraged to cough (mild choking)"
+      },
+      "food_given": {
+        "id": 1081,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Food given after hypoglycaemia treatment"
+      },
+      "gentle_handling": {
+        "id": 1082,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Gentle handling for severe hypothermia (VF risk)"
+      },
+      "kept_calm": {
+        "id": 1083,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Child kept calm (croup management)"
+      },
+      "oral_glucose_given": {
+        "id": 1084,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Oral glucose given for hypoglycaemia"
+      },
+      "packaging_brought": {
+        "id": 1085,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Medication/substance packaging brought to hospital"
+      },
+      "secondary_injury_prevention": {
+        "id": 1086,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Secondary brain injury prevention (maintain SpO2, BP)"
+      },
+      "toxbase_consulted": {
+        "id": 1087,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "TOXBASE or poisons unit consulted"
+      }
+    },
+    "Mental Health": {
+      "capacity": {
+        "id": 1088,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Has capacity", "Lacks capacity", "Unclear"],
+        "description": "Mental capacity assessment"
+      },
+      "mental_state": {
+        "id": 1089,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Agitated", "Anxious", "Depressed", "Delusional", "Hallucinating", "Manic", "Normal"],
+        "description": "Mental state examination findings"
+      },
+      "risk_assessment": {
+        "id": 1090,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Suicidal ideation/intent", "Self-harm risk", "Aggression/violence risk", "Absconding risk", "Vulnerable"],
+        "description": "Mental health risk assessment"
+      }
+    },
+    "Monitoring": {
+      "complications": {
+        "id": 1091,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Arrhythmias", "Further deterioration", "No complications"],
+        "description": "Complications monitored for"
+      }
+    },
+    "Newborn": {
+      "apgar": {
+        "id": 1092,
+        "type": "Structured",
+        "cardinality": "1..1",
+        "description": "APGAR scores at 1 and 5 minutes"
+      },
+      "immediate_care": {
+        "id": 1093,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Baby dried, stimulated, and kept warm"
+      }
+    },
+    "Obstetrics": {
+      "breech_delivery": {
+        "id": 1094,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Breech delivery managed (hands off approach)"
+      },
+      "complication_type": {
+        "id": 1095,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Breech presentation", "Cord prolapse", "Shoulder dystocia", "Limb presentation", "Multiple births"],
+        "description": "Type of birth complication"
+      },
+      "cord_clamped": {
+        "id": 1096,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Umbilical cord clamped and cut"
+      },
+      "cord_prolapse_management": {
+        "id": 1097,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Position mother knee-chest", "Elevate presenting part off cord", "Keep cord warm and moist", "Emergency pre-alert sent"],
+        "description": "Cord prolapse emergency management"
+      },
+      "delivery_supported": {
+        "id": 1098,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Delivery supported (control head, check for cord, deliver shoulders)"
+      },
+      "eclamptic_seizure": {
+        "id": 1099,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Eclamptic seizure occurred"
+      },
+      "fundal_massage": {
+        "id": 1100,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Uterine fundal massage performed (postpartum hemorrhage)"
+      },
+      "hemorrhage": {
+        "id": 1101,
+        "type": "Structured",
+        "cardinality": "1..1",
+        "description": "Timing, volume, and ongoing status of obstetric bleeding"
+      },
+      "history": {
+        "id": 1102,
+        "type": "Structured",
+        "cardinality": "1..1",
+        "description": "Gravida/Para and gestation weeks"
+      },
+      "imminent_delivery": {
+        "id": 1103,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Crowning visible", "Uncontrollable urge to push", "Contractions <2 mins apart", "Multiparous patient", "Waters broken"],
+        "description": "Signs of imminent delivery"
+      },
+      "shoulder_dystocia_management": {
+        "id": 1104,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["McRoberts position (hyperflexed legs)", "Suprapubic pressure", "Call for help/emergency pre-alert"],
+        "description": "Shoulder dystocia maneuvers"
+      }
+    },
+    "Pain Assessment": {
+      "headache": {
+        "id": 1105,
+        "type": "Structured",
+        "cardinality": "1..1",
+        "description": "Headache characteristics (onset, location, severity, timing)"
+      }
+    },
+    "Patient Demographics": {
+      "age": {
+        "id": 1106,
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "Patient age in years"
+      }
+    },
+    "Patient Management": {
+      "positioning": {
+        "id": 1107,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Lying flat", "Sat upright", "Left lateral", "Recovery position", "Position of comfort"],
+        "description": "Patient positioning"
+      }
+    },
+    "Pulse Oximetry": {
+      "spO2": {
+        "id": 1108,
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "Oxygen saturation percentage"
+      }
+    },
+    "Respiratory Rate": {
+      "value": {
+        "id": 1109,
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "Respiratory rate in breaths per minute"
+      }
+    },
+    "Resuscitation": {
+      "ROLE_criteria_met": {
+        "id": 1110,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Recognition of Life Extinct criteria met"
+      },
+      "not_appropriate_reasons": {
+        "id": 1111,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Valid DNACPR in place", "Injuries incompatible with life", "Rigor mortis present", "Hypostasis present", "Decomposition"],
+        "description": "Reasons resuscitation not appropriate"
+      },
+      "responsive": {
+        "id": 1112,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Patient responsive to shout and shake"
+      },
+      "witnessed": {
+        "id": 1113,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Yes - witnessed by crew", "No - unwitnessed", "Bystander witnessed with immediate CPR"],
+        "description": "Was arrest witnessed"
+      }
+    },
+    "Safeguarding": {
+      "concern_type": {
+        "id": 1114,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Physical abuse", "Sexual abuse", "Emotional abuse", "Neglect", "Financial abuse", "Domestic abuse", "Child at risk"],
+        "description": "Type of safeguarding concern"
+      },
+      "concerns_raised": {
+        "id": 1115,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Safeguarding concerns identified"
+      },
+      "documented": {
+        "id": 1116,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Injuries, statements, and environment documented"
+      },
+      "handover_informed": {
+        "id": 1117,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Safeguarding concerns communicated at handover"
+      },
+      "immediate_risk": {
+        "id": 1118,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Immediate risk to patient or others"
+      },
+      "nai_concern": {
+        "id": 1119,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Non-accidental injury suspected"
+      },
+      "referral_made": {
+        "id": 1120,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Safeguarding referral submitted"
+      }
+    },
+    "Safety": {
+      "no_vomiting_induced": {
+        "id": 1121,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Confirmed DO NOT induce vomiting"
+      }
+    },
+    "Scene": {
+      "safe": {
+        "id": 1122,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Scene confirmed safe to approach"
+      }
+    },
+    "Skin Assessment": {
+      "non_blanching_rash": {
+        "id": 1123,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Non-blanching rash present (glass test)"
+      }
+    },
+    "Spine": {
+      "cervicalCollar": {
+        "id": 1124,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Cervical collar applied"
+      },
+      "immobilisationApplied": {
+        "id": 1125,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Full spinal immobilisation applied"
+      }
+    },
+    "Toxicology": {
+      "opiate_signs": {
+        "id": 1126,
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Pinpoint pupils", "Respiratory depression", "Reduced consciousness"],
+        "description": "Signs of opiate toxidrome"
+      },
+      "substance": {
+        "id": 1127,
+        "type": "Structured",
+        "cardinality": "1..1",
+        "description": "Substance name, amount, time of ingestion, route"
+      }
+    },
+    "Trauma": {
+      "electrical_type": {
+        "id": 1128,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Low voltage AC (<1000V)", "High voltage AC (>1000V)", "DC current", "Lightning strike"],
+        "description": "Type of electrical exposure"
+      },
+      "evisceration": {
+        "id": 1129,
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Organs protruding through abdominal wound"
+      },
+      "mechanismOfInjury": {
+        "id": 1130,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Blunt - RTC", "Blunt - Fall", "Blunt - Assault", "Penetrating - Stab", "Penetrating - Gunshot", "Crush injury"],
+        "description": "Mechanism of injury"
+      }
+    },
+    "Treatment": {
+      "hypoglycaemia": {
+        "id": 1131,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Oral glucose", "IV 10% glucose", "IM Glucagon"],
+        "description": "Treatment pathway for hypoglycaemia"
+      }
+    },
+    "Vital Signs": {
+      "_composite": {
+        "id": 1132,
+        "type": "Composite",
+        "cardinality": "1..1",
+        "description": "Composite vital signs entry (BP, HR, RR, SpO2, Temp, GCS)"
+      }
+    }
+  }
+}

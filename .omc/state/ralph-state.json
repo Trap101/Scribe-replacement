@@ -1,0 +1,8 @@
+{
+  "active": true,
+  "started_at": "2026-02-01T06:18:08.149Z",
+  "original_prompt": "/oh-my-claudecode:ralph for the medicines, that comes after the conditions, can you please make sure that you can input both dosage and what rather than just recommend, for a condition, can you make sure there is no multi stage just a single drawer with the popup that gives you all the things you need",
+  "reinforcement_count": 0,
+  "last_checked_at": "2026-02-01T06:18:08.155Z",
+  "iteration": 2
+}

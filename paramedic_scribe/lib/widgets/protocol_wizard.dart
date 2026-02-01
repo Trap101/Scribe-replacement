@@ -549,38 +549,7 @@ class ProtocolDrawer extends StatefulWidget {
 }
 
 class _ProtocolDrawerState extends State<ProtocolDrawer> {
-  int _currentStep = 0;
   final Map<String, dynamic> _values = {};
-  String? _warningMessage;
-
-  ProtocolStep get _step => widget.protocol.steps[_currentStep];
-  bool get _isFirst => _currentStep == 0;
-  bool get _isLast => _currentStep == widget.protocol.steps.length - 1;
-
-  void _checkWarning(dynamic value) {
-    final warning = _step.validationWarning;
-    if (warning == null) {
-      setState(() => _warningMessage = null);
-      return;
-    }
-
-    bool triggered = false;
-    if (warning.containsKey('trigger_value')) {
-      triggered = value == warning['trigger_value'];
-    } else if (warning.containsKey('threshold')) {
-      final threshold = warning['threshold'] as String;
-      if (value is num) {
-        if (threshold.startsWith('<')) {
-          triggered = value < num.parse(threshold.substring(1));
-        } else if (threshold.startsWith('>')) {
-          triggered = value > num.parse(threshold.substring(1));
-        }
-      }
-    }
-
-    setState(() =>
-        _warningMessage = triggered ? warning['message'] as String? : null);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -611,11 +580,6 @@ class _ProtocolDrawerState extends State<ProtocolDrawer> {
                   style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
                 ),
               ),
-              Text(
-                'Step ${_currentStep + 1}/${widget.protocol.steps.length}',
-                style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: Color(0xFF0D47A1)),
-              ),
-              const SizedBox(width: 8),
               IconButton(
                 icon: const Icon(Icons.close, size: 20),
                 onPressed: () => Navigator.pop(context),
@@ -624,133 +588,32 @@ class _ProtocolDrawerState extends State<ProtocolDrawer> {
           ),
         ),
         const Divider(height: 1),
-        // Content
+        // All steps in a single scroll view
         Expanded(
           child: SingleChildScrollView(
             controller: widget.scrollController,
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Concept badge
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                  decoration: BoxDecoration(
-                    color: _conceptColor(_step.concept).withOpacity(0.1),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Text(
-                    _step.concept,
-                    style: TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w600,
-                      color: _conceptColor(_step.concept),
-                    ),
-                  ),
-                ),
+                ...widget.protocol.steps.map((step) => _buildStepCard(step)),
                 const SizedBox(height: 16),
-                Text(
-                  _step.instruction,
-                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: Color(0xFF1A1A1A)),
-                ),
-                const SizedBox(height: 24),
-                if (_step.note != null) ...[
-                  Container(
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      color: const Color(0xFFF0F7FF),
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: const Color(0xFF0D47A1).withOpacity(0.2)),
-                    ),
-                    child: Row(
-                      children: [
-                        const Icon(Icons.info_outline, color: Color(0xFF0D47A1), size: 20),
-                        const SizedBox(width: 10),
-                        Expanded(child: Text(_step.note!, style: const TextStyle(fontSize: 13, color: Color(0xFF0D47A1)))),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                ],
-                if (_warningMessage != null) ...[
-                  Container(
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      color: const Color(0xFFFFEBEE),
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.red.withOpacity(0.3)),
-                    ),
-                    child: Row(
-                      children: [
-                        const Icon(Icons.warning_amber, color: Colors.red, size: 24),
-                        const SizedBox(width: 10),
-                        Expanded(child: Text(_warningMessage!, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: Colors.red))),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                ],
-                // Input - wrapped in SizedBox to give it a constrained height
+                // Done button
                 SizedBox(
-                  height: 300,
-                  child: _buildInput(),
+                  width: double.infinity,
+                  child: FilledButton.icon(
+                    onPressed: () => Navigator.pop(context, _values),
+                    icon: const Icon(Icons.check, size: 24),
+                    label: const Text('Done', style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600)),
+                    style: FilledButton.styleFrom(
+                      backgroundColor: const Color(0xFF00838F),
+                      padding: const EdgeInsets.symmetric(vertical: 18),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    ),
+                  ),
                 ),
+                const SizedBox(height: 32),
               ],
-            ),
-          ),
-        ),
-        // Bottom navigation
-        Container(
-          decoration: BoxDecoration(
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(color: Colors.black.withOpacity(0.1), blurRadius: 8, offset: const Offset(0, -2)),
-            ],
-          ),
-          child: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: FilledButton.icon(
-                      onPressed: _isFirst
-                          ? null
-                          : () => setState(() {
-                                _currentStep--;
-                                _warningMessage = null;
-                              }),
-                      icon: const Icon(Icons.arrow_back, size: 24),
-                      label: const Text('Previous', style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600)),
-                      style: FilledButton.styleFrom(
-                        backgroundColor: const Color(0xFF0D47A1),
-                        disabledBackgroundColor: Colors.grey.shade300,
-                        padding: const EdgeInsets.symmetric(vertical: 20),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 16),
-                  Expanded(
-                    child: FilledButton.icon(
-                      onPressed: _isLast
-                          ? () => Navigator.pop(context, _values)
-                          : () => setState(() {
-                                _currentStep++;
-                                _warningMessage = null;
-                              }),
-                      iconAlignment: IconAlignment.end,
-                      icon: Icon(_isLast ? Icons.check : Icons.arrow_forward, size: 24),
-                      label: Text(_isLast ? 'Complete' : 'Next', style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w600)),
-                      style: FilledButton.styleFrom(
-                        backgroundColor: _isLast ? const Color(0xFF00838F) : const Color(0xFF0D47A1),
-                        padding: const EdgeInsets.symmetric(vertical: 20),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
             ),
           ),
         ),
@@ -758,84 +621,140 @@ class _ProtocolDrawerState extends State<ProtocolDrawer> {
     );
   }
 
-  Widget _buildInput() {
-    final key = _step.targetField ?? 'step_${_step.stepOrder}';
-    switch (_step.actionType) {
+  Widget _buildStepCard(ProtocolStep step) {
+    final key = step.targetField ?? 'step_${step.stepOrder}';
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: Colors.black.withOpacity(0.08)),
+          boxShadow: [
+            BoxShadow(color: Colors.black.withOpacity(0.03), blurRadius: 4, offset: const Offset(0, 2)),
+          ],
+        ),
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Concept badge
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+              decoration: BoxDecoration(
+                color: _conceptColor(step.concept).withOpacity(0.1),
+                borderRadius: BorderRadius.circular(6),
+              ),
+              child: Text(
+                step.concept,
+                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: _conceptColor(step.concept)),
+              ),
+            ),
+            const SizedBox(height: 10),
+            // Instruction
+            Text(
+              step.instruction,
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xFF1A1A1A)),
+            ),
+            const SizedBox(height: 12),
+            // Note
+            if (step.note != null) ...[
+              Container(
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFF0F7FF),
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(color: const Color(0xFF0D47A1).withOpacity(0.2)),
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Icon(Icons.info_outline, color: Color(0xFF0D47A1), size: 16),
+                    const SizedBox(width: 8),
+                    Expanded(child: Text(step.note!, style: const TextStyle(fontSize: 12, color: Color(0xFF0D47A1)))),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 12),
+            ],
+            // Input
+            _buildStepInput(step, key),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildStepInput(ProtocolStep step, String key) {
+    switch (step.actionType) {
       case 'dropdown':
-        return _buildDropdown(key);
+        return _buildDropdown(step, key);
       case 'toggle':
-        return _buildToggle(key);
+        return _buildToggle(step, key);
       case 'input_number':
-        return _buildNumberInput(key);
+        return _buildNumberInput(step, key);
       case 'input_text':
-        return _buildTextInput(key);
+        return _buildTextInput(step, key);
       case 'multi_select':
-        return _buildMultiSelect(key);
+        return _buildMultiSelect(step, key);
       case 'button_action':
-        return _buildButtonAction(key);
+        return _buildButtonAction(step, key);
       default:
-        return _buildTextInput(key);
+        return _buildTextInput(step, key);
     }
   }
 
-  Widget _buildDropdown(String key) {
+  Widget _buildDropdown(ProtocolStep step, String key) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(_step.uiPrompt, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
-        const SizedBox(height: 12),
+        Text(step.uiPrompt, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
+        const SizedBox(height: 8),
         Container(
           decoration: BoxDecoration(
             color: const Color(0xFFF8F9FA),
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(10),
             border: Border.all(color: Colors.black.withOpacity(0.08)),
           ),
           child: DropdownButtonFormField<String>(
             decoration: const InputDecoration(
               border: InputBorder.none,
-              contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+              contentPadding: EdgeInsets.symmetric(horizontal: 14, vertical: 12),
             ),
             value: _values[key] as String?,
             hint: const Text('Select...'),
             isExpanded: true,
-            items: _step.valueOptions?.map((o) => DropdownMenuItem(value: o, child: Text(o, style: const TextStyle(fontSize: 15)))).toList(),
-            onChanged: (v) {
-              setState(() => _values[key] = v);
-              _checkWarning(v);
-            },
+            items: step.valueOptions?.map((o) => DropdownMenuItem(value: o, child: Text(o, style: const TextStyle(fontSize: 14)))).toList(),
+            onChanged: (v) => setState(() => _values[key] = v),
           ),
         ),
       ],
     );
   }
 
-  Widget _buildToggle(String key) {
+  Widget _buildToggle(ProtocolStep step, String key) {
     final val = _values[key] == true;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(_step.uiPrompt, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
-        const SizedBox(height: 20),
+        Text(step.uiPrompt, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
+        const SizedBox(height: 8),
         InkWell(
-          onTap: () {
-            final newVal = !val;
-            setState(() => _values[key] = newVal);
-            _checkWarning(newVal);
-          },
-          borderRadius: BorderRadius.circular(12),
+          onTap: () => setState(() => _values[key] = !val),
+          borderRadius: BorderRadius.circular(10),
           child: Container(
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.all(14),
             decoration: BoxDecoration(
               color: val ? const Color(0xFF0D47A1).withOpacity(0.1) : const Color(0xFFF8F9FA),
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(10),
               border: Border.all(color: val ? const Color(0xFF0D47A1) : Colors.black.withOpacity(0.08), width: 2),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(val ? Icons.check_circle : Icons.radio_button_unchecked, color: val ? const Color(0xFF0D47A1) : Colors.grey, size: 32),
-                const SizedBox(width: 12),
-                Text(val ? 'YES' : 'NO', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: val ? const Color(0xFF0D47A1) : Colors.grey)),
+                Icon(val ? Icons.check_circle : Icons.radio_button_unchecked, color: val ? const Color(0xFF0D47A1) : Colors.grey, size: 28),
+                const SizedBox(width: 10),
+                Text(val ? 'YES' : 'NO', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: val ? const Color(0xFF0D47A1) : Colors.grey)),
               ],
             ),
           ),
@@ -844,45 +763,43 @@ class _ProtocolDrawerState extends State<ProtocolDrawer> {
     );
   }
 
-  Widget _buildNumberInput(String key) {
+  Widget _buildNumberInput(ProtocolStep step, String key) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(_step.uiPrompt, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
-        const SizedBox(height: 12),
+        Text(step.uiPrompt, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
+        const SizedBox(height: 8),
         TextField(
           keyboardType: TextInputType.number,
-          style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
+          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
           decoration: InputDecoration(
             hintText: 'Enter value',
             filled: true,
             fillColor: const Color(0xFFF8F9FA),
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide.none),
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide.none),
           ),
           onChanged: (v) {
-            final num? parsed = num.tryParse(v);
-            _values[key] = parsed;
-            _checkWarning(parsed);
+            _values[key] = num.tryParse(v);
           },
         ),
       ],
     );
   }
 
-  Widget _buildTextInput(String key) {
+  Widget _buildTextInput(ProtocolStep step, String key) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(_step.uiPrompt, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
-        const SizedBox(height: 12),
+        Text(step.uiPrompt, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
+        const SizedBox(height: 8),
         TextField(
-          maxLines: 4,
-          style: const TextStyle(fontSize: 15),
+          maxLines: 3,
+          style: const TextStyle(fontSize: 14),
           decoration: InputDecoration(
             hintText: 'Enter details...',
             filled: true,
             fillColor: const Color(0xFFF8F9FA),
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide.none),
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide.none),
           ),
           onChanged: (v) => _values[key] = v,
         ),
@@ -890,89 +807,144 @@ class _ProtocolDrawerState extends State<ProtocolDrawer> {
     );
   }
 
-  Widget _buildMultiSelect(String key) {
+  Widget _buildMultiSelect(ProtocolStep step, String key) {
     final selected = (_values[key] as List<String>?) ?? [];
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(_step.uiPrompt, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
-        const SizedBox(height: 12),
-        Expanded(
-          child: ListView(
-            children: (_step.valueOptions ?? []).map((option) {
-              final isSelected = selected.contains(option);
-              return Padding(
-                padding: const EdgeInsets.only(bottom: 8),
-                child: InkWell(
-                  onTap: () {
-                    setState(() {
-                      final list = List<String>.from(selected);
-                      isSelected ? list.remove(option) : list.add(option);
-                      _values[key] = list;
-                    });
-                  },
-                  borderRadius: BorderRadius.circular(10),
-                  child: Container(
-                    padding: const EdgeInsets.all(14),
-                    decoration: BoxDecoration(
-                      color: isSelected ? const Color(0xFF0D47A1).withOpacity(0.08) : const Color(0xFFF8F9FA),
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: isSelected ? const Color(0xFF0D47A1) : Colors.black.withOpacity(0.08)),
-                    ),
-                    child: Row(
-                      children: [
-                        Icon(isSelected ? Icons.check_box : Icons.check_box_outline_blank, color: isSelected ? const Color(0xFF0D47A1) : Colors.grey),
-                        const SizedBox(width: 12),
-                        Expanded(child: Text(option, style: TextStyle(fontSize: 15, fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400))),
-                      ],
-                    ),
-                  ),
+        Text(step.uiPrompt, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
+        const SizedBox(height: 8),
+        ...(step.valueOptions ?? []).map((option) {
+          final isSelected = selected.contains(option);
+          return Padding(
+            padding: const EdgeInsets.only(bottom: 6),
+            child: InkWell(
+              onTap: () {
+                setState(() {
+                  final list = List<String>.from(selected);
+                  isSelected ? list.remove(option) : list.add(option);
+                  _values[key] = list;
+                });
+              },
+              borderRadius: BorderRadius.circular(8),
+              child: Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: isSelected ? const Color(0xFF0D47A1).withOpacity(0.08) : const Color(0xFFF8F9FA),
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(color: isSelected ? const Color(0xFF0D47A1) : Colors.black.withOpacity(0.08)),
                 ),
-              );
-            }).toList(),
-          ),
-        ),
+                child: Row(
+                  children: [
+                    Icon(isSelected ? Icons.check_box : Icons.check_box_outline_blank, color: isSelected ? const Color(0xFF0D47A1) : Colors.grey, size: 20),
+                    const SizedBox(width: 10),
+                    Expanded(child: Text(option, style: TextStyle(fontSize: 14, fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400))),
+                  ],
+                ),
+              ),
+            ),
+          );
+        }),
       ],
     );
   }
 
-  Widget _buildButtonAction(String key) {
-    final done = _values[key] == true;
+  Widget _buildButtonAction(ProtocolStep step, String key) {
+    final done = _values['${key}_done'] == true;
+
+    // Extract prefill data for editable fields
+    String drugName = '';
+    String dosage = '';
+    String route = '';
+    if (step.prefillData != null) {
+      drugName = _values['${key}_drug']?.toString() ?? step.prefillData!['drug']?.toString() ?? step.prefillData!.values.firstOrNull?.toString() ?? '';
+      dosage = _values['${key}_dose']?.toString() ?? step.prefillData!['dose']?.toString() ?? step.prefillData!['dosage']?.toString() ?? '';
+      route = _values['${key}_route']?.toString() ?? step.prefillData!['route']?.toString() ?? '';
+
+      // Also check for generic keys
+      if (drugName.isEmpty) {
+        for (final entry in step.prefillData!.entries) {
+          if (entry.key.toLowerCase().contains('drug') || entry.key.toLowerCase().contains('medicine') || entry.key.toLowerCase().contains('name')) {
+            drugName = entry.value.toString();
+            break;
+          }
+        }
+      }
+      if (dosage.isEmpty) {
+        for (final entry in step.prefillData!.entries) {
+          if (entry.key.toLowerCase().contains('dos') || entry.key.toLowerCase().contains('amount')) {
+            dosage = entry.value.toString();
+            break;
+          }
+        }
+      }
+    }
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(_step.uiPrompt, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
-        const SizedBox(height: 20),
-        if (_step.prefillData != null) ...[
-          Container(
-            padding: const EdgeInsets.all(14),
-            decoration: BoxDecoration(color: const Color(0xFFF8F9FA), borderRadius: BorderRadius.circular(10)),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: _step.prefillData!.entries
-                  .map((e) => Padding(
-                        padding: const EdgeInsets.only(bottom: 4),
-                        child: Row(
-                          children: [
-                            Text('${e.key}: ', style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14)),
-                            Text('${e.value}', style: const TextStyle(fontSize: 14)),
-                          ],
-                        ),
-                      ))
-                  .toList(),
-            ),
+        Text(step.uiPrompt, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
+        const SizedBox(height: 8),
+        // Drug name field
+        TextField(
+          controller: TextEditingController(text: drugName)..selection = TextSelection.collapsed(offset: drugName.length),
+          decoration: InputDecoration(
+            labelText: 'Drug / Medicine',
+            filled: true,
+            fillColor: const Color(0xFFF8F9FA),
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide.none),
+            prefixIcon: const Icon(Icons.medication, size: 20),
           ),
-          const SizedBox(height: 16),
-        ],
-        Center(
+          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+          onChanged: (v) => _values['${key}_drug'] = v,
+        ),
+        const SizedBox(height: 8),
+        // Dosage and route in a row
+        Row(
+          children: [
+            Expanded(
+              flex: 2,
+              child: TextField(
+                controller: TextEditingController(text: dosage)..selection = TextSelection.collapsed(offset: dosage.length),
+                decoration: InputDecoration(
+                  labelText: 'Dosage',
+                  filled: true,
+                  fillColor: const Color(0xFFF8F9FA),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide.none),
+                ),
+                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                onChanged: (v) => _values['${key}_dose'] = v,
+              ),
+            ),
+            const SizedBox(width: 8),
+            Expanded(
+              flex: 1,
+              child: TextField(
+                controller: TextEditingController(text: route)..selection = TextSelection.collapsed(offset: route.length),
+                decoration: InputDecoration(
+                  labelText: 'Route',
+                  filled: true,
+                  fillColor: const Color(0xFFF8F9FA),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide.none),
+                ),
+                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                onChanged: (v) => _values['${key}_route'] = v,
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 10),
+        // Administered toggle
+        SizedBox(
+          width: double.infinity,
           child: FilledButton.icon(
-            onPressed: () => setState(() => _values[key] = !done),
-            icon: Icon(done ? Icons.check_circle : Icons.add_circle_outline, size: 24),
-            label: Text(done ? 'Recorded' : (_step.buttonLabel ?? 'Record'), style: const TextStyle(fontSize: 17)),
+            onPressed: () => setState(() => _values['${key}_done'] = !done),
+            icon: Icon(done ? Icons.check_circle : Icons.add_circle_outline, size: 20),
+            label: Text(done ? 'Administered' : (step.buttonLabel ?? 'Record as Given'), style: const TextStyle(fontSize: 14)),
             style: FilledButton.styleFrom(
               backgroundColor: done ? const Color(0xFF00838F) : const Color(0xFF0D47A1),
-              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 18),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              padding: const EdgeInsets.symmetric(vertical: 14),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             ),
           ),
         ),

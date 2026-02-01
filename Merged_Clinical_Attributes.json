@@ -1,0 +1,2756 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "description": "Unified AEPR Standard + JRCALC Extended attributes for EPCR",
+    "total_attributes": 340,
+    "aepr_count": 208,
+    "extended_count": 132,
+    "last_updated": "2026-02-01"
+  },
+  "attributes": {
+    "AVPU Assessment": {
+      "AVPUScale": {
+        "id": 1,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Alert", "Voice", "Pain", "Unresponsive"],
+        "description": "Consciousness Assessment (Alert, Voice, Pain, Unresponsive)"
+      },
+      "avpu": {
+        "id": 1001,
+        "source": "Extended",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Alert", "Voice", "Pain", "Unresponsive"],
+        "description": "Quick consciousness assessment (protocol compatibility)"
+      }
+    },
+    "Airway Adjunct": {
+      "type": {
+        "id": 2,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Oropharangeal (OP) Airway", "Nasopharyngeal (NP) Airway", "Other"],
+        "description": "Type of adjunct used"
+      },
+      "outcome": {
+        "id": 3,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Outcome from the attempted use of an airway adjunct"
+      }
+    },
+    "Airway Assessment": {
+      "airwayStatus": {
+        "id": 4,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Clear", "Obstructed - Food", "Obstructed - Foreign Object", "Obstructed - Tongue", "Part. Obstructed - Food", "Part. Obstructed - Foreign Object", "Part. Obstructed - Tongue", "Part. Obstructed - Blood", "Vomit in airway", "Tracheostomy: Clear", "Tracheostomy: Blocked"],
+        "description": "The status of a patient's airway"
+      },
+      "selfMaintain": {
+        "id": 5,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Normal", "Maintainable", "Not Maintainable"],
+        "description": "The patients ability to maintain their airway"
+      },
+      "breathing": {
+        "id": 1035,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Patient breathing normally (not gasping)"
+      },
+      "obstruction_severity": {
+        "id": 1036,
+        "source": "Extended",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Mild (effective cough)", "Severe (ineffective cough, silent, cyanosed)"],
+        "description": "Severity of foreign body airway obstruction"
+      },
+      "protected": {
+        "id": 1037,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Airway protected (recovery position, adjunct, etc)"
+      }
+    },
+    "Assessment": {
+      "aaa_risk": {
+        "id": 1002,
+        "source": "Extended",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Pulsatile abdominal mass", "Age >50 with abdominal pain", "No risk factors"],
+        "description": "Risk factors for abdominal aortic aneurysm"
+      },
+      "ectopic_risk": {
+        "id": 1003,
+        "source": "Extended",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Shoulder tip pain", "Missed period", "Abdominal pain + positive pregnancy test", "No risk"],
+        "description": "Risk factors for ectopic pregnancy"
+      },
+      "gi_bleed_type": {
+        "id": 1004,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Haematemesis (vomiting blood)", "Coffee-ground vomit", "Melaena (black stool)", "Fresh blood per rectum"],
+        "description": "Type of gastrointestinal bleeding"
+      },
+      "dka_signs": {
+        "id": 1005,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Vomiting", "Abdominal pain", "Deep rapid breathing (Kussmaul)", "Fruity/ketotic breath", "Dehydration"],
+        "description": "Signs of diabetic ketoacidosis"
+      },
+      "headache_red_flags": {
+        "id": 1006,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Thunderclap (sudden severe)", "Neck stiffness", "Non-blanching rash", "Focal neurology", "Reduced GCS", "Recent head trauma"],
+        "description": "Red flag features for serious headache causes"
+      },
+      "hypothermia_severity": {
+        "id": 1007,
+        "source": "Extended",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Mild (32-35°C)", "Moderate (28-32°C)", "Severe (<28°C)"],
+        "description": "Classification of hypothermia severity"
+      },
+      "pe_risk_factors": {
+        "id": 1008,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Recent surgery/immobility", "Long flight", "Previous VTE", "Cancer", "Pregnancy/postpartum", "Oral contraceptive"],
+        "description": "Risk factors for pulmonary embolism"
+      },
+      "pe_symptoms": {
+        "id": 1009,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Sudden breathlessness", "Pleuritic chest pain", "Haemoptysis", "Collapse/syncope"],
+        "description": "Classic symptoms of pulmonary embolism"
+      },
+      "massive_pe": {
+        "id": 1010,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Signs of massive PE (hypotension, cardiac arrest risk)"
+      },
+      "peripheral_oedema": {
+        "id": 1011,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Peripheral oedema present (ankles/sacrum)"
+      },
+      "internal_bleeding": {
+        "id": 1012,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Abdominal distension", "Rigid abdomen", "Guarding", "Tachycardia", "Hypotension"],
+        "description": "Signs suggestive of internal hemorrhage"
+      },
+      "life_extinct_signs": {
+        "id": 1013,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Decapitation", "Hemicorporectomy", "Incineration", "Massive cranial/torso destruction", "Rigor mortis", "Hypostasis"],
+        "description": "Signs incompatible with life"
+      },
+      "life_threatening_asthma": {
+        "id": 1014,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Silent chest", "Cyanosis", "Poor respiratory effort", "Exhaustion/altered consciousness", "SpO2 <92%"],
+        "description": "Life-threatening features of asthma"
+      },
+      "life_threatening_chest": {
+        "id": 1015,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Tension pneumothorax signs", "Massive haemothorax", "Flail segment", "Open pneumothorax (sucking wound)", "Cardiac tamponade"],
+        "description": "Life-threatening chest injuries"
+      },
+      "meningism": {
+        "id": 1016,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Neck stiffness", "Photophobia", "Bulging fontanelle (infants)", "High-pitched cry"],
+        "description": "Signs of meningeal irritation"
+      },
+      "neurological_deficit": {
+        "id": 1017,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Weakness/paralysis", "Altered/absent sensation", "Priapism", "Loss of sphincter control"],
+        "description": "Neurological deficit suggesting spinal cord injury"
+      },
+      "neurovascular_6ps": {
+        "id": 1018,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Pulse present", "Pink/good perfusion", "Warm", "Sensation intact", "Movement present", "Pain on movement"],
+        "description": "6 Ps of neurovascular assessment"
+      },
+      "non_blanching_rash": {
+        "id": 1019,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Non-blanching purpuric rash (glass test)"
+      },
+      "organic_causes": {
+        "id": 1020,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Hypoglycaemia checked", "Head injury excluded", "Sepsis excluded", "Stroke excluded", "Hypoxia excluded"],
+        "description": "Organic causes to exclude before psychiatric diagnosis"
+      },
+      "organic_causes_excluded": {
+        "id": 1021,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Organic causes of hyperventilation excluded"
+      },
+      "preeclampsia_signs": {
+        "id": 1022,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Severe headache", "Visual disturbance", "Epigastric pain", "Vomiting", "Swollen hands/face"],
+        "description": "Warning signs of pre-eclampsia"
+      },
+      "recovered_to_baseline": {
+        "id": 1023,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Patient fully recovered to normal baseline"
+      },
+      "respiratory_distress_signs": {
+        "id": 1024,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Nasal flaring", "Intercostal recession", "Subcostal recession", "Tracheal tug", "Head bobbing", "Grunting"],
+        "description": "Signs of respiratory distress in children"
+      },
+      "response_to_treatment": {
+        "id": 1025,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Patient improved after treatment"
+      },
+      "reversible_causes_considered": {
+        "id": 1026,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "4 Hs 4 Ts considered in arrest"
+      },
+      "sepsis_criteria": {
+        "id": 1027,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Altered mental state", "Tachycardia for age", "Prolonged capillary refill >2s", "Tachypnoea for age", "Fever >38.5 or Temp <36", "Hypotension"],
+        "description": "Sepsis/SIRS criteria"
+      },
+      "severe_croup": {
+        "id": 1028,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Chest recession", "Agitation/distress", "Reduced consciousness", "Cyanosis"],
+        "description": "Severe features of croup"
+      },
+      "skull_fracture_signs": {
+        "id": 1029,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["CSF from nose/ears", "Battle's sign (bruising behind ear)", "Raccoon eyes", "Palpable skull depression"],
+        "description": "Clinical signs of skull fracture"
+      },
+      "spinal_risk_mechanism": {
+        "id": 1030,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Fall >1m or 5 stairs", "Axial load (diving)", "High speed RTC", "Ejection from vehicle", "Roll-over", "Bike collision"],
+        "description": "High-risk mechanisms for spinal injury"
+      },
+      "spinal_tenderness": {
+        "id": 1031,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Midline spinal pain or tenderness"
+      },
+      "stridor_severity": {
+        "id": 1032,
+        "source": "Extended",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["No stridor at rest", "Stridor at rest", "Stridor with agitation only"],
+        "description": "Severity of stridor in croup"
+      },
+      "thoracotomy_criteria": {
+        "id": 1033,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Witnessed penetrating trauma with very brief downtime"
+      },
+      "BM_rechecked": {
+        "id": 1034,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Blood glucose rechecked after intervention"
+      }
+    },
+    "Blood Glucose": {
+      "bloodGlucose": {
+        "id": 6,
+        "source": "AEPR",
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "BM Reading: Blood sugar reading in mmol/L or mg/dL"
+      },
+      "value": {
+        "id": 1038,
+        "source": "Extended",
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "Blood glucose value in mmol/L"
+      },
+      "bloodGlucoseRecheck": {
+        "id": 1039,
+        "source": "Extended",
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "Repeat blood glucose measurement"
+      }
+    },
+    "Blood Pressure": {
+      "systolicBP": {
+        "id": 7,
+        "source": "AEPR",
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "Observed systolic blood pressure"
+      },
+      "diastolicBP": {
+        "id": 8,
+        "source": "AEPR",
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "Observed diastolic blood pressure"
+      }
+    },
+    "Body Fluid IO": {
+      "fluidIO": {
+        "id": 9,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Input", "Output"],
+        "description": "To indicate whether this is fluid intake or expulsion"
+      },
+      "fluidType": {
+        "id": 10,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Blood", "Emesis", "Urine"],
+        "description": "To indicate the type of fluid"
+      },
+      "fluidVolume": {
+        "id": 11,
+        "source": "AEPR",
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "To indicate the volume of fluid"
+      }
+    },
+    "Body Temperature": {
+      "value": {
+        "id": 12,
+        "source": "AEPR",
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "The recorded body temperature in degrees Celsius or Fahrenheit"
+      },
+      "site": {
+        "id": 13,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Oral", "Rectal", "Axillary", "Tympanic"],
+        "description": "The body site where temperature was taken"
+      }
+    },
+    "Breathing Assessment": {
+      "respiratoryRate": {
+        "id": 14,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Fast", "Normal", "Slow"],
+        "description": "An assessment of the Patient's respiratory rate"
+      },
+      "respiratorySigns": {
+        "id": 15,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..0",
+        "description": "Needs definition in system"
+      },
+      "respiratoryEffort": {
+        "id": 16,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..0",
+        "values": ["Shallow", "Normal", "Retractive"],
+        "description": "Respiratory effort of the patient"
+      },
+      "respiratoryDepth": {
+        "id": 17,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..0",
+        "description": "The amplitude of each respiratory movement"
+      }
+    },
+    "Burn": {
+      "burnSeverity": {
+        "id": 18,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Full thickness", "Partial Thickness", "Superficial", "Pertinent Negative"],
+        "description": "Severity of burn"
+      }
+    },
+    "Burns": {
+      "cooled": {
+        "id": 1040,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Burn cooled with running water 10-20 minutes"
+      },
+      "depth": {
+        "id": 1041,
+        "source": "Extended",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Superficial (red, painful)", "Partial thickness (blistering)", "Full thickness (white/charred, painless)"],
+        "description": "Burn thickness classification"
+      },
+      "dressed": {
+        "id": 1042,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Burn covered with appropriate dressing"
+      },
+      "entry_exit_wounds": {
+        "id": 1043,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Entry and exit wounds identified (electrical injury)"
+      }
+    },
+    "Cannulation": {
+      "size": {
+        "id": 19,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "Size of cannula"
+      },
+      "side": {
+        "id": 20,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Left", "Right"],
+        "description": "The side cannulation was attempted"
+      },
+      "site": {
+        "id": 21,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["ACF", "Central Line", "External jugular", "Femoral", "Forearm", "Hand", "Intraosseous", "Lower extremity", "Wrist", "Other"],
+        "description": "The site cannulation was attempted"
+      },
+      "outcome": {
+        "id": 22,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Outcome of the cannulation procedure"
+      },
+      "attempts": {
+        "id": 23,
+        "source": "AEPR",
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "length": 2,
+        "description": "The number of cannulation attempts"
+      },
+      "established": {
+        "id": 1044,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "IV access successfully established"
+      }
+    },
+    "Cardiac": {
+      "chestPainOnsetDate": {
+        "id": 24,
+        "source": "AEPR",
+        "type": "Date",
+        "cardinality": "1..0",
+        "description": "Date of onset of symptoms"
+      },
+      "chestPainOnsetTime": {
+        "id": 25,
+        "source": "AEPR",
+        "type": "Time",
+        "cardinality": "1..0",
+        "description": "Time of onset of symptoms"
+      },
+      "cardiacArrest": {
+        "id": 26,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["No", "Yes Prior to 999 Arrival", "Yes After 999 Arrival"],
+        "description": "Cardiac Arrest/Arrest Occurrence"
+      },
+      "estimatedArrestTime": {
+        "id": 27,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["0-2 mins", "2-4 mins", "4-6 mins", "6-8 mins", "8-10 mins", "10-15 mins", "15-20 mins", "20 minutes", "Not Available", "Not Known", "Other"],
+        "description": "Estimated time of arrest prior to arrival"
+      },
+      "witness": {
+        "id": 28,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Witnessed by Ambulance Clinicians", "Witnessed by Community Responders", "Bystander Witness", "Not Witnessed", "Other"],
+        "description": "Witnessed arrests"
+      },
+      "adverse_features": {
+        "id": 1045,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Shock (BP <90)", "Syncope", "Myocardial ischaemia", "Heart failure"],
+        "description": "Adverse features with arrhythmia"
+      },
+      "reversibleCausesConsidered": {
+        "id": 1046,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "4 Hs 4 Ts assessed"
+      },
+      "traumatic_arrest_causes": {
+        "id": 1047,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Hypoxia", "Hypovolaemia (hemorrhage)", "Hypothermia", "Tension pneumothorax", "Tamponade (cardiac)", "Hyperkalaemia", "Thrombosis"],
+        "description": "Reversible causes in traumatic cardiac arrest"
+      }
+    },
+    "Cardiopulmonary Resuscitation": {
+      "resuscitationAttempted": {
+        "id": 29,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Resuscitation Attempted - Ambulance Crew", "Resuscitation Attempted - Bystander", "Mechanically Assisted Cardiac Compressions", "Not Attempted - Obvious Signs of Death", "Not Attempted - DNR", "Not Attempted - Signs of Circulation", "Other"],
+        "description": "Information about whether resuscitation was attempted"
+      },
+      "returnSpontaneousCirculation": {
+        "id": 30,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["No ROSC achieved", "ROSC on arrival at hospital", "ROSC at any time"],
+        "description": "Return of any spontaneous palpable pulse"
+      },
+      "CPRStart": {
+        "id": 31,
+        "source": "AEPR",
+        "type": "Time",
+        "cardinality": "1..0",
+        "description": "The time of first CPR attempts"
+      },
+      "CPRStop": {
+        "id": 32,
+        "source": "AEPR",
+        "type": "Time",
+        "cardinality": "1..0",
+        "description": "The time where CPR attempts ceased"
+      },
+      "effortsCeased": {
+        "id": 33,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..0",
+        "values": ["DNAR", "Medical Control Order", "Obvious Signs of Death", "ROSC", "Other", "Protocol / Policy Requirements Completed", "Care Transferred to Hospital", "Not Known (Bystander CPR)"],
+        "description": "Reason for stopping"
+      },
+      "CPRInProgress": {
+        "id": 1048,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "CPR currently in progress"
+      },
+      "rescue_breaths": {
+        "id": 1049,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "5 initial rescue breaths given (paediatric)"
+      }
+    },
+    "Care Professional": {
+      "role": {
+        "id": 34,
+        "source": "AEPR",
+        "medic_visible": false,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Trust Crew", "Trust ECP", "Trust First Responder", "Trust Other", "Non-Trust GP", "Non-Trust Community Responder", "Non-Trust Other"],
+        "description": "Role of the first health care provider on scene"
+      },
+      "skillLevel": {
+        "id": 35,
+        "source": "AEPR",
+        "medic_visible": false,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["BASICS", "Bystander", "Community First Responder", "Community Paramedic", "Emergency Care Practitioner", "Fire/Rescue", "GP", "Medical Team", "Paramedic", "Police", "Technician", "Other"],
+        "description": "Highest skill level available to the patient"
+      },
+      "name": {
+        "id": 36,
+        "source": "AEPR",
+        "medic_visible": false,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Name of the healthcare professional"
+      },
+      "id": {
+        "id": 37,
+        "source": "AEPR",
+        "medic_visible": false,
+        "type": "Alphanumeric",
+        "cardinality": "1..0",
+        "description": "The persons id where known/appropriate"
+      }
+    },
+    "Chief Complaint": {
+      "presentingComplaint": {
+        "id": 38,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Cerebral", "Respiratory", "Cardiac", "Abdominal", "Endocrine", "Obstetrics", "Miscellaneous (including psychiatric)", "Trauma: Mechanical", "Trauma: NonMecahnical"],
+        "description": "The Primary patient problem identified"
+      },
+      "assessmentTime": {
+        "id": 39,
+        "source": "AEPR",
+        "type": "Time",
+        "cardinality": "1..1",
+        "description": "Time that the care professional conducted the assessment"
+      },
+      "additionalInformation": {
+        "id": 40,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Packets/containers of meds, Medic alert jewellery, Warning Stickers"
+      },
+      "pastMedicalHistory": {
+        "id": 41,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..0",
+        "description": "The relevant past medical history of the patient"
+      },
+      "socialAndFamiliyHistory": {
+        "id": 42,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..0",
+        "description": "The relevant family and social history of the patient"
+      }
+    },
+    "Circulatory Assessment": {
+      "pulseSite": {
+        "id": 43,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..0",
+        "values": ["Left Radial", "Left Brachial", "Left Carotid", "Left Femoral", "Right Radial", "Right Brachial", "Right Carotid", "Right Femoral", "Other"],
+        "description": "Site Pulse rate was taken"
+      },
+      "pulseRate": {
+        "id": 44,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Normal", "Rapid", "Slow", "Absent", "Other"],
+        "description": "Pulse rate"
+      },
+      "pulseRhythm": {
+        "id": 45,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Regular", "Irregular", "Other"],
+        "description": "Pulse rate rhythm"
+      },
+      "pulseStrength": {
+        "id": 46,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Strong", "Weak", "Bounding", "Absent", "Other"],
+        "description": "Pulse rate strength"
+      },
+      "capillaryRefill": {
+        "id": 47,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..0",
+        "values": ["Less than 2 seconds", "More than 2 seconds"],
+        "description": "<2 sec Yes/No"
+      },
+      "shock": {
+        "id": 1050,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Tachycardia >100", "Hypotension <90", "Pale/clammy", "Reduced GCS"],
+        "description": "Signs of hypovolaemic shock"
+      }
+    },
+    "Convulsions": {
+      "currentlySeizing": {
+        "id": 1051,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Patient actively seizing now"
+      },
+      "duration": {
+        "id": 1052,
+        "source": "Extended",
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "Duration of seizure in minutes"
+      }
+    },
+    "Crew": {
+      "crewPin": {
+        "id": 48,
+        "source": "AEPR",
+        "medic_visible": false,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Payroll / Personnel number"
+      }
+    },
+    "Current Medication": {
+      "name": {
+        "id": 49,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "Name of the Drug or Medication"
+      },
+      "dosage": {
+        "id": 50,
+        "source": "AEPR",
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "Dosage of the Drug or Medication"
+      },
+      "frequency": {
+        "id": 51,
+        "source": "AEPR",
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "Prescribed frequency"
+      },
+      "compliance": {
+        "id": 52,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Yes", "No", "Unknown"],
+        "description": "Extent to which patient has complied with regime"
+      },
+      "comments": {
+        "id": 53,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Additional comments"
+      }
+    },
+    "Defib Shock": {
+      "type": {
+        "id": 54,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Defibrillation", "Cardioversion", "Pacing", "Precordial Thump"],
+        "description": "The type of shock administered"
+      },
+      "energy": {
+        "id": 55,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..0",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "Energy options for the defibrillation shock (Joules)"
+      },
+      "energyForm": {
+        "id": 56,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..0",
+        "values": ["Monophasic", "Biphasic"],
+        "description": "Energy waveform"
+      },
+      "pacingType": {
+        "id": 57,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..0",
+        "values": ["Transcutaneous", "Transvenous"],
+        "description": "Pacing options for the defibrillator"
+      }
+    },
+    "Defibrillation": {
+      "defibrillationAttempted": {
+        "id": 58,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Yes", "No"],
+        "description": "To indicate whether defibrillation was attempted"
+      },
+      "attempts": {
+        "id": 59,
+        "source": "AEPR",
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "length": 2,
+        "description": "Total number of shocks administered"
+      },
+      "padsAttached": {
+        "id": 1053,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Defibrillator pads attached"
+      }
+    },
+    "Dispatch": {
+      "dispatchTime": {
+        "id": 60,
+        "source": "AEPR",
+        "medic_visible": false,
+        "type": "Time",
+        "cardinality": "1..1",
+        "description": "The time at which the dispatch was notified"
+      },
+      "ambulanceArrivalTime": {
+        "id": 61,
+        "source": "AEPR",
+        "medic_visible": false,
+        "type": "Time",
+        "cardinality": "1..1",
+        "description": "Time Emergency Ambulance arrives at destination"
+      },
+      "responseMobileTime": {
+        "id": 62,
+        "source": "AEPR",
+        "medic_visible": false,
+        "type": "Time",
+        "cardinality": "1..1",
+        "description": "Moment when emergency response vehicle begins to move"
+      }
+    },
+    "Disposition": {
+      "destinationType": {
+        "id": 63,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Emergency Department", "Direct Admission", "GP", "Home", "Medical Assessment Unit", "Minor Injury Unit", "Non-NHS facility", "Treated at Scene"],
+        "description": "Destination Type"
+      },
+      "destinationHealthcareProvider": {
+        "id": 64,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..0",
+        "description": "The healthcare facility to which the patient was transported"
+      },
+      "CPROngoing": {
+        "id": 65,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Yes", "No"],
+        "description": "To indicate whether CPR was ongoing on Patient Handover"
+      },
+      "recipientGrade": {
+        "id": 66,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Recipient Grade"
+      },
+      "recipientName": {
+        "id": 67,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Recipient Name"
+      },
+      "arrivalTime": {
+        "id": 68,
+        "source": "AEPR",
+        "type": "Time",
+        "cardinality": "1..1",
+        "description": "Arrival time at the healthcare provider"
+      },
+      "arrivalDate": {
+        "id": 69,
+        "source": "AEPR",
+        "type": "Date",
+        "cardinality": "1..1",
+        "description": "Arrival date at the healthcare provider"
+      },
+      "handoverDate": {
+        "id": 70,
+        "source": "AEPR",
+        "type": "Date",
+        "cardinality": "1..1",
+        "description": "Date of handover"
+      },
+      "handoverTime": {
+        "id": 71,
+        "source": "AEPR",
+        "type": "Time",
+        "cardinality": "1..1",
+        "description": "Time of handover"
+      }
+    },
+    "Documentation": {
+      "ROLE_documented": {
+        "id": 1054,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Recognition of Life Extinct decision documented with rationale"
+      }
+    },
+    "Drug Administration": {
+      "name": {
+        "id": 72,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE", "All drugs captured as SNOMED"],
+        "description": "Names of drugs administered"
+      },
+      "route": {
+        "id": 73,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Endo Tracheal", "Inhaled", "Intra Nasal", "Intraosseous", "Intra Venous", "Intra Muscular", "Nebulised", "Oral", "Rectal", "Sub Lingual/Buccal", "Sub Cutaneous", "Topical", "Other"],
+        "description": "Drug administered intravenously or via endotracheal tube etc"
+      },
+      "dosage": {
+        "id": 74,
+        "source": "AEPR",
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "Dosage of the drug given (mg, g, l/min, mcg, etc)"
+      },
+      "batchNumber": {
+        "id": 75,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Drug batch number"
+      },
+      "effect": {
+        "id": 76,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "A statement as to the effect or non effect"
+      },
+      "ipratropium_given": {
+        "id": 1055,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Ipratropium bromide nebuliser given"
+      }
+    },
+    "ECG Interpretation": {
+      "rhythm": {
+        "id": 77,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Sinus rhythm", "Sinus Arrhythmia", "Sinus bradycardia", "Sinus Tachycardia", "Supraventricular Tachycardia (SVT)", "PSVT", "Atrial Fibrillation (A-Fib)", "Atrial Flutter (A-Flutter)", "1 Degree Block", "2 Degree Block Type I", "2 Degree Block Type II", "3 Degree Block", "Junctional Escape", "Accelerated Junctional", "Junctional Tachycardia", "Ventricular Escape", "Ventricular Fibrillation (V-Fib)", "Ventricular Tachycardia (V-Tach)", "Run of V-Tach", "Asystole", "Pacemaker", "Other"],
+        "description": "The underlying cardiac rhythm"
+      },
+      "ectopy": {
+        "id": 78,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["PVCs unifocal", "PVCs-multifocal", "PACS", "PJCS", "Other"],
+        "description": "Disturbance to the cardiac rhythm"
+      },
+      "leadType": {
+        "id": 79,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["3", "12", "15", "18"],
+        "description": "Number of leads the ECG device has"
+      },
+      "abnomality": {
+        "id": 80,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Non-Diagnostic", "ST Elevation", "MI - Inferior", "MI - Anterior", "LBBB", "RBBB", "MI - Lateral", "ST Depression", "T Wave Inversion", "MI - Posterior", "Other"],
+        "description": "Noted ECG waveform abnormalities"
+      },
+      "interpretationTime": {
+        "id": 81,
+        "source": "AEPR",
+        "type": "Time",
+        "cardinality": "1..1",
+        "description": "Time at which interpretation was made"
+      },
+      "monitoring": {
+        "id": 1056,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Continuous ECG monitoring in place"
+      },
+      "performed": {
+        "id": 1057,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "12-lead ECG performed"
+      }
+    },
+    "Educational Establishment": {
+      "relationship": {
+        "id": 82,
+        "source": "AEPR",
+        "medic_visible": false,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Carer", "Headmaster", "Lecturer", "Teacher", "School Nurse", "Other"],
+        "description": "The carer's relationship to the Education Facility"
+      },
+      "orgName": {
+        "id": 83,
+        "source": "AEPR",
+        "medic_visible": false,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "The name of the Education Facility"
+      },
+      "orgAddress": {
+        "id": 84,
+        "source": "AEPR",
+        "medic_visible": false,
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "The address of the Education Facility"
+      }
+    },
+    "Equipment": {
+      "delivery_pack": {
+        "id": 1058,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Delivery pack prepared (clamps, scissors, towels)"
+      }
+    },
+    "Evidence": {
+      "substance_packaging": {
+        "id": 1059,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Substance container/packaging collected"
+      }
+    },
+    "FAST Assessment": {
+      "face": {
+        "id": 85,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Abnormal", "Normal"],
+        "description": "Test for facial weakness"
+      },
+      "arm": {
+        "id": 86,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Abnormal", "Normal"],
+        "description": "Test for arm motor weakness"
+      },
+      "speech": {
+        "id": 87,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Abnormal", "Normal"],
+        "description": "Test for slurring or difficulty with words"
+      },
+      "conclusion": {
+        "id": 88,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Negative", "Non-conclusive", "Positive", "Not Available"],
+        "description": "The observed conclusion of the FAST test"
+      }
+    },
+    "Fall": {
+      "FallFromHeight": {
+        "id": 89,
+        "source": "AEPR",
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "Distance fallen in metres"
+      }
+    },
+    "Falls Assessment": {
+      "assessed": {
+        "id": 90,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Yes", "No"],
+        "description": "Indicator to show whether a Falls assessment has been completed"
+      }
+    },
+    "GPS Coordinates": {
+      "latitude": {
+        "id": 91,
+        "source": "AEPR",
+        "medic_visible": false,
+        "type": "Coordinate",
+        "cardinality": "1..1",
+        "description": "Latitude"
+      },
+      "longitude": {
+        "id": 92,
+        "source": "AEPR",
+        "medic_visible": false,
+        "type": "Coordinate",
+        "cardinality": "1..1",
+        "description": "Longitude"
+      }
+    },
+    "Glasgow Coma Scale": {
+      "GCSItem": {
+        "id": 93,
+        "source": "AEPR",
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "length": 1,
+        "description": "Item assessed (Eyes, Motor, Verbal) score range 1-6"
+      },
+      "GCSScore": {
+        "id": 94,
+        "source": "AEPR",
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "length": 1,
+        "description": "Score"
+      },
+      "GCSTotal": {
+        "id": 95,
+        "source": "AEPR",
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "length": 2,
+        "description": "The total score"
+      }
+    },
+    "Immobilisation": {
+      "location": {
+        "id": 96,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "The body location immobilised"
+      },
+      "type": {
+        "id": 97,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Vacuum splint", "Sling", "Inflatable splint", "Traction splint", "Frac Straps", "Box splint", "C Spine Collar", "Spine board", "Extrication Device", "Pelvic splint", "Other"],
+        "description": "The type of device used"
+      }
+    },
+    "Incident": {
+      "transportRequestIncidentNumber": {
+        "id": 98,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "A unique identifier for a TRANSPORT REQUEST INCIDENT"
+      },
+      "incidentTime": {
+        "id": 99,
+        "source": "AEPR",
+        "type": "Time",
+        "cardinality": "1..1",
+        "description": "Time of incident"
+      },
+      "incidentDate": {
+        "id": 100,
+        "source": "AEPR",
+        "type": "Date",
+        "cardinality": "1..1",
+        "description": "Date of incident"
+      },
+      "reportedCondition": {
+        "id": 101,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "The reported clinical condition (e.g. conscious/breathing)"
+      },
+      "transportRequestCallConnectTime": {
+        "id": 102,
+        "source": "AEPR",
+        "type": "Time",
+        "cardinality": "1..0",
+        "description": "The start time ('Call Connect')"
+      },
+      "transportRequestCallType": {
+        "id": 103,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..0",
+        "values": ["Called GP who saw patient before calling EMS", "Called GP who called EMS before seeing patient", "Called 999", "Called NHS Direct", "Called Local Helpline", "Called GP and told to make own way to hospital", "Called GP who told patient to call EMS", "Resuscitation attempted or ceased", "Not Known"],
+        "description": "Category of initial call for help"
+      },
+      "timeLeftScene": {
+        "id": 104,
+        "source": "AEPR",
+        "type": "Time",
+        "cardinality": "1..1",
+        "description": "The time of the crew leave the scene"
+      },
+      "hospitalAlertSent": {
+        "id": 1060,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Time-critical hospital pre-alert sent"
+      }
+    },
+    "Injury": {
+      "activity": {
+        "id": 105,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "The type of activity that played a role in the patient's injury"
+      },
+      "bodyLocation": {
+        "id": 106,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Multiple", "Head/neck / face", "Spinal/spinal column", "Chest", "Abdominal/pelvic", "Upper limbs", "Lower limbs", "Back", "Other", "Unknown"],
+        "description": "Area of body suffering trauma"
+      },
+      "locationType": {
+        "id": 107,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Home", "Works/Industrial", "Public Place", "Leisure Facility", "Healthcare Facility", "Farm", "Water's Edge", "Road/Pavement", "Other"],
+        "description": "Type of location where the injury occured"
+      },
+      "safetyEquipmentUsed": {
+        "id": 108,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["None", "Air Bag Deployed", "Seat Belts", "Child Safety Seat", "Correctly adjusted head rests", "Eye protection", "Helmet", "Other Protective Gear", "Personal Flotation Device", "Protective Clothing", "Not Recorded / Undetermined"],
+        "description": "Safety equipment used by patient"
+      }
+    },
+    "Intervention": {
+      "interventionType": {
+        "id": 109,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "The type of intervention administered"
+      },
+      "interventionTime": {
+        "id": 110,
+        "source": "AEPR",
+        "type": "Time",
+        "cardinality": "1..1",
+        "description": "The time of intervention"
+      },
+      "interventionComment": {
+        "id": 111,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Additional comments"
+      },
+      "interventionBy": {
+        "id": 112,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "The healthcare professional that conducted the intervention"
+      },
+      "abdominal_thrusts": {
+        "id": 1061,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Abdominal thrusts (Heimlich) performed"
+      },
+      "active_rewarming": {
+        "id": 1062,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Active rewarming techniques used"
+      },
+      "back_blows": {
+        "id": 1063,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Back blows for choking performed"
+      },
+      "burncooling": {
+        "id": 1064,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Burn cooling performed"
+      },
+      "burndressing": {
+        "id": 1065,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Burn dressing applied"
+      },
+      "chest_decompression": {
+        "id": 1066,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Needle decompression for tension pneumothorax"
+      },
+      "chest_seal": {
+        "id": 1067,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Three-sided chest seal applied"
+      },
+      "cooling": {
+        "id": 1068,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Move to cool environment", "Remove clothing", "Tepid sponging", "Fanning", "Cold packs"],
+        "description": "Cooling interventions for heat illness"
+      },
+      "hemorrhage_control": {
+        "id": 1069,
+        "source": "Extended",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Direct pressure", "Tourniquet", "Pelvic binder", "Hemostatic dressing"],
+        "description": "Method of hemorrhage control"
+      },
+      "passive_rewarming": {
+        "id": 1070,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Remove wet clothing", "Dry patient", "Wrap in blankets", "Warm environment"],
+        "description": "Passive rewarming techniques"
+      },
+      "splinting": {
+        "id": 1071,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Limb splinted/immobilised"
+      }
+    },
+    "Intubation": {
+      "type": {
+        "id": 113,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Endotracheal (ET)", "Oesophageal tracheal combitube (OTC)", "LMA", "Other"],
+        "description": "Type of Intubation"
+      },
+      "technique": {
+        "id": 114,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Standard laryngoscopy", "Bougie", "Digital", "Medication facilitated", "Bougie and Medication facilitated", "Other"],
+        "description": "Intubation Technique"
+      },
+      "outcome": {
+        "id": 115,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Result of attempted Intubation"
+      }
+    },
+    "Known Allergy": {
+      "type": {
+        "id": 116,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "The patient allergy as reported by the patient"
+      }
+    },
+    "Legal": {
+      "coroner_referral": {
+        "id": 1072,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Coroner referral required"
+      }
+    },
+    "Life Extinct": {
+      "deathConfirmed": {
+        "id": 117,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Yes", "No"],
+        "description": "Confirmation of death"
+      },
+      "personRole": {
+        "id": 118,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Crew", "Doctor", "Nurse", "Other Healthcare Professional", "Other"],
+        "description": "The role of the person who confirmed life extinct"
+      },
+      "personName": {
+        "id": 119,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "The name of the person who confirmed life extinct"
+      },
+      "reasonNotSigned": {
+        "id": 120,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..0",
+        "values": ["Unavailable", "Refused", "Other"],
+        "description": "The reason why the confirmation was not signed"
+      }
+    },
+    "Limb Injury": {
+      "open_fracture": {
+        "id": 1073,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Bone protruding or wound communicating with fracture"
+      }
+    },
+    "Lung Fields": {
+      "soundDetails": {
+        "id": 121,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Description of the sound"
+      },
+      "lungLocation": {
+        "id": 122,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Top (apical)", "Middle", "Bottom"],
+        "description": "Location in the patient's lungs"
+      },
+      "airEntry": {
+        "id": 1074,
+        "source": "Extended",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Equal bilateral", "Reduced left", "Reduced right", "Absent left", "Absent right"],
+        "description": "Air entry on auscultation"
+      },
+      "breathSounds": {
+        "id": 1075,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Wheeze", "Crackles", "Reduced air entry", "Normal"],
+        "description": "Breath sounds heard"
+      },
+      "sounds": {
+        "id": 1076,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Wheeze", "Crackles", "Reduced air entry", "Stridor", "Normal", "Silent chest"],
+        "description": "Chest auscultation findings"
+      }
+    },
+    "Management": {
+      "breathing_coaching": {
+        "id": 1077,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Breathing techniques coached"
+      },
+      "cooling_measures": {
+        "id": 1078,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Cooling measures applied"
+      },
+      "de_escalation": {
+        "id": 1079,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "De-escalation techniques used"
+      },
+      "encouraged_cough": {
+        "id": 1080,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Patient encouraged to cough (mild choking)"
+      },
+      "food_given": {
+        "id": 1081,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Food given after hypoglycaemia treatment"
+      },
+      "gentle_handling": {
+        "id": 1082,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Gentle handling for severe hypothermia (VF risk)"
+      },
+      "kept_calm": {
+        "id": 1083,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Child kept calm (croup management)"
+      },
+      "oral_glucose_given": {
+        "id": 1084,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Oral glucose given for hypoglycaemia"
+      },
+      "packaging_brought": {
+        "id": 1085,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Medication/substance packaging brought to hospital"
+      },
+      "secondary_injury_prevention": {
+        "id": 1086,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Secondary brain injury prevention (maintain SpO2, BP)"
+      },
+      "toxbase_consulted": {
+        "id": 1087,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "TOXBASE or poisons unit consulted"
+      }
+    },
+    "Mechanism of Injury": {
+      "injuryMechanism": {
+        "id": 123,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "The mechanism of injury experienced by the patient"
+      }
+    },
+    "Mental Health": {
+      "capacity": {
+        "id": 1088,
+        "source": "Extended",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Has capacity", "Lacks capacity", "Unclear"],
+        "description": "Mental capacity assessment"
+      },
+      "mental_state": {
+        "id": 1089,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Agitated", "Anxious", "Depressed", "Delusional", "Hallucinating", "Manic", "Normal"],
+        "description": "Mental state examination findings"
+      },
+      "risk_assessment": {
+        "id": 1090,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Suicidal ideation/intent", "Self-harm risk", "Aggression/violence risk", "Absconding risk", "Vulnerable"],
+        "description": "Mental health risk assessment"
+      }
+    },
+    "Monitoring": {
+      "complications": {
+        "id": 1091,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Arrhythmias", "Further deterioration", "No complications"],
+        "description": "Complications monitored for"
+      }
+    },
+    "Newborn": {
+      "apgar": {
+        "id": 1092,
+        "source": "Extended",
+        "type": "Structured",
+        "cardinality": "1..1",
+        "description": "APGAR scores at 1 and 5 minutes"
+      },
+      "immediate_care": {
+        "id": 1093,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Baby dried, stimulated, and kept warm"
+      }
+    },
+    "Observation": {
+      "observationTime": {
+        "id": 124,
+        "source": "AEPR",
+        "type": "Time",
+        "cardinality": "1..1",
+        "description": "The time that an observation was made"
+      },
+      "observer": {
+        "id": 125,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "The healthcare professional who undertook the observation"
+      },
+      "observationComments": {
+        "id": 126,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Comments associated with a particular observation"
+      },
+      "observationType": {
+        "id": 127,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "The type of clinical observation made"
+      }
+    },
+    "Obstetrics": {
+      "breech_delivery": {
+        "id": 1094,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Breech delivery managed (hands off approach)"
+      },
+      "complication_type": {
+        "id": 1095,
+        "source": "Extended",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Breech presentation", "Cord prolapse", "Shoulder dystocia", "Limb presentation", "Multiple births"],
+        "description": "Type of birth complication"
+      },
+      "cord_clamped": {
+        "id": 1096,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Umbilical cord clamped and cut"
+      },
+      "cord_prolapse_management": {
+        "id": 1097,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Position mother knee-chest", "Elevate presenting part off cord", "Keep cord warm and moist", "Emergency pre-alert sent"],
+        "description": "Cord prolapse emergency management"
+      },
+      "delivery_supported": {
+        "id": 1098,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Delivery supported (control head, check for cord, deliver shoulders)"
+      },
+      "eclamptic_seizure": {
+        "id": 1099,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Eclamptic seizure occurred"
+      },
+      "fundal_massage": {
+        "id": 1100,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Uterine fundal massage performed (postpartum hemorrhage)"
+      },
+      "hemorrhage": {
+        "id": 1101,
+        "source": "Extended",
+        "type": "Structured",
+        "cardinality": "1..1",
+        "description": "Timing, volume, and ongoing status of obstetric bleeding"
+      },
+      "history": {
+        "id": 1102,
+        "source": "Extended",
+        "type": "Structured",
+        "cardinality": "1..1",
+        "description": "Gravida/Para and gestation weeks"
+      },
+      "imminent_delivery": {
+        "id": 1103,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Crowning visible", "Uncontrollable urge to push", "Contractions <2 mins apart", "Multiparous patient", "Waters broken"],
+        "description": "Signs of imminent delivery"
+      },
+      "shoulder_dystocia_management": {
+        "id": 1104,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["McRoberts position (hyperflexed legs)", "Suprapubic pressure", "Call for help/emergency pre-alert"],
+        "description": "Shoulder dystocia maneuvers"
+      }
+    },
+    "Oxygen Administration": {
+      "02%": {
+        "id": 128,
+        "source": "AEPR",
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "length": 2,
+        "description": "Flow rate l/min"
+      },
+      "type": {
+        "id": 129,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Nasal cannula", "Non-rebreather", "Venturi", "BVM", "Other"],
+        "description": "The means by which oxygen is administered"
+      }
+    },
+    "Pain Assessment": {
+      "score": {
+        "id": 130,
+        "source": "AEPR",
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "length": 2,
+        "description": "Pain score on a scale of 0-10"
+      },
+      "location": {
+        "id": 131,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "Location and radiation of the pain"
+      },
+      "nature": {
+        "id": 132,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "The nature of the pain"
+      },
+      "duration": {
+        "id": 133,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "The duration of the pain"
+      },
+      "headache": {
+        "id": 1105,
+        "source": "Extended",
+        "type": "Structured",
+        "cardinality": "1..1",
+        "description": "Headache characteristics (onset, location, severity, timing)"
+      }
+    },
+    "Patient": {
+      "patientIdentifier": {
+        "id": 134,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "length": 50,
+        "description": "Unique identifier separate from NHS Number"
+      }
+    },
+    "Patient Details": {
+      "NHSNumber": {
+        "id": 135,
+        "source": "AEPR",
+        "type": "Numeric",
+        "cardinality": "1..0",
+        "length": 10,
+        "description": "Patient NHS Number"
+      },
+      "age": {
+        "id": 136,
+        "source": "AEPR",
+        "type": "Numeric",
+        "cardinality": "1..0",
+        "length": 3,
+        "description": "Age of patient"
+      },
+      "dateOfBirth": {
+        "id": 137,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..0",
+        "length": 10,
+        "description": "ccyy-mm-dd"
+      },
+      "familyName": {
+        "id": 138,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..0",
+        "length": 35,
+        "description": "Surname (e-GIF standard)"
+      },
+      "givenName": {
+        "id": 139,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..0",
+        "length": 35,
+        "description": "Forename (e-GIF standard)"
+      },
+      "title": {
+        "id": 140,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..0",
+        "length": 35,
+        "description": "Person Title"
+      },
+      "ethnicGroup": {
+        "id": 141,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..0",
+        "length": 2,
+        "values": ["A - British", "B - Irish", "C - Any other White background", "D - White and Black Caribbean", "E - White and Black African", "F - White and Asian", "G - Any other mixed background", "H - Indian", "J - Pakistani", "K - Bangladeshi", "L - Any other Asian background", "M - Caribbean", "N - African", "P - Any other Black background", "R - Chinese", "S - Any other ethnic group", "Z - Not stated"],
+        "description": "2001 Census Ethnic Category"
+      },
+      "religiousAffiliation": {
+        "id": 142,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..0",
+        "length": 4,
+        "values": ["A1", "B1", "B2", "C1-C80", "D1-D6", "E1", "F1-F8", "G1-G6", "H1-H9", "I1", "J1", "K1-K33", "L1-L2", "M1", "N1"],
+        "description": "Religious or Other Belief System Affiliation"
+      },
+      "sexualOrientation": {
+        "id": 143,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..0",
+        "length": 1,
+        "values": ["1 (Heterosexual)", "2 (Homosexual)", "3 (Bi-sexual)", "4 (Does not know/unsure)", "Z (Not Stated)"],
+        "description": "Sexual Orientation of a patient"
+      },
+      "sex": {
+        "id": 144,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "length": 1,
+        "values": ["0 (Not Known)", "1 (Male)", "2 (Female)", "9 (Not Specified/Indeterminate)"],
+        "description": "Phenotypical sex"
+      }
+    },
+    "Patient Demographics": {
+      "age": {
+        "id": 1106,
+        "source": "Extended",
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "Patient age in years"
+      }
+    },
+    "Patient Management": {
+      "Impressions": {
+        "id": 145,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "Descriptive of the condition the patient is being treated for"
+      },
+      "Time at Patient's Side": {
+        "id": 146,
+        "source": "AEPR",
+        "type": "Time",
+        "cardinality": "1..1",
+        "description": "Time at Patient's Side"
+      },
+      "positioning": {
+        "id": 1107,
+        "source": "Extended",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Lying flat", "Sat upright", "Left lateral", "Recovery position", "Position of comfort"],
+        "description": "Patient positioning"
+      }
+    },
+    "PriorityAssessment": {
+      "conditionCatagory": {
+        "id": 206,
+        "source": "AEPR",
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "Determined by EMD protocols"
+      },
+      "urgencyCatagory": {
+        "id": 207,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "description": "Level of response required"
+      },
+      "postDispatchInstructions": {
+        "id": 208,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..0",
+        "description": "Instructions given by EMD"
+      }
+    },
+    "Provider Availability": {
+      "firstChoice": {
+        "id": 147,
+        "source": "AEPR",
+        "medic_visible": false,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Yes", "No"],
+        "description": "To indicate whether the first choice provider was available"
+      },
+      "reason": {
+        "id": 148,
+        "source": "AEPR",
+        "medic_visible": false,
+        "type": "Alphanumeric",
+        "cardinality": "1..0",
+        "description": "Reason why first choice was unavailable"
+      },
+      "type": {
+        "id": 149,
+        "source": "AEPR",
+        "medic_visible": false,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Other Primary Care facility", "Other Secondary Care facility", "Walk in Centre", "Other"],
+        "description": "The type of first choice provider that was unavailable"
+      }
+    },
+    "Pulse Oximetry": {
+      "SpO2 reading": {
+        "id": 150,
+        "source": "AEPR",
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "length": 2,
+        "description": "Oxygen saturation"
+      },
+      "spO2": {
+        "id": 1108,
+        "source": "Extended",
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "Oxygen saturation percentage"
+      }
+    },
+    "Pupil Assessment": {
+      "eye": {
+        "id": 151,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["0=Left", "1=Right"],
+        "description": "Determines whether the left or right eye pupil is being assessed"
+      },
+      "pupilDilation": {
+        "id": 152,
+        "source": "AEPR",
+        "type": "Numeric",
+        "cardinality": "1..0",
+        "description": "Numeric field"
+      },
+      "pupilReaction": {
+        "id": 153,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..0",
+        "values": ["Brisk", "Sluggish", "Fixed"],
+        "description": "Pupil reaction"
+      },
+      "pupilEquality": {
+        "id": 154,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..0",
+        "values": ["Normal", "Constricted", "Dilated", "Blind", "Cataract", "Contact Lenses", "Glass Eye"],
+        "description": "Pupil Equality"
+      }
+    },
+    "Refuse Treatment": {
+      "refusalType": {
+        "id": 155,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Refuse Treatment", "Refuse Transport"],
+        "description": "The type of refusal"
+      },
+      "signedBy": {
+        "id": 156,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..0",
+        "description": "The name of the person who signed the refusal statement"
+      },
+      "signedByRole": {
+        "id": 157,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Crew", "Named Patient", "Carer", "Child", "Employee", "Father", "Mother", "Partner", "Spouse", "GrandParent", "Grandchild", "Patient Advocate", "Other Relative", "Other"],
+        "description": "The role of the person who signed"
+      },
+      "unableReason": {
+        "id": 158,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..0",
+        "values": ["Unavailable", "Unconscious", "Refused", "Patient Condition", "Other"],
+        "description": "The reason why the refusal statement could not be signed"
+      }
+    },
+    "Respiratory Rate": {
+      "value": {
+        "id": 1109,
+        "source": "Extended",
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "Respiratory rate in breaths per minute"
+      }
+    },
+    "Respiratory Resistance": {
+      "peakFlowReading": {
+        "id": 159,
+        "source": "AEPR",
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "Measured by a Peak Flow Meter (ltrs/min)"
+      }
+    },
+    "Respiratory Support": {
+      "type": {
+        "id": 160,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Not specified", "Breathing Mask", "Mouth-to-mouth", "Endotracheal Intubation", "Laryngeal Mask", "Other"],
+        "description": "Type of respiratory support"
+      },
+      "outcome": {
+        "id": 161,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "The outcome from giving respiratory support"
+      }
+    },
+    "Resuscitation": {
+      "ROLE_criteria_met": {
+        "id": 1110,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Recognition of Life Extinct criteria met"
+      },
+      "not_appropriate_reasons": {
+        "id": 1111,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Valid DNACPR in place", "Injuries incompatible with life", "Rigor mortis present", "Hypostasis present", "Decomposition"],
+        "description": "Reasons resuscitation not appropriate"
+      },
+      "responsive": {
+        "id": 1112,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Patient responsive to shout and shake"
+      },
+      "witnessed": {
+        "id": 1113,
+        "source": "Extended",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Yes - witnessed by crew", "No - unwitnessed", "Bystander witnessed with immediate CPR"],
+        "description": "Was arrest witnessed"
+      }
+    },
+    "Road Vehicle": {
+      "Counterpart to crash": {
+        "id": 162,
+        "source": "AEPR",
+        "medic_visible": false,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "Other vehicles involved in road traffic collision"
+      },
+      "Occupant Position": {
+        "id": 163,
+        "source": "AEPR",
+        "medic_visible": false,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "Patient occupancy in vehicle"
+      },
+      "Patient ejected from vehicle": {
+        "id": 164,
+        "source": "AEPR",
+        "medic_visible": false,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "Information on whether the patient was ejected"
+      },
+      "Vehicle Type": {
+        "id": 165,
+        "source": "AEPR",
+        "medic_visible": false,
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "Vehicle patient was in/on"
+      }
+    },
+    "Safeguarding": {
+      "concern_type": {
+        "id": 1114,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Physical abuse", "Sexual abuse", "Emotional abuse", "Neglect", "Financial abuse", "Domestic abuse", "Child at risk"],
+        "description": "Type of safeguarding concern"
+      },
+      "concerns_raised": {
+        "id": 1115,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Safeguarding concerns identified"
+      },
+      "documented": {
+        "id": 1116,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Injuries, statements, and environment documented"
+      },
+      "handover_informed": {
+        "id": 1117,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Safeguarding concerns communicated at handover"
+      },
+      "immediate_risk": {
+        "id": 1118,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Immediate risk to patient or others"
+      },
+      "nai_concern": {
+        "id": 1119,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Non-accidental injury suspected"
+      },
+      "referral_made": {
+        "id": 1120,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Safeguarding referral submitted"
+      }
+    },
+    "Safety": {
+      "no_vomiting_induced": {
+        "id": 1121,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Confirmed DO NOT induce vomiting"
+      }
+    },
+    "Scene": {
+      "safe": {
+        "id": 1122,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Scene confirmed safe to approach"
+      }
+    },
+    "Skin Assessment": {
+      "colour": {
+        "id": 166,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Normal", "Cyanosed", "Flushed", "Jaundice", "Mottling", "Pallor (decrease in colour)", "Rash", "Other"],
+        "description": "Observations about changes to normal skin colour"
+      },
+      "temperature": {
+        "id": 167,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Normal", "Warm", "Cool", "Hot", "Cold", "Other"],
+        "description": "Skin temperature"
+      },
+      "location": {
+        "id": 168,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "body location relating to the observation"
+      },
+      "non_blanching_rash": {
+        "id": 1123,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Non-blanching rash present (glass test)"
+      }
+    },
+    "Spine": {
+      "status": {
+        "id": 169,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Suspected", "Cleared"],
+        "description": "Indicator as to whether the healthcare professional suspect the patient has received a spine injury"
+      },
+      "cervicalCollar": {
+        "id": 1124,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Cervical collar applied"
+      },
+      "immobilisationApplied": {
+        "id": 1125,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Full spinal immobilisation applied"
+      }
+    },
+    "Structured Address": {
+      "ADDRESS PREFIX": {
+        "id": 170,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "eg. 'Ward 12'"
+      },
+      "BUILDING NAME": {
+        "id": 171,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Name of building"
+      },
+      "BUILDING NUMBER": {
+        "id": 172,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Number of building"
+      },
+      "DEPENDENT LOCALITY": {
+        "id": 173,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Name of dependent locality"
+      },
+      "DEPENDENT STREET OR ROAD NAME": {
+        "id": 174,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..0",
+        "description": "Dependent street name"
+      },
+      "DOUBLE DEPENDENT LOCALITY": {
+        "id": 175,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Double dependent locality"
+      },
+      "POSTAL COUNTY": {
+        "id": 176,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Postal county"
+      },
+      "POST TOWN": {
+        "id": 177,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Post town"
+      },
+      "STREET OR ROAD NAME": {
+        "id": 178,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Street or road name"
+      },
+      "POSTCODE": {
+        "id": 179,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Postcode"
+      }
+    },
+    "Suction": {
+      "contentsObserved": {
+        "id": 180,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Information about the contents from the airway"
+      },
+      "catheterType": {
+        "id": 181,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Soft", "Rigid"],
+        "description": "Type of catheter used"
+      },
+      "totalAttempts": {
+        "id": 182,
+        "source": "AEPR",
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "Total number of attempts"
+      },
+      "method": {
+        "id": 183,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Oral", "Nasal", "Other"],
+        "description": "Method of suction used"
+      }
+    },
+    "Suction Attempt": {
+      "attemptNumber": {
+        "id": 184,
+        "source": "AEPR",
+        "type": "Numeric",
+        "cardinality": "1..1",
+        "description": "Number of current attempt"
+      },
+      "attemptOutcome": {
+        "id": 185,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Successful", "Unsuccessful"],
+        "description": "Outcome of current attempt"
+      },
+      "attemptResponse": {
+        "id": 186,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "Patient response to current attempt"
+      },
+      "attemptComplication": {
+        "id": 187,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "Complication that arises"
+      }
+    },
+    "Symptom": {
+      "symptomType": {
+        "id": 188,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "The type of symptom that is experienced by the patient"
+      }
+    },
+    "Toxicology": {
+      "opiate_signs": {
+        "id": 1126,
+        "source": "Extended",
+        "type": "Multi Select",
+        "cardinality": "1..*",
+        "values": ["Pinpoint pupils", "Respiratory depression", "Reduced consciousness"],
+        "description": "Signs of opiate toxidrome"
+      },
+      "substance": {
+        "id": 1127,
+        "source": "Extended",
+        "type": "Structured",
+        "cardinality": "1..1",
+        "description": "Substance name, amount, time of ingestion, route"
+      }
+    },
+    "Trauma": {
+      "electrical_type": {
+        "id": 1128,
+        "source": "Extended",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Low voltage AC (<1000V)", "High voltage AC (>1000V)", "DC current", "Lightning strike"],
+        "description": "Type of electrical exposure"
+      },
+      "evisceration": {
+        "id": 1129,
+        "source": "Extended",
+        "type": "Boolean",
+        "cardinality": "1..1",
+        "description": "Organs protruding through abdominal wound"
+      },
+      "mechanismOfInjury": {
+        "id": 1130,
+        "source": "Extended",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Blunt - RTC", "Blunt - Fall", "Blunt - Assault", "Penetrating - Stab", "Penetrating - Gunshot", "Crush injury"],
+        "description": "Mechanism of injury"
+      }
+    },
+    "Treated on Scene": {
+      "reason": {
+        "id": 189,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "The reason why a patient is not given transport"
+      },
+      "signedBy": {
+        "id": 190,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..0",
+        "description": "The name of the person who signed the statement"
+      },
+      "signedByRole": {
+        "id": 191,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Crew", "Named Patient", "Carer", "Child", "Employee", "Father", "Mother", "Partner", "Spouse", "GrandParent", "Grandchild", "Patient Advocate", "Other Relative", "Other"],
+        "description": "The role of the person who signed"
+      },
+      "unableReason": {
+        "id": 192,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..0",
+        "values": ["Unavailable", "Unconscious", "Refused", "Patient Condition", "Other"],
+        "description": "The reason why the statement could not be signed"
+      }
+    },
+    "Treatment": {
+      "treatmentType": {
+        "id": 193,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["INSERT LOCAL LIST HERE"],
+        "description": "The type of treatment given"
+      },
+      "administeredBy": {
+        "id": 194,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "The healthcare professional that administered the treatment"
+      },
+      "comments": {
+        "id": 195,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Additional comment"
+      },
+      "treatmentTime": {
+        "id": 196,
+        "source": "AEPR",
+        "type": "Time",
+        "cardinality": "1..1",
+        "description": "The time of the specific treatment"
+      },
+      "hypoglycaemia": {
+        "id": 1131,
+        "source": "Extended",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Oral glucose", "IV 10% glucose", "IM Glucagon"],
+        "description": "Treatment pathway for hypoglycaemia"
+      }
+    },
+    "Unstructured Address": {
+      "ADDRESS LINE 1": {
+        "id": 197,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Line 1"
+      },
+      "ADDRESS LINE 2": {
+        "id": 198,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Line 2"
+      },
+      "ADDRESS LINE 3": {
+        "id": 199,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Line 3"
+      },
+      "ADDRESS LINE 4": {
+        "id": 200,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Line 4"
+      },
+      "ADDRESS LINE 5": {
+        "id": 201,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Line 5"
+      }
+    },
+    "Ventilation": {
+      "method": {
+        "id": 202,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Manual", "Mechanical", "Other"],
+        "description": "Method of ventilation used"
+      }
+    },
+    "Vital Signs": {
+      "_composite": {
+        "id": 1132,
+        "source": "Extended",
+        "type": "Composite",
+        "cardinality": "1..1",
+        "description": "Composite vital signs entry (BP, HR, RR, SpO2, Temp, GCS)"
+      }
+    },
+    "Vulnerable Adult and Safeguarding Children": {
+      "name": {
+        "id": 203,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Primary Carer name"
+      },
+      "relationship": {
+        "id": 204,
+        "source": "AEPR",
+        "type": "Alphanumeric",
+        "cardinality": "1..1",
+        "description": "Relationship to the patient"
+      },
+      "carer": {
+        "id": 205,
+        "source": "AEPR",
+        "type": "Local List",
+        "cardinality": "1..1",
+        "values": ["Carer support", "Domestic support", "Living with family", "Macmillan Nurse", "Neighbours", "Nursing support", "Regular family", "Self caring", "Social Worker", "Spouse", "Other"],
+        "description": "Social/Family History/Carers"
+      }
+    }
+  }
+}

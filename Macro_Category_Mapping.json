@@ -1,47 +1,61 @@
 {
   "metadata": {
-    "version": "2.0",
-    "description": "Maps clinical attributes to UI macro categories for EPCR - organized by paramedic clinical workflow",
-    "note": "CASMEET is a handoff format used during hospital handover, not a standalone section",
-    "total_categories": 9,
+    "version": "1.0",
+    "description": "Maps clinical attributes to UI macro categories for EPCR",
+    "note": "CASMEET category is only required for hospital handoff, not scene discharge",
+    "total_categories": 7,
     "last_updated": "2026-02-01"
   },
   "macro_categories": {
-    "Essential_Fields": {
-      "display_name": "Essential Fields",
-      "description": "Always-visible fields shown independently at the top of the report",
-      "independent": true,
+    "CASMEET_Primary_Survey": {
+      "display_name": "CASMEET / Primary Survey",
+      "description": "Hospital handoff essentials - all attributes should be completed (cardinality 1..1) if patient transported to hospital",
+      "casmeet_format": {
+        "C": "Callsign (vehicle/unit)",
+        "A": "Age",
+        "S": "Sex",
+        "M": "Mechanism/Mode (injury mechanism or illness mode)",
+        "E": "Examination (clinical findings)",
+        "E": "Everything done (treatments provided)",
+        "T": "Time (ETA)"
+      },
+      "required_for": "Hospital handoff only",
       "attributes": [
-        "Incident.incidentDate",
-        "Incident.incidentTime",
-        "Incident.timeLeftScene",
-        "Clinician.clinicianName",
-        "Clinician.clinicianSignature"
-      ]
-    },
-    "Primary_Concern": {
-      "display_name": "Primary Concern",
-      "description": "What is the call about? Select the main condition or incident type",
-      "attributes": [
-        "Incident.reportedCondition",
+        "Patient Details.age",
+        "Patient Details.sex",
+        "Mechanism of Injury.injuryMechanism",
         "Chief Complaint.presentingComplaint",
-        "Chief Complaint.assessmentTime",
-        "Mechanism of Injury.injuryMechanism"
+        "AVPU Assessment.AVPUScale",
+        "Airway Assessment.airwayStatus",
+        "Airway Assessment.selfMaintain",
+        "Breathing Assessment.respiratoryRate",
+        "Pulse Oximetry.SpO2 reading",
+        "Circulatory Assessment.pulseRate",
+        "Circulatory Assessment.pulseRhythm",
+        "Blood Pressure.systolicBP",
+        "Blood Pressure.diastolicBP",
+        "Glasgow Coma Scale.GCSTotal",
+        "Pupil Assessment.pupilReaction",
+        "Pupil Assessment.pupilEquality",
+        "Body Temperature.value",
+        "Skin Assessment.colour",
+        "Skin Assessment.temperature"
       ]
     },
-    "Patient_and_Scene": {
-      "display_name": "Patient & Scene",
-      "description": "Patient identification, demographics, and scene details",
+    "Incident_and_Patient_ID": {
+      "display_name": "Incident & Patient ID",
+      "description": "Essential incident and patient identification data",
       "attributes": [
+        "Incident.transportRequestIncidentNumber",
+        "Incident.incidentTime",
+        "Incident.incidentDate",
+        "Incident.reportedCondition",
+        "Patient Details.NHSNumber",
         "Patient Details.familyName",
         "Patient Details.givenName",
         "Patient Details.title",
         "Patient Details.dateOfBirth",
-        "Patient Details.age",
-        "Patient Details.sex",
-        "Patient Details.NHSNumber",
         "Patient.patientIdentifier",
-        "Incident.transportRequestIncidentNumber",
         "Structured Address.BUILDING NAME",
         "Structured Address.BUILDING NUMBER",
         "Structured Address.STREET OR ROAD NAME",
@@ -50,14 +64,15 @@
         "Unstructured Address.ADDRESS LINE 1",
         "Unstructured Address.ADDRESS LINE 2",
         "Unstructured Address.ADDRESS LINE 3",
-        "Patient Management.Time at Patient's Side",
-        "Scene.safe"
+        "Patient Management.Time at Patient's Side"
       ]
     },
     "The_Story": {
-      "display_name": "The Story",
-      "description": "Patient history, medications, allergies, and background context",
+      "display_name": "The Story (Background)",
+      "description": "Patient background, history, and presenting complaint context",
       "attributes": [
+        "Chief Complaint.presentingComplaint",
+        "Chief Complaint.assessmentTime",
         "Chief Complaint.pastMedicalHistory",
         "Chief Complaint.socialAndFamiliyHistory",
         "Chief Complaint.additionalInformation",
@@ -83,55 +98,9 @@
         "Vulnerable Adult and Safeguarding Children.carer"
       ]
     },
-    "Observations": {
-      "display_name": "Observations",
-      "description": "Clinical observations and vital signs - what you see and measure",
-      "attributes": [
-        "AVPU Assessment.AVPUScale",
-        "Airway Assessment.airwayStatus",
-        "Airway Assessment.selfMaintain",
-        "Breathing Assessment.respiratoryRate",
-        "Pulse Oximetry.SpO2 reading",
-        "Circulatory Assessment.pulseRate",
-        "Circulatory Assessment.pulseRhythm",
-        "Blood Pressure.systolicBP",
-        "Blood Pressure.diastolicBP",
-        "Glasgow Coma Scale.GCSTotal",
-        "Pupil Assessment.pupilReaction",
-        "Pupil Assessment.pupilEquality",
-        "Body Temperature.value",
-        "Skin Assessment.colour",
-        "Skin Assessment.temperature",
-        "Blood Glucose.bloodGlucose",
-        "Blood Glucose.value",
-        "Blood Glucose.bloodGlucoseRecheck",
-        "ECG Interpretation.rhythm",
-        "ECG Interpretation.ectopy",
-        "ECG Interpretation.leadType",
-        "ECG Interpretation.abnomality",
-        "ECG Interpretation.interpretationTime",
-        "ECG Interpretation.monitoring",
-        "ECG Interpretation.performed",
-        "Lung Fields.soundDetails",
-        "Lung Fields.lungLocation",
-        "Lung Fields.airEntry",
-        "Lung Fields.breathSounds",
-        "Lung Fields.sounds",
-        "Circulatory Assessment.pulseSite",
-        "Circulatory Assessment.pulseStrength",
-        "Circulatory Assessment.capillaryRefill",
-        "Circulatory Assessment.shock",
-        "Respiratory Resistance.peakFlowReading",
-        "Observation.observationTime",
-        "Observation.observer",
-        "Observation.observationComments",
-        "Observation.observationType",
-        "Vital Signs._composite"
-      ]
-    },
-    "Concerns_and_Findings": {
-      "display_name": "Concerns & Findings",
-      "description": "Protocol-driven assessments and condition-specific clinical findings based on observations",
+    "Trauma_and_Specifics": {
+      "display_name": "Trauma & Specifics (Protocol Engine)",
+      "description": "Protocol-driven assessments, condition-specific data, and clinical decision points - where AI injects relevant checklists",
       "attributes": [
         "Assessment.aaa_risk",
         "Assessment.ectopic_risk",
@@ -169,6 +138,24 @@
         "Airway Assessment.breathing",
         "Airway Assessment.obstruction_severity",
         "Airway Assessment.protected",
+        "Blood Glucose.bloodGlucose",
+        "Blood Glucose.value",
+        "Blood Glucose.bloodGlucoseRecheck",
+        "Cardiac.cardiacArrest",
+        "Cardiac.estimatedArrestTime",
+        "Cardiac.witness",
+        "Cardiac.adverse_features",
+        "Cardiac.reversibleCausesConsidered",
+        "Cardiac.traumatic_arrest_causes",
+        "Convulsions.currentlySeizing",
+        "Convulsions.duration",
+        "ECG Interpretation.rhythm",
+        "ECG Interpretation.ectopy",
+        "ECG Interpretation.leadType",
+        "ECG Interpretation.abnomality",
+        "ECG Interpretation.interpretationTime",
+        "ECG Interpretation.monitoring",
+        "ECG Interpretation.performed",
         "FAST Assessment.face",
         "FAST Assessment.arm",
         "FAST Assessment.speech",
@@ -179,14 +166,16 @@
         "Injury.locationType",
         "Injury.safetyEquipmentUsed",
         "Limb Injury.open_fracture",
-        "Cardiac.cardiacArrest",
-        "Cardiac.estimatedArrestTime",
-        "Cardiac.witness",
-        "Cardiac.adverse_features",
-        "Cardiac.reversibleCausesConsidered",
-        "Cardiac.traumatic_arrest_causes",
-        "Convulsions.currentlySeizing",
-        "Convulsions.duration",
+        "Lung Fields.soundDetails",
+        "Lung Fields.lungLocation",
+        "Lung Fields.airEntry",
+        "Lung Fields.breathSounds",
+        "Lung Fields.sounds",
+        "Circulatory Assessment.pulseSite",
+        "Circulatory Assessment.pulseStrength",
+        "Circulatory Assessment.capillaryRefill",
+        "Circulatory Assessment.shock",
+        "Respiratory Resistance.peakFlowReading",
         "Burn.burnSeverity",
         "Burns.cooled",
         "Burns.depth",
@@ -227,11 +216,13 @@
         "Resuscitation.ROLE_criteria_met",
         "Resuscitation.not_appropriate_reasons",
         "Resuscitation.responsive",
-        "Resuscitation.witnessed"
+        "Resuscitation.witnessed",
+        "Scene.safe",
+        "Vital Signs._composite"
       ]
     },
     "Interventions": {
-      "display_name": "Interventions",
+      "display_name": "Interventions (Action Log)",
       "description": "All treatments, procedures, and interventions performed",
       "attributes": [
         "Intervention.interventionType",
@@ -323,10 +314,8 @@
     },
     "Outcome_and_Handoff": {
       "display_name": "Outcome & Handoff",
-      "description": "Patient outcome, disposition, CASMEET handover, and clinical summary",
-      "casmeet_note": "CASMEET format (Callsign, Age, Sex, Mechanism, Examination, Everything done, Time) is used during hospital handoff - relevant fields are pulled from other sections",
+      "description": "Patient outcome, disposition, and clinical handover details",
       "attributes": [
-        "Patient Management.Impressions",
         "Disposition.destinationType",
         "Disposition.destinationHealthcareProvider",
         "Disposition.CPROngoing",
@@ -336,7 +325,6 @@
         "Disposition.arrivalDate",
         "Disposition.handoverDate",
         "Disposition.handoverTime",
-        "Incident.hospitalAlertSent",
         "Refuse Treatment.refusalType",
         "Refuse Treatment.signedBy",
         "Refuse Treatment.signedByRole",
@@ -350,7 +338,14 @@
         "Life Extinct.personName",
         "Life Extinct.reasonNotSigned",
         "Documentation.ROLE_documented",
-        "Legal.coroner_referral"
+        "Legal.coroner_referral",
+        "Incident.timeLeftScene",
+        "Incident.hospitalAlertSent",
+        "Patient Management.Impressions",
+        "Observation.observationTime",
+        "Observation.observer",
+        "Observation.observationComments",
+        "Observation.observationType"
       ]
     },
     "Baseline_Always_Required": {
@@ -369,7 +364,9 @@
         "Current Medication.name",
         "Current Medication.dosage",
         "Chief Complaint.pastMedicalHistory",
-        "Chief Complaint.socialAndFamiliyHistory"
+        "Chief Complaint.socialAndFamiliyHistory",
+        "Incident.incidentTime",
+        "Incident.incidentDate"
       ]
     }
   },
@@ -448,10 +445,10 @@
     ]
   },
   "usage_notes": {
-    "protocol_driven_flow": "When medic enters prompt describing specific JRCalc condition, system suggests baseline attributes FIRST, then injects protocol-specific attributes from Concerns_and_Findings category",
-    "manual_search": "Medic can use dropdown macros organized by these 9 categories or semantic search to find and add any attribute",
+    "protocol_driven_flow": "When medic enters prompt describing specific JRCalc condition, system suggests baseline attributes FIRST, then injects protocol-specific attributes from Trauma_and_Specifics category",
+    "manual_search": "Medic can use dropdown macros organized by these 6 categories or semantic search to find and add any attribute",
     "auto_fill": "When protocol step includes prefill_data, system pre-populates field if medic selects that option",
     "cardinality_enforcement": "Warnings only, not blocking - allow submission with incomplete data",
-    "casmeet_conditional": "CASMEET is a handoff format used in Outcome & Handoff section, relevant fields are pulled from other sections during hospital handover"
+    "casmeet_conditional": "CASMEET category only required if patient transported to hospital, not for scene discharge"
   }
 }

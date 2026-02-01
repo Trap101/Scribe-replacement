@@ -13,11 +13,12 @@ class AeprLoaderService {
 
   static final List<String> _sectionOrder = [
     'Essential Fields',
-    'CASMEET / Primary Survey',
-    'Incident & Patient ID',
-    'The Story (Background)',
-    'Trauma & Specifics (Protocol Engine)',
-    'Interventions (Action Log)',
+    'Primary Concern',
+    'Patient & Scene',
+    'The Story',
+    'Observations',
+    'Concerns & Findings',
+    'Interventions',
     'Outcome & Handoff',
     'Baseline Required Data',
   ];
@@ -92,9 +93,9 @@ class AeprLoaderService {
       final protocols = await ProtocolService().loadProtocols();
       final protocolNames = protocols.map((p) => p.name).toList();
 
-      // Find the Incident & Patient ID section
+      // Find the Primary Concern section
       final incidentSection = sections.where(
-        (s) => s.title == 'Incident & Patient ID',
+        (s) => s.title == 'Primary Concern',
       ).firstOrNull;
       if (incidentSection == null) return;
 
