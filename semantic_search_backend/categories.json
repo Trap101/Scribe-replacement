@@ -1,0 +1,4457 @@
+[
+  {
+    "id": "AVPU Assessment.AVPUScale",
+    "title": "AVPU Assessment - AVPU Scale",
+    "description": "Consciousness Assessment (Alert, Voice, Pain, Unresponsive)",
+    "examples": [
+      "Pt alert on avpu",
+      "Avpu voice",
+      "Avpu pain",
+      "Avpu unresponsive"
+    ],
+    "synonyms": [
+      "avpu",
+      "avpu assessment",
+      "avpu scale"
+    ]
+  },
+  {
+    "id": "AVPU Assessment.avpu",
+    "title": "AVPU Assessment - Avpu",
+    "description": "Quick consciousness assessment (protocol compatibility)",
+    "examples": [
+      "Pt alert on avpu",
+      "Avpu voice",
+      "Avpu pain",
+      "Avpu unresponsive"
+    ],
+    "synonyms": [
+      "avpu",
+      "avpu assessment"
+    ]
+  },
+  {
+    "id": "Airway Adjunct.type",
+    "title": "Airway Adjunct - Type",
+    "description": "Type of adjunct used",
+    "examples": [
+      "Opa inserted",
+      "Opa in situ",
+      "Npa inserted",
+      "Npa in situ",
+      "Airway adjunct Other"
+    ],
+    "synonyms": [
+      "airway adjunct",
+      "type"
+    ]
+  },
+  {
+    "id": "Airway Adjunct.outcome",
+    "title": "Airway Adjunct - Outcome",
+    "description": "Outcome from the attempted use of an airway adjunct",
+    "examples": [
+      "Recorded airway adjunct",
+      "Documented airway adjunct"
+    ],
+    "synonyms": [
+      "airway adjunct",
+      "outcome"
+    ]
+  },
+  {
+    "id": "Airway Assessment.airwayStatus",
+    "title": "Airway Assessment - Airway Status",
+    "description": "The status of a patient's airway",
+    "examples": [
+      "Airway patent",
+      "Airway obstructed",
+      "Snoring airway",
+      "Gurgling airway"
+    ],
+    "synonyms": [
+      "airway",
+      "airway assessment",
+      "airway status"
+    ]
+  },
+  {
+    "id": "Airway Assessment.selfMaintain",
+    "title": "Airway Assessment - Self Maintain",
+    "description": "The patients ability to maintain their airway",
+    "examples": [
+      "Self maintain Normal",
+      "Self maintain Maintainable",
+      "Self maintain Not Maintainable"
+    ],
+    "synonyms": [
+      "airway",
+      "airway assessment",
+      "self maintain"
+    ]
+  },
+  {
+    "id": "Airway Assessment.breathing",
+    "title": "Airway Assessment - Breathing",
+    "description": "Patient breathing normally (not gasping)",
+    "examples": [
+      "SOB",
+      "Wheeze",
+      "Increased wob",
+      "Labored breathing"
+    ],
+    "synonyms": [
+      "airway",
+      "airway assessment",
+      "breathing",
+      "sob",
+      "wheeze",
+      "work of breathing",
+      "wob",
+      "tachypnea",
+      "tachypnoea",
+      "increased wob"
+    ]
+  },
+  {
+    "id": "Airway Assessment.obstruction_severity",
+    "title": "Airway Assessment - Obstruction severity",
+    "description": "Severity of foreign body airway obstruction",
+    "examples": [
+      "Airway patent",
+      "Airway obstructed",
+      "Snoring airway",
+      "Gurgling airway"
+    ],
+    "synonyms": [
+      "airway",
+      "airway assessment",
+      "obstruction severity"
+    ]
+  },
+  {
+    "id": "Airway Assessment.protected",
+    "title": "Airway Assessment - Protected",
+    "description": "Airway protected (recovery position, adjunct, etc)",
+    "examples": [
+      "Protected present",
+      "No protected",
+      "Protected confirmed"
+    ],
+    "synonyms": [
+      "airway",
+      "airway assessment",
+      "protected"
+    ]
+  },
+  {
+    "id": "Assessment.aaa_risk",
+    "title": "Assessment - Aaa risk",
+    "description": "Risk factors for abdominal aortic aneurysm",
+    "examples": [
+      "Aaa risk Pulsatile abdominal mass",
+      "Aaa risk Age greater than 50 with abdominal pain",
+      "Aaa risk No risk factors"
+    ],
+    "synonyms": [
+      "assessment",
+      "aaa risk"
+    ]
+  },
+  {
+    "id": "Assessment.ectopic_risk",
+    "title": "Assessment - Ectopic risk",
+    "description": "Risk factors for ectopic pregnancy",
+    "examples": [
+      "Ectopic risk Shoulder tip pain",
+      "Ectopic risk Missed period",
+      "Ectopic risk Abdominal pain + positive pregnancy test"
+    ],
+    "synonyms": [
+      "assessment",
+      "ectopic risk"
+    ]
+  },
+  {
+    "id": "Assessment.gi_bleed_type",
+    "title": "Assessment - Gi bleed type",
+    "description": "Type of gastrointestinal bleeding",
+    "examples": [
+      "Gi bleed type Haematemesis (vomiting blood)",
+      "Gi bleed type Coffee-ground vomit",
+      "Gi bleed type Melaena (black stool)"
+    ],
+    "synonyms": [
+      "assessment",
+      "gi bleed type"
+    ]
+  },
+  {
+    "id": "Assessment.dka_signs",
+    "title": "Assessment - Dka signs",
+    "description": "Signs of diabetic ketoacidosis",
+    "examples": [
+      "Dka signs Vomiting",
+      "Dka signs Abdominal pain",
+      "Dka signs Deep rapid breathing (Kussmaul)"
+    ],
+    "synonyms": [
+      "assessment",
+      "dka signs"
+    ]
+  },
+  {
+    "id": "Assessment.headache_red_flags",
+    "title": "Assessment - Headache red flags",
+    "description": "Red flag features for serious headache causes",
+    "examples": [
+      "Headache red flags Thunderclap (sudden severe)",
+      "Headache red flags Neck stiffness",
+      "Headache red flags Non-blanching rash"
+    ],
+    "synonyms": [
+      "assessment",
+      "headache red flags"
+    ]
+  },
+  {
+    "id": "Assessment.hypothermia_severity",
+    "title": "Assessment - Hypothermia severity",
+    "description": "Classification of hypothermia severity",
+    "examples": [
+      "Hypothermia severity Mild (32-35C)",
+      "Hypothermia severity Moderate (28-32C)",
+      "Hypothermia severity Severe ( less than 28C)"
+    ],
+    "synonyms": [
+      "assessment",
+      "hypothermia severity"
+    ]
+  },
+  {
+    "id": "Assessment.pe_risk_factors",
+    "title": "Assessment - Pe risk factors",
+    "description": "Risk factors for pulmonary embolism",
+    "examples": [
+      "Pe risk factors Recent surgery/immobility",
+      "Pe risk factors Long flight",
+      "Pe risk factors Previous VTE"
+    ],
+    "synonyms": [
+      "assessment",
+      "pe risk factors"
+    ]
+  },
+  {
+    "id": "Assessment.pe_symptoms",
+    "title": "Assessment - Pe symptoms",
+    "description": "Classic symptoms of pulmonary embolism",
+    "examples": [
+      "Pe symptoms Sudden breathlessness",
+      "Pe symptoms Pleuritic chest pain",
+      "Pe symptoms Haemoptysis"
+    ],
+    "synonyms": [
+      "assessment",
+      "pe symptoms"
+    ]
+  },
+  {
+    "id": "Assessment.massive_pe",
+    "title": "Assessment - Massive pe",
+    "description": "Signs of massive PE (hypotension, cardiac arrest risk)",
+    "examples": [
+      "Massive pe present",
+      "No massive pe",
+      "Massive pe confirmed"
+    ],
+    "synonyms": [
+      "assessment",
+      "massive pe",
+      "arrest",
+      "cpr",
+      "rosc"
+    ]
+  },
+  {
+    "id": "Assessment.peripheral_oedema",
+    "title": "Assessment - Peripheral oedema",
+    "description": "Peripheral oedema present (ankles/sacrum)",
+    "examples": [
+      "Peripheral oedema present",
+      "No peripheral oedema",
+      "Peripheral oedema confirmed"
+    ],
+    "synonyms": [
+      "assessment",
+      "peripheral oedema"
+    ]
+  },
+  {
+    "id": "Assessment.internal_bleeding",
+    "title": "Assessment - Internal bleeding",
+    "description": "Signs suggestive of internal hemorrhage",
+    "examples": [
+      "Internal bleeding Abdominal distension",
+      "Internal bleeding Rigid abdomen",
+      "Internal bleeding Guarding"
+    ],
+    "synonyms": [
+      "assessment",
+      "internal bleeding"
+    ]
+  },
+  {
+    "id": "Assessment.life_extinct_signs",
+    "title": "Assessment - Life extinct signs",
+    "description": "Signs incompatible with life",
+    "examples": [
+      "Life extinct signs Decapitation",
+      "Life extinct signs Hemicorporectomy",
+      "Life extinct signs Incineration"
+    ],
+    "synonyms": [
+      "assessment",
+      "life extinct signs"
+    ]
+  },
+  {
+    "id": "Assessment.life_threatening_asthma",
+    "title": "Assessment - Life threatening asthma",
+    "description": "Life-threatening features of asthma",
+    "examples": [
+      "Life threatening asthma Silent chest",
+      "Life threatening asthma Cyanosis",
+      "Life threatening asthma Poor respiratory effort"
+    ],
+    "synonyms": [
+      "assessment",
+      "life threatening asthma"
+    ]
+  },
+  {
+    "id": "Assessment.life_threatening_chest",
+    "title": "Assessment - Life threatening chest",
+    "description": "Life-threatening chest injuries",
+    "examples": [
+      "Life threatening chest Tension pneumothorax signs",
+      "Life threatening chest Massive haemothorax",
+      "Life threatening chest Flail segment"
+    ],
+    "synonyms": [
+      "assessment",
+      "life threatening chest"
+    ]
+  },
+  {
+    "id": "Assessment.meningism",
+    "title": "Assessment - Meningism",
+    "description": "Signs of meningeal irritation",
+    "examples": [
+      "Meningism Neck stiffness",
+      "Meningism Photophobia",
+      "Meningism Bulging fontanelle (infants)"
+    ],
+    "synonyms": [
+      "assessment",
+      "meningism"
+    ]
+  },
+  {
+    "id": "Assessment.neurological_deficit",
+    "title": "Assessment - Neurological deficit",
+    "description": "Neurological deficit suggesting spinal cord injury",
+    "examples": [
+      "Neurological deficit Weakness/paralysis",
+      "Neurological deficit Altered/absent sensation",
+      "Neurological deficit Priapism"
+    ],
+    "synonyms": [
+      "assessment",
+      "neurological deficit"
+    ]
+  },
+  {
+    "id": "Assessment.neurovascular_6ps",
+    "title": "Assessment - Neurovascular 6ps",
+    "description": "6 Ps of neurovascular assessment",
+    "examples": [
+      "Neurovascular 6ps Pulse present",
+      "Neurovascular 6ps Pink/good perfusion",
+      "Neurovascular 6ps Warm"
+    ],
+    "synonyms": [
+      "assessment",
+      "neurovascular 6ps"
+    ]
+  },
+  {
+    "id": "Assessment.non_blanching_rash",
+    "title": "Assessment - Non blanching rash",
+    "description": "Non-blanching purpuric rash (glass test)",
+    "examples": [
+      "Non blanching rash present",
+      "No non blanching rash",
+      "Non blanching rash confirmed"
+    ],
+    "synonyms": [
+      "assessment",
+      "non blanching rash"
+    ]
+  },
+  {
+    "id": "Assessment.organic_causes",
+    "title": "Assessment - Organic causes",
+    "description": "Organic causes to exclude before psychiatric diagnosis",
+    "examples": [
+      "Organic causes Hypoglycaemia checked",
+      "Organic causes Head injury excluded",
+      "Organic causes Sepsis excluded"
+    ],
+    "synonyms": [
+      "assessment",
+      "organic causes"
+    ]
+  },
+  {
+    "id": "Assessment.organic_causes_excluded",
+    "title": "Assessment - Organic causes excluded",
+    "description": "Organic causes of hyperventilation excluded",
+    "examples": [
+      "Organic causes excluded present",
+      "No organic causes excluded",
+      "Organic causes excluded confirmed"
+    ],
+    "synonyms": [
+      "assessment",
+      "organic causes excluded"
+    ]
+  },
+  {
+    "id": "Assessment.preeclampsia_signs",
+    "title": "Assessment - Preeclampsia signs",
+    "description": "Warning signs of pre-eclampsia",
+    "examples": [
+      "Preeclampsia signs Severe headache",
+      "Preeclampsia signs Visual disturbance",
+      "Preeclampsia signs Epigastric pain"
+    ],
+    "synonyms": [
+      "assessment",
+      "preeclampsia signs"
+    ]
+  },
+  {
+    "id": "Assessment.recovered_to_baseline",
+    "title": "Assessment - Recovered to baseline",
+    "description": "Patient fully recovered to normal baseline",
+    "examples": [
+      "Recovered to baseline present",
+      "No recovered to baseline",
+      "Recovered to baseline confirmed"
+    ],
+    "synonyms": [
+      "assessment",
+      "recovered to baseline"
+    ]
+  },
+  {
+    "id": "Assessment.respiratory_distress_signs",
+    "title": "Assessment - Respiratory distress signs",
+    "description": "Signs of respiratory distress in children",
+    "examples": [
+      "Respiratory distress signs Nasal flaring",
+      "Respiratory distress signs Intercostal recession",
+      "Respiratory distress signs Subcostal recession"
+    ],
+    "synonyms": [
+      "assessment",
+      "respiratory distress signs",
+      "sob",
+      "rr",
+      "resp rate",
+      "tachypnea",
+      "wheeze"
+    ]
+  },
+  {
+    "id": "Assessment.response_to_treatment",
+    "title": "Assessment - Response to treatment",
+    "description": "Patient improved after treatment",
+    "examples": [
+      "Response to treatment present",
+      "No response to treatment",
+      "Response to treatment confirmed"
+    ],
+    "synonyms": [
+      "assessment",
+      "response to treatment"
+    ]
+  },
+  {
+    "id": "Assessment.reversible_causes_considered",
+    "title": "Assessment - Reversible causes considered",
+    "description": "4 Hs 4 Ts considered in arrest",
+    "examples": [
+      "Reversible causes considered present",
+      "No reversible causes considered",
+      "Reversible causes considered confirmed"
+    ],
+    "synonyms": [
+      "assessment",
+      "reversible causes considered"
+    ]
+  },
+  {
+    "id": "Assessment.sepsis_criteria",
+    "title": "Assessment - Sepsis criteria",
+    "description": "Sepsis/SIRS criteria",
+    "examples": [
+      "Sepsis criteria Altered mental state",
+      "Sepsis criteria Tachycardia for age",
+      "Sepsis criteria Prolonged capillary refill greater than 2s"
+    ],
+    "synonyms": [
+      "assessment",
+      "sepsis criteria"
+    ]
+  },
+  {
+    "id": "Assessment.severe_croup",
+    "title": "Assessment - Severe croup",
+    "description": "Severe features of croup",
+    "examples": [
+      "Severe croup Chest recession",
+      "Severe croup Agitation/distress",
+      "Severe croup Reduced consciousness"
+    ],
+    "synonyms": [
+      "assessment",
+      "severe croup"
+    ]
+  },
+  {
+    "id": "Assessment.skull_fracture_signs",
+    "title": "Assessment - Skull fracture signs",
+    "description": "Clinical signs of skull fracture",
+    "examples": [
+      "Skull fracture signs CSF from nose/ears",
+      "Skull fracture signs Battle's sign (bruising behind ear)",
+      "Skull fracture signs Raccoon eyes"
+    ],
+    "synonyms": [
+      "assessment",
+      "skull fracture signs"
+    ]
+  },
+  {
+    "id": "Assessment.spinal_risk_mechanism",
+    "title": "Assessment - Spinal risk mechanism",
+    "description": "High-risk mechanisms for spinal injury",
+    "examples": [
+      "Spinal risk mechanism Fall greater than 1m or 5 stairs",
+      "Spinal risk mechanism Axial load (diving)",
+      "Spinal risk mechanism High speed RTC"
+    ],
+    "synonyms": [
+      "assessment",
+      "spinal risk mechanism"
+    ]
+  },
+  {
+    "id": "Assessment.spinal_tenderness",
+    "title": "Assessment - Spinal tenderness",
+    "description": "Midline spinal pain or tenderness",
+    "examples": [
+      "Spinal tenderness present",
+      "No spinal tenderness",
+      "Spinal tenderness confirmed"
+    ],
+    "synonyms": [
+      "assessment",
+      "spinal tenderness"
+    ]
+  },
+  {
+    "id": "Assessment.stridor_severity",
+    "title": "Assessment - Stridor severity",
+    "description": "Severity of stridor in croup",
+    "examples": [
+      "Stridor severity No stridor at rest",
+      "Stridor severity Stridor at rest",
+      "Stridor severity Stridor with agitation only"
+    ],
+    "synonyms": [
+      "assessment",
+      "stridor severity"
+    ]
+  },
+  {
+    "id": "Assessment.thoracotomy_criteria",
+    "title": "Assessment - Thoracotomy criteria",
+    "description": "Witnessed penetrating trauma with very brief downtime",
+    "examples": [
+      "Thoracotomy criteria present",
+      "No thoracotomy criteria",
+      "Thoracotomy criteria confirmed"
+    ],
+    "synonyms": [
+      "assessment",
+      "thoracotomy criteria"
+    ]
+  },
+  {
+    "id": "Assessment.BM_rechecked",
+    "title": "Assessment - BM rechecked",
+    "description": "Blood glucose rechecked after intervention",
+    "examples": [
+      "Bgl 4.1",
+      "Blood sugar 3.2",
+      "Bm 6.0",
+      "Hypo bgl 2.9"
+    ],
+    "synonyms": [
+      "assessment",
+      "bm rechecked",
+      "bgl",
+      "bm",
+      "blood sugar"
+    ]
+  },
+  {
+    "id": "Blood Glucose.bloodGlucose",
+    "title": "Blood Glucose - Blood Glucose",
+    "description": "BM Reading: Blood sugar reading in mmol/L or mg/dL",
+    "examples": [
+      "Bgl 4.1",
+      "Blood sugar 3.2",
+      "Bm 6.0",
+      "Hypo bgl 2.9"
+    ],
+    "synonyms": [
+      "blood sugar",
+      "blood glucose",
+      "bgl",
+      "bm"
+    ]
+  },
+  {
+    "id": "Blood Glucose.value",
+    "title": "Blood Glucose - Value",
+    "description": "Blood glucose value in mmol/L",
+    "examples": [
+      "Bgl 4.1",
+      "Blood sugar 3.2",
+      "Bm 6.0",
+      "Hypo bgl 2.9"
+    ],
+    "synonyms": [
+      "blood sugar",
+      "blood glucose",
+      "value",
+      "bgl",
+      "bm"
+    ]
+  },
+  {
+    "id": "Blood Glucose.bloodGlucoseRecheck",
+    "title": "Blood Glucose - Blood Glucose Recheck",
+    "description": "Repeat blood glucose measurement",
+    "examples": [
+      "Bgl 4.1",
+      "Blood sugar 3.2",
+      "Bm 6.0",
+      "Hypo bgl 2.9"
+    ],
+    "synonyms": [
+      "blood sugar",
+      "blood glucose",
+      "blood glucose recheck",
+      "bgl",
+      "bm"
+    ]
+  },
+  {
+    "id": "Blood Pressure.systolicBP",
+    "title": "Blood Pressure - Systolic BP",
+    "description": "Observed systolic blood pressure",
+    "examples": [
+      "Sbp 90",
+      "Systolic bp 100",
+      "Hypotensive"
+    ],
+    "synonyms": [
+      "bp",
+      "blood pressure",
+      "systolic bp",
+      "sbp"
+    ]
+  },
+  {
+    "id": "Blood Pressure.diastolicBP",
+    "title": "Blood Pressure - Diastolic BP",
+    "description": "Observed diastolic blood pressure",
+    "examples": [
+      "Dbp 60",
+      "Diastolic bp 70"
+    ],
+    "synonyms": [
+      "bp",
+      "blood pressure",
+      "diastolic bp",
+      "dbp"
+    ]
+  },
+  {
+    "id": "Body Fluid IO.fluidIO",
+    "title": "Body Fluid IO - Fluid IO",
+    "description": "To indicate whether this is fluid intake or expulsion",
+    "examples": [
+      "Fluid io Input",
+      "Fluid io Output",
+      "Recorded fluid io"
+    ],
+    "synonyms": [
+      "body fluid io",
+      "fluid io"
+    ]
+  },
+  {
+    "id": "Body Fluid IO.fluidType",
+    "title": "Body Fluid IO - Fluid Type",
+    "description": "To indicate the type of fluid",
+    "examples": [
+      "Fluid type Blood",
+      "Fluid type Emesis",
+      "Fluid type Urine"
+    ],
+    "synonyms": [
+      "body fluid io",
+      "fluid type"
+    ]
+  },
+  {
+    "id": "Body Fluid IO.fluidVolume",
+    "title": "Body Fluid IO - Fluid Volume",
+    "description": "To indicate the volume of fluid",
+    "examples": [
+      "Fluid volume 98",
+      "Measured fluid volume",
+      "Recorded fluid volume"
+    ],
+    "synonyms": [
+      "body fluid io",
+      "fluid volume"
+    ]
+  },
+  {
+    "id": "Body Temperature.value",
+    "title": "Body Temperature - Value",
+    "description": "The recorded body temperature in degrees Celsius or Fahrenheit",
+    "examples": [
+      "Temp 38.5",
+      "Febrile",
+      "Temp 36.8"
+    ],
+    "synonyms": [
+      "temp",
+      "body temperature",
+      "value"
+    ]
+  },
+  {
+    "id": "Body Temperature.site",
+    "title": "Body Temperature - Site",
+    "description": "The body site where temperature was taken",
+    "examples": [
+      "Temp 38.5",
+      "Febrile",
+      "Temp 36.8"
+    ],
+    "synonyms": [
+      "temp",
+      "body temperature",
+      "site"
+    ]
+  },
+  {
+    "id": "Breathing Assessment.respiratoryRate",
+    "title": "Breathing Assessment - Respiratory Rate",
+    "description": "An assessment of the Patient's respiratory rate",
+    "examples": [
+      "Rr 28",
+      "Resp rate 18",
+      "Tachypneic rr 30"
+    ],
+    "synonyms": [
+      "breathing",
+      "breathing assessment",
+      "respiratory rate",
+      "sob",
+      "wheeze",
+      "work of breathing",
+      "wob",
+      "tachypnea",
+      "tachypnoea",
+      "rr",
+      "resp rate",
+      "breathing rate",
+      "increased wob"
+    ]
+  },
+  {
+    "id": "Breathing Assessment.respiratorySigns",
+    "title": "Breathing Assessment - Respiratory Signs",
+    "description": "Needs definition in system",
+    "examples": [
+      "SOB",
+      "Wheeze",
+      "Increased wob",
+      "Labored breathing"
+    ],
+    "synonyms": [
+      "breathing",
+      "breathing assessment",
+      "respiratory signs",
+      "sob",
+      "wheeze",
+      "work of breathing",
+      "wob",
+      "tachypnea",
+      "tachypnoea",
+      "rr",
+      "resp rate",
+      "increased wob"
+    ]
+  },
+  {
+    "id": "Breathing Assessment.respiratoryEffort",
+    "title": "Breathing Assessment - Respiratory Effort",
+    "description": "Respiratory effort of the patient",
+    "examples": [
+      "SOB",
+      "Wheeze",
+      "Increased wob",
+      "Labored breathing"
+    ],
+    "synonyms": [
+      "breathing",
+      "breathing assessment",
+      "respiratory effort",
+      "sob",
+      "wheeze",
+      "work of breathing",
+      "wob",
+      "tachypnea",
+      "tachypnoea",
+      "rr",
+      "resp rate",
+      "increased wob"
+    ]
+  },
+  {
+    "id": "Breathing Assessment.respiratoryDepth",
+    "title": "Breathing Assessment - Respiratory Depth",
+    "description": "The amplitude of each respiratory movement",
+    "examples": [
+      "SOB",
+      "Wheeze",
+      "Increased wob",
+      "Labored breathing"
+    ],
+    "synonyms": [
+      "breathing",
+      "breathing assessment",
+      "respiratory depth",
+      "sob",
+      "wheeze",
+      "work of breathing",
+      "wob",
+      "tachypnea",
+      "tachypnoea",
+      "rr",
+      "resp rate",
+      "increased wob"
+    ]
+  },
+  {
+    "id": "Burn.burnSeverity",
+    "title": "Burn - Burn Severity",
+    "description": "Severity of burn",
+    "examples": [
+      "Burn severity Full thickness",
+      "Burn severity Partial Thickness",
+      "Burn severity Superficial"
+    ],
+    "synonyms": [
+      "burn",
+      "burn severity"
+    ]
+  },
+  {
+    "id": "Burns.cooled",
+    "title": "Burns - Cooled",
+    "description": "Burn cooled with running water 10-20 minutes",
+    "examples": [
+      "Cooled present",
+      "No cooled",
+      "Cooled confirmed"
+    ],
+    "synonyms": [
+      "burn",
+      "burns",
+      "cooled"
+    ]
+  },
+  {
+    "id": "Burns.depth",
+    "title": "Burns - Depth",
+    "description": "Burn thickness classification",
+    "examples": [
+      "Depth Superficial (red, painful)",
+      "Depth Partial thickness (blistering)",
+      "Depth Full thickness (white/charred, painless)"
+    ],
+    "synonyms": [
+      "burn",
+      "burns",
+      "depth"
+    ]
+  },
+  {
+    "id": "Burns.dressed",
+    "title": "Burns - Dressed",
+    "description": "Burn covered with appropriate dressing",
+    "examples": [
+      "Dressed present",
+      "No dressed",
+      "Dressed confirmed"
+    ],
+    "synonyms": [
+      "burn",
+      "burns",
+      "dressed"
+    ]
+  },
+  {
+    "id": "Burns.entry_exit_wounds",
+    "title": "Burns - Entry exit wounds",
+    "description": "Entry and exit wounds identified (electrical injury)",
+    "examples": [
+      "Entry exit wounds present",
+      "No entry exit wounds",
+      "Entry exit wounds confirmed"
+    ],
+    "synonyms": [
+      "burn",
+      "burns",
+      "entry exit wounds"
+    ]
+  },
+  {
+    "id": "Cannulation.size",
+    "title": "Cannulation - Size",
+    "description": "Size of cannula",
+    "examples": [
+      "Recorded cannulation",
+      "Documented cannulation"
+    ],
+    "synonyms": [
+      "cannulation",
+      "size",
+      "iv"
+    ]
+  },
+  {
+    "id": "Cannulation.side",
+    "title": "Cannulation - Side",
+    "description": "The side cannulation was attempted",
+    "examples": [
+      "Cannulation Left",
+      "Cannulation Right",
+      "Recorded cannulation"
+    ],
+    "synonyms": [
+      "cannulation",
+      "side",
+      "iv"
+    ]
+  },
+  {
+    "id": "Cannulation.site",
+    "title": "Cannulation - Site",
+    "description": "The site cannulation was attempted",
+    "examples": [
+      "Cannulation ACF",
+      "Cannulation Central Line",
+      "Cannulation External jugular"
+    ],
+    "synonyms": [
+      "cannulation",
+      "site",
+      "iv"
+    ]
+  },
+  {
+    "id": "Cannulation.outcome",
+    "title": "Cannulation - Outcome",
+    "description": "Outcome of the cannulation procedure",
+    "examples": [
+      "Recorded cannulation",
+      "Documented cannulation"
+    ],
+    "synonyms": [
+      "cannulation",
+      "outcome",
+      "iv"
+    ]
+  },
+  {
+    "id": "Cannulation.attempts",
+    "title": "Cannulation - Attempts",
+    "description": "The number of cannulation attempts",
+    "examples": [
+      "Cannulation 98",
+      "Measured cannulation",
+      "Recorded cannulation"
+    ],
+    "synonyms": [
+      "cannulation",
+      "attempts",
+      "iv"
+    ]
+  },
+  {
+    "id": "Cannulation.established",
+    "title": "Cannulation - Established",
+    "description": "IV access successfully established",
+    "examples": [
+      "Established present",
+      "No established",
+      "Established confirmed"
+    ],
+    "synonyms": [
+      "cannulation",
+      "established",
+      "iv"
+    ]
+  },
+  {
+    "id": "Cardiac.chestPainOnsetDate",
+    "title": "Cardiac - Chest Pain Onset Date",
+    "description": "Date of onset of symptoms",
+    "examples": [
+      "Chest pain started today",
+      "Chest pain onset yesterday"
+    ],
+    "synonyms": [
+      "cardiac",
+      "chest pain onset date"
+    ]
+  },
+  {
+    "id": "Cardiac.chestPainOnsetTime",
+    "title": "Cardiac - Chest Pain Onset Time",
+    "description": "Time of onset of symptoms",
+    "examples": [
+      "Chest pain started 14:30",
+      "Cp started 2 hours ago",
+      "Chest pain began 30 min ago"
+    ],
+    "synonyms": [
+      "cardiac",
+      "chest pain onset time"
+    ]
+  },
+  {
+    "id": "Cardiac.cardiacArrest",
+    "title": "Cardiac - Cardiac Arrest",
+    "description": "Cardiac Arrest/Arrest Occurrence",
+    "examples": [
+      "No cardiac arrest",
+      "Cardiac arrest Prior to 999 Arrival",
+      "Cardiac arrest After 999 Arrival"
+    ],
+    "synonyms": [
+      "cardiac",
+      "cardiac arrest",
+      "arrest",
+      "cpr",
+      "rosc"
+    ]
+  },
+  {
+    "id": "Cardiac.estimatedArrestTime",
+    "title": "Cardiac - Estimated Arrest Time",
+    "description": "Estimated time of arrest prior to arrival",
+    "examples": [
+      "Estimated arrest time 0-2 mins",
+      "Estimated arrest time 2-4 mins",
+      "Estimated arrest time 4-6 mins"
+    ],
+    "synonyms": [
+      "cardiac",
+      "estimated arrest time"
+    ]
+  },
+  {
+    "id": "Cardiac.witness",
+    "title": "Cardiac - Witness",
+    "description": "Witnessed arrests",
+    "examples": [
+      "Witness Witnessed by Ambulance Clinicians",
+      "Witness Witnessed by Community Responders",
+      "Witness Bystander Witness"
+    ],
+    "synonyms": [
+      "cardiac",
+      "witness"
+    ]
+  },
+  {
+    "id": "Cardiac.adverse_features",
+    "title": "Cardiac - Adverse features",
+    "description": "Adverse features with arrhythmia",
+    "examples": [
+      "Adverse features Shock (BP less than 90)",
+      "Adverse features Syncope",
+      "Adverse features Myocardial ischaemia"
+    ],
+    "synonyms": [
+      "cardiac",
+      "adverse features"
+    ]
+  },
+  {
+    "id": "Cardiac.reversibleCausesConsidered",
+    "title": "Cardiac - Reversible Causes Considered",
+    "description": "4 Hs 4 Ts assessed",
+    "examples": [
+      "Reversible causes considered present",
+      "No reversible causes considered",
+      "Reversible causes considered confirmed"
+    ],
+    "synonyms": [
+      "cardiac",
+      "reversible causes considered"
+    ]
+  },
+  {
+    "id": "Cardiac.traumatic_arrest_causes",
+    "title": "Cardiac - Traumatic arrest causes",
+    "description": "Reversible causes in traumatic cardiac arrest",
+    "examples": [
+      "Traumatic arrest causes Hypoxia",
+      "Traumatic arrest causes Hypovolaemia (hemorrhage)",
+      "Traumatic arrest causes Hypothermia"
+    ],
+    "synonyms": [
+      "cardiac",
+      "traumatic arrest causes",
+      "arrest",
+      "cpr",
+      "rosc"
+    ]
+  },
+  {
+    "id": "Cardiopulmonary Resuscitation.resuscitationAttempted",
+    "title": "Cardiopulmonary Resuscitation - Resuscitation Attempted",
+    "description": "Information about whether resuscitation was attempted",
+    "examples": [
+      "Cpr started",
+      "Cpr ongoing",
+      "Rosc achieved"
+    ],
+    "synonyms": [
+      "cpr",
+      "cardiopulmonary resuscitation",
+      "resuscitation attempted",
+      "rosc"
+    ]
+  },
+  {
+    "id": "Cardiopulmonary Resuscitation.returnSpontaneousCirculation",
+    "title": "Cardiopulmonary Resuscitation - Return Spontaneous Circulation",
+    "description": "Return of any spontaneous palpable pulse",
+    "examples": [
+      "Cpr started",
+      "Cpr ongoing",
+      "Rosc achieved"
+    ],
+    "synonyms": [
+      "cpr",
+      "cardiopulmonary resuscitation",
+      "return spontaneous circulation",
+      "rosc"
+    ]
+  },
+  {
+    "id": "Cardiopulmonary Resuscitation.CPRStart",
+    "title": "Cardiopulmonary Resuscitation - CPR Start",
+    "description": "The time of first CPR attempts",
+    "examples": [
+      "Cpr started",
+      "Cpr ongoing",
+      "Rosc achieved"
+    ],
+    "synonyms": [
+      "cpr",
+      "cardiopulmonary resuscitation",
+      "cpr start",
+      "rosc"
+    ]
+  },
+  {
+    "id": "Cardiopulmonary Resuscitation.CPRStop",
+    "title": "Cardiopulmonary Resuscitation - CPR Stop",
+    "description": "The time where CPR attempts ceased",
+    "examples": [
+      "Cpr started",
+      "Cpr ongoing",
+      "Rosc achieved"
+    ],
+    "synonyms": [
+      "cpr",
+      "cardiopulmonary resuscitation",
+      "cpr stop",
+      "rosc"
+    ]
+  },
+  {
+    "id": "Cardiopulmonary Resuscitation.effortsCeased",
+    "title": "Cardiopulmonary Resuscitation - Efforts Ceased",
+    "description": "Reason for stopping",
+    "examples": [
+      "Cpr started",
+      "Cpr ongoing",
+      "Rosc achieved"
+    ],
+    "synonyms": [
+      "cpr",
+      "cardiopulmonary resuscitation",
+      "efforts ceased",
+      "rosc"
+    ]
+  },
+  {
+    "id": "Cardiopulmonary Resuscitation.CPRInProgress",
+    "title": "Cardiopulmonary Resuscitation - CPR In Progress",
+    "description": "CPR currently in progress",
+    "examples": [
+      "Cpr started",
+      "Cpr ongoing",
+      "Rosc achieved"
+    ],
+    "synonyms": [
+      "cpr",
+      "cardiopulmonary resuscitation",
+      "cpr in progress",
+      "rosc"
+    ]
+  },
+  {
+    "id": "Cardiopulmonary Resuscitation.rescue_breaths",
+    "title": "Cardiopulmonary Resuscitation - Rescue breaths",
+    "description": "5 initial rescue breaths given (paediatric)",
+    "examples": [
+      "Cpr started",
+      "Cpr ongoing",
+      "Rosc achieved"
+    ],
+    "synonyms": [
+      "cpr",
+      "cardiopulmonary resuscitation",
+      "rescue breaths",
+      "rosc"
+    ]
+  },
+  {
+    "id": "Chief Complaint.assessmentTime",
+    "title": "Chief Complaint - Assessment Time",
+    "description": "Time that the care professional conducted the assessment",
+    "examples": [
+      "Assessment time 14:30",
+      "Time noted for assessment time"
+    ],
+    "synonyms": [
+      "chief complaint",
+      "assessment time"
+    ]
+  },
+  {
+    "id": "Chief Complaint.additionalInformation",
+    "title": "Chief Complaint - Additional Information",
+    "description": "Packets/containers of meds, Medic alert jewellery, Warning Stickers",
+    "examples": [
+      "Recorded additional information",
+      "Documented additional information"
+    ],
+    "synonyms": [
+      "chief complaint",
+      "additional information"
+    ]
+  },
+  {
+    "id": "Chief Complaint.socialAndFamiliyHistory",
+    "title": "Chief Complaint - Social And Familiy History",
+    "description": "The relevant family and social history of the patient",
+    "examples": [
+      "Recorded social and familiy history",
+      "Documented social and familiy history"
+    ],
+    "synonyms": [
+      "chief complaint",
+      "social and familiy history"
+    ]
+  },
+  {
+    "id": "Circulatory Assessment.pulseSite",
+    "title": "Circulatory Assessment - Pulse Site",
+    "description": "Site Pulse rate was taken",
+    "examples": [
+      "Pulse site Left Radial",
+      "Pulse site Left Brachial",
+      "Pulse site Left Carotid"
+    ],
+    "synonyms": [
+      "circulatory assessment",
+      "pulse site"
+    ]
+  },
+  {
+    "id": "Circulatory Assessment.pulseRate",
+    "title": "Circulatory Assessment - Pulse Rate",
+    "description": "Pulse rate",
+    "examples": [
+      "Pulse rate Normal",
+      "Pulse rate Rapid",
+      "Pulse rate Slow"
+    ],
+    "synonyms": [
+      "circulatory assessment",
+      "pulse rate"
+    ]
+  },
+  {
+    "id": "Circulatory Assessment.pulseRhythm",
+    "title": "Circulatory Assessment - Pulse Rhythm",
+    "description": "Pulse rate rhythm",
+    "examples": [
+      "Pulse rhythm Regular",
+      "Pulse rhythm Irregular",
+      "Pulse rhythm Other"
+    ],
+    "synonyms": [
+      "circulatory assessment",
+      "pulse rhythm"
+    ]
+  },
+  {
+    "id": "Circulatory Assessment.pulseStrength",
+    "title": "Circulatory Assessment - Pulse Strength",
+    "description": "Pulse rate strength",
+    "examples": [
+      "Pulse strength Strong",
+      "Pulse strength Weak",
+      "Pulse strength Bounding"
+    ],
+    "synonyms": [
+      "circulatory assessment",
+      "pulse strength"
+    ]
+  },
+  {
+    "id": "Circulatory Assessment.capillaryRefill",
+    "title": "Circulatory Assessment - Capillary Refill",
+    "description": "<2 sec Yes/No",
+    "examples": [
+      "Capillary refill Less than 2 seconds",
+      "Capillary refill More than 2 seconds",
+      "Recorded capillary refill"
+    ],
+    "synonyms": [
+      "circulatory assessment",
+      "capillary refill",
+      "crt"
+    ]
+  },
+  {
+    "id": "Circulatory Assessment.shock",
+    "title": "Circulatory Assessment - Shock",
+    "description": "Signs of hypovolaemic shock",
+    "examples": [
+      "Shock Tachycardia greater than 100",
+      "Shock Hypotension less than 90",
+      "Shock Pale/clammy"
+    ],
+    "synonyms": [
+      "circulatory assessment",
+      "shock"
+    ]
+  },
+  {
+    "id": "Convulsions.currentlySeizing",
+    "title": "Convulsions - Currently Seizing",
+    "description": "Patient actively seizing now",
+    "examples": [
+      "Currently seizing present",
+      "No currently seizing",
+      "Currently seizing confirmed"
+    ],
+    "synonyms": [
+      "convulsions",
+      "currently seizing"
+    ]
+  },
+  {
+    "id": "Convulsions.duration",
+    "title": "Convulsions - Duration",
+    "description": "Duration of seizure in minutes",
+    "examples": [
+      "Duration 98",
+      "Measured duration",
+      "Recorded duration"
+    ],
+    "synonyms": [
+      "convulsions",
+      "duration"
+    ]
+  },
+  {
+    "id": "Current Medication.dosage",
+    "title": "Current Medication - Dosage",
+    "description": "Dosage of the Drug or Medication",
+    "examples": [
+      "Current medication 98",
+      "Measured current medication",
+      "Recorded current medication"
+    ],
+    "synonyms": [
+      "current medication",
+      "dosage"
+    ]
+  },
+  {
+    "id": "Current Medication.frequency",
+    "title": "Current Medication - Frequency",
+    "description": "Prescribed frequency",
+    "examples": [
+      "Frequency 98",
+      "Measured frequency",
+      "Recorded frequency"
+    ],
+    "synonyms": [
+      "current medication",
+      "frequency"
+    ]
+  },
+  {
+    "id": "Current Medication.compliance",
+    "title": "Current Medication - Compliance",
+    "description": "Extent to which patient has complied with regime",
+    "examples": [
+      "Compliance yes",
+      "No compliance",
+      "Compliance Unknown"
+    ],
+    "synonyms": [
+      "current medication",
+      "compliance"
+    ]
+  },
+  {
+    "id": "Current Medication.comments",
+    "title": "Current Medication - Comments",
+    "description": "Additional comments",
+    "examples": [
+      "Recorded current medication",
+      "Documented current medication"
+    ],
+    "synonyms": [
+      "current medication",
+      "comments"
+    ]
+  },
+  {
+    "id": "Defib Shock.type",
+    "title": "Defib Shock - Type",
+    "description": "The type of shock administered",
+    "examples": [
+      "Defib x1",
+      "Defib 200j"
+    ],
+    "synonyms": [
+      "defib",
+      "defib shock",
+      "type"
+    ]
+  },
+  {
+    "id": "Defib Shock.energy",
+    "title": "Defib Shock - Energy",
+    "description": "Energy options for the defibrillation shock (Joules)",
+    "examples": [
+      "Defib x1",
+      "Defib 200j"
+    ],
+    "synonyms": [
+      "defib",
+      "defib shock",
+      "energy"
+    ]
+  },
+  {
+    "id": "Defib Shock.energyForm",
+    "title": "Defib Shock - Energy Form",
+    "description": "Energy waveform",
+    "examples": [
+      "Defib x1",
+      "Defib 200j"
+    ],
+    "synonyms": [
+      "defib",
+      "defib shock",
+      "energy form"
+    ]
+  },
+  {
+    "id": "Defib Shock.pacingType",
+    "title": "Defib Shock - Pacing Type",
+    "description": "Pacing options for the defibrillator",
+    "examples": [
+      "Defib x1",
+      "Defib 200j"
+    ],
+    "synonyms": [
+      "defib",
+      "defib shock",
+      "pacing type"
+    ]
+  },
+  {
+    "id": "Defibrillation.defibrillationAttempted",
+    "title": "Defibrillation - Defibrillation Attempted",
+    "description": "To indicate whether defibrillation was attempted",
+    "examples": [
+      "Defib x1",
+      "Defib 200j"
+    ],
+    "synonyms": [
+      "defib",
+      "defibrillation",
+      "defibrillation attempted"
+    ]
+  },
+  {
+    "id": "Defibrillation.attempts",
+    "title": "Defibrillation - Attempts",
+    "description": "Total number of shocks administered",
+    "examples": [
+      "Defib x1",
+      "Defib 200j"
+    ],
+    "synonyms": [
+      "defib",
+      "defibrillation",
+      "attempts"
+    ]
+  },
+  {
+    "id": "Defibrillation.padsAttached",
+    "title": "Defibrillation - Pads Attached",
+    "description": "Defibrillator pads attached",
+    "examples": [
+      "Defib x1",
+      "Defib 200j"
+    ],
+    "synonyms": [
+      "defib",
+      "defibrillation",
+      "pads attached"
+    ]
+  },
+  {
+    "id": "Disposition.destinationType",
+    "title": "Disposition - Destination Type",
+    "description": "Destination Type",
+    "examples": [
+      "Destination type Emergency Department",
+      "Destination type Direct Admission",
+      "Destination type GP"
+    ],
+    "synonyms": [
+      "disposition",
+      "destination type"
+    ]
+  },
+  {
+    "id": "Disposition.destinationHealthcareProvider",
+    "title": "Disposition - Destination Healthcare Provider",
+    "description": "The healthcare facility to which the patient was transported",
+    "examples": [
+      "Recorded destination healthcare provider",
+      "Documented destination healthcare provider"
+    ],
+    "synonyms": [
+      "disposition",
+      "destination healthcare provider"
+    ]
+  },
+  {
+    "id": "Disposition.CPROngoing",
+    "title": "Disposition - CPR Ongoing",
+    "description": "To indicate whether CPR was ongoing on Patient Handover",
+    "examples": [
+      "Cpr started",
+      "Cpr ongoing",
+      "Rosc achieved"
+    ],
+    "synonyms": [
+      "disposition",
+      "cpr ongoing"
+    ]
+  },
+  {
+    "id": "Disposition.recipientGrade",
+    "title": "Disposition - Recipient Grade",
+    "description": "Recipient Grade",
+    "examples": [
+      "Recorded recipient grade",
+      "Documented recipient grade"
+    ],
+    "synonyms": [
+      "disposition",
+      "recipient grade"
+    ]
+  },
+  {
+    "id": "Disposition.recipientName",
+    "title": "Disposition - Recipient Name",
+    "description": "Recipient Name",
+    "examples": [
+      "Recorded recipient name",
+      "Documented recipient name"
+    ],
+    "synonyms": [
+      "disposition",
+      "recipient name"
+    ]
+  },
+  {
+    "id": "Disposition.arrivalTime",
+    "title": "Disposition - Arrival Time",
+    "description": "Arrival time at the healthcare provider",
+    "examples": [
+      "Arrival time 14:30",
+      "Time noted for arrival time"
+    ],
+    "synonyms": [
+      "disposition",
+      "arrival time"
+    ]
+  },
+  {
+    "id": "Disposition.arrivalDate",
+    "title": "Disposition - Arrival Date",
+    "description": "Arrival date at the healthcare provider",
+    "examples": [
+      "Arrival date 2026-02-01",
+      "Date noted for arrival date"
+    ],
+    "synonyms": [
+      "disposition",
+      "arrival date"
+    ]
+  },
+  {
+    "id": "Disposition.handoverDate",
+    "title": "Disposition - Handover Date",
+    "description": "Date of handover",
+    "examples": [
+      "Handover date 2026-02-01",
+      "Date noted for handover date"
+    ],
+    "synonyms": [
+      "disposition",
+      "handover date"
+    ]
+  },
+  {
+    "id": "Disposition.handoverTime",
+    "title": "Disposition - Handover Time",
+    "description": "Time of handover",
+    "examples": [
+      "Handover time 14:30",
+      "Time noted for handover time"
+    ],
+    "synonyms": [
+      "disposition",
+      "handover time"
+    ]
+  },
+  {
+    "id": "Documentation.ROLE_documented",
+    "title": "Documentation - ROLE documented",
+    "description": "Recognition of Life Extinct decision documented with rationale",
+    "examples": [
+      "Role documented present",
+      "No role documented",
+      "Role documented confirmed"
+    ],
+    "synonyms": [
+      "documentation",
+      "role documented"
+    ]
+  },
+  {
+    "id": "Drug Administration.name",
+    "title": "Drug Administration - Name",
+    "description": "Names of drugs administered",
+    "examples": [
+      "Drug administration All drugs captured as SNOMED",
+      "Recorded drug administration"
+    ],
+    "synonyms": [
+      "drug administration",
+      "name"
+    ]
+  },
+  {
+    "id": "Drug Administration.route",
+    "title": "Drug Administration - Route",
+    "description": "Drug administered intravenously or via endotracheal tube etc",
+    "examples": [
+      "Drug administration Endo Tracheal",
+      "Drug administration Inhaled",
+      "Drug administration Intra Nasal"
+    ],
+    "synonyms": [
+      "drug administration",
+      "route",
+      "iv"
+    ]
+  },
+  {
+    "id": "Drug Administration.dosage",
+    "title": "Drug Administration - Dosage",
+    "description": "Dosage of the drug given (mg, g, l/min, mcg, etc)",
+    "examples": [
+      "Drug administration 98",
+      "Measured drug administration",
+      "Recorded drug administration"
+    ],
+    "synonyms": [
+      "drug administration",
+      "dosage"
+    ]
+  },
+  {
+    "id": "Drug Administration.batchNumber",
+    "title": "Drug Administration - Batch Number",
+    "description": "Drug batch number",
+    "examples": [
+      "Recorded batch number",
+      "Documented batch number"
+    ],
+    "synonyms": [
+      "drug administration",
+      "batch number"
+    ]
+  },
+  {
+    "id": "Drug Administration.effect",
+    "title": "Drug Administration - Effect",
+    "description": "A statement as to the effect or non effect",
+    "examples": [
+      "Recorded effect",
+      "Documented effect"
+    ],
+    "synonyms": [
+      "drug administration",
+      "effect"
+    ]
+  },
+  {
+    "id": "Drug Administration.ipratropium_given",
+    "title": "Drug Administration - Ipratropium given",
+    "description": "Ipratropium bromide nebuliser given",
+    "examples": [
+      "Ipratropium given present",
+      "No ipratropium given",
+      "Ipratropium given confirmed"
+    ],
+    "synonyms": [
+      "drug administration",
+      "ipratropium given"
+    ]
+  },
+  {
+    "id": "ECG Interpretation.rhythm",
+    "title": "ECG Interpretation - Rhythm",
+    "description": "The underlying cardiac rhythm",
+    "examples": [
+      "12 lead ecg done",
+      "Ecg sinus rhythm",
+      "Ecg st elevation",
+      "Ekg done for cp"
+    ],
+    "synonyms": [
+      "ecg",
+      "ecg interpretation",
+      "rhythm",
+      "ekg",
+      "12 lead"
+    ]
+  },
+  {
+    "id": "ECG Interpretation.ectopy",
+    "title": "ECG Interpretation - Ectopy",
+    "description": "Disturbance to the cardiac rhythm",
+    "examples": [
+      "12 lead ecg done",
+      "Ecg sinus rhythm",
+      "Ecg st elevation",
+      "Ekg done for cp"
+    ],
+    "synonyms": [
+      "ecg",
+      "ecg interpretation",
+      "ectopy",
+      "ekg",
+      "12 lead"
+    ]
+  },
+  {
+    "id": "ECG Interpretation.leadType",
+    "title": "ECG Interpretation - Lead Type",
+    "description": "Number of leads the ECG device has",
+    "examples": [
+      "12 lead ecg done",
+      "Ecg sinus rhythm",
+      "Ecg st elevation",
+      "Ekg done for cp"
+    ],
+    "synonyms": [
+      "ecg",
+      "ecg interpretation",
+      "lead type",
+      "ekg",
+      "12 lead"
+    ]
+  },
+  {
+    "id": "ECG Interpretation.abnomality",
+    "title": "ECG Interpretation - Abnomality",
+    "description": "Noted ECG waveform abnormalities",
+    "examples": [
+      "12 lead ecg done",
+      "Ecg sinus rhythm",
+      "Ecg st elevation",
+      "Ekg done for cp"
+    ],
+    "synonyms": [
+      "ecg",
+      "ecg interpretation",
+      "abnomality",
+      "ekg",
+      "12 lead"
+    ]
+  },
+  {
+    "id": "ECG Interpretation.interpretationTime",
+    "title": "ECG Interpretation - Interpretation Time",
+    "description": "Time at which interpretation was made",
+    "examples": [
+      "12 lead ecg done",
+      "Ecg sinus rhythm",
+      "Ecg st elevation",
+      "Ekg done for cp"
+    ],
+    "synonyms": [
+      "ecg",
+      "ecg interpretation",
+      "interpretation time",
+      "ekg",
+      "12 lead"
+    ]
+  },
+  {
+    "id": "ECG Interpretation.monitoring",
+    "title": "ECG Interpretation - Monitoring",
+    "description": "Continuous ECG monitoring in place",
+    "examples": [
+      "12 lead ecg done",
+      "Ecg sinus rhythm",
+      "Ecg st elevation",
+      "Ekg done for cp"
+    ],
+    "synonyms": [
+      "ecg",
+      "ecg interpretation",
+      "monitoring",
+      "ekg",
+      "12 lead"
+    ]
+  },
+  {
+    "id": "ECG Interpretation.performed",
+    "title": "ECG Interpretation - Performed",
+    "description": "12-lead ECG performed",
+    "examples": [
+      "12 lead ecg done",
+      "Ecg sinus rhythm",
+      "Ecg st elevation",
+      "Ekg done for cp"
+    ],
+    "synonyms": [
+      "ecg",
+      "ecg interpretation",
+      "performed",
+      "ekg",
+      "12 lead"
+    ]
+  },
+  {
+    "id": "Equipment.delivery_pack",
+    "title": "Equipment - Delivery pack",
+    "description": "Delivery pack prepared (clamps, scissors, towels)",
+    "examples": [
+      "Delivery pack present",
+      "No delivery pack",
+      "Delivery pack confirmed"
+    ],
+    "synonyms": [
+      "equipment",
+      "delivery pack"
+    ]
+  },
+  {
+    "id": "Evidence.substance_packaging",
+    "title": "Evidence - Substance packaging",
+    "description": "Substance container/packaging collected",
+    "examples": [
+      "Substance packaging present",
+      "No substance packaging",
+      "Substance packaging confirmed"
+    ],
+    "synonyms": [
+      "evidence",
+      "substance packaging"
+    ]
+  },
+  {
+    "id": "FAST Assessment.face",
+    "title": "FAST Assessment - Face",
+    "description": "Test for facial weakness",
+    "examples": [
+      "Face Abnormal",
+      "Face Normal",
+      "Recorded face"
+    ],
+    "synonyms": [
+      "fast assessment",
+      "face"
+    ]
+  },
+  {
+    "id": "FAST Assessment.arm",
+    "title": "FAST Assessment - Arm",
+    "description": "Test for arm motor weakness",
+    "examples": [
+      "Arm Abnormal",
+      "Arm Normal",
+      "Recorded arm"
+    ],
+    "synonyms": [
+      "fast assessment",
+      "arm"
+    ]
+  },
+  {
+    "id": "FAST Assessment.speech",
+    "title": "FAST Assessment - Speech",
+    "description": "Test for slurring or difficulty with words",
+    "examples": [
+      "Speech Abnormal",
+      "Speech Normal",
+      "Recorded speech"
+    ],
+    "synonyms": [
+      "fast assessment",
+      "speech"
+    ]
+  },
+  {
+    "id": "FAST Assessment.conclusion",
+    "title": "FAST Assessment - Conclusion",
+    "description": "The observed conclusion of the FAST test",
+    "examples": [
+      "Conclusion Negative",
+      "Conclusion Non-conclusive",
+      "Conclusion Positive"
+    ],
+    "synonyms": [
+      "fast assessment",
+      "conclusion"
+    ]
+  },
+  {
+    "id": "Fall.FallFromHeight",
+    "title": "Fall - Fall From Height",
+    "description": "Distance fallen in metres",
+    "examples": [
+      "Fall from height 98",
+      "Measured fall from height",
+      "Recorded fall from height"
+    ],
+    "synonyms": [
+      "fall",
+      "fall from height"
+    ]
+  },
+  {
+    "id": "Falls Assessment.assessed",
+    "title": "Falls Assessment - Assessed",
+    "description": "Indicator to show whether a Falls assessment has been completed",
+    "examples": [
+      "Assessed yes",
+      "No assessed",
+      "Recorded assessed"
+    ],
+    "synonyms": [
+      "falls assessment",
+      "assessed"
+    ]
+  },
+  {
+    "id": "Glasgow Coma Scale.GCSItem",
+    "title": "Glasgow Coma Scale - GCS Item",
+    "description": "Item assessed (Eyes, Motor, Verbal) score range 1-6",
+    "examples": [
+      "Gcs eyes 4",
+      "Gcs eyes 3"
+    ],
+    "synonyms": [
+      "gcs",
+      "glasgow coma scale",
+      "gcs item"
+    ]
+  },
+  {
+    "id": "Glasgow Coma Scale.GCSScore",
+    "title": "Glasgow Coma Scale - GCS Score",
+    "description": "Score",
+    "examples": [
+      "Gcs 15",
+      "Gcs 13",
+      "Pt gcs 12"
+    ],
+    "synonyms": [
+      "gcs",
+      "glasgow coma scale",
+      "gcs score"
+    ]
+  },
+  {
+    "id": "Glasgow Coma Scale.GCSTotal",
+    "title": "Glasgow Coma Scale - GCS Total",
+    "description": "The total score",
+    "examples": [
+      "Gcs 15",
+      "Gcs 13",
+      "Pt gcs 12"
+    ],
+    "synonyms": [
+      "gcs",
+      "glasgow coma scale",
+      "gcs total"
+    ]
+  },
+  {
+    "id": "Immobilisation.location",
+    "title": "Immobilisation - Location",
+    "description": "The body location immobilised",
+    "examples": [
+      "Recorded immobilisation",
+      "Documented immobilisation"
+    ],
+    "synonyms": [
+      "immobilisation",
+      "location"
+    ]
+  },
+  {
+    "id": "Immobilisation.type",
+    "title": "Immobilisation - Type",
+    "description": "The type of device used",
+    "examples": [
+      "Immobilisation Vacuum splint",
+      "Immobilisation Sling",
+      "Immobilisation Inflatable splint"
+    ],
+    "synonyms": [
+      "immobilisation",
+      "type"
+    ]
+  },
+  {
+    "id": "Incident.transportRequestIncidentNumber",
+    "title": "Incident - Transport Request Incident Number",
+    "description": "A unique identifier for a TRANSPORT REQUEST INCIDENT",
+    "examples": [
+      "Recorded transport request incident number",
+      "Documented transport request incident number"
+    ],
+    "synonyms": [
+      "incident",
+      "transport request incident number"
+    ]
+  },
+  {
+    "id": "Incident.reportedCondition",
+    "title": "Incident - Reported Condition",
+    "description": "The reported clinical condition (e.g. conscious/breathing)",
+    "examples": [
+      "SOB",
+      "Wheeze",
+      "Increased wob",
+      "Labored breathing"
+    ],
+    "synonyms": [
+      "incident",
+      "reported condition",
+      "sob",
+      "wheeze",
+      "work of breathing",
+      "wob",
+      "tachypnea",
+      "tachypnoea",
+      "increased wob"
+    ]
+  },
+  {
+    "id": "Incident.transportRequestCallConnectTime",
+    "title": "Incident - Transport Request Call Connect Time",
+    "description": "The start time ('Call Connect')",
+    "examples": [
+      "Transport request call connect time 14:30",
+      "Time noted for transport request call connect time"
+    ],
+    "synonyms": [
+      "incident",
+      "transport request call connect time"
+    ]
+  },
+  {
+    "id": "Incident.transportRequestCallType",
+    "title": "Incident - Transport Request Call Type",
+    "description": "Category of initial call for help",
+    "examples": [
+      "Transport request call type Called GP who saw patient before calling EMS",
+      "Transport request call type Called GP who called EMS before seeing patient",
+      "Transport request call type Called 999"
+    ],
+    "synonyms": [
+      "incident",
+      "transport request call type"
+    ]
+  },
+  {
+    "id": "Incident.timeLeftScene",
+    "title": "Incident - Time Left Scene",
+    "description": "The time of the crew leave the scene",
+    "examples": [
+      "Time left scene 14:30",
+      "Time noted for time left scene"
+    ],
+    "synonyms": [
+      "incident",
+      "time left scene"
+    ]
+  },
+  {
+    "id": "Incident.hospitalAlertSent",
+    "title": "Incident - Hospital Alert Sent",
+    "description": "Time-critical hospital pre-alert sent",
+    "examples": [
+      "Hospital alert sent present",
+      "No hospital alert sent",
+      "Hospital alert sent confirmed"
+    ],
+    "synonyms": [
+      "incident",
+      "hospital alert sent"
+    ]
+  },
+  {
+    "id": "Injury.activity",
+    "title": "Injury - Activity",
+    "description": "The type of activity that played a role in the patient's injury",
+    "examples": [
+      "Recorded activity",
+      "Documented activity"
+    ],
+    "synonyms": [
+      "injury",
+      "activity"
+    ]
+  },
+  {
+    "id": "Injury.bodyLocation",
+    "title": "Injury - Body Location",
+    "description": "Area of body suffering trauma",
+    "examples": [
+      "Body location Multiple",
+      "Body location Head/neck / face",
+      "Body location Spinal/spinal column"
+    ],
+    "synonyms": [
+      "injury",
+      "body location"
+    ]
+  },
+  {
+    "id": "Injury.locationType",
+    "title": "Injury - Location Type",
+    "description": "Type of location where the injury occured",
+    "examples": [
+      "Location type Home",
+      "Location type Works/Industrial",
+      "Location type Public Place"
+    ],
+    "synonyms": [
+      "injury",
+      "location type"
+    ]
+  },
+  {
+    "id": "Injury.safetyEquipmentUsed",
+    "title": "Injury - Safety Equipment Used",
+    "description": "Safety equipment used by patient",
+    "examples": [
+      "Safety equipment used None",
+      "Safety equipment used Air Bag Deployed",
+      "Safety equipment used Seat Belts"
+    ],
+    "synonyms": [
+      "injury",
+      "safety equipment used"
+    ]
+  },
+  {
+    "id": "Intervention.interventionType",
+    "title": "Intervention - Intervention Type",
+    "description": "The type of intervention administered",
+    "examples": [
+      "Recorded intervention type",
+      "Documented intervention type"
+    ],
+    "synonyms": [
+      "intervention",
+      "intervention type"
+    ]
+  },
+  {
+    "id": "Intervention.interventionTime",
+    "title": "Intervention - Intervention Time",
+    "description": "The time of intervention",
+    "examples": [
+      "Intervention time 14:30",
+      "Time noted for intervention time"
+    ],
+    "synonyms": [
+      "intervention",
+      "intervention time"
+    ]
+  },
+  {
+    "id": "Intervention.interventionComment",
+    "title": "Intervention - Intervention Comment",
+    "description": "Additional comments",
+    "examples": [
+      "Recorded intervention comment",
+      "Documented intervention comment"
+    ],
+    "synonyms": [
+      "intervention",
+      "intervention comment"
+    ]
+  },
+  {
+    "id": "Intervention.interventionBy",
+    "title": "Intervention - Intervention By",
+    "description": "The healthcare professional that conducted the intervention",
+    "examples": [
+      "Recorded intervention by",
+      "Documented intervention by"
+    ],
+    "synonyms": [
+      "intervention",
+      "intervention by"
+    ]
+  },
+  {
+    "id": "Intervention.abdominal_thrusts",
+    "title": "Intervention - Abdominal thrusts",
+    "description": "Abdominal thrusts (Heimlich) performed",
+    "examples": [
+      "Abdominal thrusts present",
+      "No abdominal thrusts",
+      "Abdominal thrusts confirmed"
+    ],
+    "synonyms": [
+      "intervention",
+      "abdominal thrusts"
+    ]
+  },
+  {
+    "id": "Intervention.active_rewarming",
+    "title": "Intervention - Active rewarming",
+    "description": "Active rewarming techniques used",
+    "examples": [
+      "Active rewarming present",
+      "No active rewarming",
+      "Active rewarming confirmed"
+    ],
+    "synonyms": [
+      "intervention",
+      "active rewarming"
+    ]
+  },
+  {
+    "id": "Intervention.back_blows",
+    "title": "Intervention - Back blows",
+    "description": "Back blows for choking performed",
+    "examples": [
+      "Back blows present",
+      "No back blows",
+      "Back blows confirmed"
+    ],
+    "synonyms": [
+      "intervention",
+      "back blows"
+    ]
+  },
+  {
+    "id": "Intervention.burncooling",
+    "title": "Intervention - Burncooling",
+    "description": "Burn cooling performed",
+    "examples": [
+      "Burncooling present",
+      "No burncooling",
+      "Burncooling confirmed"
+    ],
+    "synonyms": [
+      "intervention",
+      "burncooling"
+    ]
+  },
+  {
+    "id": "Intervention.burndressing",
+    "title": "Intervention - Burndressing",
+    "description": "Burn dressing applied",
+    "examples": [
+      "Burndressing present",
+      "No burndressing",
+      "Burndressing confirmed"
+    ],
+    "synonyms": [
+      "intervention",
+      "burndressing"
+    ]
+  },
+  {
+    "id": "Intervention.chest_decompression",
+    "title": "Intervention - Chest decompression",
+    "description": "Needle decompression for tension pneumothorax",
+    "examples": [
+      "Chest decompression present",
+      "No chest decompression",
+      "Chest decompression confirmed"
+    ],
+    "synonyms": [
+      "intervention",
+      "chest decompression"
+    ]
+  },
+  {
+    "id": "Intervention.chest_seal",
+    "title": "Intervention - Chest seal",
+    "description": "Three-sided chest seal applied",
+    "examples": [
+      "Chest seal present",
+      "No chest seal",
+      "Chest seal confirmed"
+    ],
+    "synonyms": [
+      "intervention",
+      "chest seal"
+    ]
+  },
+  {
+    "id": "Intervention.cooling",
+    "title": "Intervention - Cooling",
+    "description": "Cooling interventions for heat illness",
+    "examples": [
+      "Cooling Move to cool environment",
+      "Cooling Remove clothing",
+      "Cooling Tepid sponging"
+    ],
+    "synonyms": [
+      "intervention",
+      "cooling"
+    ]
+  },
+  {
+    "id": "Intervention.hemorrhage_control",
+    "title": "Intervention - Hemorrhage control",
+    "description": "Method of hemorrhage control",
+    "examples": [
+      "Hemorrhage control Direct pressure",
+      "Hemorrhage control Tourniquet",
+      "Hemorrhage control Pelvic binder"
+    ],
+    "synonyms": [
+      "intervention",
+      "hemorrhage control"
+    ]
+  },
+  {
+    "id": "Intervention.passive_rewarming",
+    "title": "Intervention - Passive rewarming",
+    "description": "Passive rewarming techniques",
+    "examples": [
+      "Passive rewarming Remove wet clothing",
+      "Passive rewarming Dry patient",
+      "Passive rewarming Wrap in blankets"
+    ],
+    "synonyms": [
+      "intervention",
+      "passive rewarming"
+    ]
+  },
+  {
+    "id": "Intervention.splinting",
+    "title": "Intervention - Splinting",
+    "description": "Limb splinted/immobilised",
+    "examples": [
+      "Splinting present",
+      "No splinting",
+      "Splinting confirmed"
+    ],
+    "synonyms": [
+      "intervention",
+      "splinting"
+    ]
+  },
+  {
+    "id": "Intubation.type",
+    "title": "Intubation - Type",
+    "description": "Type of Intubation",
+    "examples": [
+      "Intubation Endotracheal (ET)",
+      "Intubation Oesophageal tracheal combitube (OTC)",
+      "Intubation LMA"
+    ],
+    "synonyms": [
+      "intubation",
+      "type"
+    ]
+  },
+  {
+    "id": "Intubation.technique",
+    "title": "Intubation - Technique",
+    "description": "Intubation Technique",
+    "examples": [
+      "Technique Standard laryngoscopy",
+      "Technique Bougie",
+      "Technique Digital"
+    ],
+    "synonyms": [
+      "intubation",
+      "technique"
+    ]
+  },
+  {
+    "id": "Intubation.outcome",
+    "title": "Intubation - Outcome",
+    "description": "Result of attempted Intubation",
+    "examples": [
+      "Recorded intubation",
+      "Documented intubation"
+    ],
+    "synonyms": [
+      "intubation",
+      "outcome"
+    ]
+  },
+  {
+    "id": "Legal.coroner_referral",
+    "title": "Legal - Coroner referral",
+    "description": "Coroner referral required",
+    "examples": [
+      "Coroner referral present",
+      "No coroner referral",
+      "Coroner referral confirmed"
+    ],
+    "synonyms": [
+      "legal",
+      "coroner referral"
+    ]
+  },
+  {
+    "id": "Life Extinct.deathConfirmed",
+    "title": "Life Extinct - Death Confirmed",
+    "description": "Confirmation of death",
+    "examples": [
+      "Death confirmed yes",
+      "No death confirmed",
+      "Recorded death confirmed"
+    ],
+    "synonyms": [
+      "life extinct",
+      "death confirmed"
+    ]
+  },
+  {
+    "id": "Life Extinct.personRole",
+    "title": "Life Extinct - Person Role",
+    "description": "The role of the person who confirmed life extinct",
+    "examples": [
+      "Person role Crew",
+      "Person role Doctor",
+      "Person role Nurse"
+    ],
+    "synonyms": [
+      "life extinct",
+      "person role"
+    ]
+  },
+  {
+    "id": "Life Extinct.personName",
+    "title": "Life Extinct - Person Name",
+    "description": "The name of the person who confirmed life extinct",
+    "examples": [
+      "Recorded person name",
+      "Documented person name"
+    ],
+    "synonyms": [
+      "life extinct",
+      "person name"
+    ]
+  },
+  {
+    "id": "Life Extinct.reasonNotSigned",
+    "title": "Life Extinct - Reason Not Signed",
+    "description": "The reason why the confirmation was not signed",
+    "examples": [
+      "Reason not signed Unavailable",
+      "Reason not signed Refused",
+      "Reason not signed Other"
+    ],
+    "synonyms": [
+      "life extinct",
+      "reason not signed"
+    ]
+  },
+  {
+    "id": "Limb Injury.open_fracture",
+    "title": "Limb Injury - Open fracture",
+    "description": "Bone protruding or wound communicating with fracture",
+    "examples": [
+      "Open fracture present",
+      "No open fracture",
+      "Open fracture confirmed"
+    ],
+    "synonyms": [
+      "limb injury",
+      "open fracture"
+    ]
+  },
+  {
+    "id": "Lung Fields.soundDetails",
+    "title": "Lung Fields - Sound Details",
+    "description": "Description of the sound",
+    "examples": [
+      "Recorded sound details",
+      "Documented sound details"
+    ],
+    "synonyms": [
+      "lung fields",
+      "sound details"
+    ]
+  },
+  {
+    "id": "Lung Fields.lungLocation",
+    "title": "Lung Fields - Lung Location",
+    "description": "Location in the patient's lungs",
+    "examples": [
+      "Lung location Top (apical)",
+      "Lung location Middle",
+      "Lung location Bottom"
+    ],
+    "synonyms": [
+      "lung fields",
+      "lung location"
+    ]
+  },
+  {
+    "id": "Lung Fields.airEntry",
+    "title": "Lung Fields - Air Entry",
+    "description": "Air entry on auscultation",
+    "examples": [
+      "Air entry Equal bilateral",
+      "Air entry Reduced left",
+      "Air entry Reduced right"
+    ],
+    "synonyms": [
+      "lung fields",
+      "air entry"
+    ]
+  },
+  {
+    "id": "Lung Fields.breathSounds",
+    "title": "Lung Fields - Breath Sounds",
+    "description": "Breath sounds heard",
+    "examples": [
+      "Breath sounds Wheeze",
+      "Breath sounds Crackles",
+      "Breath sounds Reduced air entry"
+    ],
+    "synonyms": [
+      "lung fields",
+      "breath sounds"
+    ]
+  },
+  {
+    "id": "Lung Fields.sounds",
+    "title": "Lung Fields - Sounds",
+    "description": "Chest auscultation findings",
+    "examples": [
+      "Sounds Wheeze",
+      "Sounds Crackles",
+      "Sounds Reduced air entry"
+    ],
+    "synonyms": [
+      "lung fields",
+      "sounds"
+    ]
+  },
+  {
+    "id": "Management.breathing_coaching",
+    "title": "Management - Breathing coaching",
+    "description": "Breathing techniques coached",
+    "examples": [
+      "SOB",
+      "Wheeze",
+      "Increased wob",
+      "Labored breathing"
+    ],
+    "synonyms": [
+      "management",
+      "breathing coaching",
+      "sob",
+      "wheeze",
+      "work of breathing",
+      "wob",
+      "tachypnea",
+      "tachypnoea",
+      "increased wob"
+    ]
+  },
+  {
+    "id": "Management.cooling_measures",
+    "title": "Management - Cooling measures",
+    "description": "Cooling measures applied",
+    "examples": [
+      "Cooling measures present",
+      "No cooling measures",
+      "Cooling measures confirmed"
+    ],
+    "synonyms": [
+      "management",
+      "cooling measures"
+    ]
+  },
+  {
+    "id": "Management.de_escalation",
+    "title": "Management - De escalation",
+    "description": "De-escalation techniques used",
+    "examples": [
+      "De escalation present",
+      "No de escalation",
+      "De escalation confirmed"
+    ],
+    "synonyms": [
+      "management",
+      "de escalation"
+    ]
+  },
+  {
+    "id": "Management.encouraged_cough",
+    "title": "Management - Encouraged cough",
+    "description": "Patient encouraged to cough (mild choking)",
+    "examples": [
+      "Encouraged cough present",
+      "No encouraged cough",
+      "Encouraged cough confirmed"
+    ],
+    "synonyms": [
+      "management",
+      "encouraged cough"
+    ]
+  },
+  {
+    "id": "Management.food_given",
+    "title": "Management - Food given",
+    "description": "Food given after hypoglycaemia treatment",
+    "examples": [
+      "Food given present",
+      "No food given",
+      "Food given confirmed"
+    ],
+    "synonyms": [
+      "management",
+      "food given"
+    ]
+  },
+  {
+    "id": "Management.gentle_handling",
+    "title": "Management - Gentle handling",
+    "description": "Gentle handling for severe hypothermia (VF risk)",
+    "examples": [
+      "Gentle handling present",
+      "No gentle handling",
+      "Gentle handling confirmed"
+    ],
+    "synonyms": [
+      "management",
+      "gentle handling"
+    ]
+  },
+  {
+    "id": "Management.kept_calm",
+    "title": "Management - Kept calm",
+    "description": "Child kept calm (croup management)",
+    "examples": [
+      "Kept calm present",
+      "No kept calm",
+      "Kept calm confirmed"
+    ],
+    "synonyms": [
+      "management",
+      "kept calm"
+    ]
+  },
+  {
+    "id": "Management.oral_glucose_given",
+    "title": "Management - Oral glucose given",
+    "description": "Oral glucose given for hypoglycaemia",
+    "examples": [
+      "Bgl 4.1",
+      "Blood sugar 3.2",
+      "Bm 6.0",
+      "Hypo bgl 2.9"
+    ],
+    "synonyms": [
+      "management",
+      "oral glucose given",
+      "bgl",
+      "bm",
+      "blood sugar"
+    ]
+  },
+  {
+    "id": "Management.packaging_brought",
+    "title": "Management - Packaging brought",
+    "description": "Medication/substance packaging brought to hospital",
+    "examples": [
+      "Packaging brought present",
+      "No packaging brought",
+      "Packaging brought confirmed"
+    ],
+    "synonyms": [
+      "management",
+      "packaging brought"
+    ]
+  },
+  {
+    "id": "Management.secondary_injury_prevention",
+    "title": "Management - Secondary injury prevention",
+    "description": "Secondary brain injury prevention (maintain SpO2, BP)",
+    "examples": [
+      "Sats 88% ra",
+      "Spo2 94% on o2",
+      "O2 sats 92%"
+    ],
+    "synonyms": [
+      "management",
+      "secondary injury prevention"
+    ]
+  },
+  {
+    "id": "Management.toxbase_consulted",
+    "title": "Management - Toxbase consulted",
+    "description": "TOXBASE or poisons unit consulted",
+    "examples": [
+      "Toxbase consulted present",
+      "No toxbase consulted",
+      "Toxbase consulted confirmed"
+    ],
+    "synonyms": [
+      "management",
+      "toxbase consulted"
+    ]
+  },
+  {
+    "id": "Mechanism of Injury.injuryMechanism",
+    "title": "Mechanism of Injury - Injury Mechanism",
+    "description": "The mechanism of injury experienced by the patient",
+    "examples": [
+      "Recorded injury mechanism",
+      "Documented injury mechanism"
+    ],
+    "synonyms": [
+      "mechanism injury",
+      "mechanism of injury",
+      "injury mechanism"
+    ]
+  },
+  {
+    "id": "Mental Health.capacity",
+    "title": "Mental Health - Capacity",
+    "description": "Mental capacity assessment",
+    "examples": [
+      "Capacity Has capacity",
+      "Capacity Lacks capacity",
+      "Capacity Unclear"
+    ],
+    "synonyms": [
+      "mental health",
+      "capacity"
+    ]
+  },
+  {
+    "id": "Mental Health.mental_state",
+    "title": "Mental Health - Mental state",
+    "description": "Mental state examination findings",
+    "examples": [
+      "Mental state Agitated",
+      "Mental state Anxious",
+      "Mental state Depressed"
+    ],
+    "synonyms": [
+      "mental health",
+      "mental state"
+    ]
+  },
+  {
+    "id": "Mental Health.risk_assessment",
+    "title": "Mental Health - Risk assessment",
+    "description": "Mental health risk assessment",
+    "examples": [
+      "Risk assessment Suicidal ideation/intent",
+      "Risk assessment Self-harm risk",
+      "Risk assessment Aggression/violence risk"
+    ],
+    "synonyms": [
+      "mental health",
+      "risk assessment"
+    ]
+  },
+  {
+    "id": "Monitoring.complications",
+    "title": "Monitoring - Complications",
+    "description": "Complications monitored for",
+    "examples": [
+      "Complications Arrhythmias",
+      "Complications Further deterioration",
+      "Complications No complications"
+    ],
+    "synonyms": [
+      "monitoring",
+      "complications"
+    ]
+  },
+  {
+    "id": "Newborn.apgar",
+    "title": "Newborn - Apgar",
+    "description": "APGAR scores at 1 and 5 minutes",
+    "examples": [
+      "Recorded apgar",
+      "Documented apgar"
+    ],
+    "synonyms": [
+      "newborn",
+      "apgar"
+    ]
+  },
+  {
+    "id": "Newborn.immediate_care",
+    "title": "Newborn - Immediate care",
+    "description": "Baby dried, stimulated, and kept warm",
+    "examples": [
+      "Immediate care present",
+      "No immediate care",
+      "Immediate care confirmed"
+    ],
+    "synonyms": [
+      "newborn",
+      "immediate care"
+    ]
+  },
+  {
+    "id": "Observation.observationTime",
+    "title": "Observation - Observation Time",
+    "description": "The time that an observation was made",
+    "examples": [
+      "Observation time 14:30",
+      "Time noted for observation time"
+    ],
+    "synonyms": [
+      "observation",
+      "observation time"
+    ]
+  },
+  {
+    "id": "Observation.observer",
+    "title": "Observation - Observer",
+    "description": "The healthcare professional who undertook the observation",
+    "examples": [
+      "Recorded observer",
+      "Documented observer"
+    ],
+    "synonyms": [
+      "observation",
+      "observer"
+    ]
+  },
+  {
+    "id": "Observation.observationComments",
+    "title": "Observation - Observation Comments",
+    "description": "Comments associated with a particular observation",
+    "examples": [
+      "Recorded observation comments",
+      "Documented observation comments"
+    ],
+    "synonyms": [
+      "observation",
+      "observation comments"
+    ]
+  },
+  {
+    "id": "Observation.observationType",
+    "title": "Observation - Observation Type",
+    "description": "The type of clinical observation made",
+    "examples": [
+      "Recorded observation type",
+      "Documented observation type"
+    ],
+    "synonyms": [
+      "observation",
+      "observation type"
+    ]
+  },
+  {
+    "id": "Obstetrics.breech_delivery",
+    "title": "Obstetrics - Breech delivery",
+    "description": "Breech delivery managed (hands off approach)",
+    "examples": [
+      "Breech delivery present",
+      "No breech delivery",
+      "Breech delivery confirmed"
+    ],
+    "synonyms": [
+      "obstetrics",
+      "breech delivery"
+    ]
+  },
+  {
+    "id": "Obstetrics.complication_type",
+    "title": "Obstetrics - Complication type",
+    "description": "Type of birth complication",
+    "examples": [
+      "Complication type Breech presentation",
+      "Complication type Cord prolapse",
+      "Complication type Shoulder dystocia"
+    ],
+    "synonyms": [
+      "obstetrics",
+      "complication type"
+    ]
+  },
+  {
+    "id": "Obstetrics.cord_clamped",
+    "title": "Obstetrics - Cord clamped",
+    "description": "Umbilical cord clamped and cut",
+    "examples": [
+      "Cord clamped present",
+      "No cord clamped",
+      "Cord clamped confirmed"
+    ],
+    "synonyms": [
+      "obstetrics",
+      "cord clamped"
+    ]
+  },
+  {
+    "id": "Obstetrics.cord_prolapse_management",
+    "title": "Obstetrics - Cord prolapse management",
+    "description": "Cord prolapse emergency management",
+    "examples": [
+      "Cord prolapse management Position mother knee-chest",
+      "Cord prolapse management Elevate presenting part off cord",
+      "Cord prolapse management Keep cord warm and moist"
+    ],
+    "synonyms": [
+      "obstetrics",
+      "cord prolapse management"
+    ]
+  },
+  {
+    "id": "Obstetrics.delivery_supported",
+    "title": "Obstetrics - Delivery supported",
+    "description": "Delivery supported (control head, check for cord, deliver shoulders)",
+    "examples": [
+      "Delivery supported present",
+      "No delivery supported",
+      "Delivery supported confirmed"
+    ],
+    "synonyms": [
+      "obstetrics",
+      "delivery supported"
+    ]
+  },
+  {
+    "id": "Obstetrics.eclamptic_seizure",
+    "title": "Obstetrics - Eclamptic seizure",
+    "description": "Eclamptic seizure occurred",
+    "examples": [
+      "Eclamptic seizure present",
+      "No eclamptic seizure",
+      "Eclamptic seizure confirmed"
+    ],
+    "synonyms": [
+      "obstetrics",
+      "eclamptic seizure"
+    ]
+  },
+  {
+    "id": "Obstetrics.fundal_massage",
+    "title": "Obstetrics - Fundal massage",
+    "description": "Uterine fundal massage performed (postpartum hemorrhage)",
+    "examples": [
+      "Fundal massage present",
+      "No fundal massage",
+      "Fundal massage confirmed"
+    ],
+    "synonyms": [
+      "obstetrics",
+      "fundal massage"
+    ]
+  },
+  {
+    "id": "Obstetrics.hemorrhage",
+    "title": "Obstetrics - Hemorrhage",
+    "description": "Timing, volume, and ongoing status of obstetric bleeding",
+    "examples": [
+      "Recorded hemorrhage",
+      "Documented hemorrhage"
+    ],
+    "synonyms": [
+      "obstetrics",
+      "hemorrhage"
+    ]
+  },
+  {
+    "id": "Obstetrics.history",
+    "title": "Obstetrics - History",
+    "description": "Gravida/Para and gestation weeks",
+    "examples": [
+      "Recorded history",
+      "Documented history"
+    ],
+    "synonyms": [
+      "obstetrics",
+      "history"
+    ]
+  },
+  {
+    "id": "Obstetrics.imminent_delivery",
+    "title": "Obstetrics - Imminent delivery",
+    "description": "Signs of imminent delivery",
+    "examples": [
+      "Imminent delivery Crowning visible",
+      "Imminent delivery Uncontrollable urge to push",
+      "Imminent delivery Contractions less than 2 mins apart"
+    ],
+    "synonyms": [
+      "obstetrics",
+      "imminent delivery"
+    ]
+  },
+  {
+    "id": "Obstetrics.shoulder_dystocia_management",
+    "title": "Obstetrics - Shoulder dystocia management",
+    "description": "Shoulder dystocia maneuvers",
+    "examples": [
+      "Shoulder dystocia management McRoberts position (hyperflexed legs)",
+      "Shoulder dystocia management Suprapubic pressure",
+      "Shoulder dystocia management Call for help/emergency pre-alert"
+    ],
+    "synonyms": [
+      "obstetrics",
+      "shoulder dystocia management"
+    ]
+  },
+  {
+    "id": "Oxygen Administration.02%",
+    "title": "Oxygen Administration - 02%",
+    "description": "Flow rate l/min",
+    "examples": [
+      "O2 2 lpm nc",
+      "O2 15 lpm nrb",
+      "Oxygen at 10 lpm"
+    ],
+    "synonyms": [
+      "oxygen",
+      "oxygen administration",
+      "02",
+      "o2"
+    ]
+  },
+  {
+    "id": "Oxygen Administration.type",
+    "title": "Oxygen Administration - Type",
+    "description": "The means by which oxygen is administered",
+    "examples": [
+      "2l nc",
+      "Nasal cannula",
+      "15l nrb",
+      "Non rebreather mask",
+      "Oxygen Venturi"
+    ],
+    "synonyms": [
+      "oxygen",
+      "oxygen administration",
+      "type",
+      "o2"
+    ]
+  },
+  {
+    "id": "Pain Assessment.score",
+    "title": "Pain Assessment - Score",
+    "description": "Pain score on a scale of 0-10",
+    "examples": [
+      "Pain 8/10",
+      "Pain score 4/10"
+    ],
+    "synonyms": [
+      "pain assessment",
+      "score"
+    ]
+  },
+  {
+    "id": "Pain Assessment.location",
+    "title": "Pain Assessment - Location",
+    "description": "Location and radiation of the pain",
+    "examples": [
+      "Recorded pain assessment",
+      "Documented pain assessment"
+    ],
+    "synonyms": [
+      "pain assessment",
+      "location"
+    ]
+  },
+  {
+    "id": "Pain Assessment.nature",
+    "title": "Pain Assessment - Nature",
+    "description": "The nature of the pain",
+    "examples": [
+      "Recorded nature",
+      "Documented nature"
+    ],
+    "synonyms": [
+      "pain assessment",
+      "nature"
+    ]
+  },
+  {
+    "id": "Pain Assessment.duration",
+    "title": "Pain Assessment - Duration",
+    "description": "The duration of the pain",
+    "examples": [
+      "Recorded duration",
+      "Documented duration"
+    ],
+    "synonyms": [
+      "pain assessment",
+      "duration"
+    ]
+  },
+  {
+    "id": "Pain Assessment.headache",
+    "title": "Pain Assessment - Headache",
+    "description": "Headache characteristics (onset, location, severity, timing)",
+    "examples": [
+      "Recorded headache",
+      "Documented headache"
+    ],
+    "synonyms": [
+      "pain assessment",
+      "headache"
+    ]
+  },
+  {
+    "id": "Patient.patientIdentifier",
+    "title": "Patient - Patient Identifier",
+    "description": "Unique identifier separate from NHS Number",
+    "examples": [
+      "Recorded patient identifier",
+      "Documented patient identifier"
+    ],
+    "synonyms": [
+      "patient",
+      "patient identifier"
+    ]
+  },
+  {
+    "id": "Patient Details.age",
+    "title": "Patient Details - Age",
+    "description": "Age of patient",
+    "examples": [
+      "Age 98",
+      "Measured age",
+      "Recorded age"
+    ],
+    "synonyms": [
+      "patient details",
+      "age"
+    ]
+  },
+  {
+    "id": "Patient Details.title",
+    "title": "Patient Details - Title",
+    "description": "Person Title",
+    "examples": [
+      "Recorded title",
+      "Documented title"
+    ],
+    "synonyms": [
+      "patient details",
+      "title"
+    ]
+  },
+  {
+    "id": "Patient Details.ethnicGroup",
+    "title": "Patient Details - Ethnic Group",
+    "description": "2001 Census Ethnic Category",
+    "examples": [
+      "Ethnic group A - British",
+      "Ethnic group B - Irish",
+      "Ethnic group C - Any other White background"
+    ],
+    "synonyms": [
+      "patient details",
+      "ethnic group"
+    ]
+  },
+  {
+    "id": "Patient Details.religiousAffiliation",
+    "title": "Patient Details - Religious Affiliation",
+    "description": "Religious or Other Belief System Affiliation",
+    "examples": [
+      "Religious affiliation A1",
+      "Religious affiliation B1",
+      "Religious affiliation B2"
+    ],
+    "synonyms": [
+      "patient details",
+      "religious affiliation"
+    ]
+  },
+  {
+    "id": "Patient Details.sexualOrientation",
+    "title": "Patient Details - Sexual Orientation",
+    "description": "Sexual Orientation of a patient",
+    "examples": [
+      "Sexual orientation 1 (Heterosexual)",
+      "Sexual orientation 2 (Homosexual)",
+      "Sexual orientation 3 (Bi-sexual)"
+    ],
+    "synonyms": [
+      "patient details",
+      "sexual orientation"
+    ]
+  },
+  {
+    "id": "Patient Management.Impressions",
+    "title": "Patient Management - Impressions",
+    "description": "Descriptive of the condition the patient is being treated for",
+    "examples": [
+      "Recorded impressions",
+      "Documented impressions"
+    ],
+    "synonyms": [
+      "patient management",
+      "impressions"
+    ]
+  },
+  {
+    "id": "Patient Management.Time at Patient's Side",
+    "title": "Patient Management - Time at Patient's Side",
+    "description": "Time at Patient's Side",
+    "examples": [
+      "Time at patient s side 14:30",
+      "Time noted for time at patient s side"
+    ],
+    "synonyms": [
+      "patient management",
+      "time at patient s side"
+    ]
+  },
+  {
+    "id": "Patient Management.positioning",
+    "title": "Patient Management - Positioning",
+    "description": "Patient positioning",
+    "examples": [
+      "Positioning Lying flat",
+      "Positioning Sat upright",
+      "Positioning Left lateral"
+    ],
+    "synonyms": [
+      "patient management",
+      "positioning"
+    ]
+  },
+  {
+    "id": "PriorityAssessment.conditionCatagory",
+    "title": "PriorityAssessment - Condition Catagory",
+    "description": "Determined by EMD protocols",
+    "examples": [
+      "Condition catagory 98",
+      "Measured condition catagory",
+      "Recorded condition catagory"
+    ],
+    "synonyms": [
+      "priorityassessment",
+      "condition catagory"
+    ]
+  },
+  {
+    "id": "PriorityAssessment.urgencyCatagory",
+    "title": "PriorityAssessment - Urgency Catagory",
+    "description": "Level of response required",
+    "examples": [
+      "Recorded urgency catagory",
+      "Documented urgency catagory"
+    ],
+    "synonyms": [
+      "priorityassessment",
+      "urgency catagory"
+    ]
+  },
+  {
+    "id": "PriorityAssessment.postDispatchInstructions",
+    "title": "PriorityAssessment - Post Dispatch Instructions",
+    "description": "Instructions given by EMD",
+    "examples": [
+      "Recorded post dispatch instructions",
+      "Documented post dispatch instructions"
+    ],
+    "synonyms": [
+      "priorityassessment",
+      "post dispatch instructions"
+    ]
+  },
+  {
+    "id": "Pulse Oximetry.SpO2 reading",
+    "title": "Pulse Oximetry - SpO2 reading",
+    "description": "Oxygen saturation",
+    "examples": [
+      "Sats 88% ra",
+      "Spo2 94% on o2",
+      "O2 sats 92%"
+    ],
+    "synonyms": [
+      "spo2",
+      "pulse oximetry",
+      "spo2 reading",
+      "sats",
+      "o2 sats",
+      "oxygen sats",
+      "o2"
+    ]
+  },
+  {
+    "id": "Pulse Oximetry.spO2",
+    "title": "Pulse Oximetry - Sp O2",
+    "description": "Oxygen saturation percentage",
+    "examples": [
+      "Sats 88% ra",
+      "Spo2 94% on o2",
+      "O2 sats 92%"
+    ],
+    "synonyms": [
+      "spo2",
+      "pulse oximetry",
+      "sp o2",
+      "sats",
+      "o2 sats",
+      "oxygen sats",
+      "o2"
+    ]
+  },
+  {
+    "id": "Pupil Assessment.eye",
+    "title": "Pupil Assessment - Eye",
+    "description": "Determines whether the left or right eye pupil is being assessed",
+    "examples": [
+      "Eye 0=Left",
+      "Eye 1=Right",
+      "Recorded eye"
+    ],
+    "synonyms": [
+      "pupil assessment",
+      "eye"
+    ]
+  },
+  {
+    "id": "Pupil Assessment.pupilDilation",
+    "title": "Pupil Assessment - Pupil Dilation",
+    "description": "Numeric field",
+    "examples": [
+      "Pupil dilation 98",
+      "Measured pupil dilation",
+      "Recorded pupil dilation"
+    ],
+    "synonyms": [
+      "pupil assessment",
+      "pupil dilation"
+    ]
+  },
+  {
+    "id": "Pupil Assessment.pupilReaction",
+    "title": "Pupil Assessment - Pupil Reaction",
+    "description": "Pupil reaction",
+    "examples": [
+      "Pupil reaction Brisk",
+      "Pupil reaction Sluggish",
+      "Pupil reaction Fixed"
+    ],
+    "synonyms": [
+      "pupil assessment",
+      "pupil reaction"
+    ]
+  },
+  {
+    "id": "Pupil Assessment.pupilEquality",
+    "title": "Pupil Assessment - Pupil Equality",
+    "description": "Pupil Equality",
+    "examples": [
+      "Pupil equality Normal",
+      "Pupil equality Constricted",
+      "Pupil equality Dilated"
+    ],
+    "synonyms": [
+      "pupil assessment",
+      "pupil equality"
+    ]
+  },
+  {
+    "id": "Refuse Treatment.refusalType",
+    "title": "Refuse Treatment - Refusal Type",
+    "description": "The type of refusal",
+    "examples": [
+      "Refusal type Refuse Treatment",
+      "Refusal type Refuse Transport",
+      "Recorded refusal type"
+    ],
+    "synonyms": [
+      "refuse treatment",
+      "refusal type"
+    ]
+  },
+  {
+    "id": "Refuse Treatment.signedBy",
+    "title": "Refuse Treatment - Signed By",
+    "description": "The name of the person who signed the refusal statement",
+    "examples": [
+      "Recorded signed by",
+      "Documented signed by"
+    ],
+    "synonyms": [
+      "refuse treatment",
+      "signed by"
+    ]
+  },
+  {
+    "id": "Refuse Treatment.signedByRole",
+    "title": "Refuse Treatment - Signed By Role",
+    "description": "The role of the person who signed",
+    "examples": [
+      "Signed by role Crew",
+      "Signed by role Named Patient",
+      "Signed by role Carer"
+    ],
+    "synonyms": [
+      "refuse treatment",
+      "signed by role"
+    ]
+  },
+  {
+    "id": "Refuse Treatment.unableReason",
+    "title": "Refuse Treatment - Unable Reason",
+    "description": "The reason why the refusal statement could not be signed",
+    "examples": [
+      "Unable reason Unavailable",
+      "Unable reason Unconscious",
+      "Unable reason Refused"
+    ],
+    "synonyms": [
+      "refuse treatment",
+      "unable reason"
+    ]
+  },
+  {
+    "id": "Respiratory Rate.value",
+    "title": "Respiratory Rate - Value",
+    "description": "Respiratory rate in breaths per minute",
+    "examples": [
+      "Rr 28",
+      "Resp rate 18",
+      "Tachypneic rr 30"
+    ],
+    "synonyms": [
+      "respiratory",
+      "respiratory rate",
+      "value",
+      "sob",
+      "rr",
+      "resp rate",
+      "tachypnea",
+      "wheeze",
+      "breathing rate"
+    ]
+  },
+  {
+    "id": "Respiratory Resistance.peakFlowReading",
+    "title": "Respiratory Resistance - Peak Flow Reading",
+    "description": "Measured by a Peak Flow Meter (ltrs/min)",
+    "examples": [
+      "Peak flow reading 98",
+      "Measured peak flow reading",
+      "Recorded peak flow reading"
+    ],
+    "synonyms": [
+      "respiratory",
+      "respiratory resistance",
+      "peak flow reading",
+      "sob",
+      "rr",
+      "resp rate",
+      "tachypnea",
+      "wheeze"
+    ]
+  },
+  {
+    "id": "Respiratory Support.type",
+    "title": "Respiratory Support - Type",
+    "description": "Type of respiratory support",
+    "examples": [
+      "Resp support Not specified",
+      "Resp support Breathing Mask",
+      "Resp support Mouth-to-mouth"
+    ],
+    "synonyms": [
+      "resp support",
+      "respiratory support",
+      "type",
+      "sob",
+      "rr",
+      "resp rate",
+      "tachypnea",
+      "wheeze"
+    ]
+  },
+  {
+    "id": "Respiratory Support.outcome",
+    "title": "Respiratory Support - Outcome",
+    "description": "The outcome from giving respiratory support",
+    "examples": [
+      "Recorded resp support",
+      "Documented resp support"
+    ],
+    "synonyms": [
+      "resp support",
+      "respiratory support",
+      "outcome",
+      "sob",
+      "rr",
+      "resp rate",
+      "tachypnea",
+      "wheeze"
+    ]
+  },
+  {
+    "id": "Resuscitation.ROLE_criteria_met",
+    "title": "Resuscitation - ROLE criteria met",
+    "description": "Recognition of Life Extinct criteria met",
+    "examples": [
+      "Role criteria met present",
+      "No role criteria met",
+      "Role criteria met confirmed"
+    ],
+    "synonyms": [
+      "resuscitation",
+      "role criteria met"
+    ]
+  },
+  {
+    "id": "Resuscitation.not_appropriate_reasons",
+    "title": "Resuscitation - Not appropriate reasons",
+    "description": "Reasons resuscitation not appropriate",
+    "examples": [
+      "Not appropriate reasons Valid DNACPR in place",
+      "Not appropriate reasons Injuries incompatible with life",
+      "Not appropriate reasons Rigor mortis present"
+    ],
+    "synonyms": [
+      "resuscitation",
+      "not appropriate reasons"
+    ]
+  },
+  {
+    "id": "Resuscitation.responsive",
+    "title": "Resuscitation - Responsive",
+    "description": "Patient responsive to shout and shake",
+    "examples": [
+      "Responsive present",
+      "No responsive",
+      "Responsive confirmed"
+    ],
+    "synonyms": [
+      "resuscitation",
+      "responsive"
+    ]
+  },
+  {
+    "id": "Resuscitation.witnessed",
+    "title": "Resuscitation - Witnessed",
+    "description": "Was arrest witnessed",
+    "examples": [
+      "Witnessed - witnessed by crew",
+      "Witnessed No - unwitnessed",
+      "Witnessed Bystander witnessed with immediate CPR"
+    ],
+    "synonyms": [
+      "resuscitation",
+      "witnessed"
+    ]
+  },
+  {
+    "id": "Safeguarding.concern_type",
+    "title": "Safeguarding - Concern type",
+    "description": "Type of safeguarding concern",
+    "examples": [
+      "Concern type Physical abuse",
+      "Concern type Sexual abuse",
+      "Concern type Emotional abuse"
+    ],
+    "synonyms": [
+      "safeguarding",
+      "concern type"
+    ]
+  },
+  {
+    "id": "Safeguarding.concerns_raised",
+    "title": "Safeguarding - Concerns raised",
+    "description": "Safeguarding concerns identified",
+    "examples": [
+      "Concerns raised present",
+      "No concerns raised",
+      "Concerns raised confirmed"
+    ],
+    "synonyms": [
+      "safeguarding",
+      "concerns raised"
+    ]
+  },
+  {
+    "id": "Safeguarding.documented",
+    "title": "Safeguarding - Documented",
+    "description": "Injuries, statements, and environment documented",
+    "examples": [
+      "Documented present",
+      "No documented",
+      "Documented confirmed"
+    ],
+    "synonyms": [
+      "safeguarding",
+      "documented"
+    ]
+  },
+  {
+    "id": "Safeguarding.handover_informed",
+    "title": "Safeguarding - Handover informed",
+    "description": "Safeguarding concerns communicated at handover",
+    "examples": [
+      "Handover informed present",
+      "No handover informed",
+      "Handover informed confirmed"
+    ],
+    "synonyms": [
+      "safeguarding",
+      "handover informed"
+    ]
+  },
+  {
+    "id": "Safeguarding.immediate_risk",
+    "title": "Safeguarding - Immediate risk",
+    "description": "Immediate risk to patient or others",
+    "examples": [
+      "Immediate risk present",
+      "No immediate risk",
+      "Immediate risk confirmed"
+    ],
+    "synonyms": [
+      "safeguarding",
+      "immediate risk"
+    ]
+  },
+  {
+    "id": "Safeguarding.nai_concern",
+    "title": "Safeguarding - Nai concern",
+    "description": "Non-accidental injury suspected",
+    "examples": [
+      "Nai concern present",
+      "No nai concern",
+      "Nai concern confirmed"
+    ],
+    "synonyms": [
+      "safeguarding",
+      "nai concern"
+    ]
+  },
+  {
+    "id": "Safeguarding.referral_made",
+    "title": "Safeguarding - Referral made",
+    "description": "Safeguarding referral submitted",
+    "examples": [
+      "Referral made present",
+      "No referral made",
+      "Referral made confirmed"
+    ],
+    "synonyms": [
+      "safeguarding",
+      "referral made"
+    ]
+  },
+  {
+    "id": "Safety.no_vomiting_induced",
+    "title": "Safety - No vomiting induced",
+    "description": "Confirmed DO NOT induce vomiting",
+    "examples": [
+      "No vomiting induced present",
+      "No no vomiting induced",
+      "No vomiting induced confirmed"
+    ],
+    "synonyms": [
+      "safety",
+      "no vomiting induced"
+    ]
+  },
+  {
+    "id": "Scene.safe",
+    "title": "Scene - Safe",
+    "description": "Scene confirmed safe to approach",
+    "examples": [
+      "Safe present",
+      "No safe",
+      "Safe confirmed"
+    ],
+    "synonyms": [
+      "scene",
+      "safe"
+    ]
+  },
+  {
+    "id": "Skin Assessment.colour",
+    "title": "Skin Assessment - Colour",
+    "description": "Observations about changes to normal skin colour",
+    "examples": [
+      "Colour Normal",
+      "Colour Cyanosed",
+      "Colour Flushed"
+    ],
+    "synonyms": [
+      "skin assessment",
+      "colour"
+    ]
+  },
+  {
+    "id": "Skin Assessment.temperature",
+    "title": "Skin Assessment - Temperature",
+    "description": "Skin temperature",
+    "examples": [
+      "Temp 38.5",
+      "Febrile",
+      "Temp 36.8"
+    ],
+    "synonyms": [
+      "skin assessment",
+      "temperature"
+    ]
+  },
+  {
+    "id": "Skin Assessment.location",
+    "title": "Skin Assessment - Location",
+    "description": "body location relating to the observation",
+    "examples": [
+      "Recorded skin assessment",
+      "Documented skin assessment"
+    ],
+    "synonyms": [
+      "skin assessment",
+      "location"
+    ]
+  },
+  {
+    "id": "Skin Assessment.non_blanching_rash",
+    "title": "Skin Assessment - Non blanching rash",
+    "description": "Non-blanching rash present (glass test)",
+    "examples": [
+      "Non blanching rash present",
+      "No non blanching rash",
+      "Non blanching rash confirmed"
+    ],
+    "synonyms": [
+      "skin assessment",
+      "non blanching rash"
+    ]
+  },
+  {
+    "id": "Spine.status",
+    "title": "Spine - Status",
+    "description": "Indicator as to whether the healthcare professional suspect the patient has received a spine injury",
+    "examples": [
+      "Spine Suspected",
+      "Spine Cleared",
+      "Recorded spine"
+    ],
+    "synonyms": [
+      "spine",
+      "status"
+    ]
+  },
+  {
+    "id": "Spine.cervicalCollar",
+    "title": "Spine - Cervical Collar",
+    "description": "Cervical collar applied",
+    "examples": [
+      "Cervical collar present",
+      "No cervical collar",
+      "Cervical collar confirmed"
+    ],
+    "synonyms": [
+      "spine",
+      "cervical collar"
+    ]
+  },
+  {
+    "id": "Spine.immobilisationApplied",
+    "title": "Spine - Immobilisation Applied",
+    "description": "Full spinal immobilisation applied",
+    "examples": [
+      "Immobilisation applied present",
+      "No immobilisation applied",
+      "Immobilisation applied confirmed"
+    ],
+    "synonyms": [
+      "spine",
+      "immobilisation applied"
+    ]
+  },
+  {
+    "id": "Structured Address.ADDRESS PREFIX",
+    "title": "Structured Address - ADDRESS PREFIX",
+    "description": "eg. 'Ward 12'",
+    "examples": [
+      "Recorded address prefix",
+      "Documented address prefix"
+    ],
+    "synonyms": [
+      "structured address",
+      "address prefix"
+    ]
+  },
+  {
+    "id": "Structured Address.BUILDING NAME",
+    "title": "Structured Address - BUILDING NAME",
+    "description": "Name of building",
+    "examples": [
+      "Recorded building name",
+      "Documented building name"
+    ],
+    "synonyms": [
+      "structured address",
+      "building name"
+    ]
+  },
+  {
+    "id": "Structured Address.BUILDING NUMBER",
+    "title": "Structured Address - BUILDING NUMBER",
+    "description": "Number of building",
+    "examples": [
+      "Recorded building number",
+      "Documented building number"
+    ],
+    "synonyms": [
+      "structured address",
+      "building number"
+    ]
+  },
+  {
+    "id": "Structured Address.DEPENDENT LOCALITY",
+    "title": "Structured Address - DEPENDENT LOCALITY",
+    "description": "Name of dependent locality",
+    "examples": [
+      "Recorded dependent locality",
+      "Documented dependent locality"
+    ],
+    "synonyms": [
+      "structured address",
+      "dependent locality"
+    ]
+  },
+  {
+    "id": "Structured Address.DEPENDENT STREET OR ROAD NAME",
+    "title": "Structured Address - DEPENDENT STREET OR ROAD NAME",
+    "description": "Dependent street name",
+    "examples": [
+      "Recorded dependent street or road name",
+      "Documented dependent street or road name"
+    ],
+    "synonyms": [
+      "structured address",
+      "dependent street or road name"
+    ]
+  },
+  {
+    "id": "Structured Address.DOUBLE DEPENDENT LOCALITY",
+    "title": "Structured Address - DOUBLE DEPENDENT LOCALITY",
+    "description": "Double dependent locality",
+    "examples": [
+      "Recorded double dependent locality",
+      "Documented double dependent locality"
+    ],
+    "synonyms": [
+      "structured address",
+      "double dependent locality"
+    ]
+  },
+  {
+    "id": "Structured Address.POSTAL COUNTY",
+    "title": "Structured Address - POSTAL COUNTY",
+    "description": "Postal county",
+    "examples": [
+      "Recorded postal county",
+      "Documented postal county"
+    ],
+    "synonyms": [
+      "structured address",
+      "postal county"
+    ]
+  },
+  {
+    "id": "Structured Address.POST TOWN",
+    "title": "Structured Address - POST TOWN",
+    "description": "Post town",
+    "examples": [
+      "Recorded post town",
+      "Documented post town"
+    ],
+    "synonyms": [
+      "structured address",
+      "post town"
+    ]
+  },
+  {
+    "id": "Structured Address.STREET OR ROAD NAME",
+    "title": "Structured Address - STREET OR ROAD NAME",
+    "description": "Street or road name",
+    "examples": [
+      "Recorded street or road name",
+      "Documented street or road name"
+    ],
+    "synonyms": [
+      "structured address",
+      "street or road name"
+    ]
+  },
+  {
+    "id": "Structured Address.POSTCODE",
+    "title": "Structured Address - POSTCODE",
+    "description": "Postcode",
+    "examples": [
+      "Recorded postcode",
+      "Documented postcode"
+    ],
+    "synonyms": [
+      "structured address",
+      "postcode"
+    ]
+  },
+  {
+    "id": "Suction.contentsObserved",
+    "title": "Suction - Contents Observed",
+    "description": "Information about the contents from the airway",
+    "examples": [
+      "Recorded contents observed",
+      "Documented contents observed"
+    ],
+    "synonyms": [
+      "suction",
+      "contents observed"
+    ]
+  },
+  {
+    "id": "Suction.catheterType",
+    "title": "Suction - Catheter Type",
+    "description": "Type of catheter used",
+    "examples": [
+      "Catheter type Soft",
+      "Catheter type Rigid",
+      "Recorded catheter type"
+    ],
+    "synonyms": [
+      "suction",
+      "catheter type"
+    ]
+  },
+  {
+    "id": "Suction.totalAttempts",
+    "title": "Suction - Total Attempts",
+    "description": "Total number of attempts",
+    "examples": [
+      "Total attempts 98",
+      "Measured total attempts",
+      "Recorded total attempts"
+    ],
+    "synonyms": [
+      "suction",
+      "total attempts"
+    ]
+  },
+  {
+    "id": "Suction.method",
+    "title": "Suction - Method",
+    "description": "Method of suction used",
+    "examples": [
+      "Suction Oral",
+      "Suction Nasal",
+      "Suction Other"
+    ],
+    "synonyms": [
+      "suction",
+      "method"
+    ]
+  },
+  {
+    "id": "Suction Attempt.attemptNumber",
+    "title": "Suction Attempt - Attempt Number",
+    "description": "Number of current attempt",
+    "examples": [
+      "Attempt number 98",
+      "Measured attempt number",
+      "Recorded attempt number"
+    ],
+    "synonyms": [
+      "suction attempt",
+      "attempt number"
+    ]
+  },
+  {
+    "id": "Suction Attempt.attemptOutcome",
+    "title": "Suction Attempt - Attempt Outcome",
+    "description": "Outcome of current attempt",
+    "examples": [
+      "Attempt outcome Successful",
+      "Attempt outcome Unsuccessful",
+      "Recorded attempt outcome"
+    ],
+    "synonyms": [
+      "suction attempt",
+      "attempt outcome"
+    ]
+  },
+  {
+    "id": "Suction Attempt.attemptResponse",
+    "title": "Suction Attempt - Attempt Response",
+    "description": "Patient response to current attempt",
+    "examples": [
+      "Recorded attempt response",
+      "Documented attempt response"
+    ],
+    "synonyms": [
+      "suction attempt",
+      "attempt response"
+    ]
+  },
+  {
+    "id": "Suction Attempt.attemptComplication",
+    "title": "Suction Attempt - Attempt Complication",
+    "description": "Complication that arises",
+    "examples": [
+      "Recorded attempt complication",
+      "Documented attempt complication"
+    ],
+    "synonyms": [
+      "suction attempt",
+      "attempt complication"
+    ]
+  },
+  {
+    "id": "Symptom.symptomType",
+    "title": "Symptom - Symptom Type",
+    "description": "The type of symptom that is experienced by the patient",
+    "examples": [
+      "Recorded symptom type",
+      "Documented symptom type"
+    ],
+    "synonyms": [
+      "symptom",
+      "symptom type"
+    ]
+  },
+  {
+    "id": "Toxicology.opiate_signs",
+    "title": "Toxicology - Opiate signs",
+    "description": "Signs of opiate toxidrome",
+    "examples": [
+      "Opiate signs Pinpoint pupils",
+      "Opiate signs Respiratory depression",
+      "Opiate signs Reduced consciousness"
+    ],
+    "synonyms": [
+      "toxicology",
+      "opiate signs"
+    ]
+  },
+  {
+    "id": "Toxicology.substance",
+    "title": "Toxicology - Substance",
+    "description": "Substance name, amount, time of ingestion, route",
+    "examples": [
+      "Recorded substance",
+      "Documented substance"
+    ],
+    "synonyms": [
+      "toxicology",
+      "substance"
+    ]
+  },
+  {
+    "id": "Trauma.electrical_type",
+    "title": "Trauma - Electrical type",
+    "description": "Type of electrical exposure",
+    "examples": [
+      "Electrical type Low voltage AC ( less than 1000V)",
+      "Electrical type High voltage AC ( greater than 1000V)",
+      "Electrical type DC current"
+    ],
+    "synonyms": [
+      "trauma",
+      "electrical type"
+    ]
+  },
+  {
+    "id": "Trauma.evisceration",
+    "title": "Trauma - Evisceration",
+    "description": "Organs protruding through abdominal wound",
+    "examples": [
+      "Evisceration present",
+      "No evisceration",
+      "Evisceration confirmed"
+    ],
+    "synonyms": [
+      "trauma",
+      "evisceration"
+    ]
+  },
+  {
+    "id": "Trauma.mechanismOfInjury",
+    "title": "Trauma - Mechanism Of Injury",
+    "description": "Mechanism of injury",
+    "examples": [
+      "Mechanism of injury Blunt - RTC",
+      "Mechanism of injury Blunt - Fall",
+      "Mechanism of injury Blunt - Assault"
+    ],
+    "synonyms": [
+      "trauma",
+      "mechanism of injury"
+    ]
+  },
+  {
+    "id": "Treated on Scene.reason",
+    "title": "Treated on Scene - Reason",
+    "description": "The reason why a patient is not given transport",
+    "examples": [
+      "Recorded treated scene",
+      "Documented treated scene"
+    ],
+    "synonyms": [
+      "treated scene",
+      "treated on scene",
+      "reason"
+    ]
+  },
+  {
+    "id": "Treated on Scene.signedBy",
+    "title": "Treated on Scene - Signed By",
+    "description": "The name of the person who signed the statement",
+    "examples": [
+      "Recorded signed by",
+      "Documented signed by"
+    ],
+    "synonyms": [
+      "treated scene",
+      "treated on scene",
+      "signed by"
+    ]
+  },
+  {
+    "id": "Treated on Scene.signedByRole",
+    "title": "Treated on Scene - Signed By Role",
+    "description": "The role of the person who signed",
+    "examples": [
+      "Signed by role Crew",
+      "Signed by role Named Patient",
+      "Signed by role Carer"
+    ],
+    "synonyms": [
+      "treated scene",
+      "treated on scene",
+      "signed by role"
+    ]
+  },
+  {
+    "id": "Treated on Scene.unableReason",
+    "title": "Treated on Scene - Unable Reason",
+    "description": "The reason why the statement could not be signed",
+    "examples": [
+      "Unable reason Unavailable",
+      "Unable reason Unconscious",
+      "Unable reason Refused"
+    ],
+    "synonyms": [
+      "treated scene",
+      "treated on scene",
+      "unable reason"
+    ]
+  },
+  {
+    "id": "Treatment.treatmentType",
+    "title": "Treatment - Treatment Type",
+    "description": "The type of treatment given",
+    "examples": [
+      "Recorded treatment type",
+      "Documented treatment type"
+    ],
+    "synonyms": [
+      "treatment",
+      "treatment type"
+    ]
+  },
+  {
+    "id": "Treatment.administeredBy",
+    "title": "Treatment - Administered By",
+    "description": "The healthcare professional that administered the treatment",
+    "examples": [
+      "Recorded administered by",
+      "Documented administered by"
+    ],
+    "synonyms": [
+      "treatment",
+      "administered by"
+    ]
+  },
+  {
+    "id": "Treatment.comments",
+    "title": "Treatment - Comments",
+    "description": "Additional comment",
+    "examples": [
+      "Recorded treatment",
+      "Documented treatment"
+    ],
+    "synonyms": [
+      "treatment",
+      "comments"
+    ]
+  },
+  {
+    "id": "Treatment.treatmentTime",
+    "title": "Treatment - Treatment Time",
+    "description": "The time of the specific treatment",
+    "examples": [
+      "Treatment time 14:30",
+      "Time noted for treatment time"
+    ],
+    "synonyms": [
+      "treatment",
+      "treatment time"
+    ]
+  },
+  {
+    "id": "Treatment.hypoglycaemia",
+    "title": "Treatment - Hypoglycaemia",
+    "description": "Treatment pathway for hypoglycaemia",
+    "examples": [
+      "Hypoglycaemia Oral glucose",
+      "Hypoglycaemia IV 10 percent glucose",
+      "Hypoglycaemia IM Glucagon"
+    ],
+    "synonyms": [
+      "treatment",
+      "hypoglycaemia"
+    ]
+  },
+  {
+    "id": "Unstructured Address.ADDRESS LINE 1",
+    "title": "Unstructured Address - ADDRESS LINE 1",
+    "description": "Line 1",
+    "examples": [
+      "Recorded address line 1",
+      "Documented address line 1"
+    ],
+    "synonyms": [
+      "unstructured address",
+      "address line 1"
+    ]
+  },
+  {
+    "id": "Unstructured Address.ADDRESS LINE 2",
+    "title": "Unstructured Address - ADDRESS LINE 2",
+    "description": "Line 2",
+    "examples": [
+      "Recorded address line 2",
+      "Documented address line 2"
+    ],
+    "synonyms": [
+      "unstructured address",
+      "address line 2"
+    ]
+  },
+  {
+    "id": "Unstructured Address.ADDRESS LINE 3",
+    "title": "Unstructured Address - ADDRESS LINE 3",
+    "description": "Line 3",
+    "examples": [
+      "Recorded address line 3",
+      "Documented address line 3"
+    ],
+    "synonyms": [
+      "unstructured address",
+      "address line 3"
+    ]
+  },
+  {
+    "id": "Unstructured Address.ADDRESS LINE 4",
+    "title": "Unstructured Address - ADDRESS LINE 4",
+    "description": "Line 4",
+    "examples": [
+      "Recorded address line 4",
+      "Documented address line 4"
+    ],
+    "synonyms": [
+      "unstructured address",
+      "address line 4"
+    ]
+  },
+  {
+    "id": "Unstructured Address.ADDRESS LINE 5",
+    "title": "Unstructured Address - ADDRESS LINE 5",
+    "description": "Line 5",
+    "examples": [
+      "Recorded address line 5",
+      "Documented address line 5"
+    ],
+    "synonyms": [
+      "unstructured address",
+      "address line 5"
+    ]
+  },
+  {
+    "id": "Ventilation.method",
+    "title": "Ventilation - Method",
+    "description": "Method of ventilation used",
+    "examples": [
+      "Ventilation Manual",
+      "Ventilation Mechanical",
+      "Ventilation Other"
+    ],
+    "synonyms": [
+      "ventilation",
+      "method"
+    ]
+  },
+  {
+    "id": "Vital Signs._composite",
+    "title": "Vital Signs - Composite",
+    "description": "Composite vital signs entry (BP, HR, RR, SpO2, Temp, GCS)",
+    "examples": [
+      "Gcs 15",
+      "Gcs 13",
+      "Pt gcs 12"
+    ],
+    "synonyms": [
+      "vital signs",
+      "composite"
+    ]
+  },
+  {
+    "id": "Vulnerable Adult and Safeguarding Children.name",
+    "title": "Vulnerable Adult and Safeguarding Children - Name",
+    "description": "Primary Carer name",
+    "examples": [
+      "Recorded vulnerable adult safeguarding",
+      "Documented vulnerable adult safeguarding"
+    ],
+    "synonyms": [
+      "vulnerable adult safeguarding",
+      "vulnerable adult and safeguarding children",
+      "name"
+    ]
+  },
+  {
+    "id": "Vulnerable Adult and Safeguarding Children.relationship",
+    "title": "Vulnerable Adult and Safeguarding Children - Relationship",
+    "description": "Relationship to the patient",
+    "examples": [
+      "Recorded relationship",
+      "Documented relationship"
+    ],
+    "synonyms": [
+      "vulnerable adult safeguarding",
+      "vulnerable adult and safeguarding children",
+      "relationship"
+    ]
+  },
+  {
+    "id": "Vulnerable Adult and Safeguarding Children.carer",
+    "title": "Vulnerable Adult and Safeguarding Children - Carer",
+    "description": "Social/Family History/Carers",
+    "examples": [
+      "Carer Carer support",
+      "Carer Domestic support",
+      "Carer Living with family"
+    ],
+    "synonyms": [
+      "vulnerable adult safeguarding",
+      "vulnerable adult and safeguarding children",
+      "carer"
+    ]
+  }
+]
