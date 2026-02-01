@@ -1,0 +1,1267 @@
+[
+  {
+    "id": "jrc_copd",
+    "title": "COPD Exacerbation",
+    "description": "JRCalc pathway for COPD Exacerbation (Respiratory).",
+    "examples": [
+      "copd",
+      "Pt with copd",
+      "emphysema",
+      "Pt with emphysema",
+      "coad",
+      "Suspected COPD Exacerbation"
+    ],
+    "synonyms": [
+      "COPD Exacerbation",
+      "Respiratory",
+      "copd",
+      "emphysema",
+      "chronic bronchitis",
+      "breathless",
+      "blue bloater",
+      "copd exacerbation",
+      "respiratory",
+      "coad"
+    ]
+  },
+  {
+    "id": "jrc_asthma",
+    "title": "Acute Asthma",
+    "description": "JRCalc pathway for Acute Asthma (Respiratory).",
+    "examples": [
+      "asthma",
+      "Pt with asthma",
+      "wheeze",
+      "Pt with wheeze",
+      "tight chest",
+      "Suspected Acute Asthma"
+    ],
+    "synonyms": [
+      "Acute Asthma",
+      "Respiratory",
+      "asthma",
+      "wheeze",
+      "tight chest",
+      "breathless",
+      "acute asthma",
+      "respiratory",
+      "short of breath",
+      "sob"
+    ]
+  },
+  {
+    "id": "jrc_convulsions_adult",
+    "title": "Convulsions (Adult)",
+    "description": "JRCalc pathway for Convulsions (Adult) (Neurological).",
+    "examples": [
+      "seizure",
+      "Pt with seizure",
+      "fit",
+      "Pt with fit",
+      "Suspected Convulsions (Adult)",
+      "Possible Convulsions (Adult)"
+    ],
+    "synonyms": [
+      "Convulsions (Adult)",
+      "Neurological",
+      "seizure",
+      "fit",
+      "convulsion",
+      "epilepsy",
+      "shaking",
+      "jerking",
+      "convulsions adult",
+      "neurological",
+      "tonic clonic",
+      "post ictal"
+    ]
+  },
+  {
+    "id": "jrc_stroke",
+    "title": "Stroke / TIA",
+    "description": "JRCalc pathway for Stroke / TIA (Neurological).",
+    "examples": [
+      "stroke",
+      "Pt with stroke",
+      "cva",
+      "Pt with cva",
+      "fast",
+      "facial droop"
+    ],
+    "synonyms": [
+      "Stroke / TIA",
+      "Neurological",
+      "stroke",
+      "cva",
+      "tia",
+      "weakness",
+      "facial droop",
+      "slurred speech",
+      "stroke tia",
+      "neurological",
+      "fast",
+      "arm weakness",
+      "face arm speech",
+      "transient ischemic attack"
+    ]
+  },
+  {
+    "id": "jrc_chest_pain_acs",
+    "title": "Chest Pain / ACS",
+    "description": "JRCalc pathway for Chest Pain / ACS (Cardiac).",
+    "examples": [
+      "chest pain",
+      "Pt with chest pain",
+      "cardiac",
+      "Pt with cardiac",
+      "cp",
+      "central chest pain"
+    ],
+    "synonyms": [
+      "Chest Pain / ACS",
+      "Cardiac",
+      "chest pain",
+      "cardiac",
+      "heart attack",
+      "mi",
+      "acs",
+      "angina",
+      "chest pain acs",
+      "cp",
+      "central chest pain",
+      "radiating",
+      "left arm",
+      "sweaty",
+      "diaphoretic",
+      "stemi",
+      "nstemi",
+      "acute coronary syndrome"
+    ]
+  },
+  {
+    "id": "jrc_anaphylaxis",
+    "title": "Anaphylaxis",
+    "description": "JRCalc pathway for Anaphylaxis (Allergy).",
+    "examples": [
+      "anaphylaxis",
+      "Pt with anaphylaxis",
+      "severe allergy",
+      "Pt with severe allergy",
+      "allergic reaction",
+      "hives"
+    ],
+    "synonyms": [
+      "Anaphylaxis",
+      "Allergy",
+      "anaphylaxis",
+      "severe allergy",
+      "angioedema",
+      "urticaria",
+      "stridor",
+      "allergy",
+      "allergic reaction",
+      "hives",
+      "lip swelling",
+      "tongue swelling"
+    ]
+  },
+  {
+    "id": "jrc_major_trauma",
+    "title": "Major Trauma",
+    "description": "JRCalc pathway for Major Trauma (Trauma).",
+    "examples": [
+      "trauma",
+      "Pt with trauma",
+      "rta",
+      "Pt with rta",
+      "Suspected Major Trauma",
+      "Possible Major Trauma"
+    ],
+    "synonyms": [
+      "Major Trauma",
+      "Trauma",
+      "trauma",
+      "rta",
+      "fall",
+      "injury",
+      "crash",
+      "penetrating",
+      "major trauma"
+    ]
+  },
+  {
+    "id": "jrc_cardiac_arrest",
+    "title": "Cardiac Arrest",
+    "description": "JRCalc pathway for Cardiac Arrest (Cardiac).",
+    "examples": [
+      "cardiac arrest",
+      "Pt with cardiac arrest",
+      "cpr",
+      "Pt with cpr",
+      "Suspected Cardiac Arrest",
+      "Possible Cardiac Arrest"
+    ],
+    "synonyms": [
+      "Cardiac Arrest",
+      "Cardiac",
+      "cardiac arrest",
+      "cpr",
+      "arrested",
+      "unresponsive not breathing",
+      "cardiac"
+    ]
+  },
+  {
+    "id": "jrc_burns",
+    "title": "Burns",
+    "description": "JRCalc pathway for Burns (Trauma).",
+    "examples": [
+      "burn",
+      "Pt with burn",
+      "burns",
+      "Pt with burns",
+      "Suspected Burns",
+      "Possible Burns"
+    ],
+    "synonyms": [
+      "Burns",
+      "Trauma",
+      "burn",
+      "burns",
+      "fire",
+      "scald",
+      "chemical burn",
+      "electrical burn",
+      "trauma"
+    ]
+  },
+  {
+    "id": "jrc_abdominal_pain",
+    "title": "Abdominal Pain",
+    "description": "JRCalc pathway for Abdominal Pain (Medical).",
+    "examples": [
+      "abdominal pain",
+      "Pt with abdominal pain",
+      "stomach pain",
+      "Pt with stomach pain",
+      "Suspected Abdominal Pain",
+      "Possible Abdominal Pain"
+    ],
+    "synonyms": [
+      "Abdominal Pain",
+      "Medical",
+      "abdominal pain",
+      "stomach pain",
+      "belly ache",
+      "aaa",
+      "ectopic",
+      "medical"
+    ]
+  },
+  {
+    "id": "jrc_cardiac_rhythm_disturbance",
+    "title": "Cardiac Rhythm Disturbance",
+    "description": "JRCalc pathway for Cardiac Rhythm Disturbance (Cardiac).",
+    "examples": [
+      "palpitations",
+      "Pt with palpitations",
+      "irregular heart",
+      "Pt with irregular heart",
+      "Suspected Cardiac Rhythm Disturbance",
+      "Possible Cardiac Rhythm Disturbance"
+    ],
+    "synonyms": [
+      "Cardiac Rhythm Disturbance",
+      "Cardiac",
+      "palpitations",
+      "irregular heart",
+      "bradycardia",
+      "tachycardia",
+      "arrhythmia",
+      "fast heart",
+      "slow heart",
+      "cardiac rhythm disturbance",
+      "cardiac"
+    ]
+  },
+  {
+    "id": "jrc_decreased_consciousness",
+    "title": "Decreased Level of Consciousness",
+    "description": "JRCalc pathway for Decreased Level of Consciousness (Neurological).",
+    "examples": [
+      "unconscious",
+      "Pt with unconscious",
+      "unresponsive",
+      "Pt with unresponsive",
+      "Suspected Decreased Level of Consciousness",
+      "Possible Decreased Level of Consciousness"
+    ],
+    "synonyms": [
+      "Decreased Level of Consciousness",
+      "Neurological",
+      "unconscious",
+      "unresponsive",
+      "reduced gcs",
+      "altered mental status",
+      "confusion",
+      "decreased level of consciousness",
+      "neurological"
+    ]
+  },
+  {
+    "id": "jrc_dyspnoea",
+    "title": "Dyspnoea (Breathing Difficulty)",
+    "description": "JRCalc pathway for Dyspnoea (Breathing Difficulty) (Respiratory).",
+    "examples": [
+      "dyspnoea",
+      "Pt with dyspnoea",
+      "breathing difficulty",
+      "Pt with breathing difficulty",
+      "Suspected Dyspnoea (Breathing Difficulty)",
+      "Possible Dyspnoea (Breathing Difficulty)"
+    ],
+    "synonyms": [
+      "Dyspnoea (Breathing Difficulty)",
+      "Respiratory",
+      "dyspnoea",
+      "breathing difficulty",
+      "shortness of breath",
+      "sob",
+      "breathless",
+      "dyspnoea breathing difficulty",
+      "respiratory"
+    ]
+  },
+  {
+    "id": "jrc_gi_bleed",
+    "title": "Gastrointestinal Bleed",
+    "description": "JRCalc pathway for Gastrointestinal Bleed (Medical).",
+    "examples": [
+      "gi bleed",
+      "Pt with gi bleed",
+      "gastrointestinal bleed",
+      "Pt with gastrointestinal bleed",
+      "Suspected Gastrointestinal Bleed",
+      "Possible Gastrointestinal Bleed"
+    ],
+    "synonyms": [
+      "Gastrointestinal Bleed",
+      "Medical",
+      "gi bleed",
+      "gastrointestinal bleed",
+      "haematemesis",
+      "melaena",
+      "vomiting blood",
+      "blood in stool",
+      "medical"
+    ]
+  },
+  {
+    "id": "jrc_glycaemic_emergencies",
+    "title": "Glycaemic Emergencies (Hypo/Hyper)",
+    "description": "JRCalc pathway for Glycaemic Emergencies (Hypo/Hyper) (Endocrine).",
+    "examples": [
+      "diabetes",
+      "Pt with diabetes",
+      "hypoglycaemia",
+      "Pt with hypoglycaemia",
+      "Suspected Glycaemic Emergencies (Hypo/Hyper)",
+      "Possible Glycaemic Emergencies (Hypo/Hyper)"
+    ],
+    "synonyms": [
+      "Glycaemic Emergencies (Hypo/Hyper)",
+      "Endocrine",
+      "diabetes",
+      "hypoglycaemia",
+      "hyperglycaemia",
+      "low blood sugar",
+      "high blood sugar",
+      "diabetic",
+      "glycaemic emergencies hypo hyper",
+      "endocrine"
+    ]
+  },
+  {
+    "id": "jrc_headache",
+    "title": "Headache",
+    "description": "JRCalc pathway for Headache (Neurological).",
+    "examples": [
+      "headache",
+      "Pt with headache",
+      "head pain",
+      "Pt with head pain",
+      "Suspected Headache",
+      "Possible Headache"
+    ],
+    "synonyms": [
+      "Headache",
+      "Neurological",
+      "headache",
+      "head pain",
+      "migraine",
+      "subarachnoid",
+      "meningitis",
+      "neurological"
+    ]
+  },
+  {
+    "id": "jrc_heat_exhaustion_stroke",
+    "title": "Heat Exhaustion / Heat Stroke",
+    "description": "JRCalc pathway for Heat Exhaustion / Heat Stroke (Environmental).",
+    "examples": [
+      "heat exhaustion",
+      "Pt with heat exhaustion",
+      "heat stroke",
+      "Pt with heat stroke",
+      "fast",
+      "facial droop"
+    ],
+    "synonyms": [
+      "Heat Exhaustion / Heat Stroke",
+      "Environmental",
+      "heat exhaustion",
+      "heat stroke",
+      "hyperthermia",
+      "heat illness",
+      "overheating",
+      "heat exhaustion heat stroke",
+      "environmental",
+      "fast",
+      "facial droop",
+      "slurred speech",
+      "arm weakness",
+      "face arm speech",
+      "tia"
+    ]
+  },
+  {
+    "id": "jrc_hyperventilation",
+    "title": "Hyperventilation Syndrome",
+    "description": "JRCalc pathway for Hyperventilation Syndrome (Respiratory).",
+    "examples": [
+      "hyperventilation",
+      "Pt with hyperventilation",
+      "panic attack",
+      "Pt with panic attack",
+      "Suspected Hyperventilation Syndrome",
+      "Possible Hyperventilation Syndrome"
+    ],
+    "synonyms": [
+      "Hyperventilation Syndrome",
+      "Respiratory",
+      "hyperventilation",
+      "panic attack",
+      "anxiety",
+      "rapid breathing",
+      "hyperventilation syndrome",
+      "respiratory"
+    ]
+  },
+  {
+    "id": "jrc_hypothermia",
+    "title": "Hypothermia",
+    "description": "JRCalc pathway for Hypothermia (Environmental).",
+    "examples": [
+      "hypothermia",
+      "Pt with hypothermia",
+      "cold",
+      "Pt with cold",
+      "Suspected Hypothermia",
+      "Possible Hypothermia"
+    ],
+    "synonyms": [
+      "Hypothermia",
+      "Environmental",
+      "hypothermia",
+      "cold",
+      "low temperature",
+      "exposure",
+      "environmental"
+    ]
+  },
+  {
+    "id": "jrc_sepsis_meningococcal",
+    "title": "Sepsis / Meningococcal Septicaemia",
+    "description": "JRCalc pathway for Sepsis / Meningococcal Septicaemia (Infectious).",
+    "examples": [
+      "sepsis",
+      "Pt with sepsis",
+      "meningococcal",
+      "Pt with meningococcal",
+      "Suspected Sepsis / Meningococcal Septicaemia",
+      "Possible Sepsis / Meningococcal Septicaemia"
+    ],
+    "synonyms": [
+      "Sepsis / Meningococcal Septicaemia",
+      "Infectious",
+      "sepsis",
+      "meningococcal",
+      "meningitis",
+      "non-blanching rash",
+      "septicaemia",
+      "sepsis meningococcal septicaemia",
+      "infectious"
+    ]
+  },
+  {
+    "id": "jrc_mental_disorder",
+    "title": "Mental Disorder / Psychiatric Crisis",
+    "description": "JRCalc pathway for Mental Disorder / Psychiatric Crisis (Mental Health).",
+    "examples": [
+      "mental health",
+      "Pt with mental health",
+      "psychiatric",
+      "Pt with psychiatric",
+      "Suspected Mental Disorder / Psychiatric Crisis",
+      "Possible Mental Disorder / Psychiatric Crisis"
+    ],
+    "synonyms": [
+      "Mental Disorder / Psychiatric Crisis",
+      "Mental Health",
+      "mental health",
+      "psychiatric",
+      "suicide",
+      "self harm",
+      "depression",
+      "psychosis",
+      "mental disorder psychiatric crisis"
+    ]
+  },
+  {
+    "id": "jrc_overdose_poisoning",
+    "title": "Overdose and Poisoning",
+    "description": "JRCalc pathway for Overdose and Poisoning (Toxicology).",
+    "examples": [
+      "overdose",
+      "Pt with overdose",
+      "poisoning",
+      "Pt with poisoning",
+      "Suspected Overdose and Poisoning",
+      "Possible Overdose and Poisoning"
+    ],
+    "synonyms": [
+      "Overdose and Poisoning",
+      "Toxicology",
+      "overdose",
+      "poisoning",
+      "intoxication",
+      "drug overdose",
+      "paracetamol",
+      "opiates",
+      "overdose and poisoning",
+      "toxicology"
+    ]
+  },
+  {
+    "id": "jrc_pulmonary_embolism",
+    "title": "Pulmonary Embolism",
+    "description": "JRCalc pathway for Pulmonary Embolism (Respiratory).",
+    "examples": [
+      "pe",
+      "Pt with pe",
+      "pulmonary embolism",
+      "Pt with pulmonary embolism",
+      "Suspected Pulmonary Embolism",
+      "Possible Pulmonary Embolism"
+    ],
+    "synonyms": [
+      "Pulmonary Embolism",
+      "Respiratory",
+      "pe",
+      "pulmonary embolism",
+      "chest pain",
+      "breathless",
+      "dvt",
+      "respiratory"
+    ]
+  },
+  {
+    "id": "jrc_pulmonary_oedema",
+    "title": "Pulmonary Oedema / Heart Failure",
+    "description": "JRCalc pathway for Pulmonary Oedema / Heart Failure (Cardiac).",
+    "examples": [
+      "pulmonary oedema",
+      "Pt with pulmonary oedema",
+      "heart failure",
+      "Pt with heart failure",
+      "Suspected Pulmonary Oedema / Heart Failure",
+      "Possible Pulmonary Oedema / Heart Failure"
+    ],
+    "synonyms": [
+      "Pulmonary Oedema / Heart Failure",
+      "Cardiac",
+      "pulmonary oedema",
+      "heart failure",
+      "fluid on lungs",
+      "lv failure",
+      "breathless",
+      "pulmonary oedema heart failure",
+      "cardiac"
+    ]
+  },
+  {
+    "id": "jrc_abdominal_trauma",
+    "title": "Abdominal Trauma",
+    "description": "JRCalc pathway for Abdominal Trauma (Trauma).",
+    "examples": [
+      "abdominal trauma",
+      "Pt with abdominal trauma",
+      "abdo injury",
+      "Pt with abdo injury",
+      "Suspected Abdominal Trauma",
+      "Possible Abdominal Trauma"
+    ],
+    "synonyms": [
+      "Abdominal Trauma",
+      "Trauma",
+      "abdominal trauma",
+      "abdo injury",
+      "belly trauma",
+      "seatbelt injury",
+      "trauma"
+    ]
+  },
+  {
+    "id": "jrc_electrocution",
+    "title": "Electrocution",
+    "description": "JRCalc pathway for Electrocution (Trauma).",
+    "examples": [
+      "electrocution",
+      "Pt with electrocution",
+      "electric shock",
+      "Pt with electric shock",
+      "Suspected Electrocution",
+      "Possible Electrocution"
+    ],
+    "synonyms": [
+      "Electrocution",
+      "Trauma",
+      "electrocution",
+      "electric shock",
+      "electrical injury",
+      "lightning strike",
+      "trauma"
+    ]
+  },
+  {
+    "id": "jrc_head_trauma",
+    "title": "Head Trauma / Head Injury",
+    "description": "JRCalc pathway for Head Trauma / Head Injury (Trauma).",
+    "examples": [
+      "head injury",
+      "Pt with head injury",
+      "head trauma",
+      "Pt with head trauma",
+      "Suspected Head Trauma / Head Injury",
+      "Possible Head Trauma / Head Injury"
+    ],
+    "synonyms": [
+      "Head Trauma / Head Injury",
+      "Trauma",
+      "head injury",
+      "head trauma",
+      "concussion",
+      "skull fracture",
+      "brain injury",
+      "head trauma head injury",
+      "trauma"
+    ]
+  },
+  {
+    "id": "jrc_limb_trauma",
+    "title": "Limb Trauma / Fractures",
+    "description": "JRCalc pathway for Limb Trauma / Fractures (Trauma).",
+    "examples": [
+      "fracture",
+      "Pt with fracture",
+      "broken bone",
+      "Pt with broken bone",
+      "Suspected Limb Trauma / Fractures",
+      "Possible Limb Trauma / Fractures"
+    ],
+    "synonyms": [
+      "Limb Trauma / Fractures",
+      "Trauma",
+      "fracture",
+      "broken bone",
+      "limb injury",
+      "dislocation",
+      "deformity",
+      "limb trauma fractures",
+      "trauma"
+    ]
+  },
+  {
+    "id": "jrc_spinal_trauma",
+    "title": "Neck and Back Trauma / Spinal Injury",
+    "description": "JRCalc pathway for Neck and Back Trauma / Spinal Injury (Trauma).",
+    "examples": [
+      "spinal injury",
+      "Pt with spinal injury",
+      "neck trauma",
+      "Pt with neck trauma",
+      "Suspected Neck and Back Trauma / Spinal Injury",
+      "Possible Neck and Back Trauma / Spinal Injury"
+    ],
+    "synonyms": [
+      "Neck and Back Trauma / Spinal Injury",
+      "Trauma",
+      "spinal injury",
+      "neck trauma",
+      "back trauma",
+      "spinal cord",
+      "c-spine",
+      "neck and back trauma spinal injury",
+      "trauma"
+    ]
+  },
+  {
+    "id": "jrc_thoracic_trauma",
+    "title": "Thoracic Trauma / Chest Injury",
+    "description": "JRCalc pathway for Thoracic Trauma / Chest Injury (Trauma).",
+    "examples": [
+      "chest trauma",
+      "Pt with chest trauma",
+      "chest injury",
+      "Pt with chest injury",
+      "Suspected Thoracic Trauma / Chest Injury",
+      "Possible Thoracic Trauma / Chest Injury"
+    ],
+    "synonyms": [
+      "Thoracic Trauma / Chest Injury",
+      "Trauma",
+      "chest trauma",
+      "chest injury",
+      "rib fracture",
+      "pneumothorax",
+      "flail chest",
+      "thoracic trauma chest injury",
+      "trauma"
+    ]
+  },
+  {
+    "id": "jrc_drowning",
+    "title": "Immersion / Drowning",
+    "description": "JRCalc pathway for Immersion / Drowning (Trauma).",
+    "examples": [
+      "drowning",
+      "Pt with drowning",
+      "near drowning",
+      "Pt with near drowning",
+      "Suspected Immersion / Drowning",
+      "Possible Immersion / Drowning"
+    ],
+    "synonyms": [
+      "Immersion / Drowning",
+      "Trauma",
+      "drowning",
+      "near drowning",
+      "immersion",
+      "water rescue",
+      "immersion drowning",
+      "trauma"
+    ]
+  },
+  {
+    "id": "jrc_traumatic_cardiac_arrest",
+    "title": "Traumatic Cardiac Arrest",
+    "description": "JRCalc pathway for Traumatic Cardiac Arrest (Trauma).",
+    "examples": [
+      "traumatic arrest",
+      "Pt with traumatic arrest",
+      "trauma cardiac arrest",
+      "Pt with trauma cardiac arrest",
+      "Suspected Traumatic Cardiac Arrest",
+      "Possible Traumatic Cardiac Arrest"
+    ],
+    "synonyms": [
+      "Traumatic Cardiac Arrest",
+      "Trauma",
+      "traumatic arrest",
+      "trauma cardiac arrest",
+      "tca",
+      "traumatic cardiac arrest",
+      "trauma"
+    ]
+  },
+  {
+    "id": "jrc_birth_imminent",
+    "title": "Birth Imminent / Normal Delivery",
+    "description": "JRCalc pathway for Birth Imminent / Normal Delivery (Obstetric).",
+    "examples": [
+      "birth",
+      "Pt with birth",
+      "labour",
+      "Pt with labour",
+      "Suspected Birth Imminent / Normal Delivery",
+      "Possible Birth Imminent / Normal Delivery"
+    ],
+    "synonyms": [
+      "Birth Imminent / Normal Delivery",
+      "Obstetric",
+      "birth",
+      "labour",
+      "delivery",
+      "crowning",
+      "baby coming",
+      "birth imminent normal delivery",
+      "obstetric"
+    ]
+  },
+  {
+    "id": "jrc_birth_complications",
+    "title": "Birth Complications",
+    "description": "JRCalc pathway for Birth Complications (Obstetric).",
+    "examples": [
+      "breech",
+      "Pt with breech",
+      "cord prolapse",
+      "Pt with cord prolapse",
+      "Suspected Birth Complications",
+      "Possible Birth Complications"
+    ],
+    "synonyms": [
+      "Birth Complications",
+      "Obstetric",
+      "breech",
+      "cord prolapse",
+      "shoulder dystocia",
+      "difficult delivery",
+      "birth complications",
+      "obstetric"
+    ]
+  },
+  {
+    "id": "jrc_obstetric_hemorrhage",
+    "title": "Haemorrhage during Pregnancy",
+    "description": "JRCalc pathway for Haemorrhage during Pregnancy (Obstetric).",
+    "examples": [
+      "obstetric bleeding",
+      "Pt with obstetric bleeding",
+      "antepartum hemorrhage",
+      "Pt with antepartum hemorrhage",
+      "Suspected Haemorrhage during Pregnancy",
+      "Possible Haemorrhage during Pregnancy"
+    ],
+    "synonyms": [
+      "Haemorrhage during Pregnancy",
+      "Obstetric",
+      "obstetric bleeding",
+      "antepartum hemorrhage",
+      "postpartum hemorrhage",
+      "pph",
+      "haemorrhage during pregnancy",
+      "obstetric"
+    ]
+  },
+  {
+    "id": "jrc_eclampsia",
+    "title": "Pre-Eclampsia / Eclampsia",
+    "description": "JRCalc pathway for Pre-Eclampsia / Eclampsia (Obstetric).",
+    "examples": [
+      "pre-eclampsia",
+      "Pt with pre-eclampsia",
+      "eclampsia",
+      "Pt with eclampsia",
+      "Suspected Pre-Eclampsia / Eclampsia",
+      "Possible Pre-Eclampsia / Eclampsia"
+    ],
+    "synonyms": [
+      "Pre-Eclampsia / Eclampsia",
+      "Obstetric",
+      "pre-eclampsia",
+      "eclampsia",
+      "pregnancy seizure",
+      "pregnancy hypertension",
+      "pre eclampsia eclampsia",
+      "obstetric"
+    ]
+  },
+  {
+    "id": "jrc_bls",
+    "title": "Basic Life Support (BLS)",
+    "description": "JRCalc pathway for Basic Life Support (BLS) (Resuscitation).",
+    "examples": [
+      "bls",
+      "Pt with bls",
+      "basic life support",
+      "Pt with basic life support",
+      "Suspected Basic Life Support (BLS)",
+      "Possible Basic Life Support (BLS)"
+    ],
+    "synonyms": [
+      "Basic Life Support (BLS)",
+      "Resuscitation",
+      "bls",
+      "basic life support",
+      "cpr",
+      "cardiac arrest basic",
+      "basic life support bls",
+      "resuscitation"
+    ]
+  },
+  {
+    "id": "jrc_choking",
+    "title": "Choking / Foreign Body Airway Obstruction",
+    "description": "JRCalc pathway for Choking / Foreign Body Airway Obstruction (Resuscitation).",
+    "examples": [
+      "choking",
+      "Pt with choking",
+      "fbao",
+      "Pt with fbao",
+      "Suspected Choking / Foreign Body Airway Obstruction",
+      "Possible Choking / Foreign Body Airway Obstruction"
+    ],
+    "synonyms": [
+      "Choking / Foreign Body Airway Obstruction",
+      "Resuscitation",
+      "choking",
+      "fbao",
+      "foreign body airway",
+      "can't breathe",
+      "obstruction",
+      "choking foreign body airway obstruction",
+      "resuscitation"
+    ]
+  },
+  {
+    "id": "jrc_role",
+    "title": "Recognition of Life Extinct (ROLE)",
+    "description": "JRCalc pathway for Recognition of Life Extinct (ROLE) (Resuscitation).",
+    "examples": [
+      "role",
+      "Pt with role",
+      "recognition of life extinct",
+      "Pt with recognition of life extinct",
+      "Suspected Recognition of Life Extinct (ROLE)",
+      "Possible Recognition of Life Extinct (ROLE)"
+    ],
+    "synonyms": [
+      "Recognition of Life Extinct (ROLE)",
+      "Resuscitation",
+      "role",
+      "recognition of life extinct",
+      "deceased",
+      "death",
+      "not for resuscitation",
+      "recognition of life extinct role",
+      "resuscitation"
+    ]
+  },
+  {
+    "id": "jrc_safeguarding",
+    "title": "Safeguarding Concerns",
+    "description": "JRCalc pathway for Safeguarding Concerns (Special Situations).",
+    "examples": [
+      "safeguarding",
+      "Pt with safeguarding",
+      "abuse",
+      "Pt with abuse",
+      "Suspected Safeguarding Concerns",
+      "Possible Safeguarding Concerns"
+    ],
+    "synonyms": [
+      "Safeguarding Concerns",
+      "Special Situations",
+      "safeguarding",
+      "abuse",
+      "neglect",
+      "vulnerable adult",
+      "child protection",
+      "safeguarding concerns",
+      "special situations"
+    ]
+  },
+  {
+    "id": "jrc_paediatric_anaphylaxis",
+    "title": "Paediatric Anaphylaxis",
+    "description": "JRCalc pathway for Paediatric Anaphylaxis (Paediatric).",
+    "examples": [
+      "child anaphylaxis",
+      "Pt with child anaphylaxis",
+      "paediatric allergy",
+      "Pt with paediatric allergy",
+      "allergic reaction",
+      "hives"
+    ],
+    "synonyms": [
+      "Paediatric Anaphylaxis",
+      "Paediatric",
+      "child anaphylaxis",
+      "paediatric allergy",
+      "child adrenaline",
+      "paediatric epipen",
+      "paediatric anaphylaxis",
+      "paediatric",
+      "allergic reaction",
+      "hives",
+      "urticaria",
+      "lip swelling",
+      "tongue swelling",
+      "stridor"
+    ]
+  },
+  {
+    "id": "jrc_paediatric_asthma",
+    "title": "Paediatric Asthma",
+    "description": "JRCalc pathway for Paediatric Asthma (Paediatric).",
+    "examples": [
+      "child asthma",
+      "Pt with child asthma",
+      "paediatric wheeze",
+      "Pt with paediatric wheeze",
+      "wheeze",
+      "tight chest"
+    ],
+    "synonyms": [
+      "Paediatric Asthma",
+      "Paediatric",
+      "child asthma",
+      "paediatric wheeze",
+      "child breathless",
+      "child salbutamol",
+      "paediatric asthma",
+      "paediatric",
+      "wheeze",
+      "tight chest",
+      "short of breath",
+      "sob"
+    ]
+  },
+  {
+    "id": "jrc_paediatric_convulsions",
+    "title": "Paediatric Convulsions",
+    "description": "JRCalc pathway for Paediatric Convulsions (Paediatric).",
+    "examples": [
+      "child seizure",
+      "Pt with child seizure",
+      "paediatric convulsion",
+      "Pt with paediatric convulsion",
+      "seizure",
+      "fit"
+    ],
+    "synonyms": [
+      "Paediatric Convulsions",
+      "Paediatric",
+      "child seizure",
+      "paediatric convulsion",
+      "child fit",
+      "febrile convulsion",
+      "paediatric convulsions",
+      "paediatric",
+      "seizure",
+      "fit",
+      "tonic clonic",
+      "post ictal"
+    ]
+  },
+  {
+    "id": "jrc_febrile_convulsion",
+    "title": "Febrile Convulsion",
+    "description": "JRCalc pathway for Febrile Convulsion (Paediatric).",
+    "examples": [
+      "febrile seizure",
+      "Pt with febrile seizure",
+      "febrile fit",
+      "Pt with febrile fit",
+      "seizure",
+      "fit"
+    ],
+    "synonyms": [
+      "Febrile Convulsion",
+      "Paediatric",
+      "febrile seizure",
+      "febrile fit",
+      "fever seizure",
+      "febrile convulsion",
+      "paediatric",
+      "seizure",
+      "fit",
+      "tonic clonic",
+      "post ictal"
+    ]
+  },
+  {
+    "id": "jrc_paediatric_cardiac_arrest",
+    "title": "Paediatric Cardiac Arrest",
+    "description": "JRCalc pathway for Paediatric Cardiac Arrest (Paediatric).",
+    "examples": [
+      "child cardiac arrest",
+      "Pt with child cardiac arrest",
+      "paediatric cpr",
+      "Pt with paediatric cpr",
+      "Suspected Paediatric Cardiac Arrest",
+      "Possible Paediatric Cardiac Arrest"
+    ],
+    "synonyms": [
+      "Paediatric Cardiac Arrest",
+      "Paediatric",
+      "child cardiac arrest",
+      "paediatric cpr",
+      "child not breathing",
+      "unresponsive child",
+      "paediatric cardiac arrest",
+      "paediatric"
+    ]
+  },
+  {
+    "id": "jrc_paediatric_diabetes",
+    "title": "Paediatric Glycaemic Emergency",
+    "description": "JRCalc pathway for Paediatric Glycaemic Emergency (Paediatric).",
+    "examples": [
+      "child diabetes",
+      "Pt with child diabetes",
+      "paediatric hypo",
+      "Pt with paediatric hypo",
+      "Suspected Paediatric Glycaemic Emergency",
+      "Possible Paediatric Glycaemic Emergency"
+    ],
+    "synonyms": [
+      "Paediatric Glycaemic Emergency",
+      "Paediatric",
+      "child diabetes",
+      "paediatric hypo",
+      "child blood sugar",
+      "diabetic child",
+      "paediatric glycaemic emergency",
+      "paediatric"
+    ]
+  },
+  {
+    "id": "jrc_paediatric_overdose",
+    "title": "Paediatric Poisoning / Overdose",
+    "description": "JRCalc pathway for Paediatric Poisoning / Overdose (Paediatric).",
+    "examples": [
+      "child poisoning",
+      "Pt with child poisoning",
+      "paediatric overdose",
+      "Pt with paediatric overdose",
+      "Suspected Paediatric Poisoning / Overdose",
+      "Possible Paediatric Poisoning / Overdose"
+    ],
+    "synonyms": [
+      "Paediatric Poisoning / Overdose",
+      "Paediatric",
+      "child poisoning",
+      "paediatric overdose",
+      "child ingestion",
+      "child swallowed",
+      "paediatric poisoning overdose",
+      "paediatric"
+    ]
+  },
+  {
+    "id": "jrc_croup",
+    "title": "Croup / Stridor",
+    "description": "JRCalc pathway for Croup / Stridor (Paediatric).",
+    "examples": [
+      "croup",
+      "Pt with croup",
+      "stridor",
+      "Pt with stridor",
+      "Suspected Croup / Stridor",
+      "Possible Croup / Stridor"
+    ],
+    "synonyms": [
+      "Croup / Stridor",
+      "Paediatric",
+      "croup",
+      "stridor",
+      "barking cough",
+      "laryngotracheobronchitis",
+      "croup stridor",
+      "paediatric"
+    ]
+  },
+  {
+    "id": "jrc_paediatric_burns",
+    "title": "Paediatric Burns",
+    "description": "JRCalc pathway for Paediatric Burns (Paediatric).",
+    "examples": [
+      "child burn",
+      "Pt with child burn",
+      "paediatric scald",
+      "Pt with paediatric scald",
+      "Suspected Paediatric Burns",
+      "Possible Paediatric Burns"
+    ],
+    "synonyms": [
+      "Paediatric Burns",
+      "Paediatric",
+      "child burn",
+      "paediatric scald",
+      "child thermal injury",
+      "paediatric burns",
+      "paediatric"
+    ]
+  },
+  {
+    "id": "jrc_paediatric_sepsis",
+    "title": "Paediatric Sepsis",
+    "description": "JRCalc pathway for Paediatric Sepsis (Paediatric).",
+    "examples": [
+      "child sepsis",
+      "Pt with child sepsis",
+      "paediatric meningococcal",
+      "Pt with paediatric meningococcal",
+      "Suspected Paediatric Sepsis",
+      "Possible Paediatric Sepsis"
+    ],
+    "synonyms": [
+      "Paediatric Sepsis",
+      "Paediatric",
+      "child sepsis",
+      "paediatric meningococcal",
+      "child meningitis",
+      "non-blanching rash child",
+      "paediatric sepsis",
+      "paediatric"
+    ]
+  },
+  {
+    "id": "jrc_paediatric_respiratory_distress",
+    "title": "Paediatric Respiratory Distress",
+    "description": "JRCalc pathway for Paediatric Respiratory Distress (Paediatric).",
+    "examples": [
+      "child breathing difficulty",
+      "Pt with child breathing difficulty",
+      "paediatric dyspnoea",
+      "Pt with paediatric dyspnoea",
+      "Suspected Paediatric Respiratory Distress",
+      "Possible Paediatric Respiratory Distress"
+    ],
+    "synonyms": [
+      "Paediatric Respiratory Distress",
+      "Paediatric",
+      "child breathing difficulty",
+      "paediatric dyspnoea",
+      "child respiratory distress",
+      "paediatric respiratory distress",
+      "paediatric"
+    ]
+  },
+  {
+    "id": "jrc_sickle_cell",
+    "title": "Sickle Cell Crisis",
+    "description": "JRCalc pathway for Sickle Cell Crisis (Medical).",
+    "examples": [
+      "sickle cell",
+      "Pt with sickle cell",
+      "scd",
+      "Pt with scd",
+      "Suspected Sickle Cell Crisis",
+      "Possible Sickle Cell Crisis"
+    ],
+    "synonyms": [
+      "Sickle Cell Crisis",
+      "Medical",
+      "sickle cell",
+      "scd",
+      "painful crisis",
+      "severe pain",
+      "limb pain",
+      "sickle cell crisis",
+      "medical"
+    ]
+  }
+]
