@@ -712,6 +712,8 @@ class _MultiSelectDropdownField extends StatefulWidget {
 
 class _MultiSelectDropdownFieldState extends State<_MultiSelectDropdownField> {
   late Set<String> _selectedValues;
+  late TextEditingController _otherController;
+  String? _otherText;
 
   @override
   void initState() {
@@ -724,17 +726,52 @@ class _MultiSelectDropdownFieldState extends State<_MultiSelectDropdownField> {
         _selectedValues = currentValue.split(',').map((s) => s.trim()).toSet();
       }
     }
+    _otherController = TextEditingController();
+    // Check for existing "Other: ..." entry
+    final otherEntry = _selectedValues.where((v) => v.startsWith('Other:')).firstOrNull;
+    if (otherEntry != null) {
+      _otherText = otherEntry.substring(6).trim();
+      _otherController.text = _otherText!;
+      _selectedValues.remove(otherEntry);
+      _selectedValues.add('Other');
+    }
+  }
+
+  @override
+  void dispose() {
+    _otherController.dispose();
+    super.dispose();
   }
 
   void _toggleOption(String option) {
     setState(() {
       if (_selectedValues.contains(option)) {
         _selectedValues.remove(option);
+        if (option == 'Other') {
+          _otherText = null;
+          _otherController.clear();
+        }
       } else {
         _selectedValues.add(option);
       }
     });
-    widget.field.value = _selectedValues.isEmpty ? null : _selectedValues.join(', ');
+    _updateValue();
+  }
+
+  void _updateValue() {
+    final values = <String>{};
+    for (final v in _selectedValues) {
+      if (v == 'Other' && _otherText != null && _otherText!.isNotEmpty) {
+        values.add('Other: $_otherText');
+      } else if (v != 'Other') {
+        values.add(v);
+      }
+    }
+    // If Other is selected but no text yet, still include it
+    if (_selectedValues.contains('Other') && (_otherText == null || _otherText!.isEmpty)) {
+      values.add('Other');
+    }
+    widget.field.value = values.isEmpty ? null : values.join(', ');
     widget.field.isAiFilled = false;
     widget.onChanged();
   }
@@ -790,6 +827,35 @@ class _MultiSelectDropdownFieldState extends State<_MultiSelectDropdownField> {
                   }).toList(),
                 ),
         ),
+        if (_selectedValues.contains('Other')) ...[
+          const SizedBox(height: 10),
+          TextField(
+            controller: _otherController,
+            decoration: InputDecoration(
+              hintText: 'Specify other condition...',
+              hintStyle: TextStyle(
+                color: Colors.black.withOpacity(0.3),
+                fontSize: 13,
+              ),
+              filled: true,
+              fillColor: Colors.white,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: BorderSide(color: Colors.black.withOpacity(0.08)),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: BorderSide(color: Colors.black.withOpacity(0.08)),
+              ),
+              contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+            ),
+            style: const TextStyle(fontSize: 14),
+            onChanged: (v) {
+              _otherText = v;
+              _updateValue();
+            },
+          ),
+        ],
         if (_selectedValues.isNotEmpty) ...[
           const SizedBox(height: 8),
           Text(

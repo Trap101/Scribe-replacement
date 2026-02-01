@@ -150,6 +150,7 @@ class _ReportScreenState extends State<ReportScreen>
             label: field.label,
             type: field.type,
             options: field.options,
+            multiSelect: field.multiSelect,
           ));
         }
       }
@@ -169,6 +170,7 @@ class _ReportScreenState extends State<ReportScreen>
                     label: f.label,
                     type: f.type,
                     options: f.options,
+                    multiSelect: f.multiSelect,
                   ))
               .toList(),
         ));
@@ -196,6 +198,7 @@ class _ReportScreenState extends State<ReportScreen>
                       label: f.label,
                       type: f.type,
                       options: f.options,
+                      multiSelect: f.multiSelect,
                     ))
                 .toList(),
           ));
@@ -234,11 +237,13 @@ class _ReportScreenState extends State<ReportScreen>
             label: field.label,
             type: field.type,
             options: field.options,
+            multiSelect: field.multiSelect,
           ));
         }
       }
 
       final protocolFields = <FormFieldModel>[];
+      final addedIds = <String>{};
       JrcalcProtocol? selectedProtocol;
       if (widget.protocolName != null) {
         selectedProtocol = _protocols
@@ -246,7 +251,6 @@ class _ReportScreenState extends State<ReportScreen>
             .firstOrNull;
       }
       if (selectedProtocol != null) {
-        final addedIds = <String>{};
         for (final id in baselineFieldIds) {
           addedIds.add(id);
         }
@@ -259,10 +263,27 @@ class _ReportScreenState extends State<ReportScreen>
                 label: field.label,
                 type: field.type,
                 options: field.options,
+                multiSelect: field.multiSelect,
               ));
               addedIds.add(field.id);
             }
           }
+        }
+      }
+
+      // Always include "Descriptive of conditions" in protocol recommended
+      const impressionsId = 'Patient Management.Impressions';
+      if (!addedIds.contains(impressionsId)) {
+        final impressionsField = allFieldsMap[impressionsId];
+        if (impressionsField != null) {
+          protocolFields.add(FormFieldModel(
+            id: impressionsField.id,
+            label: impressionsField.label,
+            type: impressionsField.type,
+            options: impressionsField.options,
+            multiSelect: impressionsField.multiSelect,
+          ));
+          addedIds.add(impressionsId);
         }
       }
 
@@ -286,6 +307,7 @@ class _ReportScreenState extends State<ReportScreen>
                 label: field.label,
                 type: field.type,
                 options: field.options,
+                multiSelect: field.multiSelect,
               ));
               existingIds.add(attrPath);
             }
@@ -307,6 +329,7 @@ class _ReportScreenState extends State<ReportScreen>
                     label: f.label,
                     type: f.type,
                     options: f.options,
+                    multiSelect: f.multiSelect,
                   ))
               .toList(),
         ));
@@ -414,17 +437,60 @@ class _ReportScreenState extends State<ReportScreen>
   void _onFieldChanged(FormFieldModel field, [BuildContext? ctx]) {
     setState(() {});
     _autoSave();
-    if (field.id == AeprLoaderService.incidentFieldId && field.value is String) {
-      final match = _protocols.where((p) => p.name == field.value).firstOrNull;
-      if (match != null) {
-        _injectProtocolSection(match);
-      }
+
+    // Collect all matched protocols from Primary Concern + Impressions
+    bool shouldRebuildProtocols = false;
+
+    if (field.id == AeprLoaderService.incidentFieldId ||
+        field.id == 'Patient Management.Impressions') {
+      shouldRebuildProtocols = true;
+    }
+
+    if (shouldRebuildProtocols) {
+      _rebuildProtocolSection();
     }
   }
 
-  void _injectProtocolSection(JrcalcProtocol protocol) {
-    // Remove any existing protocol section
+  void _rebuildProtocolSection() {
+    final matchedProtocols = <JrcalcProtocol>[];
+
+    // From Primary Concern dropdown
+    for (final section in _report.sections) {
+      for (final field in section.fields) {
+        if (field.id == AeprLoaderService.incidentFieldId && field.value is String) {
+          final match = _protocols.where((p) => p.name == field.value).firstOrNull;
+          if (match != null) matchedProtocols.add(match);
+        }
+      }
+    }
+
+    // From Impressions multi-select
+    for (final section in _report.sections) {
+      for (final field in section.fields) {
+        if (field.id == 'Patient Management.Impressions' && field.value is String) {
+          final values = (field.value as String).split(',').map((s) => s.trim()).toList();
+          for (final v in values) {
+            // Skip "Other" and "Other: ..." entries
+            if (v == 'Other' || v.startsWith('Other:')) continue;
+            final match = _protocols.where((p) => p.name == v).firstOrNull;
+            if (match != null && !matchedProtocols.any((m) => m.name == match.name)) {
+              matchedProtocols.add(match);
+            }
+          }
+        }
+      }
+    }
+
+    _injectProtocolSections(matchedProtocols);
+  }
+
+  void _injectProtocolSections(List<JrcalcProtocol> protocols) {
     _report.sections.removeWhere((s) => s.id == 'protocol_fields');
+
+    if (protocols.isEmpty) {
+      setState(() {});
+      return;
+    }
 
     final allFieldsMap = <String, FormFieldModel>{};
     for (final section in _allSections) {
@@ -434,7 +500,6 @@ class _ReportScreenState extends State<ReportScreen>
     }
 
     final addedIds = <String>{...baselineFieldIds};
-    // Also exclude fields already in the report
     for (final section in _report.sections) {
       if (section.id == 'required_fields' || section.id == 'essential_fields') {
         for (final field in section.fields) {
@@ -444,34 +509,53 @@ class _ReportScreenState extends State<ReportScreen>
     }
 
     final protocolFields = <FormFieldModel>[];
-    for (final step in protocol.steps) {
-      if (step.targetField != null && !addedIds.contains(step.targetField)) {
-        final field = allFieldsMap[step.targetField!];
-        if (field != null) {
-          protocolFields.add(FormFieldModel(
-            id: field.id,
-            label: field.label,
-            type: field.type,
-            options: field.options,
-          ));
-          addedIds.add(field.id);
+    for (final protocol in protocols) {
+      for (final step in protocol.steps) {
+        if (step.targetField != null && !addedIds.contains(step.targetField)) {
+          final field = allFieldsMap[step.targetField!];
+          if (field != null) {
+            protocolFields.add(FormFieldModel(
+              id: field.id,
+              label: field.label,
+              type: field.type,
+              options: field.options,
+              multiSelect: field.multiSelect,
+            ));
+            addedIds.add(field.id);
+          }
         }
       }
     }
 
+    // Always include "Descriptive of conditions" in protocol recommended
+    const impressionsId = 'Patient Management.Impressions';
+    if (!addedIds.contains(impressionsId)) {
+      final impressionsField = allFieldsMap[impressionsId];
+      if (impressionsField != null) {
+        protocolFields.add(FormFieldModel(
+          id: impressionsField.id,
+          label: impressionsField.label,
+          type: impressionsField.type,
+          options: impressionsField.options,
+          multiSelect: impressionsField.multiSelect,
+        ));
+        addedIds.add(impressionsId);
+      }
+    }
+
     if (protocolFields.isNotEmpty) {
-      // Insert after essential (0) + baseline required (1) = index 2
+      final names = protocols.map((p) => p.name).join(', ');
       final insertIndex = _report.sections.length >= 2 ? 2 : _report.sections.length;
       _report.sections.insert(
         insertIndex,
         FormSection(
           id: 'protocol_fields',
-          title: 'Protocol: ${protocol.name} Fields',
+          title: 'Protocol: $names Fields',
           fields: protocolFields,
         ),
       );
-      setState(() {});
     }
+    setState(() {});
   }
 
   Future<void> _showProtocolDrawer(JrcalcProtocol protocol, {BuildContext? ctx}) async {
@@ -822,6 +906,7 @@ class _ReportScreenState extends State<ReportScreen>
         label: sourceField.label,
         type: sourceField.type,
         options: sourceField.options,
+        multiSelect: sourceField.multiSelect,
       ));
     });
     _searchController.clear();

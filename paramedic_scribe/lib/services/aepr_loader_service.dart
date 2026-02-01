@@ -132,6 +132,24 @@ class AeprLoaderService {
           }
         }
       }
+
+      // Ensure Disposition.destinationType is multi-select
+      for (final section in sections) {
+        for (var i = 0; i < section.fields.length; i++) {
+          if (section.fields[i].id == 'Disposition.destinationType') {
+            if (!section.fields[i].multiSelect) {
+              section.fields[i] = FormFieldModel(
+                id: section.fields[i].id,
+                label: section.fields[i].label,
+                type: section.fields[i].type,
+                options: section.fields[i].options,
+                multiSelect: true,
+              );
+            }
+            break;
+          }
+        }
+      }
     } catch (_) {
       // Protocol loading failed - non-fatal, just skip injection
     }
