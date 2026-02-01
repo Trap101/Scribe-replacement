@@ -15,12 +15,11 @@ class AeprLoaderService {
     'Essential Fields',
     'Primary Concern',
     'Patient & Scene',
-    'The Story',
     'Observations',
     'Concerns & Findings',
     'Interventions',
+    'The Story',
     'Outcome & Handoff',
-    'Baseline Required Data',
   ];
 
   static const String essentialSectionId = 'essential_fields';
@@ -92,6 +91,7 @@ class AeprLoaderService {
     try {
       final protocols = await ProtocolService().loadProtocols();
       final protocolNames = protocols.map((p) => p.name).toList();
+      final protocolOptionsWithOther = [...protocolNames, 'Other'];
 
       // Find the Primary Concern section
       final incidentSection = sections.where(
@@ -99,35 +99,38 @@ class AeprLoaderService {
       ).firstOrNull;
       if (incidentSection == null) return;
 
-      // Look for an existing incident/condition dropdown field
-      final existingField = incidentSection.fields.where((f) {
+      // Remove all existing incident/condition/chief complaint dropdown fields
+      incidentSection.fields.removeWhere((f) {
         final label = f.label.toLowerCase();
         return (label.contains('incident') || label.contains('chief complaint') || label.contains('condition')) &&
             f.type == FieldType.dropdown;
-      }).firstOrNull;
+      });
 
-      if (existingField != null) {
-        // Replace its options with protocol names
-        final idx = incidentSection.fields.indexOf(existingField);
-        incidentSection.fields[idx] = FormFieldModel(
+      // Insert a single Primary Concern dropdown at the start
+      incidentSection.fields.insert(
+        0,
+        FormFieldModel(
           id: incidentFieldId,
-          label: existingField.label,
+          label: 'Primary Concern',
           type: FieldType.dropdown,
-          options: protocolNames,
-          value: existingField.value,
-          isAiFilled: existingField.isAiFilled,
-        );
-      } else {
-        // Insert a new dropdown at the start
-        incidentSection.fields.insert(
-          0,
-          FormFieldModel(
-            id: incidentFieldId,
-            label: 'Condition / Incident',
-            type: FieldType.dropdown,
-            options: protocolNames,
-          ),
-        );
+          options: protocolOptionsWithOther,
+        ),
+      );
+
+      // Make Patient Management.Impressions a multi-select with conditions
+      for (final section in sections) {
+        for (var i = 0; i < section.fields.length; i++) {
+          if (section.fields[i].id == 'Patient Management.Impressions') {
+            section.fields[i] = FormFieldModel(
+              id: 'Patient Management.Impressions',
+              label: section.fields[i].label,
+              type: FieldType.dropdown,
+              options: protocolOptionsWithOther,
+              multiSelect: true,
+            );
+            break;
+          }
+        }
       }
     } catch (_) {
       // Protocol loading failed - non-fatal, just skip injection
@@ -224,6 +227,9 @@ class AeprLoaderService {
           actualType = FieldType.signature;
         }
 
+        // Check if this field should be multiSelect
+        final isMultiSelect = attributePath == 'Disposition.destinationType';
+
         fields.add(
           FormFieldModel(
             id: attributePath, // Use full path as field ID
@@ -232,6 +238,7 @@ class AeprLoaderService {
             options: (actualType == FieldType.dropdown && options != null && options.isNotEmpty)
                 ? options
                 : null,
+            multiSelect: isMultiSelect,
           ),
         );
       }

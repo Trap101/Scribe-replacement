@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'report_screen.dart';
+import 'mode_selection_screen.dart';
 import '../services/claude_service.dart';
 import '../services/elevenlabs_service.dart';
 import '../services/storage_service.dart';
@@ -133,6 +134,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           ],
                         ),
                       );
+                      if (resume == true && context.mounted) {
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (_) => const ReportScreen()),
+                        );
+                        setState(() {});
+                        return;
+                      }
                       if (resume == false && context.mounted) {
                         await StorageService().clearSession();
                       }
@@ -140,9 +149,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     if (context.mounted) {
                       await Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (_) => const ReportScreen()),
+                        MaterialPageRoute(builder: (_) => const ModeSelectionScreen()),
                       );
-                      setState(() {}); // Refresh saved reports list
+                      setState(() {});
                     }
                   },
                   icon: const Icon(Icons.add_rounded, size: 22),

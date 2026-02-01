@@ -8,6 +8,7 @@ class FormFieldModel {
   final List<String>? options; // for dropdown
   final bool required;
   bool isAiFilled;
+  final bool multiSelect;
 
   FormFieldModel({
     required this.id,
@@ -17,6 +18,7 @@ class FormFieldModel {
     this.options,
     this.required = false,
     this.isAiFilled = false,
+    this.multiSelect = false,
   });
 
   Map<String, dynamic> toJson() => {
@@ -27,6 +29,7 @@ class FormFieldModel {
         'options': options,
         'required': required,
         'isAiFilled': isAiFilled,
+        'multiSelect': multiSelect,
       };
 
   factory FormFieldModel.fromJson(Map<String, dynamic> json) =>
@@ -38,5 +41,6 @@ class FormFieldModel {
         options: json['options'] != null ? List<String>.from(json['options']) : null,
         required: json['required'] ?? false,
         isAiFilled: json['isAiFilled'] ?? false,
+        multiSelect: json['multiSelect'] ?? false,
       );
 }

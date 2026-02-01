@@ -30,7 +30,9 @@ class FormFieldWidget extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       child: switch (field.type) {
         FieldType.tick => _TickField(field: field, onChanged: onChanged),
-        FieldType.dropdown => _DropdownField(field: field, onChanged: onChanged),
+        FieldType.dropdown => field.multiSelect
+            ? _MultiSelectDropdownField(field: field, onChanged: onChanged)
+            : _DropdownField(field: field, onChanged: onChanged),
         FieldType.number => _NumberField(field: field, onChanged: onChanged),
         FieldType.date => _DateField(field: field, onChanged: onChanged),
         FieldType.time => _TimeField(field: field, onChanged: onChanged),
@@ -97,11 +99,52 @@ class _TickField extends StatelessWidget {
   }
 }
 
-class _DropdownField extends StatelessWidget {
+class _DropdownField extends StatefulWidget {
   final FormFieldModel field;
   final VoidCallback onChanged;
 
   const _DropdownField({required this.field, required this.onChanged});
+
+  @override
+  State<_DropdownField> createState() => _DropdownFieldState();
+}
+
+class _DropdownFieldState extends State<_DropdownField> {
+  late TextEditingController _otherController;
+  String? _selectedValue;
+  String? _otherText;
+
+  @override
+  void initState() {
+    super.initState();
+    _otherController = TextEditingController();
+
+    // Parse existing value
+    final currentValue = widget.field.value?.toString();
+    if (currentValue != null && currentValue.startsWith('Other: ')) {
+      _selectedValue = 'Other';
+      _otherText = currentValue.substring(7); // Remove "Other: " prefix
+      _otherController.text = _otherText!;
+    } else if (widget.field.options?.contains(currentValue) ?? false) {
+      _selectedValue = currentValue;
+    }
+  }
+
+  @override
+  void dispose() {
+    _otherController.dispose();
+    super.dispose();
+  }
+
+  void _updateValue() {
+    if (_selectedValue == 'Other' && _otherText != null && _otherText!.isNotEmpty) {
+      widget.field.value = 'Other: $_otherText';
+    } else {
+      widget.field.value = _selectedValue;
+    }
+    widget.field.isAiFilled = false;
+    widget.onChanged();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -109,7 +152,7 @@ class _DropdownField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          field.label,
+          widget.field.label,
           style: TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w600,
@@ -130,10 +173,10 @@ class _DropdownField extends StatelessWidget {
               contentPadding: EdgeInsets.symmetric(horizontal: 14, vertical: 12),
               filled: false,
             ),
-            value: (field.options?.contains(field.value) ?? false) ? field.value as String? : null,
+            value: _selectedValue,
             hint: const Text('Select option'),
             icon: const Icon(Icons.keyboard_arrow_down_rounded),
-            items: field.options?.map((o) => DropdownMenuItem(
+            items: widget.field.options?.map((o) => DropdownMenuItem(
               value: o,
               child: Text(
                 o,
@@ -141,13 +184,41 @@ class _DropdownField extends StatelessWidget {
               ),
             )).toList(),
             onChanged: (v) {
-              field.value = v;
-              field.isAiFilled = false;
-              onChanged();
+              setState(() {
+                _selectedValue = v;
+              });
+              _updateValue();
             },
             isExpanded: true,
           ),
         ),
+        if (_selectedValue == 'Other') ...[
+          const SizedBox(height: 10),
+          TextFormField(
+            controller: _otherController,
+            decoration: InputDecoration(
+              hintText: 'Please specify...',
+              filled: true,
+              fillColor: Colors.white,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: BorderSide(color: Colors.black.withOpacity(0.08)),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: BorderSide(color: Colors.black.withOpacity(0.08)),
+              ),
+              contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+            ),
+            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+            onChanged: (v) {
+              setState(() {
+                _otherText = v;
+              });
+              _updateValue();
+            },
+          ),
+        ],
       ],
     );
   }
@@ -627,4 +698,110 @@ class _SignaturePainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant _SignaturePainter oldDelegate) => true;
+}
+
+class _MultiSelectDropdownField extends StatefulWidget {
+  final FormFieldModel field;
+  final VoidCallback onChanged;
+
+  const _MultiSelectDropdownField({required this.field, required this.onChanged});
+
+  @override
+  State<_MultiSelectDropdownField> createState() => _MultiSelectDropdownFieldState();
+}
+
+class _MultiSelectDropdownFieldState extends State<_MultiSelectDropdownField> {
+  late Set<String> _selectedValues;
+
+  @override
+  void initState() {
+    super.initState();
+    // Parse existing value
+    _selectedValues = {};
+    if (widget.field.value != null) {
+      final currentValue = widget.field.value.toString();
+      if (currentValue.isNotEmpty) {
+        _selectedValues = currentValue.split(',').map((s) => s.trim()).toSet();
+      }
+    }
+  }
+
+  void _toggleOption(String option) {
+    setState(() {
+      if (_selectedValues.contains(option)) {
+        _selectedValues.remove(option);
+      } else {
+        _selectedValues.add(option);
+      }
+    });
+    widget.field.value = _selectedValues.isEmpty ? null : _selectedValues.join(', ');
+    widget.field.isAiFilled = false;
+    widget.onChanged();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          widget.field.label,
+          style: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w600,
+            color: Colors.black.withOpacity(0.7),
+            letterSpacing: 0.1,
+          ),
+        ),
+        const SizedBox(height: 10),
+        Container(
+          decoration: BoxDecoration(
+            color: const Color(0xFFF8F9FA),
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(color: Colors.black.withOpacity(0.08)),
+          ),
+          padding: const EdgeInsets.all(12),
+          child: widget.field.options == null || widget.field.options!.isEmpty
+              ? const Text('No options available')
+              : Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  children: widget.field.options!.map((option) {
+                    final isSelected = _selectedValues.contains(option);
+                    return FilterChip(
+                      label: Text(option),
+                      selected: isSelected,
+                      onSelected: (_) => _toggleOption(option),
+                      selectedColor: const Color(0xFF0D47A1).withOpacity(0.15),
+                      checkmarkColor: const Color(0xFF0D47A1),
+                      backgroundColor: Colors.white,
+                      labelStyle: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w500,
+                        color: isSelected ? const Color(0xFF0D47A1) : Colors.black87,
+                      ),
+                      side: BorderSide(
+                        color: isSelected
+                            ? const Color(0xFF0D47A1)
+                            : Colors.black.withOpacity(0.15),
+                      ),
+                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+                    );
+                  }).toList(),
+                ),
+        ),
+        if (_selectedValues.isNotEmpty) ...[
+          const SizedBox(height: 8),
+          Text(
+            'Selected: ${_selectedValues.join(', ')}',
+            style: TextStyle(
+              fontSize: 12,
+              color: Colors.black.withOpacity(0.6),
+              fontStyle: FontStyle.italic,
+            ),
+          ),
+        ],
+      ],
+    );
+  }
 }

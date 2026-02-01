@@ -3,7 +3,7 @@
     "version": "2.0",
     "description": "Maps clinical attributes to UI macro categories for EPCR - organized by paramedic clinical workflow",
     "note": "CASMEET is a handoff format used during hospital handover, not a standalone section",
-    "total_categories": 9,
+    "total_categories": 8,
     "last_updated": "2026-02-01"
   },
   "macro_categories": {
@@ -351,25 +351,6 @@
         "Life Extinct.reasonNotSigned",
         "Documentation.ROLE_documented",
         "Legal.coroner_referral"
-      ]
-    },
-    "Baseline_Always_Required": {
-      "display_name": "Baseline Required Data",
-      "description": "Always-suggest attributes regardless of protocol - essential safety and identification data",
-      "note": "These should be auto-suggested when any prompt is entered, before protocol-specific attributes",
-      "attributes": [
-        "Patient Details.familyName",
-        "Patient Details.givenName",
-        "Patient Details.dateOfBirth",
-        "Patient Details.age",
-        "Patient Details.sex",
-        "Patient Details.NHSNumber",
-        "Chief Complaint.presentingComplaint",
-        "Known Allergy.type",
-        "Current Medication.name",
-        "Current Medication.dosage",
-        "Chief Complaint.pastMedicalHistory",
-        "Chief Complaint.socialAndFamiliyHistory"
       ]
     }
   },
